@@ -1,0 +1,25 @@
+---
+import ErrorPage from "../components/ErrorPage.astro";
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" slot="meta" />
+    <title>404 Not Found - Mockuphone</title>
+  </head>
+  <body>
+    <ErrorPage pageId="error-page-container">
+      <p slot="title">
+        Page not found <br />
+        <span class="blue"><a href="/">Back to Mockuphone.com</a></span>
+      </p>
+      <div slot="description">
+        <strong
+          >(Sometimes the system can't respond well due to heavy load.<br
+          />Perhaps try uploading again...?)</strong
+        >
+      </div>
+    </ErrorPage>
+  </body>
+</html>

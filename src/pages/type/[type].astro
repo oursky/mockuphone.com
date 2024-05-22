@@ -1,0 +1,255 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import deviceJson from "../../scripts/device_info.json";
+import "/src/styles/device.css";
+
+import { DEVICE_MANAGER } from "../../scripts/deviceManager";
+import type { Device, DeviceSeries } from "../../scripts/model";
+
+const deviceData = deviceJson;
+
+export async function getStaticPaths() {
+  return [
+    { params: { type: "android" }, props: { device: "android" } },
+    { params: { type: "ios" }, props: { device: "ios" } },
+    { params: { type: "wearables" }, props: { device: "wearables" } },
+    { params: { type: "tv" }, props: { device: "tv" } },
+    { params: { type: "computer" }, props: { device: "computer" } },
+  ];
+}
+
+const { type } = Astro.params;
+const { device } = Astro.props;
+
+const deviceSeries: DeviceSeries[] =
+  DEVICE_MANAGER.getDeviceSeriesListByCategory(device);
+---
+
+<BaseLayout>
+  <meta
+    slot="meta"
+    name="description"
+    content="MockUPhone supports devices including iPhone mockup, iPad mockup, Android mockup and TV mockup. You can check out the whole device list via this page."
+  />
+  <script type="text/javascript" src="/scripts/device.js"></script>
+  <script define:vars={{ deviceData }}>
+    window.deviceData = deviceData;
+  </script>
+  <section class="device-type">
+    <header>
+      <h2 class="device-type__heading">SELECT DEVICE TYPE</h2>
+    </header>
+    <ul class="device-type-list">
+      <li class="device-type-list__item">
+        <a href="/type/ios">
+          <figure>
+            {
+              type == "ios" ? (
+                <div class="device-type-list__circle-image device-type-list__circle-image-ios device-type-list__circle-image--chosen" />
+              ) : (
+                <div class="device-type-list__circle-image device-type-list__circle-image-ios" />
+              )
+            }
+            <figcaption class="device-type__name">iOS</figcaption>
+          </figure>
+        </a>
+      </li>
+      <li class="device-type-list__item">
+        <a href="/type/android">
+          <figure>
+            {
+              type == "android" ? (
+                <div class="device-type-list__circle-image device-type-list__circle-image-android device-type-list__circle-image--chosen" />
+              ) : (
+                <div class="device-type-list__circle-image device-type-list__circle-image-android" />
+              )
+            }
+            <figcaption class="device-type__name">Android</figcaption>
+          </figure>
+        </a>
+      </li>
+      <li class="device-type-list__item">
+        <a href="/type/wearables">
+          <figure>
+            {
+              type == "wearables" ? (
+                <div class="device-type-list__circle-image device-type-list__circle-image-wearables device-type-list__circle-image--chosen" />
+              ) : (
+                <div class="device-type-list__circle-image device-type-list__circle-image-wearables" />
+              )
+            }
+            <figcaption class="device-type__name">Wearables</figcaption>
+          </figure>
+        </a>
+      </li>
+      <li class="device-type-list__item">
+        <a href="/type/computer">
+          <figure>
+            {
+              type == "computer" ? (
+                <div class="device-type-list__circle-image device-type-list__circle-image-computer device-type-list__circle-image--chosen" />
+              ) : (
+                <div class="device-type-list__circle-image device-type-list__circle-image-computer" />
+              )
+            }
+            <figcaption class="device-type__name">Computer</figcaption>
+          </figure>
+        </a>
+      </li>
+      <li class="device-type-list__item">
+        <a href="/type/tv">
+          <figure>
+            {
+              type == "tv" ? (
+                <div class="device-type-list__circle-image device-type-list__circle-image-tv device-type-list__circle-image--chosen" />
+              ) : (
+                <div class="device-type-list__circle-image device-type-list__circle-image-tv" />
+              )
+            }
+            <figcaption class="device-type__name">TV</figcaption>
+          </figure>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section class="select-device">
+    <header class="select-device__header">
+      <h2 class="select-device__heading">SELECT DEVICE</h2>
+      <div class="select-device__search">
+        <input
+          class="select-device__search-input"
+          placeholder="Search Device"
+          type="search"
+        />
+        <button class="select-device__search-clear-btn d-none"
+          ><img src="/Images/search-clear.svg" /></button
+        >
+        <ul class="suggestion-list d-none">
+          {
+            deviceSeries.map((series: DeviceSeries) => (
+              <li data-device-id={series.id}>
+                <a class="suggestion-list__link" href={"#" + series.id}>
+                  {" "}
+                  {series.name}{" "}
+                </a>{" "}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </header>
+    <ul class="device-tag-list">
+      {
+        deviceSeries.map((series: DeviceSeries) => (
+          <li class="device-tag-list__item" data-device-id={series.id}>
+            <a class="device-tag-list__link" href={"#" + series.id}>
+              {" "}
+              {series.name}{" "}
+            </a>{" "}
+          </li>
+        ))
+      }
+    </ul>
+    <ul class="device-section-list">
+      {
+        deviceSeries.map((series: DeviceSeries) => (
+          <li class="device-section-list__item" data-device-id={series.id}>
+            <section id={series.id} class="device-section">
+              <h3 class="device-section__device-name">{series.name}</h3>
+              <ul class="device-grid-list">
+                {series.device.map((deviceDetail: Device) => {
+                  return (
+                    <li
+                      class="device-grid"
+                      data-image-index="0"
+                      data-n-image={deviceDetail.imagePath?.length}
+                    >
+                      <a
+                        class="device-grid__link"
+                        href={"/device/" + deviceDetail.device_id}
+                      >
+                        {deviceDetail.imagePath?.map(
+                          (image: [string, string], index: number) => {
+                            if (index == 0)
+                              return (
+                                <img
+                                  class="device-grid__image"
+                                  src={image[0]}
+                                  alt={image[1]}
+                                />
+                              );
+                            else
+                              return (
+                                <img
+                                  class="device-grid__image d-none"
+                                  src={image[0]}
+                                  alt={image[1]}
+                                />
+                              );
+                          },
+                        )}
+                        <div class="device-grid__hover-blur d-none" />
+                        <div class="device-grid__overlay d-none">
+                          <header class="device-grid__overlay-header">
+                            <h3 class="device-grid__overlay-device-name">
+                              {deviceDetail.short_name ?? deviceDetail.name}
+                            </h3>
+                            <p class="device-grid__overlay-device-desc">
+                              {deviceDetail.desc}
+                            </p>
+                          </header>
+                          <button class="device-grid__overlay-pick-btn">
+                            Pick it
+                          </button>
+                        </div>
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          </li>
+        ))
+      }
+      <li class="device-section-list__request-device">
+        <section class="request-device-section">
+          <img
+            class="request-device-section__image"
+            src="/Images/request-device.svg"
+          />
+          <p class="request-device-section__desc">
+            Can't find the device you want?
+          </p>
+          <a class="request-device-section__request-link" href="/request_device"
+            ><button class="request-device-section__request-btn">
+              Request your device
+            </button></a
+          >
+        </section>
+      </li>
+    </ul>
+  </section>
+
+  <div class="fullscreen-search d-none d-lg-none">
+    <div class="fullscreen-search__header-background"></div>
+    <header class="fullscreen-search__header">
+      <input
+        class="fullscreen-search__search-input"
+        placeholder="Search Device"
+        type="search"
+      />
+      <button class="fullscreen-search__search-cancel-btn">Cancel</button>
+    </header>
+    <ul class="fullscreen-suggestion-list">
+      {
+        deviceSeries.map((series: DeviceSeries) => (
+          <li data-device-id={series.id}>
+            <a class="fullscreen-suggestion-list__link" href={"#" + series.id}>
+              {series.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>

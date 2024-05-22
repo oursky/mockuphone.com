@@ -1,0 +1,25 @@
+[app]
+id = "mockuphone-prod-clone"
+
+team = [
+    # Allow GitHub Actions in your repo to deploy
+    { gitHubRepositoryActions="oursky/mockuphone.com", access="deployer" },
+    { gitHubRepositoryActions="pkong-ds/mockuphone.com", access="deployer" }
+]
+
+
+[app.deployments]
+# ttl = "24h"
+# access = []
+
+[[app.sites]]
+name = "main"
+
+# [[app.domains]]
+# domain = "mockuphone.com"
+# site = "main"
+
+[site]
+public = "dist"
+
+# access = []

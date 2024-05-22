@@ -1,0 +1,257 @@
+:root {
+  --black: #000000;
+  --gray-1: #333333;
+  --gray-2: #4f4f4f;
+  --gray-3: #828282;
+  --gray-4: #bdbdbd;
+  --gray-5: #e0e0e0;
+  --gray-6: #f2f2f2;
+  --white: #ffffff;
+  --green-3: #6fcf97;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+.body--modal-open {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  transform: translate(0, -80px);
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+figure {
+  margin: 0;
+}
+
+.header {
+  z-index: 100;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  height: 80px;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 20px;
+  border-bottom: 1px solid var(--gray-5);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+@media (min-width: 576px) {
+  .header {
+    padding: 30px 40px;
+  }
+}
+
+.header__oursky-logo {
+  width: 90px;
+}
+
+.header__skymaker-logo {
+  width: 160px;
+  vertical-align: text-bottom;
+}
+
+.header__mockuphone-link {
+  margin-left: -13px;
+  font-family: "Red Hat Display", monospace;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--black);
+}
+.header__mockuphone-link:hover {
+  color: var(--black);
+}
+
+.header__share {
+  display: flex;
+  margin-left: auto;
+}
+
+.header__share-small {
+  min-width: 30px;
+}
+
+.header__share-small:hover {
+  cursor: pointer;
+}
+
+.header__share-default {
+  min-width: 56.5px;
+  margin-left: 10px;
+}
+
+.header__share-twitter {
+  margin-left: 20px;
+}
+
+.header__mockuphone {
+  /* width: 160px; */
+  width: 200px;
+  vertical-align: text-bottom;
+}
+
+@media (max-width: 420px) {
+  .header__skymaker-logo {
+    width: 100%;
+  }
+
+  .header__mockuphone-link {
+    margin-left: 10px;
+  }
+
+  .header__share-twitter {
+    margin-left: 15px;
+  }
+
+  .header__mockuphone {
+    width: 100%;
+  }
+}
+
+main {
+  margin-top: 80px;
+  min-height: calc(100vh - 80px - 290px);
+}
+@media (min-width: 992px) {
+  main {
+    min-height: calc(100vh - 80px - 250px);
+  }
+}
+
+footer {
+  background-color: var(--black);
+  min-height: 290px;
+  color: var(--white);
+}
+@media (min-width: 992px) {
+  .footer {
+    display: flex;
+    min-height: 250px;
+    padding: 60px 100px 0 100px;
+  }
+}
+
+.footer__lg-left {
+  padding-top: 30px;
+}
+
+.footer__skymaker-logo {
+  display: block;
+  width: 140px;
+  margin: auto;
+  text-decoration-color: #ffffff;
+}
+
+@media (min-width: 992px) {
+  .footer__lg-left {
+    padding-top: 0;
+  }
+
+  .footer__skymaker-logo {
+    padding-top: 0;
+    margin: 0 0 0 -4px;
+  }
+}
+
+.footer__slogan {
+  font-size: 12px;
+  text-align: center;
+  margin: 10px 0 0 0;
+}
+@media (min-width: 992px) {
+  .footer__slogan {
+    margin-top: 10px;
+    text-align: left;
+  }
+}
+
+.footer__sitemap {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 210px;
+  padding: 0;
+  margin: 30px auto 0 auto;
+}
+.footer__sitemap-item {
+  white-space: nowrap;
+}
+.footer__sitemap-item:not(:first-child) {
+  margin-left: 15px;
+}
+.footer__sitemap-link {
+  color: var(--white);
+  font-size: 12px;
+}
+.footer__sitemap-link:hover {
+  color: var(--white);
+}
+@media (min-width: 992px) {
+  .footer__sitemap {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    width: fit-content;
+  }
+}
+
+.footer__product-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+  margin: 30px auto 0 auto;
+  max-width: 500px;
+}
+.footer__product-image {
+  display: block;
+  margin: auto;
+}
+.footer__product-name {
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 5px;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .footer__product-list {
+    margin: 0 0 0 auto;
+    width: 370px;
+    justify-content: space-between;
+  }
+}
+
+.static-page {
+  margin: 0 40px 0 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.static-page p {
+  text-align: justify;
+}
+@media (min-width: 992px) {
+  .static-page {
+    margin: 0 100px 0 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}

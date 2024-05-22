@@ -1,0 +1,27 @@
+---
+import "/src/styles/home.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <meta
+    slot="meta"
+    name="description"
+    content="MockUPhone supports devices including iPhone mockup, iPad mockup, Android mockup and TV mockup. You can check out the whole device list via this page."
+  />
+  <div class="static-page device-list-page">
+    <h1 class="title">Request Device</h1>
+    <div class="content">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdp2-9s1AGZ5j0bQfi7I-3dl6uElP5g9zX2W9ni90mO32u_Dw/viewform?embedded=true"
+        width="100%"
+        height="1600"
+        margin-top="0"
+        margin-right="0"
+        margin-bottom="0"
+        margin-left="0"
+        style="max-width: 100%; border:0;">Loading...</iframe
+      >
+    </div>
+  </div>
+</BaseLayout>

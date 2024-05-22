@@ -1,0 +1,256 @@
+---
+import "/src/styles/bootstrap/bootstrap.min.css";
+import "/src/styles/bootstrap/bootstrap-grid.min.css";
+import "/src/styles/main.css";
+import { Image } from "@astrojs/image/components";
+
+const title = "MockUPhone";
+const description =
+  "MockUPhone is a free tool that helps you wrap app screenshots in different mobile devices. Support iPhone mockup, iPad mockup, Android mockup and TV mockup.";
+const social_url = "home_url";
+const social_icon = "/Images/mockuphone-logo.png";
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="google-site-verification"
+      content="5baYGiVdfbvjJuaqgbzNXxzqGyqocURqFWq6LOjM-e8"
+    />
+
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/Images/favicon.png" />
+    <meta name="author" content="Oursky" />
+    <meta
+      name="keywords"
+      content="design freebies,iphone template,real device,mockup iphone,device art generator,android psd,ipad templates,galaxy frame"
+    />
+    <meta name="description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    />
+
+    <script type="text/javascript" src="/scripts/jquery/jquery-1.10.2.min.js"
+    ></script>
+    <script type="text/javascript" src="/scripts/bootstrap/bootstrap.min.js"
+    ></script>
+    <script type="text/javascript" src="/scripts/vendor/jquery.cycle.all.js"
+    ></script>
+    <script type="text/javascript" src="/scripts/vendor/jquery.cookie.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/mobx@6.0.4/dist/mobx.umd.production.min.js"
+    ></script>
+    <script
+      defer
+      data-domain="mockuphone.com"
+      src="https://plausible.io/js/plausible.js"></script>
+    <script type="text/javascript" src="/scripts/main.js"></script>
+    <!-- ${ self.javascript() } -->
+
+    <!-- freight sans pro font -->
+    <script type="text/javascript" src="https://use.typekit.net/aar8cbj.js"
+    ></script>
+    <script is:inline>
+      // @ts-ignore
+      try {
+        Typekit.load({ async: true });
+      } catch (e) {}
+    </script>
+    <script type="module" src="/scripts/localforage.js"></script>
+
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={social_url} />
+    <meta property="og:image" content={social_icon} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="152" />
+    <meta property="og:image:height" content="152" />
+    <meta property="og:description" content={description} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@oursky" />
+    <meta name="twitter:creator" content="@oursky" />
+    <meta name="twitter:url" content={social_url} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={social_icon} />
+    <meta name="twitter:image:width" content="152" />
+    <meta name="twitter:image:height" content="152" />
+    <slot name="meta" />
+  </head>
+  <body>
+    <div id="main-page">
+      <header class="header">
+        <a
+          href="https://www.skymakers.co.uk/?utm_medium=web&utm_source=mockuphone"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            class="header__skymaker-logo"
+            src="/Images/oursky/skymaker-logo.svg"
+            alt="skymaker-logo.svg"
+            format="svg"
+            width={50}
+            height={48.5}
+          />
+        </a>
+        <a class="header__mockuphone-link" href="/">
+          <Image
+            class="header__mockuphone"
+            src="/Images/oursky/mockuphone-header.svg"
+            alt="mockuphone_header.svg"
+            format="svg"
+            width={50}
+            height={48.5}
+          />
+        </a>
+        <div class="header__share">
+          <Image
+            class="header__share-small d-block d-sm-none"
+            src="/Images/share.svg"
+            alt="share.svg"
+            format="svg"
+            width={16}
+            height={16}
+          />
+          <!-- sharing section for large sceren width, also fallback for small screen width not support share api -->
+          <div class="header__share-default d-none d-sm-block">
+            <a
+              href="https://www.facebook.com/sharer/sharer.php?u=https://mockuphone.com"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <Image
+                src="/Images/facebook-icon-black.svg"
+                alt="facebook-icon-black.svg"
+                format="svg"
+                width={16}
+                height={16}
+              />
+            </a>
+            <a
+              href="https://twitter.com/intent/tweet?utm_source=twitter_web_centreButton&utm_medium=twitter&utm_campaign=twitter_web_centreButton&url=https://mockuphone.com/&via=oursky&text=One click to wrap your app screenshots in device mockup!"
+            >
+              <Image
+                class="header__share-twitter"
+                src="/Images/twitter-icon-black.svg"
+                alt="twitter-icon-black.svg"
+                format="svg"
+                width={16}
+                height={16}
+              />
+            </a>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <!-- *** BEGIN page content *** -->
+        <slot />
+      </main>
+      <footer class="footer">
+        <div class="footer__lg-left">
+          <a
+            href="https://www.skymakers.co.uk/?utm_medium=web&utm_source=mockuphone"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              class="footer__skymaker-logo"
+              src="/Images/oursky/skymaker-logo-white.svg"
+              alt="skymaker-logo-white.svg"
+              format="svg"
+              width={140}
+              height={42.5}
+            />
+          </a>
+          <p class="footer__slogan">For developers by developers</p>
+          <ul class="footer__sitemap">
+            <li class="footer__sitemap-item">
+              <a href="/about" class="footer__sitemap-link">About</a>
+            </li>
+            <li class="footer__sitemap-item">
+              <a href="/use_case" class="footer__sitemap-link">Use Case</a>
+            </li>
+            <li class="footer__sitemap-item">
+              <a href="/deviceList" class="footer__sitemap-link">Device List</a>
+            </li>
+            <li class="footer__sitemap-item">
+              <a href="/developerTools" class="footer__sitemap-link"
+                >Developer Tools</a
+              >
+            </li>
+            <li class="footer__sitemap-item">
+              <a href="/attribution" class="footer__sitemap-link">Attribution</a
+              >
+            </li>
+          </ul>
+        </div>
+        <ul class="footer__product-list">
+          <li>
+            <a
+              href="https://www.authgear.com/?utm_source=mockuphone&utm_medium=web&utm_campaign=mockuphone_ad"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <figure>
+                <img
+                  class="footer__product-image"
+                  src="/Images/oursky/authgear.svg"
+                />
+                <figcaption class="footer__product-name">Authgear</figcaption>
+              </figure>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://makeappicon.com/?utm_source=mockuphone&utm_medium=web&utm_campaign=mockuphone_ad"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <figure>
+                <img
+                  class="footer__product-image"
+                  src="/Images/oursky/makeappicon.svg"
+                />
+                <figcaption class="footer__product-name">
+                  MakeAppIcon
+                </figcaption>
+              </figure>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.formx.ai/?utm_source=mockuphone&utm_medium=web&utm_campaign=mockuphone_ad"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <figure>
+                <img
+                  class="footer__product-image"
+                  src="/Images/oursky/formxai.svg"
+                />
+                <figcaption class="footer__product-name">FormX.ai</figcaption>
+              </figure>
+            </a>
+          </li>
+        </ul>
+      </footer>
+
+      <div id="fb-root"></div>
+      <script is:inline src="/scripts/baseLayout.js"></script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+name: CI
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+on: [push, pull_request]
+
+jobs:
+  ci:
+    name: ci
+    runs-on: [self-hosted, linux, x64, v1]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@master
+        with:
+          python-version: 3.10.11
+      - name: install black
+        run: |
+          pip install black==22.3.0
+      - name: install ruff
+        run: |
+          pip install ruff==0.0.278
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: npm install
+        run: npm install
+      - name: make ci
+        run: make ci
+      - name: make build
+        run: make build

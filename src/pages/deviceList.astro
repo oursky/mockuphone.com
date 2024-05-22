@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ListItem from "../components/ListItem.astro";
+
+const device_type = ["iOS", "Android", "TV", "iMac", "Macbook", "Laptops"];
+---
+
+<BaseLayout>
+  <meta
+    slot="meta"
+    name="description"
+    content="MockUPhone supports devices including iPhone mockup, iPad mockup, Android mockup and TV mockup. You can check out the whole device list via this page."
+  />
+  <div class="static-page device-list-page">
+    <h1 class="title">Device list</h1>
+    <div class="content">
+      {device_type.map((item) => <ListItem type={item} />)}
+    </div>
+  </div>
+</BaseLayout>

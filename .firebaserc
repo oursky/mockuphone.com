@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "mockuphone-221ee"
+  },
+  "targets": {
+    "mockuphone-221ee": {
+      "hosting": {
+        "dev": [
+          "mockuphone-dev"
+        ],
+        "production": [
+          "mockuphone"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

@@ -1,0 +1,38 @@
+name: CD
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  cd:
+    name: cd
+    runs-on: [self-hosted, linux, x64, v1]
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - name: Set env to staging
+        run: |
+          if [[ "${{ github.ref_name }}" == "master" ]]; then
+            echo "ENV=staging" >> $GITHUB_ENV
+          elif [[ "${{ github.ref_name }}" == "production" ]]; then
+            echo "ENV=production" >> $GITHUB_ENV
+          fi
+      - name: build html
+        run: npm run build
+      - name: Deploy
+        env:
+          PAGESHIP_API: https://api.pages.pandawork.com
+        run:
+          make deploy

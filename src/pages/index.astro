@@ -1,0 +1,121 @@
+---
+import "/src/styles/home.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "@astrojs/image/components";
+---
+
+<BaseLayout>
+  <div class="landing-content">
+    <header class="headline">
+      <h2 class="headline__title">
+        Free and simple screenshots device mockups generator
+      </h2>
+      <p class="headline__desc">
+        Wrap your design in mobile devices in a few clicks!
+      </p>
+    </header>
+
+    <ul class="quick-device-list">
+      <li class="quick-device-list__item quick-device-list__item-iphone">
+        <a
+          class="quick-device-list__link quick-device-list__link-iphone"
+          href="/type/ios#iphone14">iPhone 14</a
+        >
+      </li>
+      <li class="quick-device-list__item quick-device-list__item-googlepixel">
+        <a
+          class="quick-device-list__link quick-device-list__link-googlepixel"
+          href="/type/android#googlepixel">Google Pixel</a
+        >
+      </li>
+      <li class="quick-device-list__item quick-device-list__item-other">
+        <a
+          class="quick-device-list__link quick-device-list__link-other"
+          href="/type/computer#macbook"
+          >Other laptop, phones, tablets & wearables.</a
+        >
+      </li>
+    </ul>
+    <div class="hero-image">
+      <div class="hero-image__shawdow"></div>
+    </div>
+
+    <section class="oursky-product-section">
+      <h3 class="oursky-product-section__heading">MORE FROM SKYMAKERS</h3>
+      <ul class="oursky-product-list">
+        <li class="oursky-product">
+          <a
+            class="oursky-product__link"
+            href="https://www.authgear.com/?utm_source=mockuphone&utm_medium=web&utm_campaign=mockuphone_ad"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <figure class="oursky-product__figure">
+              <Image
+                src="/Images/home/authgear-color.svg"
+                alt="authgear-color.svg"
+                format="svg"
+                width={60}
+                height={60}
+              />
+              <figcaption class="oursky-product__caption">
+                <h4 class="oursky-product__caption-title">Authgear</h4>
+                <p class="oursky-product__caption-desc">
+                  Secure and unified authentication for your next apps
+                </p>
+              </figcaption>
+            </figure>
+          </a>
+        </li>
+        <li class="oursky-product">
+          <a
+            class="oursky-product__link"
+            href="https://makeappicon.com/?utm_source=mockuphone&utm_medium=web&utm_campaign=mockuphone_ad"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <figure class="oursky-product__figure">
+              <Image
+                src="/Images/home/makeappicon-color.svg"
+                alt="mackappicon-color.svg"
+                format="svg"
+                width={60}
+                height={60}
+              />
+              <figcaption class="oursky-product__caption">
+                <h4 class="oursky-product__caption-title">MakeAppIcon</h4>
+                <p class="oursky-product__caption-desc">
+                  Best app icon resize for mobile developers
+                </p>
+              </figcaption>
+            </figure>
+          </a>
+        </li>
+        <li class="oursky-product">
+          <a
+            class="oursky-product__link"
+            href="https://www.formx.ai/?utm_source=mockuphone&utm_medium=web&utm_campaign=mockuphone_ad"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <figure class="oursky-product__figure">
+              <Image
+                src="/Images/home/formxai-color.svg"
+                alt="formxai-color.svg"
+                format="svg"
+                width={60}
+                height={60}
+              />
+              <figcaption class="oursky-product__caption">
+                <h4 class="oursky-product__caption-title">FormX.ai</h4>
+                <p class="oursky-product__caption-desc">
+                  Extract data from Documents and Forms with AI
+                </p>
+              </figcaption>
+            </figure>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</BaseLayout>

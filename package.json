@@ -1,0 +1,32 @@
+{
+  "name": "mockuphonehtml",
+  "type": "commonjs",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "format": "prettier --write \"**/*\" --ignore-unknown",
+    "astro": "astro",
+    "start-ts": "cd ./src/model && tsc && node ./model.js",
+    "check": "astro check -- && tsc --noEmit"
+  },
+  "dependencies": {
+    "@astrojs/image": "^0.17.2",
+    "@astrojs/ts-plugin": "^1.1.1",
+    "astro": "^2.8.3",
+    "localforage": "^1.10.0",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/parser": "^6.3.0",
+    "eslint": "^8.46.0",
+    "eslint-plugin-astro": "^0.27.2",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "prettier": "^3.0.1",
+    "prettier-plugin-astro": "^0.11.0"
+  }
+}
