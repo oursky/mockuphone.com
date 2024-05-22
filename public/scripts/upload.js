@@ -3,9 +3,9 @@ Require: mobx,
          utils/images.js, services/presign.js, models/image-upload.js
 */
 const isDebug = false;
-const maxFileSizeByte = 104857600;
-const maxFileSizeReadable = "100 MB";
-const maxMockupWaitSec = 1000000000;
+const MAX_FILE_SIZE_BYTE = 104857600;
+const MAX_FILE_SIZE_READABLE = "100 MB";
+const MAX_MOCKUP_WAIT_SEC = 1000000000;
 
 function ready(fn) {
   if (document.readyState != "loading") {
@@ -55,7 +55,6 @@ class FileListViewModel {
       add: mobx.action,
     });
     this.maxFileSizeByte = maxFileSizeByte;
-    this._changeState();
   }
 
   get imageUploads() {
@@ -71,7 +70,7 @@ class FileListViewModel {
   get isReadyForMockup() {
     return (
       !this.isProcessing &&
-      this._imageUploads.some((imageUpload) => imageUpload.isDoneState)
+      this._imageUploads.some((imageUpload) => imageUpload.isSuccessState)
     );
   }
 
@@ -84,26 +83,12 @@ class FileListViewModel {
     }
 
     for (const file of files) {
-      const imageUpload = new ImageUpload(file, maxFileSizeByte);
-      await imageUpload.loadDimensionPromise;
-
+      const imageUpload = new ImageUpload(file, MAX_FILE_SIZE_BYTE);
+      if (imageUpload.loadDimensionPromise != null) {
+        await imageUpload.loadDimensionPromise;
+      }
       this._imageUploads.push(imageUpload);
     }
-  }
-
-  _changeState() {
-    mobx.reaction(
-      () => this.imageUploads.map((imageUpload) => imageUpload.uploadState),
-      () => {
-        const tasks = [];
-        for (const imageUpload of this._imageUploads) {
-          imageUpload.uploadState = UploadState.Uploaded;
-        }
-      },
-      {
-        equals: mobx.comparer.shallow,
-      },
-    );
   }
 }
 
@@ -290,7 +275,7 @@ function updateFileListItem(itemNode, imageUpload) {
     isSameAspectRatio(imageDim, recommendDim) ||
     isSameAspectRatio(imageDimRotate, recommendDim);
   const shouldShowAspectRatioWarning =
-    imageUpload.uploadState !== UploadState.ReadingFile && !isCorrectDim;
+    imageUpload.readState !== ReadState.Reading && !isCorrectDim;
   // Update status icon
   // error status has higher precedence over warning
   if (imageUpload.isErrorState) {
@@ -299,7 +284,7 @@ function updateFileListItem(itemNode, imageUpload) {
   } else if (shouldShowAspectRatioWarning) {
     itemNode.classList.add("file-list-item--warning");
   }
-  if (imageUpload.isDoneState) {
+  if (imageUpload.isSuccessState) {
     setTimeout(() => {
       itemNode.classList.remove("file-list-item--progress");
     }, 10);
@@ -309,15 +294,14 @@ function updateFileListItem(itemNode, imageUpload) {
   }
   // update hint text
   if (imageUpload.isErrorState) {
-    switch (imageUpload.uploadState) {
-      case UploadState.ErrUnsupportedFileType:
+    switch (imageUpload.readState) {
+      case ReadState.ErrUnsupportedFileType:
         hintNode.innerText = "File extensions should be in JPG, PNG or PSD.";
         break;
-      case UploadState.ErrExceedMaxFileSize:
-        hintNode.innerText = `File size should be less than ${maxFileSizeReadable}.`;
+      case ReadState.ErrExceedMaxFileSize:
+        hintNode.innerText = `File size should be less than ${MAX_FILE_SIZE_READABLE}.`;
         break;
-      case UploadState.ErrPresign:
-      case UploadState.ErrUpload:
+      case ReadState.ErrRead:
       default:
         hintNode.innerText =
           "Something went wrong. Please try upload again or refresh the page.";
@@ -329,20 +313,16 @@ function updateFileListItem(itemNode, imageUpload) {
     )} (ideally ${recommendDim.width}px * ${recommendDim.height}px).`;
   }
   // update progress bar
-  if (imageUpload.isProcessingState || imageUpload.isDoneState) {
-    switch (imageUpload.uploadState) {
-      case UploadState.ReadingFile:
-      case UploadState.ReadyForPresign:
-        progressFillNode.classList.add("file-list-item__progress-bar-fill--30");
-        break;
-      case UploadState.Presigning:
-      case UploadState.ReadyForUpload:
+  if (imageUpload.isProcessingState || imageUpload.isSuccessState) {
+    progressFillNode.classList.add("file-list-item__progress-bar-fill--30");
+    switch (imageUpload.readState) {
+      case ReadState.ReadyForRead:
         progressFillNode.classList.add("file-list-item__progress-bar-fill--60");
         break;
-      case UploadState.Uploading:
+      case ReadState.Reading:
         progressFillNode.classList.add("file-list-item__progress-bar-fill--90");
         break;
-      case UploadState.Uploaded:
+      case ReadState.ReadSuccess:
         progressFillNode.classList.add(
           "file-list-item__progress-bar-fill--100",
         );
@@ -364,8 +344,8 @@ function main() {
     ".generating-modal-dialog__cancel-btn",
   );
 
-  const fileListViewModel = new FileListViewModel(maxFileSizeByte);
-  const viewModel = new RootViewModel(maxMockupWaitSec, fileListViewModel);
+  const fileListViewModel = new FileListViewModel(MAX_FILE_SIZE_BYTE);
+  const viewModel = new RootViewModel(MAX_MOCKUP_WAIT_SEC, fileListViewModel);
 
   window.viewModel = viewModel;
   if (isDebug) {
@@ -465,11 +445,11 @@ function main() {
     }
   });
 
-  // observe fileListViewModel: imageUploads[].uploadState
+  // observe fileListViewModel: imageUploads[].readState
   mobx.reaction(
     () =>
       viewModel.fileList.imageUploads.map(
-        (imageUpload) => imageUpload.uploadState,
+        (imageUpload) => imageUpload.readState,
       ),
     async () => {
       const imageUploads = viewModel.fileList.imageUploads;
@@ -487,13 +467,13 @@ function main() {
   );
 
   if (isDebug) {
-    // observe fileListViewModel: imageUploads, imageUploads[].uploadState
+    // observe fileListViewModel: imageUploads, imageUploads[].readState
     mobx.autorun(() => {
       console.log("file list:", mobx.toJS(viewModel.fileList.imageUploads));
       console.log(
-        "upload states:",
+        "read states:",
         viewModel.fileList.imageUploads.map(
-          (imageUpload) => imageUpload.uploadState,
+          (imageUpload) => imageUpload.readState,
         ),
       );
     });

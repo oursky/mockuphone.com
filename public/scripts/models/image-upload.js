@@ -2,17 +2,13 @@
 Require: mobx, psd.js
 */
 
-const UploadState = {
-  ReadingFile: "ReadingFile",
-  ReadyForPresign: "ReadyForPresign",
-  Presigning: "Presigning",
-  ReadyForUpload: "ReadyForUpload",
-  Uploading: "Uploading",
-  Uploaded: "Uploaded",
+const ReadState = {
+  ReadyForRead: "ReadyForRead",
+  Reading: "Reading",
+  ReadSuccess: "ReadSuccess",
   ErrUnsupportedFileType: "ErrUnsupportedFileType",
   ErrExceedMaxFileSize: "ErrExceedMaxFileSize",
-  ErrPresign: "ErrPresign",
-  ErrUpload: "ErrUpload",
+  ErrRead: "ErrRead",
 };
 
 class ImageUpload {
@@ -28,7 +24,7 @@ class ImageUpload {
   height = null;
   uuid = null;
   signedData = null;
-  uploadState = UploadState.ReadingFile;
+  readState = ReadState.ReadyForRead;
   message = null;
 
   loadDimensionPromise = null;
@@ -40,23 +36,24 @@ class ImageUpload {
       height: mobx.observable,
       uuid: mobx.observable,
       signedData: mobx.observable,
-      uploadState: mobx.observable,
+      readState: mobx.observable,
       message: mobx.observable,
       isProcessingState: mobx.computed,
-      isDoneState: mobx.computed,
+      isSuccessState: mobx.computed,
+      isProcessedState: mobx.computed,
       isErrorState: mobx.computed,
     });
     this.file = file;
     this.maxFileSizeByte = maxFileSizeByte;
     if (!this.supportedFileTypes.includes(file.type)) {
-      this.uploadState = UploadState.ErrUnsupportedFileType;
+      this.readState = ReadState.ErrUnsupportedFileType;
       return;
     }
     if (this.maxFileSizeByte != null && this.file.size > this.maxFileSizeByte) {
-      this.uploadState = UploadState.ErrExceedMaxFileSize;
+      this.readState = ReadState.ErrExceedMaxFileSize;
       return;
     }
-
+    this.readState = ReadState.Reading;
     this.loadDimensionPromise = this._loadDimension();
   }
 
@@ -73,53 +70,98 @@ class ImageUpload {
 
   _loadPsdDimennsion() {
     return new Promise((resolve) => {
-      const fr = new FileReader();
-      fr.onload = () => {
-        PSD.fromURL(fr.result, (psd) => {
+      const fileReader = new FileReader();
+      fileReader.onload = () => {
+        PSD.fromURL(fileReader.result, (psd) => {
           psd.parseImageData();
           mobx.action(() => {
             this.width = psd.image.getImageWidth();
             this.height = psd.image.getImageHeight();
-            this.uploadState = UploadState.ReadyForPresign;
+            this.readState = ReadState.ReadSuccess;
           })();
 
           resolve();
         });
       };
-      fr.readAsDataURL(this.file);
+      fileReader.onabort = () => {
+        console.warn("onabort");
+        mobx.action(() => {
+          this.readState = ReadState.ErrRead;
+        })();
+        resolve();
+      };
+      fileReader.onerror = () => {
+        console.warn("onerror");
+        mobx.action(() => {
+          this.readState = ReadState.ErrRead;
+        })();
+        resolve();
+      };
+      fileReader.readAsDataURL(this.file);
     });
   }
 
   _loadImageDimension() {
     return new Promise((resolve) => {
-      const fr = new FileReader();
-      fr.onload = () => {
+      const fileReader = new FileReader();
+      fileReader.onload = () => {
         const img = new Image();
         img.onload = () => {
           mobx.action(() => {
             this.width = img.width;
             this.height = img.height;
-            this.uploadState = UploadState.ReadyForPresign;
+            this.readState = ReadState.ReadSuccess;
           })();
 
           resolve();
         };
-        img.src = fr.result;
+        img.onerror = () => {
+          console.warn("onerror");
+          mobx.action(() => {
+            this.readState = ReadState.ErrRead;
+          })();
+          resolve();
+        };
+        img.onabort = () => {
+          console.warn("onabort");
+          mobx.action(() => {
+            this.readState = ReadState.ErrRead;
+          })();
+          resolve();
+        };
+        img.src = fileReader.result;
       };
-      fr.readAsDataURL(this.file);
+      fileReader.onabort = () => {
+        mobx.action(() => {
+          this.readState = ReadState.ErrRead;
+        })();
+        resolve();
+      };
+      fileReader.onerror = () => {
+        console.log("onerror");
+        mobx.action(() => {
+          this.readState = ReadState.ErrRead;
+        })();
+        resolve();
+      };
+      fileReader.readAsDataURL(this.file);
     });
   }
 
   get isProcessingState() {
-    return !this.isErrorState && this.uploadState !== UploadState.Uploaded;
+    return !this.isProcessedState;
   }
 
-  get isDoneState() {
-    return this.uploadState === UploadState.Uploaded;
+  get isSuccessState() {
+    return this.readState === ReadState.ReadSuccess;
+  }
+
+  get isProcessedState() {
+    return this.isErrorState || this.isSuccessState;
   }
 
   get isErrorState() {
-    return this.uploadState.startsWith("Err");
+    return this.readState.startsWith("Err");
   }
 
   get imageFile() {
