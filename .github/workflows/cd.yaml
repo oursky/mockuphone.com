@@ -7,7 +7,7 @@ concurrency:
 on:
   push:
     branches:
-      - main
+      - do-not-run-cd # dont run cd until pageship deployment with github OIDC token is resolved
 
 jobs:
   cd:
