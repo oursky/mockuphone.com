@@ -1,0 +1,126 @@
+---
+interface Props {
+  pageId: string;
+  paddingTop?: string;
+}
+
+const { pageId, paddingTop } = Astro.props;
+---
+
+<style>
+  #error-container {
+    text-align: center;
+    font-size: 16px;
+    font-family: "Lucida Grande", Arial, sans-serif;
+    position: relative;
+    bottom: 0px;
+    padding: 0px;
+    min-height: 640px;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .blue,
+  .title :global(.blue),
+  .description :global(.blue) {
+    color: rgb(77, 188, 233);
+  }
+
+  .pageTitle {
+    margin: auto;
+    margin-top: 5px;
+    float: left;
+    width: 100%;
+  }
+
+  p,
+  .title :global(p),
+  .description :global(p) {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  strong {
+    line-height: 1.5;
+  }
+  a,
+  .title :global(a),
+  .description :global(a) {
+    color: rgb(77, 188, 233);
+    text-decoration: none;
+    border: 0px;
+  }
+  a:hover,
+  .title :global(a:hover),
+  .description :global(.blue) {
+    color: rgb(77, 188, 233);
+  }
+  .spaceHolder {
+    min-height: 100px;
+  }
+  .logo {
+    margin: auto;
+    margin-top: -375px;
+  }
+  .logo img {
+    border: none;
+  }
+  .logo img:hover {
+    padding-top: 2px;
+  }
+  .bg {
+    background-image: url("/Images/notfound-bg.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    min-height: 640px;
+    height: 100%;
+    margin: auto;
+    margin-bottom: 0px;
+  }
+
+  .list {
+    width: 120px;
+    margin: auto;
+    padding: 0;
+  }
+
+  .list :global(li) {
+    text-align: left;
+  }
+
+  .list :global(a) {
+    text-decoration: underline;
+    border: 0px;
+    color: black;
+    padding-left: 10px;
+  }
+
+  .list :global(a:hover) {
+    color: gray;
+  }
+</style>
+
+<div id={pageId}>
+  <div id="error-container" style=`padding-top: ${paddingTop};`>
+    <div class="pageTitle">
+      <div class="title">
+        <slot name="title" />
+      </div>
+      <div class="description">
+        <slot name="description" />
+      </div>
+      <div class="list">
+        <slot name="list" />
+      </div>
+    </div>
+
+    <div class="bg">&nbsp;</div>
+    <div class="logo">
+      <a href="/">
+        <img src="/Images/notfound-logo.png" />
+      </a>
+    </div>
+  </div>
+</div>

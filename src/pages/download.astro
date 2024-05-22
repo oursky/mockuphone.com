@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "/src/styles/download.css";
+import ErrorPage from "../components/ErrorPage.astro";
+---
+
+<script>
+  import localforage from "localforage";
+
+  const isMockupGenerated = async () => {
+    return localforage.getItem("pictureArray").then(function (pictureArray) {
+      if (pictureArray) {
+        return true;
+      }
+      return false;
+    });
+  };
+  const hideUnuseScreen = async () => {
+    const mainElem = document.getElementById("main-page");
+    const noMockupGeneratedElem = document.getElementById(
+      "no-mockup-generated",
+    );
+    if (!(await isMockupGenerated())) {
+      if (mainElem) {
+        mainElem.style.display = "none";
+      }
+    } else {
+      if (noMockupGeneratedElem) {
+        noMockupGeneratedElem.style.display = "none";
+      }
+    }
+  };
+
+  hideUnuseScreen();
+</script>
+
+<BaseLayout>
+  <meta
+    slot="meta"
+    name="description"
+    content="I've just used MockUPhone to wrap my app screenshots. It supports lots of devices including iPhone mockup, iPad mockup, Android mockup and TV mockup."
+  />
+  <script type="text/javascript" src="/scripts/jszip.js"></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"
+  ></script>
+  <script type="text/javascript" src="/scripts/download-python-package.js"
+  ></script>
+
+  <div class="download-content">
+    <h1 class="completed">Completed!</h1>
+
+    <a
+      class="formxai-ad"
+      href="https://www.formx.ai/?utm_source=mockuphone&utm_medium=web&utm_campaign=mockuphone_complete_ad"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img class="formxai-ad__image" src="/Images/oursky/formxai-ad.png" />
+    </a>
+
+    <button class="download-btn" onclick="generateZIP()"
+      >Download my mockups</button
+    >
+
+    <section class="share">
+      <h2 class="share__heading">
+        IF YOU LIKE OUR TOOL PLEASE SHARE WITH OTHERS!
+      </h2>
+      <ul class="share-social">
+        <li class="share-social-item">
+          <a
+            href="https://www.facebook.com/sharer/sharer.php?u=https://mockuphone.com"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <img src="/Images/facebook-icon-blue.svg" />
+          </a>
+        </li>
+        <li class="share-social-item">
+          <a
+            href="https://twitter.com/intent/tweet?utm_source=twitter_web_centreButton&utm_medium=twitter&utm_campaign=twitter_web_centreButton&url=https://mockuphone.com/&via=oursky&text=One click to wrap your app screenshots in device mockup!"
+          >
+            <img src="/Images/twitter-icon-blue.svg" />
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
+
+<ErrorPage pageId="no-mockup-generated" paddingTop="50px">
+  <p slot="title">
+    No mockup generated<br />
+    <span class="blue"><a href="/">Back to Mockuphone.com</a></span>
+  </p>
+</ErrorPage>

@@ -1,0 +1,222 @@
+---
+import DeviceBaseLayout from "../../layouts/BaseLayout.astro";
+import "/src/styles/upload.css";
+import "/src/styles/pyscript.css";
+import deviceJson from "../../scripts/device_info.json";
+import { DEVICE_MANAGER } from "../../scripts/deviceManager";
+import type { Device } from "../../scripts/model";
+import ErrorPage from "../../components/ErrorPage.astro";
+
+export async function getStaticPaths() {
+  const deviceAll: any = [];
+  deviceJson["devices"].forEach(function (device: any) {
+    var deviceInfo = {
+      params: { device: device["device_id"] },
+      props: { targetDevice: device["device_id"] },
+    };
+    deviceAll.push(deviceInfo);
+  });
+  return deviceAll;
+}
+
+const { targetDevice } = Astro.props;
+const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
+---
+
+<script>
+  // ref: https://stackoverflow.com/questions/47879864/how-can-i-check-if-a-browser-supports-webassembly
+  const supportWebAssembly = () => {
+    try {
+      if (
+        typeof WebAssembly === "object" &&
+        typeof WebAssembly.instantiate === "function"
+      ) {
+        const module = new WebAssembly.Module(
+          Uint8Array.of(0x0, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00),
+        );
+        if (module instanceof WebAssembly.Module)
+          return (
+            new WebAssembly.Instance(module) instanceof WebAssembly.Instance
+          );
+      }
+    } catch (e) {}
+
+    return false;
+  };
+
+  const mainElem = document.getElementById("main-page");
+  const webassemblyNotSupportedElem = document.getElementById(
+    "webassembly-not-supported",
+  );
+  if (supportWebAssembly()) {
+    if (webassemblyNotSupportedElem) {
+      webassemblyNotSupportedElem.style.display = "none";
+    }
+  } else {
+    if (mainElem) {
+      mainElem.style.display = "none";
+    }
+  }
+</script>
+<DeviceBaseLayout>
+  <script type="text/javascript" src="/scripts/vendor/socket.io@3.0.4.min.js"
+  ></script>
+  <script type="text/javascript" src="/scripts/vendor/dataloader@1.4.0.js"
+  ></script>
+  <script type="text/javascript" src="/scripts/vendor/psd.min.js"></script>
+  <script type="text/javascript" src="/scripts/utils/images.js"></script>
+  <script type="text/javascript" src="/scripts/models/image-upload.js"></script>
+  <script type="text/javascript" src="/scripts/upload.js"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"
+  ></script>
+
+  <script define:vars={{ deviceDatail }}>
+    window.location.recommendsize = deviceDatail["display_resolution"];
+  </script>
+
+  <script define:vars={{ deviceJson }}>
+    window.deviceInfo = deviceJson;
+  </script>
+
+  <div class="mockup-content">
+    <div class="mockup-lg-left">
+      <header class="device-header">
+        <h2 class="device-header__name">{deviceDatail.name}</h2>
+        <p class="device-header__desc">{deviceDatail.desc}</p>
+      </header>
+
+      <form
+        class="upload"
+        id="targetForm"
+        action="/api/presign"
+        method="POST"
+        accept-charset="utf-8"
+        enctype="multipart/form-data"
+      >
+        <div class="upload__inner-box">
+          <img
+            class="upload__device-image"
+            src={deviceDatail.imagePath?.[0][0]}
+            alt={deviceDatail.imagePath?.[0][1]}
+          />
+        </div>
+        <div class="upload__background"></div>
+        <div class="upload-guide">
+          <img src="/Images/upload.svg" />
+          <h3 class="upload-guide__title">Upload your image here</h3>
+          <p class="upload-guide__hint">
+            Recommend size {deviceDatail.display_resolution?.[0]}px * {
+              deviceDatail.display_resolution?.[1]
+            }px, We support jpg, png and psd
+          </p>
+          <label class="upload-guide__browse-btn" for="file[]"
+            >Browse Files</label
+          >
+          <input
+            class="upload-guide__file-input"
+            id="download"
+            type="file"
+            name="file[]"
+            accept=".jpg,.png,.psd"
+            multiple
+          />
+        </div>
+        <div class="uploading d-none">
+          <div class="uploading__spinner"></div>
+          <h3 class="uploading__text">Uploading...</h3>
+        </div>
+        <input type="hidden" name="phone" value={deviceDatail.device_id} />
+      </form>
+    </div>
+
+    <div class="mockup-lg-right">
+      <section class="file-uploaded d-none">
+        <h3 class="file-uploaded__heading">FILE UPLOADED</h3>
+        <ul class="file-list"></ul>
+        <button disabled class="generate-btn">Generate product mockups</button>
+        <button style="display:none" class="start-mockup-btn"
+          >Generate product mockups</button
+        >
+      </section>
+
+      <section class="device-info">
+        <div class="device-support">
+          <h3 class="device-support__heading">THIS DEVICE SUPPORTS</h3>
+          <ul class="device-support__orientation-list">
+            {
+              deviceDatail.imagePath?.map((path: string[]) => (
+                <img
+                  class="device-support__orientation-image"
+                  src={path[0]}
+                  alt={path[1]}
+                />
+              ))
+            }
+          </ul>
+        </div>
+        <div class="device-credits">
+          <h3 class="device-credits__heading">CREDITS</h3>
+          <div class="device-credits__desc">
+            <Fragment set:html={deviceDatail.credits} />
+          </div>
+        </div>
+      </section>
+
+      <section class="request-device-section">
+        <img
+          class="request-device-section__image"
+          src="/Images/request-device.svg"
+        />
+        <p class="request-device-section__desc">
+          Can't find the device you want?
+        </p>
+        <a class="request-device-section__request-link" href="/request_device"
+          ><button
+            class="request-device-section__request-btn"
+            id="targetButton"
+          >
+            Request your device
+          </button></a
+        >
+      </section>
+    </div>
+  </div>
+
+  <div class="generating-modal d-none">
+    <div class="generating-modal__overlay"></div>
+    <div class="generating-modal-dialog">
+      <div class="generating-modal__spinner"></div>
+      <h3 class="generating-modal-dialog__text">Generating...</h3>
+      <button class="generating-modal-dialog__cancel-btn">Cancel</button>
+    </div>
+  </div>
+</DeviceBaseLayout>
+
+<ErrorPage pageId="webassembly-not-supported" paddingTop="50px">
+  <p slot="title">
+    This browser doesn't support web assembly<br />
+    <span class="blue">Consider upgrading to a modern browser:</span>
+  </p>
+  <div slot="list">
+    <ul>
+      <li>
+        <a target="_blank" href="https://www.mozilla.org/firefox/new/"
+          >Firefox</a
+        >
+      </li>
+      <li>
+        <a target="_blank" href="https://www.google.com/chrome/">Chrome</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://support.apple.com/downloads/safari"
+          >Safari</a
+        >
+      </li>
+      <li>
+        <a target="_blank" href="https://www.microsoft.com/en-us/edge/download"
+          >Edge</a
+        >
+      </li>
+    </ul>
+  </div>
+</ErrorPage>

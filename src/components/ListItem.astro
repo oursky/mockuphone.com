@@ -1,0 +1,39 @@
+---
+import { DEVICE_MANAGER } from "../scripts/deviceManager";
+import type { Device } from "../scripts/model";
+const { type } = Astro.props;
+const deviceArray: Device[] = DEVICE_MANAGER.getDevicesBytype(type);
+---
+
+<h2>{type}</h2>
+<table class="table table-bordered">
+  <colgroup>
+    <col class="model-name" />
+    <col class="color" />
+    <col class="available-perspectives" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Color</th>
+      <th>Available Perspectives</th>
+      <th>Credits</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
+      deviceArray.map((device) => {
+        return (
+          <tr>
+            <td>
+              <a href={"/device/" + device.device_id}>{device.name}</a>
+            </td>
+            <td>{device.desc}</td>
+            <td set:html={device.view_desc} />
+            <td set:html={device.credits} />
+          </tr>
+        );
+      })
+    }
+  </tbody>
+</table>
