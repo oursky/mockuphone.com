@@ -7,7 +7,7 @@ concurrency:
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   cd:
@@ -24,7 +24,7 @@ jobs:
       - run: npm ci
       - name: Set env to staging
         run: |
-          if [[ "${{ github.ref_name }}" == "master" ]]; then
+          if [[ "${{ github.ref_name }}" == "main" ]]; then
             echo "ENV=staging" >> $GITHUB_ENV
           elif [[ "${{ github.ref_name }}" == "production" ]]; then
             echo "ENV=production" >> $GITHUB_ENV
