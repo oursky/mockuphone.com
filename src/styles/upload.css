@@ -185,9 +185,23 @@ main {
 }
 
 .file-uploaded__heading {
+  display: flex;
   margin: 0;
   font-weight: 700;
   font-size: 14px;
+  align-items: center;
+}
+
+.file-uploaded__heading::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 13px;
+  margin: 0 10px 0 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/Images/upload-icon.svg");
 }
 
 .file-list {
