@@ -34,5 +34,4 @@ jobs:
       - name: Deploy
         env:
           PAGESHIP_API: https://api.pages.pandawork.com
-        run:
-          make deploy
+        run: make deploy
