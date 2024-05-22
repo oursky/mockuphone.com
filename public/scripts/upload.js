@@ -53,6 +53,7 @@ class FileListViewModel {
       isProcessing: mobx.computed,
       isReadyForMockup: mobx.computed,
       add: mobx.action,
+      remove: mobx.action,
     });
     this.maxFileSizeByte = maxFileSizeByte;
   }
@@ -89,6 +90,14 @@ class FileListViewModel {
       }
       this._imageUploads.push(imageUpload);
     }
+  }
+
+  async remove(filename, index) {
+    this._imageUploads = this._imageUploads.filter((upload, i) => {
+      const isSameFilename = upload.file.name === filename;
+      const isSameIndex = i === index;
+      return !(isSameFilename && isSameIndex);
+    });
   }
 }
 
@@ -206,10 +215,21 @@ function appendInitialFileListItem(fileIndex, filename) {
   itemNode.classList.add("file-list-item");
   itemNode.dataset.fileIndex = fileIndex;
 
-  const filenameNode = document.createElement("div");
-  filenameNode.classList.add("file-list-item__filename");
+  const headerNode = document.createElement("div");
+  headerNode.classList.add("file-list-item__filename");
+  const filenameNode = document.createElement("span");
   filenameNode.innerText = filename;
-  itemNode.appendChild(filenameNode);
+  filenameNode.classList.add("file-list-item__filename-content");
+  headerNode.appendChild(filenameNode);
+
+  const crossNode = document.createElement("button");
+  crossNode.classList.add("file-list-item__cross");
+  crossNode.onclick = async () => {
+    await window.viewModel.fileList.remove(filename, fileIndex);
+  };
+  headerNode.appendChild(crossNode);
+
+  itemNode.appendChild(headerNode);
 
   itemNode.insertAdjacentHTML(
     "beforeend",
@@ -224,6 +244,11 @@ function appendInitialFileListItem(fileIndex, filename) {
   );
 
   return fileListNode.appendChild(itemNode);
+}
+
+function removeAllFileListItems() {
+  const fileListNode = document.querySelector(".file-list");
+  fileListNode.replaceChildren();
 }
 
 function updateFileListItem(itemNode, imageUpload) {
@@ -331,6 +356,8 @@ function updateFileListItem(itemNode, imageUpload) {
         break;
     }
   }
+
+  // add cross button behavior
 }
 
 function main() {
@@ -452,6 +479,25 @@ function main() {
         (imageUpload) => imageUpload.readState,
       ),
     async () => {
+      const imageUploads = viewModel.fileList.imageUploads;
+      for (let i = 0; i < imageUploads.length; ++i) {
+        let itemNode = findFileListItem(i);
+        if (itemNode == null) {
+          itemNode = appendInitialFileListItem(i, imageUploads[i].file.name);
+        }
+        updateFileListItem(itemNode, imageUploads[i]);
+      }
+    },
+    {
+      equals: mobx.comparer.shallow,
+    },
+  );
+
+  // observe fileListViewModel: imageUploads[].length
+  mobx.reaction(
+    () => viewModel.fileList.imageUploads.length,
+    async () => {
+      removeAllFileListItems(); // remove then re-render
       const imageUploads = viewModel.fileList.imageUploads;
       for (let i = 0; i < imageUploads.length; ++i) {
         let itemNode = findFileListItem(i);

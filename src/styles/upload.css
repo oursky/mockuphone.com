@@ -235,6 +235,32 @@ main {
   line-height: 21px;
 }
 
+.file-list-item__filename-content {
+  flex-grow: 1;
+}
+
+.file-list-item__cross {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/Images/cross-gray.svg");
+  background-color: white;
+  margin-right: 2px;
+  cursor: pointer;
+}
+
+.file-list-item__cross:hover {
+  background-color: var(--gray-5);
+}
+
+.file-list-item__cross:active {
+  background-color: var(--gray-4);
+}
+
 .file-list-item .file-list-item__filename::before {
   content: "";
   display: block;
