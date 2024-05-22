@@ -8,7 +8,7 @@ on: [push, pull_request]
 jobs:
   ci:
     name: ci
-    runs-on: [self-hosted, linux, x64, v1]
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
