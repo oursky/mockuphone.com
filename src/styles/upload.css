@@ -189,13 +189,6 @@ main {
   font-weight: 700;
   font-size: 14px;
 }
-.file-uploaded__heading::after {
-  content: "";
-  display: block;
-  margin: 20px -20px 0 -20px;
-  width: calc(100% + 40px);
-  border-bottom: 1px solid var(--gray-5);
-}
 
 .file-list {
   list-style: none;
@@ -203,15 +196,16 @@ main {
   padding: 0;
 }
 
-.file-list-item {
-  margin: 15px 0 0 0;
-}
-.file-list-item::after {
+.file-list::after {
   content: "";
   display: block;
   margin: 15px -20px 0 -20px;
   width: calc(100% + 40px);
   border-bottom: 1px solid var(--gray-5);
+}
+
+.file-list-item {
+  margin: 15px 0 0 0;
 }
 
 .file-list-item__filename {
