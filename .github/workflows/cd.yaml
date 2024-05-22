@@ -12,7 +12,7 @@ on:
 jobs:
   cd:
     name: cd
-    runs-on: [self-hosted, linux, x64, v1]
+    runs-on: ubuntu-22.04
     permissions:
       contents: read
       id-token: write
