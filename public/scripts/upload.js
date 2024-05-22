@@ -17,9 +17,9 @@ function ready(fn) {
 ready(main);
 
 async function runWorker(worker) {
-  imageUploadList = viewModel.fileList._imageUploads.map(
-    (item) => item.imageFile,
-  );
+  imageUploadList = viewModel.fileList._imageUploads
+    .filter((i) => i.isSuccessState)
+    .map((item) => item.imageFile);
   worker.postMessage({
     imageUploadList: imageUploadList,
     location: window.location.toString(),
