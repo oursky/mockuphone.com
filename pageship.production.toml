@@ -1,11 +1,10 @@
 [app]
-id = "mockuphone-prod"
+id = "mockuphone-prod-clone"
 
 team = [
     # Allow GitHub Actions in your repo to deploy
-    { gitHubRepositoryActions="oursky/mockuphone", access="deployer" },
-    { gitHubRepositoryActions="joec1368/mockuphone", access="deployer" },
-    { gitHubRepositoryActions="MarkRunWu/mockuphone", access="deployer" }
+    { gitHubRepositoryActions="oursky/mockuphone.com", access="deployer" },
+    { gitHubRepositoryActions="pkong-ds/mockuphone.com", access="deployer" }
 ]
 
 
@@ -16,9 +15,9 @@ team = [
 [[app.sites]]
 name = "main"
 
-[[app.domains]]
-domain = "mockuphone.com"
-site = "main"
+# [[app.domains]]
+# domain = "mockuphone.com"
+# site = "main"
 
 [site]
 public = "dist"
