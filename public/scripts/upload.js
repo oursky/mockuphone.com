@@ -3,9 +3,9 @@ Require: mobx,
          utils/images.js, services/presign.js, models/image-upload.js
 */
 const isDebug = false;
-const maxFileSizeByte = 104857600;
-const maxFileSizeReadable = "100 MB";
-const maxMockupWaitSec = 1000000000;
+const MAX_FILE_SIZE_BYTE = 104857600;
+const MAX_FILE_SIZE_READABLE = "100 MB";
+const MAX_MOCKUP_WAIT_SEC = 1000000000;
 
 function ready(fn) {
   if (document.readyState != "loading") {
@@ -17,9 +17,9 @@ function ready(fn) {
 ready(main);
 
 async function runWorker(worker) {
-  imageUploadList = viewModel.fileList._imageUploads.map(
-    (item) => item.imageFile,
-  );
+  imageUploadList = viewModel.fileList._imageUploads
+    .filter((i) => i.isSuccessState)
+    .map((item) => item.imageFile);
   worker.postMessage({
     imageUploadList: imageUploadList,
     location: window.location.toString(),
@@ -53,9 +53,9 @@ class FileListViewModel {
       isProcessing: mobx.computed,
       isReadyForMockup: mobx.computed,
       add: mobx.action,
+      remove: mobx.action,
     });
     this.maxFileSizeByte = maxFileSizeByte;
-    this._changeState();
   }
 
   get imageUploads() {
@@ -71,7 +71,7 @@ class FileListViewModel {
   get isReadyForMockup() {
     return (
       !this.isProcessing &&
-      this._imageUploads.some((imageUpload) => imageUpload.isDoneState)
+      this._imageUploads.some((imageUpload) => imageUpload.isSuccessState)
     );
   }
 
@@ -84,26 +84,20 @@ class FileListViewModel {
     }
 
     for (const file of files) {
-      const imageUpload = new ImageUpload(file, maxFileSizeByte);
-      await imageUpload.loadDimensionPromise;
-
+      const imageUpload = new ImageUpload(file, MAX_FILE_SIZE_BYTE);
+      if (imageUpload.loadDimensionPromise != null) {
+        await imageUpload.loadDimensionPromise;
+      }
       this._imageUploads.push(imageUpload);
     }
   }
 
-  _changeState() {
-    mobx.reaction(
-      () => this.imageUploads.map((imageUpload) => imageUpload.uploadState),
-      () => {
-        const tasks = [];
-        for (const imageUpload of this._imageUploads) {
-          imageUpload.uploadState = UploadState.Uploaded;
-        }
-      },
-      {
-        equals: mobx.comparer.shallow,
-      },
-    );
+  async remove(filename, index) {
+    this._imageUploads = this._imageUploads.filter((upload, i) => {
+      const isSameFilename = upload.file.name === filename;
+      const isSameIndex = i === index;
+      return !(isSameFilename && isSameIndex);
+    });
   }
 }
 
@@ -221,10 +215,21 @@ function appendInitialFileListItem(fileIndex, filename) {
   itemNode.classList.add("file-list-item");
   itemNode.dataset.fileIndex = fileIndex;
 
-  const filenameNode = document.createElement("div");
-  filenameNode.classList.add("file-list-item__filename");
+  const headerNode = document.createElement("div");
+  headerNode.classList.add("file-list-item__filename");
+  const filenameNode = document.createElement("span");
   filenameNode.innerText = filename;
-  itemNode.appendChild(filenameNode);
+  filenameNode.classList.add("file-list-item__filename-content");
+  headerNode.appendChild(filenameNode);
+
+  const crossNode = document.createElement("button");
+  crossNode.classList.add("file-list-item__cross");
+  crossNode.onclick = async () => {
+    await window.viewModel.fileList.remove(filename, fileIndex);
+  };
+  headerNode.appendChild(crossNode);
+
+  itemNode.appendChild(headerNode);
 
   itemNode.insertAdjacentHTML(
     "beforeend",
@@ -239,6 +244,11 @@ function appendInitialFileListItem(fileIndex, filename) {
   );
 
   return fileListNode.appendChild(itemNode);
+}
+
+function removeAllFileListItems() {
+  const fileListNode = document.querySelector(".file-list");
+  fileListNode.replaceChildren();
 }
 
 function updateFileListItem(itemNode, imageUpload) {
@@ -290,7 +300,7 @@ function updateFileListItem(itemNode, imageUpload) {
     isSameAspectRatio(imageDim, recommendDim) ||
     isSameAspectRatio(imageDimRotate, recommendDim);
   const shouldShowAspectRatioWarning =
-    imageUpload.uploadState !== UploadState.ReadingFile && !isCorrectDim;
+    imageUpload.readState !== ReadState.Reading && !isCorrectDim;
   // Update status icon
   // error status has higher precedence over warning
   if (imageUpload.isErrorState) {
@@ -299,7 +309,7 @@ function updateFileListItem(itemNode, imageUpload) {
   } else if (shouldShowAspectRatioWarning) {
     itemNode.classList.add("file-list-item--warning");
   }
-  if (imageUpload.isDoneState) {
+  if (imageUpload.isSuccessState) {
     setTimeout(() => {
       itemNode.classList.remove("file-list-item--progress");
     }, 10);
@@ -309,15 +319,14 @@ function updateFileListItem(itemNode, imageUpload) {
   }
   // update hint text
   if (imageUpload.isErrorState) {
-    switch (imageUpload.uploadState) {
-      case UploadState.ErrUnsupportedFileType:
+    switch (imageUpload.readState) {
+      case ReadState.ErrUnsupportedFileType:
         hintNode.innerText = "File extensions should be in JPG, PNG or PSD.";
         break;
-      case UploadState.ErrExceedMaxFileSize:
-        hintNode.innerText = `File size should be less than ${maxFileSizeReadable}.`;
+      case ReadState.ErrExceedMaxFileSize:
+        hintNode.innerText = `File size should be less than ${MAX_FILE_SIZE_READABLE}.`;
         break;
-      case UploadState.ErrPresign:
-      case UploadState.ErrUpload:
+      case ReadState.ErrRead:
       default:
         hintNode.innerText =
           "Something went wrong. Please try upload again or refresh the page.";
@@ -329,20 +338,16 @@ function updateFileListItem(itemNode, imageUpload) {
     )} (ideally ${recommendDim.width}px * ${recommendDim.height}px).`;
   }
   // update progress bar
-  if (imageUpload.isProcessingState || imageUpload.isDoneState) {
-    switch (imageUpload.uploadState) {
-      case UploadState.ReadingFile:
-      case UploadState.ReadyForPresign:
-        progressFillNode.classList.add("file-list-item__progress-bar-fill--30");
-        break;
-      case UploadState.Presigning:
-      case UploadState.ReadyForUpload:
+  if (imageUpload.isProcessingState || imageUpload.isSuccessState) {
+    progressFillNode.classList.add("file-list-item__progress-bar-fill--30");
+    switch (imageUpload.readState) {
+      case ReadState.ReadyForRead:
         progressFillNode.classList.add("file-list-item__progress-bar-fill--60");
         break;
-      case UploadState.Uploading:
+      case ReadState.Reading:
         progressFillNode.classList.add("file-list-item__progress-bar-fill--90");
         break;
-      case UploadState.Uploaded:
+      case ReadState.ReadSuccess:
         progressFillNode.classList.add(
           "file-list-item__progress-bar-fill--100",
         );
@@ -351,6 +356,8 @@ function updateFileListItem(itemNode, imageUpload) {
         break;
     }
   }
+
+  // add cross button behavior
 }
 
 function main() {
@@ -364,8 +371,8 @@ function main() {
     ".generating-modal-dialog__cancel-btn",
   );
 
-  const fileListViewModel = new FileListViewModel(maxFileSizeByte);
-  const viewModel = new RootViewModel(maxMockupWaitSec, fileListViewModel);
+  const fileListViewModel = new FileListViewModel(MAX_FILE_SIZE_BYTE);
+  const viewModel = new RootViewModel(MAX_MOCKUP_WAIT_SEC, fileListViewModel);
 
   window.viewModel = viewModel;
   if (isDebug) {
@@ -465,11 +472,11 @@ function main() {
     }
   });
 
-  // observe fileListViewModel: imageUploads[].uploadState
+  // observe fileListViewModel: imageUploads[].readState
   mobx.reaction(
     () =>
       viewModel.fileList.imageUploads.map(
-        (imageUpload) => imageUpload.uploadState,
+        (imageUpload) => imageUpload.readState,
       ),
     async () => {
       const imageUploads = viewModel.fileList.imageUploads;
@@ -486,14 +493,33 @@ function main() {
     },
   );
 
+  // observe fileListViewModel: imageUploads[].length
+  mobx.reaction(
+    () => viewModel.fileList.imageUploads.length,
+    async () => {
+      removeAllFileListItems(); // remove then re-render
+      const imageUploads = viewModel.fileList.imageUploads;
+      for (let i = 0; i < imageUploads.length; ++i) {
+        let itemNode = findFileListItem(i);
+        if (itemNode == null) {
+          itemNode = appendInitialFileListItem(i, imageUploads[i].file.name);
+        }
+        updateFileListItem(itemNode, imageUploads[i]);
+      }
+    },
+    {
+      equals: mobx.comparer.shallow,
+    },
+  );
+
   if (isDebug) {
-    // observe fileListViewModel: imageUploads, imageUploads[].uploadState
+    // observe fileListViewModel: imageUploads, imageUploads[].readState
     mobx.autorun(() => {
       console.log("file list:", mobx.toJS(viewModel.fileList.imageUploads));
       console.log(
-        "upload states:",
+        "read states:",
         viewModel.fileList.imageUploads.map(
-          (imageUpload) => imageUpload.uploadState,
+          (imageUpload) => imageUpload.readState,
         ),
       );
     });

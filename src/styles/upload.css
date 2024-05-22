@@ -185,28 +185,32 @@ main {
 }
 
 .file-uploaded__heading {
+  display: flex;
   margin: 0;
   font-weight: 700;
   font-size: 14px;
+  align-items: center;
 }
-.file-uploaded__heading::after {
+
+.file-uploaded__heading::before {
   content: "";
   display: block;
-  margin: 20px -20px 0 -20px;
-  width: calc(100% + 40px);
-  border-bottom: 1px solid var(--gray-5);
+  width: 16px;
+  height: 13px;
+  margin: 0 10px 0 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/Images/upload-icon.svg");
 }
 
 .file-list {
   list-style: none;
-  margin: 0;
+  margin-top: 20px;
   padding: 0;
 }
 
-.file-list-item {
-  margin: 15px 0 0 0;
-}
-.file-list-item::after {
+.file-list::after {
   content: "";
   display: block;
   margin: 15px -20px 0 -20px;
@@ -214,33 +218,66 @@ main {
   border-bottom: 1px solid var(--gray-5);
 }
 
-.file-list-item__filename {
-  position: relative;
-  overflow: hidden;
-  padding: 0 20px 0 0;
-  text-overflow: ellipsis;
+.file-list-item {
+  margin: 8px 0 0 0;
+  border: 1px solid var(--gray-5);
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.06);
 }
 
-.file-list-item .file-list-item__filename::after {
+.file-list-item__filename {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.file-list-item__filename-content {
+  flex-grow: 1;
+}
+
+.file-list-item__cross {
   content: "";
-  position: absolute;
-  top: 2px;
-  right: 0;
   display: block;
   width: 20px;
   height: 20px;
-  margin: 0 0 0 auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/Images/cross-gray.svg");
+  background-color: white;
+  margin-right: 2px;
+  cursor: pointer;
+}
+
+.file-list-item__cross:hover {
+  background-color: var(--gray-5);
+}
+
+.file-list-item__cross:active {
+  background-color: var(--gray-4);
+}
+
+.file-list-item .file-list-item__filename::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 0 8px 0 0;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
-.file-list-item--done .file-list-item__filename::after {
+.file-list-item--done .file-list-item__filename::before {
   background-image: url("/Images/upload-done.svg");
 }
-.file-list-item--warning .file-list-item__filename::after {
+.file-list-item--warning .file-list-item__filename::before {
   background-image: url("/Images/upload-warning.svg");
 }
-.file-list-item--error .file-list-item__filename::after {
+.file-list-item--error .file-list-item__filename::before {
   background-image: url("/Images/upload-error.svg");
 }
 
