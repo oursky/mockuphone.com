@@ -1,5 +1,5 @@
 [app]
-id = "mockuphone-staging-clone"
+id = "mockuphone-staging"
 
 team = [
     # Allow GitHub Actions in your repo to deploy
@@ -15,9 +15,9 @@ team = [
 [[app.sites]]
 name = "main"
 
-# [[app.domains]]
-# domain = "staging.mockuphone.com"
-# site = "main"
+[[app.domains]]
+domain = "staging.mockuphone.com"
+site = "main"
 
 [site]
 public = "dist"

@@ -25,7 +25,7 @@ jobs:
       - name: Set env to staging
         run: |
           if [[ "${{ github.ref_name }}" == "main" ]]; then
-            echo "ENV=dev" >> $GITHUB_ENV
+            echo "ENV=staging" >> $GITHUB_ENV
           elif [[ "${{ github.ref_name }}" == "production" ]]; then
             echo "ENV=production" >> $GITHUB_ENV
           fi
