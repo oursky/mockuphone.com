@@ -8,7 +8,7 @@ PAGESHIP_API := https://api.pages.pandawork.com
 ifeq ($(GITHUB_REF_NAME),production)
 ENV ?= $(GITHUB_REF_NAME)
 else
-ENV ?= staging
+ENV ?= dev
 endif
 
 ifeq (${ACTIONS_ID_TOKEN_REQUEST_URL},)
