@@ -3,7 +3,7 @@
 ##################################
 
 PYTHON_PREFIX := python3 -m
-PAGESHIP_API := https://api.pages.pandawork.com
+PAGESHIP_API := https://api.pages.oursky.app
 
 ifeq ($(GITHUB_REF_NAME),production)
 ENV ?= $(GITHUB_REF_NAME)
