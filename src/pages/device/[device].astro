@@ -77,22 +77,13 @@ const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
   <script define:vars={{ deviceJson }}>
     window.deviceInfo = deviceJson;
   </script>
-
   <div class="mockup-content">
     <div class="mockup-lg-left">
       <header class="device-header">
         <h2 class="device-header__name">{deviceDatail.name}</h2>
         <p class="device-header__desc">{deviceDatail.desc}</p>
       </header>
-
-      <form
-        class="upload"
-        id="targetForm"
-        action="/api/presign"
-        method="POST"
-        accept-charset="utf-8"
-        enctype="multipart/form-data"
-      >
+      <div class="device">
         <div class="upload__inner-box">
           <img
             class="upload__device-image"
@@ -126,7 +117,7 @@ const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
           <h3 class="uploading__text">Uploading...</h3>
         </div>
         <input type="hidden" name="phone" value={deviceDatail.device_id} />
-      </form>
+      </div>
     </div>
 
     <div class="mockup-lg-right">
@@ -180,18 +171,16 @@ const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
         >
       </section>
     </div>
-  </div>
-
-  <div class="generating-modal d-none">
-    <div class="generating-modal__overlay"></div>
-    <div class="generating-modal-dialog">
-      <div class="generating-modal__spinner"></div>
-      <h3 class="generating-modal-dialog__text">Generating...</h3>
-      <button class="generating-modal-dialog__cancel-btn">Cancel</button>
+    <div class="generating-modal d-none">
+      <div class="generating-modal__overlay"></div>
+      <div class="generating-modal-dialog">
+        <div class="generating-modal__spinner"></div>
+        <h3 class="generating-modal-dialog__text">Generating...</h3>
+        <button class="generating-modal-dialog__cancel-btn">Cancel</button>
+      </div>
     </div>
   </div>
 </DeviceBaseLayout>
-
 <ErrorPage pageId="webassembly-not-supported" paddingTop="50px">
   <p slot="title">
     This browser doesn't support web assembly<br />
@@ -220,3 +209,7 @@ const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
     </ul>
   </div>
 </ErrorPage>
+
+<div id="drop-zone-overlay" class="drop-zone-overlay">
+  Drop your screenshot anywhere.
+</div>

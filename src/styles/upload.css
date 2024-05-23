@@ -49,14 +49,42 @@ main {
 }
 
 .upload {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 20;
+}
+.drop-zone-overlay {
+  background-color: rgba(0, 67, 224, 0.8);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: none; /* default hide */
+}
+
+.drop-zone-overlay__show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 62px;
+}
+
+.drop-zone-overlay__show * {
+  pointer-events: none;
+}
+
+.device {
   position: relative;
   padding-top: 100%;
   width: 100%;
   border: 1px solid var(--gray-5);
   box-sizing: border-box;
-}
-.upload--dragenter * {
-  pointer-events: none;
 }
 
 .upload__inner-box {
@@ -67,9 +95,6 @@ main {
   bottom: 0;
   margin: 15px;
   padding: 10px 20px;
-}
-.upload--dragenter .upload-guide {
-  background: rgba(255, 255, 255, 0.5);
 }
 
 .upload__device-image {
