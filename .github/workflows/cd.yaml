@@ -7,7 +7,7 @@ concurrency:
 on:
   push:
     branches:
-      - do-not-run-cd # dont run cd until pageship deployment with github OIDC token is resolved
+      - main
 
 jobs:
   cd:
@@ -29,9 +29,9 @@ jobs:
           elif [[ "${{ github.ref_name }}" == "production" ]]; then
             echo "ENV=production" >> $GITHUB_ENV
           fi
-      - name: build html
+      - name: Build html
         run: npm run build
       - name: Deploy
         env:
-          PAGESHIP_API: https://api.pages.pandawork.com
+          PAGESHIP_API: https://api.pages.oursky.app
         run: make deploy
