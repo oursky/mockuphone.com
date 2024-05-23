@@ -5,9 +5,12 @@ concurrency:
   cancel-in-progress: true
 
 on:
+  pull_request:
+    branches:
+      - test-cd
   push:
     branches:
-      - do-not-run-cd # dont run cd until pageship deployment with github OIDC token is resolved
+      - test-cd # dont run cd until pageship deployment with github OIDC token is resolved
 
 jobs:
   cd:
@@ -21,15 +24,63 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Debug github actions env variables
+        run: |
+          echo hihi
+          echo hihi2
+          echo ACTIONS_RUNTIME_TOKEN___${ACTIONS_RUNTIME_TOKEN}
+          echo ${ACTIONS_ID_TOKEN_REQUEST_URL}
+          echo $ACTIONS_RUNTIME_TOKEN
+          echo $ACTIONS_ID_TOKEN_REQUEST_URL
+          echo ------------
+          env
+          echo hihiend
+      # START https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers#requesting-the-jwt-using-the-actions-core-toolkit
+      - name: Install OIDC Client from Core Package
+        run: npm install @actions/core@1.6.0 @actions/http-client
+      - name: Get Id Token
+        uses: actions/github-script@v6
+        id: idtoken
+        with:
+          script: |
+            const coredemo = require('@actions/core')
+            let id_token = await coredemo.getIDToken()
+            console.log(id_token)
+            coredemo.setOutput('id_token', id_token)
+      # END https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers#requesting-the-jwt-using-the-actions-core-toolkit
+      # START https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers#requesting-the-jwt-using-environment-variables
+      - uses: actions/github-script@v6
+        id: script
+        timeout-minutes: 10
+        with:
+          debug: true
+          script: |
+            const token = process.env['ACTIONS_RUNTIME_TOKEN']
+            const runtimeUrl = process.env['ACTIONS_ID_TOKEN_REQUEST_URL']
+            core.setOutput('TOKEN', token.trim())
+            core.setOutput('IDTOKENURL', runtimeUrl.trim())
+      - run: |
+          IDTOKEN=$(curl -H "Authorization: bearer  ${{steps.script.outputs.TOKEN}}" ${{steps.script.outputs.IDTOKENURL}}  -H "Accept: application/json; api-version=2.0" -H "Content-Type: application/json" -d "{}" | jq -r '.value')
+          echo $IDTOKEN
+          jwtd() {
+              if [[ -x $(command -v jq) ]]; then
+                  jq -R 'split(".") | .[0],.[1] | @base64d | fromjson' <<< "${1}"
+                  echo "Signature: $(echo "${1}" | awk -F'.' '{print $3}')"
+              fi
+          }
+          jwtd $IDTOKEN
+          echo "idToken=${IDTOKEN}" >> $GITHUB_OUTPUT
+        id: tokenid
+      # END https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers#requesting-the-jwt-using-environment-variables
       - run: npm ci
       - name: Set env to staging
         run: |
           if [[ "${{ github.ref_name }}" == "main" ]]; then
-            echo "ENV=staging" >> $GITHUB_ENV
+            echo "ENV=dev" >> $GITHUB_ENV
           elif [[ "${{ github.ref_name }}" == "production" ]]; then
             echo "ENV=production" >> $GITHUB_ENV
           fi
-      - name: build html
+      - name: Build html
         run: npm run build
       - name: Deploy
         env:
