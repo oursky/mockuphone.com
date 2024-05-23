@@ -362,8 +362,9 @@ function updateFileListItem(itemNode, imageUpload) {
 function main() {
   const htmlNode = document.querySelector("html");
   const uploadBtn = document.querySelector(".upload-guide__browse-btn");
+  const uploadGuideHint = document.querySelector(".upload-guide__hint");
   const fileInput = document.querySelector(".upload-guide__file-input");
-  const fileSection = document.querySelector(".file-uploaded");
+  const fileSectionHeading = document.querySelector(".file-uploaded__heading");
   const generateBtn = document.querySelector(".generate-btn");
   const generatingModal = document.querySelector(".generating-modal");
   const cancelMockupBtn = document.querySelector(
@@ -438,14 +439,19 @@ function main() {
     viewModel.cancelMockup();
   });
 
-  // when some file uploaded, show file section
-  mobx.when(
-    () => viewModel.fileList.imageUploads.length > 0,
+  // when some file uploaded/removed
+  mobx.reaction(
+    () => viewModel.fileList.imageUploads.length,
     () => {
-      fileSection.classList.remove("d-none");
+      if (viewModel.fileList.imageUploads.length > 0) {
+        fileSectionHeading.innerText = "FILE UPLOADED";
+        uploadGuideHint.classList.add("d-none");
+      } else {
+        fileSectionHeading.innerText = "FILE UPLOAD";
+        uploadGuideHint.classList.remove("d-none");
+      }
     },
   );
-
   // observe viewModel: isFileDragEnter
   const dropZoneOverlay = document.querySelector("#drop-zone-overlay");
 
