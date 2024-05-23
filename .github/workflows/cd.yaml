@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - main
+      - production
 
 jobs:
   cd:
@@ -22,7 +23,7 @@ jobs:
         with:
           node-version: 18
       - run: npm ci
-      - name: Set env to staging
+      - name: Set env to staging/production
         run: |
           if [[ "${{ github.ref_name }}" == "main" ]]; then
             echo "ENV=staging" >> $GITHUB_ENV
