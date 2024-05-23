@@ -77,22 +77,13 @@ const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
   <script define:vars={{ deviceJson }}>
     window.deviceInfo = deviceJson;
   </script>
-
   <div class="mockup-content">
     <div class="mockup-lg-left">
       <header class="device-header">
         <h2 class="device-header__name">{deviceDatail.name}</h2>
         <p class="device-header__desc">{deviceDatail.desc}</p>
       </header>
-
-      <form
-        class="upload"
-        id="targetForm"
-        action="/api/presign"
-        method="POST"
-        accept-charset="utf-8"
-        enctype="multipart/form-data"
-      >
+      <div class="device">
         <div class="upload__inner-box">
           <img
             class="upload__device-image"
@@ -100,17 +91,19 @@ const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
             alt={deviceDatail.imagePath?.[0][1]}
           />
         </div>
-        <div class="upload__background"></div>
+        <!-- FIXME: confirm if need uploading with webassembly or not -->
+        <input type="hidden" name="phone" value={deviceDatail.device_id} />
+      </div>
+    </div>
+
+    <div class="mockup-lg-right">
+      <section class="file-uploaded">
+        <h3 class="file-uploaded__heading">FILE UPLOAD</h3>
         <div class="upload-guide">
-          <img src="/Images/upload.svg" />
-          <h3 class="upload-guide__title">Upload your image here</h3>
-          <p class="upload-guide__hint">
-            Recommend size {deviceDatail.display_resolution?.[0]}px * {
-              deviceDatail.display_resolution?.[1]
-            }px, We support jpg, png and psd
-          </p>
+          <img src="/Images/upload-blue.svg" />
+          <h3 class="upload-guide__title">Upload your images here</h3>
           <label class="upload-guide__browse-btn" for="file[]"
-            >Browse Files</label
+            >Or browse files</label
           >
           <input
             class="upload-guide__file-input"
@@ -121,17 +114,11 @@ const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
             multiple
           />
         </div>
-        <div class="uploading d-none">
-          <div class="uploading__spinner"></div>
-          <h3 class="uploading__text">Uploading...</h3>
-        </div>
-        <input type="hidden" name="phone" value={deviceDatail.device_id} />
-      </form>
-    </div>
-
-    <div class="mockup-lg-right">
-      <section class="file-uploaded d-none">
-        <h3 class="file-uploaded__heading">FILE UPLOADED</h3>
+        <p class="upload-guide__hint">
+          Recommend size {deviceDatail.display_resolution?.[0]}px * {
+            deviceDatail.display_resolution?.[1]
+          }px, We support jpg, png and psd
+        </p>
         <ul class="file-list"></ul>
         <button disabled class="generate-btn">Generate product mockups</button>
         <button style="display:none" class="start-mockup-btn"
@@ -141,7 +128,7 @@ const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
 
       <section class="device-info">
         <div class="device-support">
-          <h3 class="device-support__heading">THIS DEVICE SUPPORTS</h3>
+          <h3 class="device-support__heading">DEVICE ORIENTATIONS</h3>
           <ul class="device-support__orientation-list">
             {
               deviceDatail.imagePath?.map((path: string[]) => (
@@ -180,18 +167,16 @@ const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
         >
       </section>
     </div>
-  </div>
-
-  <div class="generating-modal d-none">
-    <div class="generating-modal__overlay"></div>
-    <div class="generating-modal-dialog">
-      <div class="generating-modal__spinner"></div>
-      <h3 class="generating-modal-dialog__text">Generating...</h3>
-      <button class="generating-modal-dialog__cancel-btn">Cancel</button>
+    <div class="generating-modal d-none">
+      <div class="generating-modal__overlay"></div>
+      <div class="generating-modal-dialog">
+        <div class="generating-modal__spinner"></div>
+        <h3 class="generating-modal-dialog__text">Generating...</h3>
+        <button class="generating-modal-dialog__cancel-btn">Cancel</button>
+      </div>
     </div>
   </div>
 </DeviceBaseLayout>
-
 <ErrorPage pageId="webassembly-not-supported" paddingTop="50px">
   <p slot="title">
     This browser doesn't support web assembly<br />
@@ -220,3 +205,7 @@ const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
     </ul>
   </div>
 </ErrorPage>
+
+<div id="drop-zone-overlay" class="drop-zone-overlay">
+  Drop your screenshot anywhere.
+</div>

@@ -2,6 +2,7 @@
 Require: mobx,
          utils/images.js, services/presign.js, models/image-upload.js
 */
+let dragZoneCounter = 0; // https://stackoverflow.com/a/21002544/19287186
 const isDebug = false;
 const MAX_FILE_SIZE_BYTE = 104857600;
 const MAX_FILE_SIZE_READABLE = "100 MB";
@@ -321,7 +322,7 @@ function updateFileListItem(itemNode, imageUpload) {
   if (imageUpload.isErrorState) {
     switch (imageUpload.readState) {
       case ReadState.ErrUnsupportedFileType:
-        hintNode.innerText = "File extensions should be in JPG, PNG or PSD.";
+        hintNode.innerText = "Supported file extensions: JPG, PNG or PSD.";
         break;
       case ReadState.ErrExceedMaxFileSize:
         hintNode.innerText = `File size should be less than ${MAX_FILE_SIZE_READABLE}.`;
@@ -333,7 +334,7 @@ function updateFileListItem(itemNode, imageUpload) {
         break;
     }
   } else if (shouldShowAspectRatioWarning) {
-    hintNode.innerText = `This file has a different aspect ratio than ${recommendAspectRatio.toPrecision(
+    hintNode.innerText = `File aspect ratio differs from ${recommendAspectRatio.toPrecision(
       3,
     )} (ideally ${recommendDim.width}px * ${recommendDim.height}px).`;
   }
@@ -356,15 +357,14 @@ function updateFileListItem(itemNode, imageUpload) {
         break;
     }
   }
-
-  // add cross button behavior
 }
 
 function main() {
-  const uploadForm = document.querySelector(".upload");
+  const htmlNode = document.querySelector("html");
   const uploadBtn = document.querySelector(".upload-guide__browse-btn");
+  const uploadGuideHint = document.querySelector(".upload-guide__hint");
   const fileInput = document.querySelector(".upload-guide__file-input");
-  const fileSection = document.querySelector(".file-uploaded");
+  const fileSectionHeading = document.querySelector(".file-uploaded__heading");
   const generateBtn = document.querySelector(".generate-btn");
   const generatingModal = document.querySelector(".generating-modal");
   const cancelMockupBtn = document.querySelector(
@@ -379,7 +379,7 @@ function main() {
     window.viewModel = viewModel;
   }
 
-  preventDefault(uploadForm, [
+  preventDefault(htmlNode, [
     "drag",
     "dragend",
     "dragenter",
@@ -390,15 +390,17 @@ function main() {
     "drop",
   ]);
 
-  const handleUploadFormDragEnter = (e) => {
+  const handlehtmlNodeDragEnter = (e) => {
+    dragZoneCounter++;
     viewModel.isFileDragEnter = true;
   };
-  const handleUploadFormDragLeave = (e) => {
-    if (e.target.isSameNode(uploadForm)) {
+  const handlehtmlNodeDragLeave = (e) => {
+    dragZoneCounter--;
+    if (dragZoneCounter === 0) {
       viewModel.isFileDragEnter = false;
     }
   };
-  const handleUploadFormDrop = async (e) => {
+  const handlehtmlNodeDrop = async (e) => {
     viewModel.isFileDragEnter = false;
     await viewModel.fileList.add(Array.from(e.dataTransfer.files));
   };
@@ -407,22 +409,22 @@ function main() {
   };
   const handleFileInputChange = async (e) => {
     await viewModel.fileList.add(Array.from(e.target.files));
-    uploadForm.reset();
+    htmlNode.reset();
   };
 
   // observe fileListViewModel: isProcessing
   mobx.autorun(() => {
     if (viewModel.fileList.isProcessing) {
-      uploadForm.removeEventListener("dragenter", handleUploadFormDragEnter);
-      uploadForm.removeEventListener("dragleave", handleUploadFormDragLeave);
-      uploadForm.removeEventListener("drop", handleUploadFormDrop);
+      htmlNode.removeEventListener("dragenter", handlehtmlNodeDragEnter);
+      htmlNode.removeEventListener("dragleave", handlehtmlNodeDragLeave);
+      htmlNode.removeEventListener("drop", handlehtmlNodeDrop);
       uploadBtn.removeEventListener("click", handleUploadBtnClick);
       fileInput.removeEventListener("change", handleFileInputChange);
       showUploading();
     } else {
-      uploadForm.addEventListener("dragenter", handleUploadFormDragEnter);
-      uploadForm.addEventListener("dragleave", handleUploadFormDragLeave);
-      uploadForm.addEventListener("drop", handleUploadFormDrop);
+      htmlNode.addEventListener("dragenter", handlehtmlNodeDragEnter);
+      htmlNode.addEventListener("dragleave", handlehtmlNodeDragLeave);
+      htmlNode.addEventListener("drop", handlehtmlNodeDrop);
       uploadBtn.addEventListener("click", handleUploadBtnClick);
       fileInput.addEventListener("change", handleFileInputChange);
       dismissUploading();
@@ -437,20 +439,27 @@ function main() {
     viewModel.cancelMockup();
   });
 
-  // when some file uploaded, show file section
-  mobx.when(
-    () => viewModel.fileList.imageUploads.length > 0,
+  // when some file uploaded/removed
+  mobx.reaction(
+    () => viewModel.fileList.imageUploads.length,
     () => {
-      fileSection.classList.remove("d-none");
+      if (viewModel.fileList.imageUploads.length > 0) {
+        fileSectionHeading.innerText = "FILE UPLOADED";
+        uploadGuideHint.classList.add("d-none");
+      } else {
+        fileSectionHeading.innerText = "FILE UPLOAD";
+        uploadGuideHint.classList.remove("d-none");
+      }
     },
   );
-
   // observe viewModel: isFileDragEnter
+  const dropZoneOverlay = document.querySelector("#drop-zone-overlay");
+
   mobx.autorun(() => {
     if (viewModel.isFileDragEnter) {
-      uploadForm.classList.add("upload--dragenter");
+      dropZoneOverlay.classList.add("drop-zone-overlay__show");
     } else {
-      uploadForm.classList.remove("upload--dragenter");
+      dropZoneOverlay.classList.remove("drop-zone-overlay__show");
     }
   });
 

@@ -27,13 +27,24 @@ pageship=docker run --rm \
 		${ARGS} \
 		ghcr.io/oursky/pageship:v0.5.1
 
-.PHONY: ci
-ci:
-	make format
-	make lint_astro
+.PHONY: dev
+dev:
+	npm run dev
+
+.PHONY: start
+start: dev
 
 .PHONY: format
 format:
+	npm run format
+
+.PHONY: ci
+ci:
+	make check-format
+	make lint_astro
+
+.PHONY: check-format
+check-format:
 	$(PYTHON_PREFIX) black --check .
 	$(PYTHON_PREFIX) ruff .
 	# TODO: upgrade prettier to 3.1 when it is available
