@@ -322,7 +322,7 @@ function updateFileListItem(itemNode, imageUpload) {
   if (imageUpload.isErrorState) {
     switch (imageUpload.readState) {
       case ReadState.ErrUnsupportedFileType:
-        hintNode.innerText = "File extensions should be in JPG, PNG or PSD.";
+        hintNode.innerText = "Supported file extensions: JPG, PNG or PSD.";
         break;
       case ReadState.ErrExceedMaxFileSize:
         hintNode.innerText = `File size should be less than ${MAX_FILE_SIZE_READABLE}.`;
@@ -334,7 +334,7 @@ function updateFileListItem(itemNode, imageUpload) {
         break;
     }
   } else if (shouldShowAspectRatioWarning) {
-    hintNode.innerText = `This file has a different aspect ratio than ${recommendAspectRatio.toPrecision(
+    hintNode.innerText = `File aspect ratio differs from ${recommendAspectRatio.toPrecision(
       3,
     )} (ideally ${recommendDim.width}px * ${recommendDim.height}px).`;
   }
