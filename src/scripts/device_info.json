@@ -3,6 +3,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Ultra",
+      "color": {
+        "name": "Ultra",
+        "hexcode": "#d3c9c0"
+      },
       "meta_title": "Apple Watch Ultra Mock Up",
       "meta_description": "1 click to generate your Apple Watch Ultra mockup! You can wrap screenshots in Apple Watch Ultra for prototypes.",
       "display_resolution": [410, 502],
@@ -38,6 +42,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Gold Stainless Steel",
+      "color": {
+        "name": "Gold Stainless Steel",
+        "hexcode": "#000000"
+      },
       "meta_title": "Apple Watch Series 8 41mm Gold Stainless Steel Mock Up",
       "meta_description": "1 click to generate your Apple Watch Series 8 41mm Gold Stainless Steel mockup! You can wrap screenshots in Apple Watch Series 8 41mm Gold Stainless Steel for prototypes.",
       "display_resolution": [352, 430],
@@ -73,6 +81,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Graphite Stainless Steel",
+      "color": {
+        "name": "Graphite Stainless Steel",
+        "hexcode": "#000000"
+      },
       "meta_title": "Apple Watch Series 8 41mm Graphite Stainless Steel Mock Up",
       "meta_description": "1 click to generate your Apple Watch Series 8 41mm Graphite Stainless Steel mockup! You can wrap screenshots in Apple Watch Series 8 41mm Graphite Stainless Steel for prototypes.",
       "display_resolution": [352, 430],
@@ -108,6 +120,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Midnight Aluminum",
+      "color": {
+        "name": "Midnight Aluminum",
+        "hexcode": "#000000"
+      },
       "meta_title": "Apple Watch Series 8 41mm Midnight Aluminum Mock Up",
       "meta_description": "1 click to generate your Apple Watch Series 8 41mm Midnight Aluminum mockup! You can wrap screenshots in Apple Watch Series 8 41mm Midnight Aluminum for prototypes.",
       "display_resolution": [352, 430],
@@ -143,6 +159,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Silver Aluminum",
+      "color": {
+        "name": "Silver Aluminum",
+        "hexcode": "#000000"
+      },
       "meta_title": "Apple Watch Series 8 41mm Silver Aluminum Mock Up",
       "meta_description": "1 click to generate your Apple Watch Series 8 41mm Silver Aluminum mockup! You can wrap screenshots in Apple Watch Series 8 41mm Silver Aluminum for prototypes.",
       "display_resolution": [352, 430],
@@ -178,6 +198,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Silver Stainless Steel",
+      "color": {
+        "name": "Silver Stainless Steel",
+        "hexcode": "#000000"
+      },
       "meta_title": "Apple Watch Series 8 41mm Silver Stainless Steel Mock Up",
       "meta_description": "1 click to generate your Apple Watch Series 8 41mm Silver Stainless Steel mockup! You can wrap screenshots in Apple Watch Series 8 41mm Silver Stainless Steel for prototypes.",
       "display_resolution": [352, 430],
@@ -213,6 +237,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Starlight Aluminum",
+      "color": {
+        "name": "Starlight Aluminum",
+        "hexcode": "#000000"
+      },
       "meta_title": "Apple Watch Series 8 41mm Starlight Aluminum Mock Up",
       "meta_description": "1 click to generate your Apple Watch Series 8 41mm Starlight Aluminum mockup! You can wrap screenshots in Apple Watch Series 8 41mm Starlight Aluminum for prototypes.",
       "display_resolution": [352, 430],
@@ -248,6 +276,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Gold Stainless Steel",
+      "color": {
+        "name": "Gold Stainless Steel",
+        "hexcode": "#000000"
+      },
       "meta_title": "Apple Watch Series 8 45mm Gold Stainless Steel Mock Up",
       "meta_description": "1 click to generate your Apple Watch Series 8 45mm Gold Stainless Steel mockup! You can wrap screenshots in Apple Watch Series 8 45mm Gold Stainless Steel for prototypes.",
       "display_resolution": [396, 484],
@@ -283,6 +315,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Graphite Stainless Steel",
+      "color": {
+        "name": "Graphite Stainless Steel",
+        "hexcode": "#000000"
+      },
       "meta_title": "Apple Watch Series 8 45mm Graphite Stainless Steel Mock Up",
       "meta_description": "1 click to generate your Apple Watch Series 8 45mm Graphite Stainless Steel mockup! You can wrap screenshots in Apple Watch Series 8 45mm Graphite Stainless Steel for prototypes.",
       "display_resolution": [396, 484],
@@ -318,6 +354,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Midnight Aluminum",
+      "color": {
+        "name": "Midnight Aluminum",
+        "hexcode": "#000000"
+      },
       "meta_title": "Apple Watch Series 8 45mm Midnight Aluminum Mock Up",
       "meta_description": "1 click to generate your Apple Watch Series 8 45mm Midnight Aluminum mockup! You can wrap screenshots in Apple Watch Series 8 45mm Midnight Aluminum for prototypes.",
       "display_resolution": [396, 484],
@@ -353,6 +393,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Silver Aluminum",
+      "color": {
+        "name": "Silver Aluminum",
+        "hexcode": "#000000"
+      },
       "meta_title": "Apple Watch Series 8 45mm Silver Aluminum Mock Up",
       "meta_description": "1 click to generate your Apple Watch Series 8 45mm Silver Aluminum mockup! You can wrap screenshots in Apple Watch Series 8 45mm Silver Aluminum for prototypes.",
       "display_resolution": [396, 484],
@@ -388,6 +432,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Silver Stainless Steel",
+      "color": {
+        "name": "Silver Stainless Steel",
+        "hexcode": "#000000"
+      },
       "meta_title": "Apple Watch Series 8 45mm Silver Stainless Steel Mock Up",
       "meta_description": "1 click to generate your Apple Watch Series 8 45mm Silver Stainless Steel mockup! You can wrap screenshots in Apple Watch Series 8 45mm Silver Stainless Steel for prototypes.",
       "display_resolution": [396, 484],
@@ -423,6 +471,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Starlight Aluminum",
+      "color": {
+        "name": "Starlight Aluminum",
+        "hexcode": "#000000"
+      },
       "meta_title": "Apple Watch Series 8 45mm Starlight Aluminum Mock Up",
       "meta_description": "1 click to generate your Apple Watch Series 8 45mm Starlight Aluminum mockup! You can wrap screenshots in Apple Watch Series 8 45mm Starlight Aluminum for prototypes.",
       "display_resolution": [396, 484],
@@ -458,6 +510,10 @@
     {
       "credits": "<p><a href=\"http://www.elegantthemes.com/blog/freebie-of-the-week/free-imac-psd-templates\">Elegant Themes</a><br/> <a href=\"https://twitter.com/@elegantthemes\">@elegantthemes</a></p>",
       "desc": "2013",
+      "color": {
+        "name": "2013",
+        "hexcode": "#000000"
+      },
       "meta_title": "iMac 2013 Mock Up",
       "meta_description": "1 click to generate your iMac 2013 mockup! You can wrap screenshots in iMac 2013 for prototypes.",
       "display_resolution": [1920, 1080],
@@ -505,6 +561,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "2015",
+      "color": {
+        "name": "2015",
+        "hexcode": "#000000"
+      },
       "meta_title": "iMac 2015 Mock Up",
       "meta_description": "1 click to generate your iMac 2015 mockup! You can wrap screenshots in iMac 2015 for prototypes.",
       "display_resolution": [1920, 1080],
@@ -530,6 +590,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "2015",
+      "color": {
+        "name": "2015",
+        "hexcode": "#000000"
+      },
       "meta_title": "iMac Retina 2016 Mock Up",
       "meta_description": "1 click to generate your iMac Retina 2016 mockup! You can wrap screenshots in iMac Retina 2016 for prototypes.",
       "display_resolution": [1920, 1080],
@@ -555,6 +619,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Blue",
+      "color": {
+        "name": "Blue",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Blue Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Blue mockup! You can wrap screenshots in iPhone 14 Blue for prototypes.",
       "display_resolution": [1170, 2532],
@@ -592,6 +660,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Midnight",
+      "color": {
+        "name": "Midnight",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Midnight Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Midnight mockup! You can wrap screenshots in iPhone 14 Midnight for prototypes.",
       "display_resolution": [1170, 2532],
@@ -629,6 +701,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Purple",
+      "color": {
+        "name": "Purple",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Purple Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Purple mockup! You can wrap screenshots in iPhone 14 Purple for prototypes.",
       "display_resolution": [1170, 2532],
@@ -666,6 +742,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Red",
+      "color": {
+        "name": "Red",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Red Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Red mockup! You can wrap screenshots in iPhone 14 Red for prototypes.",
       "display_resolution": [1170, 2532],
@@ -703,6 +783,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Starlight",
+      "color": {
+        "name": "Starlight",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Starlight Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Starlight mockup! You can wrap screenshots in iPhone 14 Starlight for prototypes.",
       "display_resolution": [1170, 2532],
@@ -740,6 +824,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Blue",
+      "color": {
+        "name": "Blue",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Plus Blue Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Plus Blue mockup! You can wrap screenshots in iPhone 14 Plus Blue for prototypes.",
       "display_resolution": [1284, 2778],
@@ -777,6 +865,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Midnight",
+      "color": {
+        "name": "Midnight",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Plus Midnight Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Plus Midnight mockup! You can wrap screenshots in iPhone 14 Plus Midnight for prototypes.",
       "display_resolution": [1284, 2778],
@@ -814,6 +906,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Purple",
+      "color": {
+        "name": "Purple",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Plus Purple Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Plus Purple mockup! You can wrap screenshots in iPhone 14 Plus Purple for prototypes.",
       "display_resolution": [1284, 2778],
@@ -851,6 +947,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Red",
+      "color": {
+        "name": "Red",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Plus Red Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Plus Red mockup! You can wrap screenshots in iPhone 14 Plus Red for prototypes.",
       "display_resolution": [1284, 2778],
@@ -888,6 +988,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Starlight",
+      "color": {
+        "name": "Starlight",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Plus Starlight Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Plus Starlight mockup! You can wrap screenshots in iPhone 14 Plus Starlight for prototypes.",
       "display_resolution": [1284, 2778],
@@ -925,6 +1029,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Deep Purple",
+      "color": {
+        "name": "Deep Purple",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Pro Deep Purple Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Pro Deep Purple mockup! You can wrap screenshots in iPhone 14 Pro Deep Purple for prototypes.",
       "display_resolution": [1179, 2556],
@@ -962,6 +1070,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Gold",
+      "color": {
+        "name": "Gold",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Pro Gold Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Pro Gold mockup! You can wrap screenshots in iPhone 14 Pro Gold for prototypes.",
       "display_resolution": [1179, 2556],
@@ -999,6 +1111,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Silver",
+      "color": {
+        "name": "Silver",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Pro Silver Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Pro Silver mockup! You can wrap screenshots in iPhone 14 Pro Silver for prototypes.",
       "display_resolution": [1179, 2556],
@@ -1036,6 +1152,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Space Black",
+      "color": {
+        "name": "Space Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Pro Space Black Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Pro Space Black mockup! You can wrap screenshots in iPhone 14 Pro Space Black for prototypes.",
       "display_resolution": [1179, 2556],
@@ -1073,6 +1193,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Deep Purple",
+      "color": {
+        "name": "Deep Purple",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Pro Max Deep Purple Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Pro Max Deep Purple mockup! You can wrap screenshots in iPhone 14 Pro Max Deep Purple for prototypes.",
       "display_resolution": [1290, 2796],
@@ -1110,6 +1234,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Gold",
+      "color": {
+        "name": "Gold",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Pro Max Gold Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Pro Max Gold mockup! You can wrap screenshots in iPhone 14 Pro Max Gold for prototypes.",
       "display_resolution": [1290, 2796],
@@ -1147,6 +1275,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Silver",
+      "color": {
+        "name": "Silver",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Pro Max Silver Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Pro Max Silver mockup! You can wrap screenshots in iPhone 14 Pro Max Silver for prototypes.",
       "display_resolution": [1290, 2796],
@@ -1184,6 +1316,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Space Black",
+      "color": {
+        "name": "Space Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 14 Pro Max Space Black Mock Up",
       "meta_description": "1 click to generate your iPhone 14 Pro Max Space Black mockup! You can wrap screenshots in iPhone 14 Pro Max Space Black for prototypes.",
       "display_resolution": [1290, 2796],
@@ -1221,6 +1357,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Space Grey",
+      "color": {
+        "name": "Space Grey",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPad Pro 11-inch Space Grey Mock Up",
       "meta_description": "1 click to generate your iPad Pro 11-inch Space Grey mockup! You can wrap screenshots in iPad Pro 11-inch Space Grey for prototypes.",
       "display_resolution": [1668, 2388],
@@ -1258,6 +1398,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Space Grey",
+      "color": {
+        "name": "Space Grey",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPad Pro 12.9-inch Space Grey Mock Up",
       "meta_description": "1 click to generate your iPad Pro 12.9-inch Space Grey mockup! You can wrap screenshots in iPad Pro 12.9-inch Space Grey for prototypes.",
       "display_resolution": [2048, 2732],
@@ -1295,6 +1439,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Space Grey",
+      "color": {
+        "name": "Space Grey",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPad Air 5 Space Grey Mock Up",
       "meta_description": "1 click to generate your iPad Air 5 Space Grey mockup! You can wrap screenshots in iPad Air 5 Space Grey for prototypes.",
       "display_resolution": [1640, 2360],
@@ -1332,6 +1480,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Silver",
+      "color": {
+        "name": "Silver",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPad Silver Mock Up",
       "meta_description": "1 click to generate your iPad Silver mockup! You can wrap screenshots in iPad Silver for prototypes.",
       "display_resolution": [1640, 2360],
@@ -1369,6 +1521,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Starlight",
+      "color": {
+        "name": "Starlight",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPad mini Starlight Mock Up",
       "meta_description": "1 click to generate your iPad mini Starlight mockup! You can wrap screenshots in iPad mini Starlight for prototypes.",
       "display_resolution": [1488, 2266],
@@ -1406,6 +1562,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Blue",
+      "color": {
+        "name": "Blue",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 Blue Mock Up",
       "meta_description": "1 click to generate your iPhone 13 Blue mockup! You can wrap screenshots in iPhone 13 Blue for prototypes.",
       "display_resolution": [1170, 2532],
@@ -1443,6 +1603,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Midnight",
+      "color": {
+        "name": "Midnight",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 Midnight Mock Up",
       "meta_description": "1 click to generate your iPhone 13 Midnight mockup! You can wrap screenshots in iPhone 13 Midnight for prototypes.",
       "display_resolution": [1170, 2532],
@@ -1480,6 +1644,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Pink",
+      "color": {
+        "name": "Pink",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 Pink Mock Up",
       "meta_description": "1 click to generate your iPhone 13 Pink mockup! You can wrap screenshots in iPhone 13 Pink for prototypes.",
       "display_resolution": [1170, 2532],
@@ -1517,6 +1685,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Red",
+      "color": {
+        "name": "Red",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 Red Mock Up",
       "meta_description": "1 click to generate your iPhone 13 Red mockup! You can wrap screenshots in iPhone 13 Red for prototypes.",
       "display_resolution": [1170, 2532],
@@ -1554,6 +1726,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Starlight",
+      "color": {
+        "name": "Starlight",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 Starlight Mock Up",
       "meta_description": "1 click to generate your iPhone 13 Starlight mockup! You can wrap screenshots in iPhone 13 Starlight for prototypes.",
       "display_resolution": [1170, 2532],
@@ -1591,6 +1767,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Blue",
+      "color": {
+        "name": "Blue",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 mini Blue Mock Up",
       "meta_description": "1 click to generate your iPhone 13 mini Blue mockup! You can wrap screenshots in iPhone 13 mini Blue for prototypes.",
       "display_resolution": [1080, 2340],
@@ -1628,6 +1808,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Midnight",
+      "color": {
+        "name": "Midnight",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 mini Midnight Mock Up",
       "meta_description": "1 click to generate your iPhone 13 mini Midnight mockup! You can wrap screenshots in iPhone 13 mini Midnight for prototypes.",
       "display_resolution": [1080, 2340],
@@ -1665,6 +1849,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Pink",
+      "color": {
+        "name": "Pink",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 mini Pink Mock Up",
       "meta_description": "1 click to generate your iPhone 13 mini Pink mockup! You can wrap screenshots in iPhone 13 mini Pink for prototypes.",
       "display_resolution": [1080, 2340],
@@ -1702,6 +1890,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Red",
+      "color": {
+        "name": "Red",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 mini Red Mock Up",
       "meta_description": "1 click to generate your iPhone 13 mini Red mockup! You can wrap screenshots in iPhone 13 mini Red for prototypes.",
       "display_resolution": [1080, 2340],
@@ -1739,6 +1931,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Starlight",
+      "color": {
+        "name": "Starlight",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 mini Starlight Mock Up",
       "meta_description": "1 click to generate your iPhone 13 mini Starlight mockup! You can wrap screenshots in iPhone 13 mini Starlight for prototypes.",
       "display_resolution": [1080, 2340],
@@ -1776,6 +1972,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Gold",
+      "color": {
+        "name": "Gold",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 Pro Gold Mock Up",
       "meta_description": "1 click to generate your iPhone 13 Pro Gold mockup! You can wrap screenshots in iPhone 13 Pro Gold for prototypes.",
       "display_resolution": [1170, 2532],
@@ -1813,6 +2013,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Graphite",
+      "color": {
+        "name": "Graphite",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 Pro Graphite Mock Up",
       "meta_description": "1 click to generate your iPhone 13 Pro Graphite mockup! You can wrap screenshots in iPhone 13 Pro Graphite for prototypes.",
       "display_resolution": [1170, 2532],
@@ -1850,6 +2054,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Sierrablue",
+      "color": {
+        "name": "Sierrablue",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 Pro Sierrablue Mock Up",
       "meta_description": "1 click to generate your iPhone 13 Pro Sierrablue mockup! You can wrap screenshots in iPhone 13 Pro Sierrablue for prototypes.",
       "display_resolution": [1170, 2532],
@@ -1887,6 +2095,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Gold",
+      "color": {
+        "name": "Gold",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 Pro Silver Mock Up",
       "meta_description": "1 click to generate your iPhone 13 Pro Silver mockup! You can wrap screenshots in iPhone 13 Pro Silver for prototypes.",
       "display_resolution": [1170, 2532],
@@ -1924,6 +2136,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Gold",
+      "color": {
+        "name": "Gold",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 Pro Max Gold Mock Up",
       "meta_description": "1 click to generate your iPhone 13 Pro Max Gold mockup! You can wrap screenshots in iPhone 13 Pro Max Gold for prototypes.",
       "display_resolution": [1284, 2778],
@@ -1961,6 +2177,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Graphite",
+      "color": {
+        "name": "Graphite",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 Pro Max Graphite Mock Up",
       "meta_description": "1 click to generate your iPhone 13 Pro Max Graphite mockup! You can wrap screenshots in iPhone 13 Pro Max Graphite for prototypes.",
       "display_resolution": [1284, 2778],
@@ -1998,6 +2218,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Sierrablue",
+      "color": {
+        "name": "Sierrablue",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 Pro Max Sierrablue Mock Up",
       "meta_description": "1 click to generate your iPhone 13 Pro Max Sierrablue mockup! You can wrap screenshots in iPhone 13 Pro Max Sierrablue for prototypes.",
       "display_resolution": [1284, 2778],
@@ -2035,6 +2259,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Silver",
+      "color": {
+        "name": "Silver",
+        "hexcode": "#000000"
+      },
       "meta_title": "iPhone 13 Pro Max Silver Mock Up",
       "meta_description": "1 click to generate your iPhone 13 Pro Max Silver mockup! You can wrap screenshots in iPhone 13 Pro Max Silver for prototypes.",
       "display_resolution": [1284, 2778],
@@ -2072,6 +2300,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Gold",
+      "color": {
+        "name": "Gold",
+        "hexcode": "#000000"
+      },
       "meta_title": "Macbook Gold Mock Up",
       "meta_description": "1 click to generate your Macbook Gold mockup! You can wrap screenshots in Macbook Gold for prototypes.",
       "display_resolution": [1920, 1200],
@@ -2097,6 +2329,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Grey",
+      "color": {
+        "name": "Grey",
+        "hexcode": "#000000"
+      },
       "meta_title": "Macbook Grey Mock Up",
       "meta_description": "1 click to generate your Macbook Grey mockup! You can wrap screenshots in Macbook Grey for prototypes.",
       "display_resolution": [1920, 1200],
@@ -2122,6 +2358,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "13",
+      "color": {
+        "name": "13",
+        "hexcode": "#000000"
+      },
       "meta_title": "Macbook Air 13\" Mock Up",
       "meta_description": "1 click to generate your Macbook Air 13\" mockup! You can wrap screenshots in Macbook Air 13\" for prototypes.",
       "display_resolution": [2560, 1664],
@@ -2148,6 +2388,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "14",
+      "color": {
+        "name": "14",
+        "hexcode": "#000000"
+      },
       "meta_title": "Macbook Pro 14\" Mock Up",
       "meta_description": "1 click to generate your Macbook Pro 14\" mockup! You can wrap screenshots in Macbook Pro 14\" for prototypes.",
       "display_resolution": [3024, 1964],
@@ -2174,6 +2418,10 @@
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "16",
+      "color": {
+        "name": "16",
+        "hexcode": "#000000"
+      },
       "meta_title": "Macbook Pro 16\" Mock Up",
       "meta_description": "1 click to generate your Macbook Pro 16\" mockup! You can wrap screenshots in Macbook Pro 16\" for prototypes.",
       "display_resolution": [3456, 2234],
@@ -2200,6 +2448,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "13",
+      "color": {
+        "name": "13",
+        "hexcode": "#000000"
+      },
       "meta_title": "Dell XPS 13\" Mock Up",
       "meta_description": "1 click to generate your Dell XPS 13\" mockup! You can wrap screenshots in Dell XPS 13\" for prototypes.",
       "display_resolution": [1920, 1080],
@@ -2224,6 +2476,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "15",
+      "color": {
+        "name": "15",
+        "hexcode": "#000000"
+      },
       "meta_title": "Dell XPS 15\" Mock Up",
       "meta_description": "1 click to generate your Dell XPS 15\" mockup! You can wrap screenshots in Dell XPS 15\" for prototypes.",
       "display_resolution": [1920, 1080],
@@ -2248,6 +2504,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Quite Black",
+      "color": {
+        "name": "Quite Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "Google Pixel Quite Black Mock Up",
       "meta_description": "1 click to generate your Google Pixel Quite Black mockup! You can wrap screenshots in Google Pixel Quite Black for prototypes.",
       "display_resolution": [1440, 2560],
@@ -2285,6 +2545,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Really Blue",
+      "color": {
+        "name": "Really Blue",
+        "hexcode": "#000000"
+      },
       "meta_title": "Google Pixel Really Blue Mock Up",
       "meta_description": "1 click to generate your Google Pixel Really Blue mockup! You can wrap screenshots in Google Pixel Really Blue for prototypes.",
       "display_resolution": [1440, 2560],
@@ -2322,6 +2586,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Very Silver",
+      "color": {
+        "name": "Very Silver",
+        "hexcode": "#000000"
+      },
       "meta_title": "Google Pixel Very Silver Mock Up",
       "meta_description": "1 click to generate your Google Pixel Very Silver mockup! You can wrap screenshots in Google Pixel Very Silver for prototypes.",
       "display_resolution": [1440, 2560],
@@ -2359,6 +2627,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Clearly White",
+      "color": {
+        "name": "Clearly White",
+        "hexcode": "#000000"
+      },
       "meta_title": "Google Pixel 4 Clearly White Mock Up",
       "meta_description": "1 click to generate your Google Pixel 4 Clearly White mockup! You can wrap screenshots in Google Pixel 4 Clearly White for prototypes.",
       "display_resolution": [1080, 2280],
@@ -2395,6 +2667,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Just Black",
+      "color": {
+        "name": "Just Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "Google Pixel 4 Just Black Mock Up",
       "meta_description": "1 click to generate your Google Pixel 4 Just Black mockup! You can wrap screenshots in Google Pixel 4 Just Black for prototypes.",
       "display_resolution": [1080, 2280],
@@ -2431,6 +2707,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Oh So Orange",
+      "color": {
+        "name": "Oh So Orange",
+        "hexcode": "#000000"
+      },
       "meta_title": "Google Pixel 4 Oh So Orange Mock Up",
       "meta_description": "1 click to generate your Google Pixel 4 Oh So Orange mockup! You can wrap screenshots in Google Pixel 4 Oh So Orange for prototypes.",
       "display_resolution": [1080, 2280],
@@ -2467,6 +2747,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Clearly White",
+      "color": {
+        "name": "Clearly White",
+        "hexcode": "#000000"
+      },
       "meta_title": "Google Pixel 4 XL Clearly White Mock Up",
       "meta_description": "1 click to generate your Google Pixel 4 XL Clearly White mockup! You can wrap screenshots in Google Pixel 4 XL Clearly White for prototypes.",
       "display_resolution": [1440, 3040],
@@ -2503,6 +2787,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Just Black",
+      "color": {
+        "name": "Just Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "Google Pixel 4 XL Just Black Mock Up",
       "meta_description": "1 click to generate your Google Pixel 4 XL Just Black mockup! You can wrap screenshots in Google Pixel 4 XL Just Black for prototypes.",
       "display_resolution": [1440, 3040],
@@ -2539,6 +2827,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Oh So Orange",
+      "color": {
+        "name": "Oh So Orange",
+        "hexcode": "#000000"
+      },
       "meta_title": "Google Pixel 4 XL Oh So Orange Mock Up",
       "meta_description": "1 click to generate your Google Pixel 4 XL Oh So Orange mockup! You can wrap screenshots in Google Pixel 4 XL Oh So Orange for prototypes.",
       "display_resolution": [1440, 3040],
@@ -2575,6 +2867,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Just Black",
+      "color": {
+        "name": "Just Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "Google Pixel 5 Just Black Mock Up",
       "meta_description": "1 click to generate your Google Pixel 5 Just Black mockup! You can wrap screenshots in Google Pixel 5 Just Black for prototypes.",
       "display_resolution": [1080, 2340],
@@ -2611,6 +2907,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Sorta Sage",
+      "color": {
+        "name": "Sorta Sage",
+        "hexcode": "#000000"
+      },
       "meta_title": "Google Pixel 5 Sorta Sage Mock Up",
       "meta_description": "1 click to generate your Google Pixel 5 Sorta Sage mockup! You can wrap screenshots in Google Pixel 5 Sorta Sage for prototypes.",
       "display_resolution": [1080, 2340],
@@ -2647,6 +2947,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
+      "color": {
+        "name": "Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "One Plus 8 pro Black Mock Up",
       "meta_description": "1 click to generate your One Plus 8 pro Black mockup! You can wrap screenshots in One Plus 8 pro Black for prototypes.",
       "display_resolution": [1440, 3168],
@@ -2683,6 +2987,10 @@
       "background_class": "fish-bg3",
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
       "desc": "55LW5600",
+      "color": {
+        "name": "55LW5600",
+        "hexcode": "#000000"
+      },
       "meta_title": "LG Smart TV 55LW5600 Mock Up",
       "meta_description": "1 click to generate your LG Smart TV 55LW5600 mockup! You can wrap screenshots in LG Smart TV 55LW5600 for prototypes.",
       "display_resolution": [1923, 1087],
@@ -2720,6 +3028,10 @@
       "background_class": "fish-bg4",
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
       "desc": "TM2792",
+      "color": {
+        "name": "TM2792",
+        "hexcode": "#000000"
+      },
       "meta_title": "LG Personal Smart TV Mock Up",
       "meta_description": "1 click to generate your LG Personal Smart TV mockup! You can wrap screenshots in LG Personal Smart TV for prototypes.",
       "display_resolution": [1923, 1087],
@@ -2756,6 +3068,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "White",
+      "color": {
+        "name": "White",
+        "hexcode": "#000000"
+      },
       "meta_title": "Microsoft Surface Book Mock Up",
       "meta_description": "1 click to generate your Microsoft Surface Book mockup! You can wrap screenshots in Microsoft Surface Book for prototypes.",
       "display_resolution": [3000, 2000],
@@ -2780,6 +3096,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
+      "color": {
+        "name": "Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "Microsoft Surface Pro 3 Black Mock Up",
       "meta_description": "1 click to generate your Microsoft Surface Pro 3 Black mockup! You can wrap screenshots in Microsoft Surface Pro 3 Black for prototypes.",
       "display_resolution": [2160, 1440],
@@ -2804,6 +3124,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
+      "color": {
+        "name": "Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "Microsoft Surface Pro 4 Black Mock Up",
       "meta_description": "1 click to generate your Microsoft Surface Pro 4 Black mockup! You can wrap screenshots in Microsoft Surface Pro 4 Black for prototypes.",
       "display_resolution": [2736, 1824],
@@ -2828,6 +3152,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
+      "color": {
+        "name": "Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "Motorola Moto E Black Mock Up",
       "meta_description": "1 click to generate your Motorola Moto E Black mockup! You can wrap screenshots in Motorola Moto E Black for prototypes.",
       "display_resolution": [720, 1280],
@@ -2862,6 +3190,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "White",
+      "color": {
+        "name": "White",
+        "hexcode": "#000000"
+      },
       "meta_title": "Motorola Moto E White Mock Up",
       "meta_description": "1 click to generate your Motorola Moto E White mockup! You can wrap screenshots in Motorola Moto E White for prototypes.",
       "display_resolution": [720, 1280],
@@ -2896,6 +3228,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Dark",
+      "color": {
+        "name": "Dark",
+        "hexcode": "#000000"
+      },
       "meta_title": "Motorola Moto G Mock Up",
       "meta_description": "1 click to generate your Motorola Moto G mockup! You can wrap screenshots in Motorola Moto G for prototypes.",
       "display_resolution": [720, 1280],
@@ -2931,6 +3267,10 @@
       "background_class": "fish-bg2",
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
       "desc": "D8000",
+      "color": {
+        "name": "D8000",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Smart TV D8000 Mock Up",
       "meta_description": "1 click to generate your Samsung Smart TV D8000 mockup! You can wrap screenshots in Samsung Smart TV D8000 for prototypes.",
       "display_resolution": [1696, 955],
@@ -2968,6 +3308,10 @@
       "background_class": "fish-bg",
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
       "desc": "ES8000",
+      "color": {
+        "name": "ES8000",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Smart TV ES8000 Mock Up",
       "meta_description": "1 click to generate your Samsung Smart TV ES8000 mockup! You can wrap screenshots in Samsung Smart TV ES8000 for prototypes.",
       "display_resolution": [1923, 1087],
@@ -3004,6 +3348,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
+      "color": {
+        "name": "Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy Note 5 Black Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy Note 5 Black mockup! You can wrap screenshots in Samsung Galaxy Note 5 Black for prototypes.",
       "display_resolution": [1440, 2560],
@@ -3039,6 +3387,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Gold",
+      "color": {
+        "name": "Gold",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy Note 5 Gold Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy Note 5 Gold mockup! You can wrap screenshots in Samsung Galaxy Note 5 Gold for prototypes.",
       "display_resolution": [1440, 2560],
@@ -3074,6 +3426,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Pink",
+      "color": {
+        "name": "Pink",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy Note 5 Pink Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy Note 5 Pink mockup! You can wrap screenshots in Samsung Galaxy Note 5 Pink for prototypes.",
       "display_resolution": [1440, 2560],
@@ -3109,6 +3465,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Silver Titanium",
+      "color": {
+        "name": "Silver Titanium",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy Note 5 Silver Titanium Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy Note 5 Silver Titanium mockup! You can wrap screenshots in Samsung Galaxy Note 5 Silver Titanium for prototypes.",
       "display_resolution": [1440, 2560],
@@ -3144,6 +3504,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "White",
+      "color": {
+        "name": "White",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy Note 5 White Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy Note 5 White mockup! You can wrap screenshots in Samsung Galaxy Note 5 White for prototypes.",
       "display_resolution": [1440, 2560],
@@ -3179,6 +3543,10 @@
     {
       "credits": "<p><a href=\"http://pixelartfactory.com/psd/samsung-galaxy-s4-psd\" target=\"blank\">Pixel Art Factory</a></p>",
       "desc": "Black",
+      "color": {
+        "name": "Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S4 Black Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S4 Black mockup! You can wrap screenshots in Samsung Galaxy S4 Black for prototypes.",
       "display_resolution": [1080, 1920],
@@ -3216,6 +3584,10 @@
     {
       "credits": "<p><a href=\"http://pixelartfactory.com/psd/samsung-galaxy-s4-psd\" target=\"blank\">Pixel Art Factory</a></p>",
       "desc": "White",
+      "color": {
+        "name": "White",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S4 White Mock Up ",
       "meta_description": "1 click to generate your Samsung Galaxy S4 White mockup! You can wrap screenshots in Samsung Galaxy S4 White for prototypes.",
       "display_resolution": [1080, 1920],
@@ -3253,6 +3625,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "White",
+      "color": {
+        "name": "White",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S Duos White Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S Duos White mockup! You can wrap screenshots in Samsung Galaxy S Duos White for prototypes.",
       "display_resolution": [480, 800],
@@ -3288,6 +3664,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
+      "color": {
+        "name": "Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy Y Black Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy Y Black mockup! You can wrap screenshots in Samsung Galaxy Y Black for prototypes.",
       "display_resolution": [240, 320],
@@ -3323,6 +3703,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "White",
+      "color": {
+        "name": "White",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy Y White Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy Y White mockup! You can wrap screenshots in Samsung Galaxy Y White for prototypes.",
       "display_resolution": [240, 320],
@@ -3358,6 +3742,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Cloud Blue",
+      "color": {
+        "name": "Cloud Blue",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S20 Cloud Blue Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S20 Cloud Blue mockup! You can wrap screenshots in Samsung Galaxy S20 Cloud Blue for prototypes.",
       "display_resolution": [1440, 3200],
@@ -3394,6 +3782,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Cosmic Grey",
+      "color": {
+        "name": "Cosmic Grey",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S20 Cosmic Grey Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S20 Cosmic Grey mockup! You can wrap screenshots in Samsung Galaxy S20 Cosmic Grey for prototypes.",
       "display_resolution": [1440, 3200],
@@ -3430,6 +3822,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Pink",
+      "color": {
+        "name": "Pink",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S20 Pink Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S20 Pink mockup! You can wrap screenshots in Samsung Galaxy S20 Pink for prototypes.",
       "display_resolution": [1440, 3200],
@@ -3466,6 +3862,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Cosmic Black",
+      "color": {
+        "name": "Cosmic Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S20 Ultra Cosmic Black Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S20 Ultra Cosmic Black mockup! You can wrap screenshots in Samsung Galaxy S20 Ultra Cosmic Black for prototypes.",
       "display_resolution": [1440, 3200],
@@ -3502,6 +3902,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Cosmic Grey",
+      "color": {
+        "name": "Cosmic Grey",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S20 Ultra Cosmic Grey Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S20 Ultra Cosmic Grey mockup! You can wrap screenshots in Samsung Galaxy S20 Ultra Cosmic Grey for prototypes.",
       "display_resolution": [1440, 3200],
@@ -3537,6 +3941,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Cloud Blue",
+      "color": {
+        "name": "Cloud Blue",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S20+ Cloud Blue Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S20+ Cloud Blue mockup! You can wrap screenshots in Samsung Galaxy S20+ Cloud Blue for prototypes.",
       "display_resolution": [1440, 3200],
@@ -3572,6 +3980,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Cosmic Grey",
+      "color": {
+        "name": "Cosmic Grey",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S20+ Cosmic Grey Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S20+ Cosmic Grey mockup! You can wrap screenshots in Samsung Galaxy S20+ Cosmic Grey for prototypes.",
       "display_resolution": [1440, 3200],
@@ -3607,6 +4019,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Cosmic Black",
+      "color": {
+        "name": "Cosmic Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S20+ Cosmic Black Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S20+ Cosmic Black mockup! You can wrap screenshots in Samsung Galaxy S20+ Cosmic Black for prototypes.",
       "display_resolution": [1440, 3200],
@@ -3642,6 +4058,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
+      "color": {
+        "name": "Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S21 5G Black Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S21 5G Black mockup! You can wrap screenshots in Samsung Galaxy S21 5G Black for prototypes.",
       "display_resolution": [1080, 2400],
@@ -3677,6 +4097,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Pink",
+      "color": {
+        "name": "Pink",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S21 5G Pink Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S21 5G Pink mockup! You can wrap screenshots in Samsung Galaxy S21 5G Pink for prototypes.",
       "display_resolution": [1080, 2400],
@@ -3712,6 +4136,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Violet",
+      "color": {
+        "name": "Violet",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S21 5G Violet Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S21 5G Violet mockup! You can wrap screenshots in Samsung Galaxy S21 5G Violet for prototypes.",
       "display_resolution": [1080, 2400],
@@ -3747,6 +4175,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "White",
+      "color": {
+        "name": "White",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S21 5G White Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S21 5G White mockup! You can wrap screenshots in Samsung Galaxy S21 5G White for prototypes.",
       "display_resolution": [1080, 2400],
@@ -3782,6 +4214,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
+      "color": {
+        "name": "Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S21 Ultra Black Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S21 Ultra Black mockup! You can wrap screenshots in Samsung Galaxy S21 Ultra Black for prototypes.",
       "display_resolution": [1440, 3200],
@@ -3817,6 +4253,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Silver",
+      "color": {
+        "name": "Silver",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S21 Ultra Silver Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S21 Ultra Silver mockup! You can wrap screenshots in Samsung Galaxy S21 Ultra Silver for prototypes.",
       "display_resolution": [1440, 3200],
@@ -3852,6 +4292,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
+      "color": {
+        "name": "Black",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S21+ 5G Black Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S21+ 5G Black mockup! You can wrap screenshots in Samsung Galaxy S21+ 5G Black for prototypes.",
       "display_resolution": [1080, 2400],
@@ -3887,6 +4331,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Silver",
+      "color": {
+        "name": "Silver",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S21+ 5G Silver Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S21+ 5G Silver mockup! You can wrap screenshots in Samsung Galaxy S21+ 5G Silver for prototypes.",
       "display_resolution": [1080, 2400],
@@ -3922,6 +4370,10 @@
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Violet",
+      "color": {
+        "name": "Violet",
+        "hexcode": "#000000"
+      },
       "meta_title": "Samsung Galaxy S21+ 5G Violet Mock Up",
       "meta_description": "1 click to generate your Samsung Galaxy S21+ 5G Violet mockup! You can wrap screenshots in Samsung Galaxy S21+ 5G Violet for prototypes.",
       "display_resolution": [1080, 2400],
@@ -3954,258 +4406,5 @@
       "is_mockup_image_at_front": true,
       "view_desc": "Portrait<br/>Landscape"
     }
-  ],
-  "device_cat": {
-    "ios": [
-      {
-        "id": "iphone14",
-        "name": "iPhone 14",
-        "slugs": [
-          "apple-iphone14-blue",
-          "apple-iphone14-midnight",
-          "apple-iphone14-purple",
-          "apple-iphone14-red",
-          "apple-iphone14-starlight"
-        ]
-      },
-      {
-        "id": "iphone14plus",
-        "name": "iPhone 14 plus",
-        "slugs": [
-          "apple-iphone14plus-blue",
-          "apple-iphone14plus-midnight",
-          "apple-iphone14plus-purple",
-          "apple-iphone14plus-red",
-          "apple-iphone14plus-starlight"
-        ]
-      },
-      {
-        "id": "iphone14pro",
-        "name": "iPhone 14 pro",
-        "slugs": [
-          "apple-iphone14pro-deeppurple",
-          "apple-iphone14pro-gold",
-          "apple-iphone14pro-silver",
-          "apple-iphone14pro-spaceblack"
-        ]
-      },
-      {
-        "id": "iphone14promax",
-        "name": "iPhone 14 pro max",
-        "slugs": [
-          "apple-iphone14promax-deeppurple",
-          "apple-iphone14promax-gold",
-          "apple-iphone14promax-silver",
-          "apple-iphone14promax-spaceblack"
-        ]
-      },
-      {
-        "id": "iphone13",
-        "name": "iPhone 13",
-        "slugs": [
-          "apple-iphone13-blue",
-          "apple-iphone13-midnight",
-          "apple-iphone13-pink",
-          "apple-iphone13-red",
-          "apple-iphone13-starlight"
-        ]
-      },
-      {
-        "id": "iphone13mini",
-        "name": "iPhone 13 mini",
-        "slugs": [
-          "apple-iphone13mini-blue",
-          "apple-iphone13mini-midnight",
-          "apple-iphone13mini-pink",
-          "apple-iphone13mini-red",
-          "apple-iphone13mini-starlight"
-        ]
-      },
-      {
-        "id": "iphone13pro",
-        "name": "iPhone 13 pro",
-        "slugs": [
-          "apple-iphone13pro-gold",
-          "apple-iphone13pro-graphite",
-          "apple-iphone13pro-sierrablue",
-          "apple-iphone13pro-silver"
-        ]
-      },
-      {
-        "id": "iphone13promax",
-        "name": "iPhone 13 pro max",
-        "slugs": [
-          "apple-iphone13promax-gold",
-          "apple-iphone13promax-graphite",
-          "apple-iphone13promax-sierrablue",
-          "apple-iphone13promax-silver"
-        ]
-      },
-      {
-        "id": "ipadpro",
-        "name": "iPad Pro",
-        "slugs": ["apple-ipadpro11-spacegrey", "apple-ipadpro13-spacegrey"]
-      },
-      {
-        "id": "ipadair5",
-        "name": "iPad Air 5",
-        "slugs": ["apple-ipadair5-spacegrey"]
-      },
-      {
-        "id": "ipad",
-        "name": "iPad",
-        "slugs": ["apple-ipad-silver"]
-      },
-      {
-        "id": "ipadmini",
-        "name": "iPad Mini",
-        "slugs": ["apple-ipadmini-starlight"]
-      }
-    ],
-    "android": [
-      {
-        "id": "googlepixel",
-        "name": "Google Pixel",
-        "slugs": [
-          "google-pixel5-justblack",
-          "google-pixel5-sortasage",
-          "google-pixel4xl-clearlywhite",
-          "google-pixel4xl-justblack",
-          "google-pixel4xl-ohsoorange",
-          "google-pixel4-clearlywhite",
-          "google-pixel4-justblack",
-          "google-pixel4-ohsoorange",
-          "google-pixel-quite-black",
-          "google-pixel-really-blue",
-          "google-pixel-very-silver"
-        ]
-      },
-      {
-        "id": "moto",
-        "name": "Motorola Moto series",
-        "slugs": [
-          "motorola-motoe-black",
-          "motorola-motoe-white",
-          "motorola-motog"
-        ]
-      },
-      {
-        "id": "galaxy",
-        "name": "Samsung Galaxy series",
-        "slugs": [
-          "samsung-galaxys21plus-black",
-          "samsung-galaxys21plus-silver",
-          "samsung-galaxys21plus-violet",
-          "samsung-galaxys21ultra-black",
-          "samsung-galaxys21ultra-silver",
-          "samsung-galaxys21-black",
-          "samsung-galaxys21-pink",
-          "samsung-galaxys21-violet",
-          "samsung-galaxys21-white",
-          "samsung-galaxys20plus-cloudblue",
-          "samsung-galaxys20plus-cosmicgrey",
-          "samsung-galaxys20plus-cosmicblack",
-          "samsung-galaxys20ultra-cosmicblack",
-          "samsung-galaxys20ultra-cosmicgrey",
-          "samsung-galaxys20-cloudblue",
-          "samsung-galaxys20-cosmicgrey",
-          "samsung-galaxys20-pink",
-          "samsung-galaxynote5-black",
-          "samsung-galaxynote5-gold",
-          "samsung-galaxynote5-pink",
-          "samsung-galaxynote5-silvertitanium",
-          "samsung-galaxynote5-white",
-          "samsung-galaxyy-black",
-          "samsung-galaxyy-white",
-          "samsung-galaxysduos",
-          "samsung-galaxys4-white",
-          "samsung-galaxys4-black"
-        ]
-      },
-      {
-        "id": "oneplus",
-        "name": "One Plus",
-        "slugs": ["oneplus-oneplus8pro"]
-      }
-    ],
-    "wearables": [
-      {
-        "id": "applewatchultra",
-        "name": "Apple Watch Ultra",
-        "slugs": ["apple-applewatchultra"]
-      },
-      {
-        "id": "applewatch41mm",
-        "name": "Apple Watch Series 8 41mm",
-        "slugs": [
-          "apple-applewatch41mm-goldstainlesssteel",
-          "apple-applewatch41mm-graphitestainlesssteel",
-          "apple-applewatch41mm-midnightaluminum",
-          "apple-applewatch41mm-silveraluminum",
-          "apple-applewatch41mm-silverstainlesssteel",
-          "apple-applewatch41mm-starlightaluminum"
-        ]
-      },
-      {
-        "id": "applewatch45mm",
-        "name": "Apple Watch Series 8 45mm",
-        "slugs": [
-          "apple-applewatch45mm-goldstainlesssteel",
-          "apple-applewatch45mm-graphitestainlesssteel",
-          "apple-applewatch45mm-midnightaluminum",
-          "apple-applewatch45mm-silveraluminum",
-          "apple-applewatch45mm-silverstainlesssteel",
-          "apple-applewatch45mm-starlightaluminum"
-        ]
-      }
-    ],
-    "computer": [
-      {
-        "id": "macbook",
-        "name": "Macbook",
-        "slugs": ["apple-macbook-gold", "apple-macbook-grey"]
-      },
-      {
-        "id": "macbookair",
-        "name": "Macbook Air",
-        "slugs": ["apple-macbookair13"]
-      },
-      {
-        "id": "macbookpro",
-        "name": "Macbook Pro",
-        "slugs": ["apple-macbookpro14", "apple-macbookpro16"]
-      },
-      {
-        "id": "imac",
-        "name": "iMac",
-        "slugs": ["apple-imac2013", "apple-imac2015", "apple-imac2015retina"]
-      },
-      {
-        "id": "xps",
-        "name": "XPS",
-        "slugs": ["dell-xps13", "dell-xps15"]
-      },
-      {
-        "id": "surface",
-        "name": "Surface",
-        "slugs": [
-          "microsoft-surfacebook",
-          "microsoft-surfacepro4",
-          "microsoft-surfacepro3"
-        ]
-      }
-    ],
-    "tv": [
-      {
-        "id": "samsung",
-        "name": "Samsung",
-        "slugs": ["samsung-es8000", "samsung-d8000"]
-      },
-      {
-        "id": "lg",
-        "name": "LG",
-        "slugs": ["lg-55lw5600", "lg-tm2792"]
-      }
-    ]
-  }
+  ]
 }
