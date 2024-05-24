@@ -107,7 +107,7 @@
 }
 
 .select-device {
-  padding: 50px 20px 40px 20px;
+  padding: 50px 20px 50px 20px;
   background-color: rgba(0, 0, 0, 0.06);
 }
 @media (min-width: 992px) {
@@ -339,7 +339,7 @@
 
 .device-section-list {
   list-style: none;
-  margin: 40px 0 0 0;
+  margin: 0 0 0 0;
   padding: 0;
 }
 
@@ -351,14 +351,19 @@
   margin: 10px 0 0 0;
 }
 
+.device-section-list__item {
+  margin-bottom: 100px;
+}
+
 .device-section {
   scroll-margin-top: 80px;
 }
 
-.device-section__device-name {
+.device-section__brand-name {
   color: var(--gray-1);
-  font-size: 18px;
-  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 30px 0;
 }
 
 .device-grid-list {
@@ -369,11 +374,21 @@
   padding: 0;
 }
 
+.device-grid-container {
+  margin: 20px 0 0 10px;
+}
+
+.device-grid-container-header {
+  color: var(--gray-1);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+}
+
 .device-grid {
   position: relative;
   height: 160px;
   width: 160px;
-  margin: 10px 0 0 10px;
   background-color: var(--white);
   border: 1px solid var(--gray-5);
   box-sizing: border-box;

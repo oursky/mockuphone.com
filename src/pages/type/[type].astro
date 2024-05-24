@@ -129,26 +129,24 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
     </ul>
   </section>
   <section class="select-device">
-    <header class="select-device__header">
-      <h2 class="select-device__heading">SELECT DEVICE</h2>
-    </header>
     <ul class="device-section-list">
       {
         Object.keys(brandDeviceList).map((b: string) => {
           const brand = BrandEnum.parse(b);
           const devices = brandDeviceList[brand];
-          console.log(devices)
           if (devices == null || devices.length === 0) {
             return <></>
           }
           return (
             <li class="device-section-list__item" data-device-id={b}>
               <section id={b} class="device-section">
-                <h3 class="device-section__device-name">{b}</h3>
+                <h3 class="device-section__brand-name">{brand.toUpperCase()}</h3>
                 {
                   <ul class="device-grid-list">
                     {/* FIXME: Remove background color for debugging */}
                     {devices.map((deviceDetail: Device) => (
+                      <div class="device-grid-container">
+                      <h3 class="device-grid-container-header">{deviceDetail.name}</p>
                       <li
                         class="device-grid"
                         style={{ backgroundColor: deviceDetail.color.hexcode }}
@@ -196,6 +194,7 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
                           </div>
                         </a>
                       </li>
+                      </div>
                     ))}
                   </ul>
                 }
