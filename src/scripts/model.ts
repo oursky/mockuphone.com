@@ -1,5 +1,4 @@
-import * as schema from "./parse";
-import * as fs from "fs";
+import * as schema from "./parse/index";
 
 export interface Orientation {
   alt?: string;
@@ -8,7 +7,7 @@ export interface Orientation {
 
 export interface Device {
   credits: string;
-  desc: string;
+  desc: string; // desc is usually [color], if [color] not available, will fallback to [model_no]
   meta_title: string;
   meta_description: string;
   display_resolution: number[];
@@ -19,77 +18,18 @@ export interface Device {
   orientations: Orientation[];
   view_desc: string;
   imagePath?: [string, string][];
+  color: DeviceColor;
 }
 
-export interface DeviceSeries {
-  id: string;
+export type DeviceType = Partial<Record<schema.DeviceTypeEnum, Device[]>>;
+export type Brand = Partial<Record<schema.BrandEnum, Device[]>>;
+
+export interface DeviceColor {
   name: string;
-  device: Device[];
+  hexcode: string; // #000000,
 }
 
-export enum DeviceType {
-  ios = "ios",
-  android = "android",
-  wearables = "wearables",
-  tv = "tv",
-  computer = "computer",
-}
-
-export interface DeviceCatalogItem {
-  deviceCatalog: string;
-  deviceSeries: DeviceSeries[];
-}
-
-export interface DeviceCatalog {
-  deviceCatalogArray: DeviceCatalogItem[];
-}
-
-export function parseDeviceCatalog(url: string): DeviceCatalog {
-  const json_data = schema.parseJson(url) as schema.RawJson;
-  const allDevicesInfo = parseAllDevice(json_data.DeviceArray) as Device[];
-  return {
-    deviceCatalogArray: Object.keys(DeviceType).map((type) =>
-      parseDeviceCatalogItem(
-        json_data.DeviceCatalog[type as keyof schema.RawDeviceCatalog],
-        type,
-        allDevicesInfo,
-      ),
-    ),
-  };
-}
-
-function parseDeviceCatalogItem(
-  data: schema.RawDeviceSeries[],
-  type: string,
-  allDeviceInfo: Device[],
-): DeviceCatalogItem {
-  const deviceSeries: DeviceSeries[] = data.map(
-    (series: schema.RawDeviceSeries) =>
-      parseDeviceSeries(series, allDeviceInfo),
-  );
-  return {
-    deviceCatalog: type, // need to fix
-    deviceSeries: deviceSeries,
-  };
-}
-
-function parseDeviceSeries(
-  data: schema.RawDeviceSeries,
-  allDeviceInfo: Device[],
-): DeviceSeries {
-  const deviceArray: Device[] = data.slugs.map((slug) => {
-    return allDeviceInfo.filter((device: Device) => {
-      if (device.device_id === slug) return device;
-    })[0];
-  });
-  return {
-    id: data.id,
-    name: data.name,
-    device: deviceArray,
-  };
-}
-
-function parseDevice(data: schema.RawDevice): Device {
+function mapDevice(data: schema.RawDevice): Device {
   const imagePath: [string, string][] = data.orientations.map(
     (orientationItem: any) => [
       (data.is_legacy
@@ -109,6 +49,52 @@ function parseDevice(data: schema.RawDevice): Device {
   return deviceItem;
 }
 
-function parseAllDevice(data: schema.RawDevice[]): Device[] {
-  return data.map((device: schema.RawDevice) => parseDevice(device));
+export function parseAllDevices(url: string): Device[] {
+  const rawDevices: schema.RawDevice[] = schema.parseRawDevicesFile(url);
+  return rawDevices.map(mapDevice);
+}
+
+function mapDeviceType(
+  data: schema.RawDeviceType,
+  allDevices: Device[],
+): DeviceType {
+  let result: DeviceType = {};
+  Object.keys(data).forEach((type: string) => {
+    const deviceType = schema.DeviceTypeEnum.parse(type);
+
+    const devices: Device[] = allDevices.filter(
+      (d) => data[deviceType]?.includes(d.device_id),
+    );
+
+    result[deviceType] = devices;
+  });
+  return result;
+}
+
+export function parseAllDeviceTypes(
+  url: string,
+  allDevices: Device[],
+): DeviceType {
+  const rawDeviceTypes: schema.RawDeviceType =
+    schema.parseRawDeviceTypeFile(url);
+  return mapDeviceType(rawDeviceTypes, allDevices);
+}
+
+function mapBrand(data: schema.RawBrand, allDevices: Device[]): Brand {
+  let result: Brand = {};
+  Object.keys(data).forEach((brandKey: string) => {
+    const brand = schema.BrandEnum.parse(brandKey);
+
+    const devices: Device[] = allDevices.filter(
+      (d) => data[brand]?.includes(d.device_id),
+    );
+
+    result[brand] = devices;
+  });
+  return result;
+}
+
+export function parseAllBrands(url: string, allDevices: Device[]): Brand {
+  const rawBrand: schema.RawBrand = schema.parseRawBrandFile(url);
+  return mapBrand(rawBrand, allDevices);
 }
