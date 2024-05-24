@@ -22,7 +22,14 @@ const { deviceType } = Astro.props;
 const deviceList: Device[] = DEVICE_MANAGER.getDeviceListByType(deviceType);
 const brandDeviceList: Partial<Record<BrandEnum, Device[]>> =
   DEVICE_MANAGER.getBrandDeviceList(deviceType);
-const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
+const nonEmptyBrands: BrandEnum[] = Object.keys(brandDeviceList)
+  .filter((b) => {
+    const brand = BrandEnum.parse(b);
+    const devices: Device[] | undefined = brandDeviceList[brand];
+    return devices != null && devices.length > 0;
+  })
+  .map((b) => BrandEnum.parse(b));
+const brandList: string[] = ["all", ...nonEmptyBrands];
 ---
 
 <BaseLayout>
@@ -32,9 +39,8 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
     content="MockUPhone supports devices including iPhone mockup, iPad mockup, Android mockup and TV mockup. You can check out the whole device list via this page."
   />
   <script type="text/javascript" src="/scripts/device.js"></script>
-  <script define:vars={{ deviceList, allDeviceType, brandDeviceList }}>
+  <script define:vars={{ deviceList, brandDeviceList }}>
     window.deviceList = deviceList;
-    window.allDeviceType = allDeviceType;
     window.brandDeviceList = brandDeviceList;
   </script>
   <section class="device-type">
@@ -127,6 +133,23 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
         </a>
       </li>
     </ul>
+    <ul class="device-brand-list">
+      {
+        brandList.map((b: string) => (
+          <li class="device-brand-list__item">
+            <button
+              class={`device-brand-list__item-button ${
+                b === "all" ? "device-brand-list__item-button--selected" : ""
+              }`}
+              id={`device-brand-list__item-button__${b}`}
+              data-brand-name={b}
+            >
+              {b === "all" ? "All Brand" : b}
+            </button>
+          </li>
+        ))
+      }
+    </ul>
   </section>
   <section class="select-device">
     <ul class="device-section-list">
@@ -135,65 +158,74 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
           const brand = BrandEnum.parse(b);
           const devices = brandDeviceList[brand];
           if (devices == null || devices.length === 0) {
-            return <></>
+            return undefined;
           }
           return (
-            <li class="device-section-list__item" data-device-id={b}>
-              <section id={b} class="device-section">
-                <h3 class="device-section__brand-name">{brand.toUpperCase()}</h3>
+            <li class="device-section-list__item">
+              <section id={`device-section-${b}`} class="device-section">
+                <h3 class="device-section__brand-name">
+                  {brand.toUpperCase()}
+                </h3>
                 {
                   <ul class="device-grid-list">
                     {/* FIXME: Remove background color for debugging */}
                     {devices.map((deviceDetail: Device) => (
-                      <div class="device-grid-container">
-                      <h3 class="device-grid-container-header">{deviceDetail.name}</p>
-                      <li
-                        class="device-grid"
-                        style={{ backgroundColor: deviceDetail.color.hexcode }}
-                        data-image-index="0"
-                        data-n-image={deviceDetail.imagePath?.length}
-                        id={deviceDetail.device_id}
+                      <div
+                        class="device-grid-container"
+                        data-device-id={deviceDetail.device_id}
                       >
-                        <a
-                          class="device-grid__link"
-                          href={"/device/" + deviceDetail.device_id}
+                        <h3 class="device-grid-container-header">
+                          {deviceDetail.name}
+                        </h3>
+                        <li
+                          class="device-grid"
+                          style={{
+                            backgroundColor: deviceDetail.color.hexcode,
+                          }}
+                          data-image-index="0"
+                          data-n-image={deviceDetail.imagePath?.length}
+                          id={deviceDetail.device_id}
                         >
-                          {deviceDetail.imagePath?.map(
-                            (image: [string, string], index: number) => {
-                              if (index == 0)
-                                return (
-                                  <img
-                                    class="device-grid__image"
-                                    src={image[0]}
-                                    alt={image[1]}
-                                  />
-                                );
-                              else
-                                return (
-                                  <img
-                                    class="device-grid__image d-none"
-                                    src={image[0]}
-                                    alt={image[1]}
-                                  />
-                                );
-                            }
-                          )}
-                          <div class="device-grid__hover-blur d-none" />
-                          <div class="device-grid__overlay d-none">
-                            <header class="device-grid__overlay-header">
-                              <h3 class="device-grid__overlay-device-name">
-                                {deviceDetail.short_name ?? deviceDetail.name}
-                              </h3>
-                              <p class="device-grid__overlay-device-desc">
-                                {deviceDetail.desc}
-                              </p>
-                            </header>
-                            <button class="device-grid__overlay-pick-btn">
-                              Pick it
-                            </button>
-                          </div>
-                        </a>
-                      </li>
+                          <a
+                            class="device-grid__link"
+                            href={"/device/" + deviceDetail.device_id}
+                          >
+                            {deviceDetail.imagePath?.map(
+                              (image: [string, string], index: number) => {
+                                if (index == 0)
+                                  return (
+                                    <img
+                                      class="device-grid__image"
+                                      src={image[0]}
+                                      alt={image[1]}
+                                    />
+                                  );
+                                else
+                                  return (
+                                    <img
+                                      class="device-grid__image d-none"
+                                      src={image[0]}
+                                      alt={image[1]}
+                                    />
+                                  );
+                              },
+                            )}
+                            <div class="device-grid__hover-blur d-none" />
+                            <div class="device-grid__overlay d-none">
+                              <header class="device-grid__overlay-header">
+                                <h3 class="device-grid__overlay-device-name">
+                                  {deviceDetail.short_name ?? deviceDetail.name}
+                                </h3>
+                                <p class="device-grid__overlay-device-desc">
+                                  {deviceDetail.desc}
+                                </p>
+                              </header>
+                              <button class="device-grid__overlay-pick-btn">
+                                Pick it
+                              </button>
+                            </div>
+                          </a>
+                        </li>
                       </div>
                     ))}
                   </ul>
