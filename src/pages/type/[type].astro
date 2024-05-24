@@ -1,28 +1,32 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import deviceJson from "../../scripts/device_info.json";
+import deviceTypeJson from "../../scripts/device_type.json";
 import "/src/styles/device.css";
 
 import { DEVICE_MANAGER } from "../../scripts/deviceManager";
-import type { Device, DeviceSeries } from "../../scripts/model";
+import type { Device, DeviceType } from "../../scripts/model";
+import { DeviceTypeEnum } from "../../scripts/parse";
 
 const deviceData = deviceJson;
+const deviceTypeData = deviceTypeJson;
 
 export async function getStaticPaths() {
-  return [
-    { params: { type: "android" }, props: { device: "android" } },
-    { params: { type: "ios" }, props: { device: "ios" } },
-    { params: { type: "wearables" }, props: { device: "wearables" } },
-    { params: { type: "tv" }, props: { device: "tv" } },
-    { params: { type: "computer" }, props: { device: "computer" } },
-  ];
+  const devicePaths = DeviceTypeEnum.options.map((deviceType) => ({
+    params: { type: deviceType },
+    props: { deviceType: deviceType },
+  }));
+  const allPath = { params: { type: "all" }, props: { deviceType: "all" } };
+
+  return [allPath, ...devicePaths];
 }
 
 const { type } = Astro.params;
-const { device } = Astro.props;
+const { deviceType } = Astro.props;
 
-const deviceSeries: DeviceSeries[] =
-  DEVICE_MANAGER.getDeviceSeriesListByCategory(device);
+const deviceList: Device[] = DEVICE_MANAGER.getDeviceListByType(deviceType);
+// const deviceList: Device[] = DEVICE_MANAGER.getDeviceList(deviceType, "samsung");
+const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
 ---
 
 <BaseLayout>
@@ -32,8 +36,9 @@ const deviceSeries: DeviceSeries[] =
     content="MockUPhone supports devices including iPhone mockup, iPad mockup, Android mockup and TV mockup. You can check out the whole device list via this page."
   />
   <script type="text/javascript" src="/scripts/device.js"></script>
-  <script define:vars={{ deviceData }}>
-    window.deviceData = deviceData;
+  <script define:vars={{ deviceList, allDeviceType }}>
+    window.deviceList = deviceList;
+    window.allDeviceType = allDeviceType;
   </script>
   <section class="device-type">
     <header>
@@ -126,11 +131,11 @@ const deviceSeries: DeviceSeries[] =
         >
         <ul class="suggestion-list d-none">
           {
-            deviceSeries.map((series: DeviceSeries) => (
-              <li data-device-id={series.id}>
-                <a class="suggestion-list__link" href={"#" + series.id}>
+            deviceList.map((device: Device) => (
+              <li data-device-id={device.device_id}>
+                <a class="suggestion-list__link" href={"#" + device.device_id}>
                   {" "}
-                  {series.name}{" "}
+                  {device.name}{" "}
                 </a>{" "}
               </li>
             ))
@@ -138,79 +143,74 @@ const deviceSeries: DeviceSeries[] =
         </ul>
       </div>
     </header>
+    <!-- TODO: confirm if still need tag list or not -->
     <ul class="device-tag-list">
       {
-        deviceSeries.map((series: DeviceSeries) => (
-          <li class="device-tag-list__item" data-device-id={series.id}>
-            <a class="device-tag-list__link" href={"#" + series.id}>
+        deviceList.map((device: Device) => (
+          <li class="device-tag-list__item" data-device-id={device.device_id}>
+            <a class="device-tag-list__link" href={"#" + device.device_id}>
               {" "}
-              {series.name}{" "}
+              {device.name}{" "}
             </a>{" "}
           </li>
         ))
       }
     </ul>
     <ul class="device-section-list">
-      {
-        deviceSeries.map((series: DeviceSeries) => (
-          <li class="device-section-list__item" data-device-id={series.id}>
-            <section id={series.id} class="device-section">
-              <h3 class="device-section__device-name">{series.name}</h3>
-              <ul class="device-grid-list">
-                {series.device.map((deviceDetail: Device) => {
-                  return (
-                    <li
-                      class="device-grid"
-                      data-image-index="0"
-                      data-n-image={deviceDetail.imagePath?.length}
-                    >
-                      <a
-                        class="device-grid__link"
-                        href={"/device/" + deviceDetail.device_id}
-                      >
-                        {deviceDetail.imagePath?.map(
-                          (image: [string, string], index: number) => {
-                            if (index == 0)
-                              return (
-                                <img
-                                  class="device-grid__image"
-                                  src={image[0]}
-                                  alt={image[1]}
-                                />
-                              );
-                            else
-                              return (
-                                <img
-                                  class="device-grid__image d-none"
-                                  src={image[0]}
-                                  alt={image[1]}
-                                />
-                              );
-                          },
-                        )}
-                        <div class="device-grid__hover-blur d-none" />
-                        <div class="device-grid__overlay d-none">
-                          <header class="device-grid__overlay-header">
-                            <h3 class="device-grid__overlay-device-name">
-                              {deviceDetail.short_name ?? deviceDetail.name}
-                            </h3>
-                            <p class="device-grid__overlay-device-desc">
-                              {deviceDetail.desc}
-                            </p>
-                          </header>
-                          <button class="device-grid__overlay-pick-btn">
-                            Pick it
-                          </button>
-                        </div>
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
-          </li>
-        ))
-      }
+      <!-- FIXME: Render by brand -->
+       THIS SHOULD BE APPLE
+      <!-- FIXME: Remove background color for debugging -->
+      <ul class="device-grid-list">
+        {
+          deviceList.map((deviceDetail: Device) => (
+            <li
+              class="device-grid"
+              style={{ backgroundColor: deviceDetail.color.hexcode }}
+              data-image-index="0"
+              data-n-image={deviceDetail.imagePath?.length}
+              id={deviceDetail.device_id}
+            >
+              <a
+                class="device-grid__link"
+                href={"/device/" + deviceDetail.device_id}
+              >
+                {deviceDetail.imagePath?.map(
+                  (image: [string, string], index: number) => {
+                    if (index == 0)
+                      return (
+                        <img
+                          class="device-grid__image"
+                          src={image[0]}
+                          alt={image[1]}
+                        />
+                      );
+                    else
+                      return (
+                        <img
+                          class="device-grid__image d-none"
+                          src={image[0]}
+                          alt={image[1]}
+                        />
+                      );
+                  },
+                )}
+                <div class="device-grid__hover-blur d-none" />
+                <div class="device-grid__overlay d-none">
+                  <header class="device-grid__overlay-header">
+                    <h3 class="device-grid__overlay-device-name">
+                      {deviceDetail.short_name ?? deviceDetail.name}
+                    </h3>
+                    <p class="device-grid__overlay-device-desc">
+                      {deviceDetail.desc}
+                    </p>
+                  </header>
+                  <button class="device-grid__overlay-pick-btn">Pick it</button>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
       <li class="device-section-list__request-device">
         <section class="request-device-section">
           <img
@@ -242,10 +242,13 @@ const deviceSeries: DeviceSeries[] =
     </header>
     <ul class="fullscreen-suggestion-list">
       {
-        deviceSeries.map((series: DeviceSeries) => (
-          <li data-device-id={series.id}>
-            <a class="fullscreen-suggestion-list__link" href={"#" + series.id}>
-              {series.name}
+        deviceList.map((device: Device) => (
+          <li data-device-id={device.device_id}>
+            <a
+              class="fullscreen-suggestion-list__link"
+              href={"#" + device.device_id}
+            >
+              {device.name}
             </a>
           </li>
         ))

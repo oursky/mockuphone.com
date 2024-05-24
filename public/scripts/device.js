@@ -112,21 +112,7 @@ function main() {
   const deviceSectionList = document.querySelector(".device-section-list");
   const deviceGrids = document.querySelectorAll(".device-grid");
 
-  const { deviceList } = (function () {
-    var deviceType = window.location.href.split("/").at(-2);
-    if (deviceType == "type") {
-      deviceType = window.location.href.split("/").at(-1).split("#").at(0);
-    }
-    const deviceJson = window.deviceData;
-    const deviceList = deviceJson.device_cat[deviceType];
-    return {
-      deviceList,
-    };
-  })();
-
-  window.deviceList = deviceList;
-
-  const viewModel = new RootViewModel(deviceList);
+  const viewModel = new RootViewModel(window.deviceList);
   if (isDebug) {
     window.viewModel = viewModel;
   }
