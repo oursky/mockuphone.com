@@ -48,30 +48,44 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
     </header>
     <ul class="device-type-list">
       <li class="device-type-list__item">
-        <a href="/type/ios">
+        <a href="/type/phone">
           <figure>
             {
-              type == "ios" ? (
-                <div class="device-type-list__circle-image device-type-list__circle-image-ios device-type-list__circle-image--chosen" />
+              type == "phone" ? (
+                <div class="device-type-list__circle-image device-type-list__circle-image-phone device-type-list__circle-image--chosen" />
               ) : (
-                <div class="device-type-list__circle-image device-type-list__circle-image-ios" />
+                <div class="device-type-list__circle-image device-type-list__circle-image-phone" />
               )
             }
-            <figcaption class="device-type__name">iOS</figcaption>
+            <figcaption class="device-type__name">Phone</figcaption>
           </figure>
         </a>
       </li>
       <li class="device-type-list__item">
-        <a href="/type/android">
+        <a href="/type/tablet">
           <figure>
             {
-              type == "android" ? (
-                <div class="device-type-list__circle-image device-type-list__circle-image-android device-type-list__circle-image--chosen" />
+              type == "tablet" ? (
+                <div class="device-type-list__circle-image device-type-list__circle-image-tablet device-type-list__circle-image--chosen" />
               ) : (
-                <div class="device-type-list__circle-image device-type-list__circle-image-android" />
+                <div class="device-type-list__circle-image device-type-list__circle-image-tablet" />
               )
             }
-            <figcaption class="device-type__name">Android</figcaption>
+            <figcaption class="device-type__name">Tablet</figcaption>
+          </figure>
+        </a>
+      </li>
+      <li class="device-type-list__item">
+        <a href="/type/laptop">
+          <figure>
+            {
+              type == "laptop" ? (
+                <div class="device-type-list__circle-image device-type-list__circle-image-computer device-type-list__circle-image--chosen" />
+              ) : (
+                <div class="device-type-list__circle-image device-type-list__circle-image-computer" />
+              )
+            }
+            <figcaption class="device-type__name">Laptop</figcaption>
           </figure>
         </a>
       </li>
@@ -86,20 +100,6 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
               )
             }
             <figcaption class="device-type__name">Wearables</figcaption>
-          </figure>
-        </a>
-      </li>
-      <li class="device-type-list__item">
-        <a href="/type/computer">
-          <figure>
-            {
-              type == "computer" ? (
-                <div class="device-type-list__circle-image device-type-list__circle-image-computer device-type-list__circle-image--chosen" />
-              ) : (
-                <div class="device-type-list__circle-image device-type-list__circle-image-computer" />
-              )
-            }
-            <figcaption class="device-type__name">Computer</figcaption>
           </figure>
         </a>
       </li>
@@ -159,9 +159,6 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
       }
     </ul>
     <ul class="device-section-list">
-      <!-- FIXME: Render by brand -->
-       THIS SHOULD BE APPLE
-      <!-- FIXME: Remove background color for debugging -->
       {
         Object.keys(brandDeviceList).map((b: string) => {
           const brand = BrandEnum.parse(b);
@@ -176,6 +173,7 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
                 <h3 class="device-section__device-name">{b}</h3>
                 {
                   <ul class="device-grid-list">
+                    {/* FIXME: Remove background color for debugging */}
                     {devices.map((deviceDetail: Device) => (
                       <li
                         class="device-grid"

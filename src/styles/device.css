@@ -58,11 +58,11 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.device-type-list__circle-image-ios::after {
-  background-image: url("/Images/types/ios.svg");
+.device-type-list__circle-image-phone::after {
+  background-image: url("/Images/types/phone.svg");
 }
-.device-type-list__circle-image-android::after {
-  background-image: url("/Images/types/android.svg");
+.device-type-list__circle-image-tablet::after {
+  background-image: url("/Images/types/tablet.svg");
 }
 .device-type-list__circle-image-wearables::after {
   background-image: url("/Images/types/wearables.svg");
