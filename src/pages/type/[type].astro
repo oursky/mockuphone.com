@@ -48,11 +48,25 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
     </header>
     <ul class="device-type-list">
       <li class="device-type-list__item">
+        <a href="/type/all">
+          <figure>
+            {
+              type == "all" ? (
+                <div class="device-type-list__circle-image device-type-list__circle-image-all--chosen device-type-list__circle-image--chosen" />
+              ) : (
+                <div class="device-type-list__circle-image device-type-list__circle-image-all" />
+              )
+            }
+            <figcaption class="device-type__name">All</figcaption>
+          </figure>
+        </a>
+      </li>
+      <li class="device-type-list__item">
         <a href="/type/phone">
           <figure>
             {
               type == "phone" ? (
-                <div class="device-type-list__circle-image device-type-list__circle-image-phone device-type-list__circle-image--chosen" />
+                <div class="device-type-list__circle-image device-type-list__circle-image-phone--chosen device-type-list__circle-image--chosen" />
               ) : (
                 <div class="device-type-list__circle-image device-type-list__circle-image-phone" />
               )
@@ -66,7 +80,7 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
           <figure>
             {
               type == "tablet" ? (
-                <div class="device-type-list__circle-image device-type-list__circle-image-tablet device-type-list__circle-image--chosen" />
+                <div class="device-type-list__circle-image device-type-list__circle-image-tablet--chosen device-type-list__circle-image--chosen" />
               ) : (
                 <div class="device-type-list__circle-image device-type-list__circle-image-tablet" />
               )
@@ -80,7 +94,7 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
           <figure>
             {
               type == "laptop" ? (
-                <div class="device-type-list__circle-image device-type-list__circle-image-computer device-type-list__circle-image--chosen" />
+                <div class="device-type-list__circle-image device-type-list__circle-image-computer--chosen device-type-list__circle-image--chosen" />
               ) : (
                 <div class="device-type-list__circle-image device-type-list__circle-image-computer" />
               )
@@ -94,7 +108,7 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
           <figure>
             {
               type == "wearables" ? (
-                <div class="device-type-list__circle-image device-type-list__circle-image-wearables device-type-list__circle-image--chosen" />
+                <div class="device-type-list__circle-image device-type-list__circle-image-wearables--chosen device-type-list__circle-image--chosen" />
               ) : (
                 <div class="device-type-list__circle-image device-type-list__circle-image-wearables" />
               )
@@ -108,7 +122,7 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
           <figure>
             {
               type == "tv" ? (
-                <div class="device-type-list__circle-image device-type-list__circle-image-tv device-type-list__circle-image--chosen" />
+                <div class="device-type-list__circle-image device-type-list__circle-image-tv--chosen device-type-list__circle-image--chosen" />
               ) : (
                 <div class="device-type-list__circle-image device-type-list__circle-image-tv" />
               )
