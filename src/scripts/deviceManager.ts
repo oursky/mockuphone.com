@@ -35,6 +35,10 @@ export class DeviceManager {
     return targetType ?? [];
   }
 
+  public getDeviceListByModel(model: string): model.Device[] {
+    return this.allDevices.filter((device) => device.device_type === model);
+  }
+
   public getDeviceListByBrand(brand: BrandEnum): model.Device[] {
     const targetBrand = this.allBrands[brand];
     return targetBrand ?? [];
