@@ -136,7 +136,7 @@
   line-height: 25px;
   text-align: center;
   text-transform: capitalize;
-  
+
   /* prevent button overflowing due to content */
   display: inline-block;
   white-space: nowrap;
