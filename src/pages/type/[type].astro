@@ -1,15 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import deviceJson from "../../scripts/device_info.json";
-import deviceTypeJson from "../../scripts/device_type.json";
 import "/src/styles/device.css";
 
 import { DEVICE_MANAGER } from "../../scripts/deviceManager";
 import type { Device, DeviceType } from "../../scripts/model";
 import { BrandEnum, DeviceTypeEnum } from "../../scripts/parse";
-
-const deviceData = deviceJson;
-const deviceTypeData = deviceTypeJson;
 
 export async function getStaticPaths() {
   const devicePaths = DeviceTypeEnum.options.map((deviceType) => ({
@@ -136,42 +131,7 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
   <section class="select-device">
     <header class="select-device__header">
       <h2 class="select-device__heading">SELECT DEVICE</h2>
-      <div class="select-device__search">
-        <input
-          class="select-device__search-input"
-          placeholder="Search Device"
-          type="search"
-        />
-        <button class="select-device__search-clear-btn d-none"
-          ><img src="/Images/search-clear.svg" /></button
-        >
-        <ul class="suggestion-list d-none">
-          {
-            deviceList.map((device: Device) => (
-              <li data-device-id={device.device_id}>
-                <a class="suggestion-list__link" href={"#" + device.device_id}>
-                  {" "}
-                  {device.name}{" "}
-                </a>{" "}
-              </li>
-            ))
-          }
-        </ul>
-      </div>
     </header>
-    <!-- TODO: confirm if still need tag list or not -->
-    <ul class="device-tag-list">
-      {
-        deviceList.map((device: Device) => (
-          <li class="device-tag-list__item" data-device-id={device.device_id}>
-            <a class="device-tag-list__link" href={"#" + device.device_id}>
-              {" "}
-              {device.name}{" "}
-            </a>{" "}
-          </li>
-        ))
-      }
-    </ul>
     <ul class="device-section-list">
       {
         Object.keys(brandDeviceList).map((b: string) => {
@@ -244,7 +204,6 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
           );
         })
       }
-
       <li class="device-section-list__request-device">
         <section class="request-device-section">
           <img
@@ -263,30 +222,4 @@ const allDeviceType: DeviceType = DEVICE_MANAGER.allDeviceTypes;
       </li>
     </ul>
   </section>
-
-  <div class="fullscreen-search d-none d-lg-none">
-    <div class="fullscreen-search__header-background"></div>
-    <header class="fullscreen-search__header">
-      <input
-        class="fullscreen-search__search-input"
-        placeholder="Search Device"
-        type="search"
-      />
-      <button class="fullscreen-search__search-cancel-btn">Cancel</button>
-    </header>
-    <ul class="fullscreen-suggestion-list">
-      {
-        deviceList.map((device: Device) => (
-          <li data-device-id={device.device_id}>
-            <a
-              class="fullscreen-suggestion-list__link"
-              href={"#" + device.device_id}
-            >
-              {device.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
 </BaseLayout>
