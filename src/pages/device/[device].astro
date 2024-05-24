@@ -20,7 +20,8 @@ export async function getStaticPaths() {
 }
 
 const { targetDevice } = Astro.props;
-const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
+// @ts-expect-error // astro will not show `page not found` if target device does not exist
+const deviceDetail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
 ---
 
 <script>
@@ -70,8 +71,8 @@ const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
   <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"
   ></script>
 
-  <script define:vars={{ deviceDatail }}>
-    window.location.recommendsize = deviceDatail["display_resolution"];
+  <script define:vars={{ deviceDetail }}>
+    window.location.recommendsize = deviceDetail["display_resolution"];
   </script>
 
   <script define:vars={{ deviceJson }}>
@@ -80,19 +81,19 @@ const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
   <div class="mockup-content">
     <div class="mockup-lg-left">
       <header class="device-header">
-        <h2 class="device-header__name">{deviceDatail.name}</h2>
-        <p class="device-header__desc">{deviceDatail.desc}</p>
+        <h2 class="device-header__name">{deviceDetail.name}</h2>
+        <p class="device-header__desc">{deviceDetail.desc}</p>
       </header>
       <div class="device">
         <div class="upload__inner-box">
           <img
             class="upload__device-image"
-            src={deviceDatail.imagePath?.[0][0]}
-            alt={deviceDatail.imagePath?.[0][1]}
+            src={deviceDetail.imagePath?.[0][0]}
+            alt={deviceDetail.imagePath?.[0][1]}
           />
         </div>
         <!-- FIXME: confirm if need uploading with webassembly or not -->
-        <input type="hidden" name="phone" value={deviceDatail.device_id} />
+        <input type="hidden" name="phone" value={deviceDetail.device_id} />
       </div>
     </div>
 
@@ -115,8 +116,8 @@ const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
           />
         </div>
         <p class="upload-guide__hint">
-          Recommend size {deviceDatail.display_resolution?.[0]}px * {
-            deviceDatail.display_resolution?.[1]
+          Recommend size {deviceDetail.display_resolution?.[0]}px * {
+            deviceDetail.display_resolution?.[1]
           }px, We support jpg, png and psd
         </p>
         <ul class="file-list"></ul>
@@ -131,7 +132,7 @@ const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
           <h3 class="device-support__heading">DEVICE ORIENTATIONS</h3>
           <ul class="device-support__orientation-list">
             {
-              deviceDatail.imagePath?.map((path: string[]) => (
+              deviceDetail.imagePath?.map((path: string[]) => (
                 <img
                   class="device-support__orientation-image"
                   src={path[0]}
@@ -144,7 +145,7 @@ const deviceDatail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
         <div class="device-credits">
           <h3 class="device-credits__heading">CREDITS</h3>
           <div class="device-credits__desc">
-            <Fragment set:html={deviceDatail.credits} />
+            <Fragment set:html={deviceDetail.credits} />
           </div>
         </div>
       </section>
