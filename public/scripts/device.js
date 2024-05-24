@@ -200,23 +200,23 @@ function main() {
       }
     });
 
-    // update device section list
-    const deviceSectionListItemNodes = Array.from(deviceSectionList.children);
-    deviceSectionListItemNodes.forEach((deviceSectionListItemNode) => {
-      if (
-        deviceSectionListItemNode.classList.contains(
-          "device-section-list__request-device",
-        )
-      ) {
-        return;
-      }
-      const deviceId = deviceSectionListItemNode.dataset.deviceId;
-      if (suggestedDeviceIds.includes(deviceId)) {
-        deviceSectionListItemNode.classList.remove("d-none");
-      } else {
-        deviceSectionListItemNode.classList.add("d-none");
-      }
-    });
+    // // update device section list
+    // const deviceSectionListItemNodes = Array.from(deviceSectionList.children);
+    // deviceSectionListItemNodes.forEach((deviceSectionListItemNode) => {
+    //   if (
+    //     deviceSectionListItemNode.classList.contains(
+    //       "device-section-list__request-device",
+    //     )
+    //   ) {
+    //     return;
+    //   }
+    //   const deviceId = deviceSectionListItemNode.dataset.deviceId;
+    //   if (suggestedDeviceIds.includes(deviceId)) {
+    //     deviceSectionListItemNode.classList.remove("d-none");
+    //   } else {
+    //     deviceSectionListItemNode.classList.add("d-none");
+    //   }
+    // });
 
     // update search suggestion list
     const suggestionNodes = Array.from(searchSuggestionList.children);

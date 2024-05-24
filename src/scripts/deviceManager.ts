@@ -45,16 +45,31 @@ export class DeviceManager {
   }
 
   public getDeviceList(
-    deviceType?: DeviceTypeEnum,
+    deviceType?: DeviceTypeEnum | "all",
     brand?: BrandEnum,
   ): model.Device[] {
     const targetBrand: model.Device[] =
       brand != null ? this.allBrands[brand] ?? [] : [];
     const targetType: model.Device[] =
-      deviceType != null ? this.allDeviceTypes[deviceType] ?? [] : [];
+      deviceType != null
+        ? deviceType === "all"
+          ? this.allDevices
+          : this.allDeviceTypes[deviceType] ?? []
+        : [];
     return targetType.filter((d) =>
       targetBrand.map((d) => d.device_id).includes(d.device_id),
     ); // ref https://stackoverflow.com/a/1885569/19287186
+  }
+
+  public getBrandDeviceList(
+    deviceType: DeviceTypeEnum | "all",
+  ): Partial<Record<BrandEnum, model.Device[]>> {
+    let result: Partial<Record<BrandEnum, model.Device[]>> = {};
+    BrandEnum.options.forEach((b: BrandEnum) => {
+      const devices = this.getDeviceList(deviceType, b);
+      result[b] = devices;
+    });
+    return result;
   }
 }
 
