@@ -2,7 +2,7 @@
 import { DEVICE_MANAGER } from "../scripts/deviceManager";
 import type { Device } from "../scripts/model";
 const { type } = Astro.props;
-const deviceArray: Device[] = DEVICE_MANAGER.getDevicesBytype(type);
+const deviceArray: Device[] = DEVICE_MANAGER.getDeviceListByModel(type);
 ---
 
 <h2>{type}</h2>
@@ -22,7 +22,7 @@ const deviceArray: Device[] = DEVICE_MANAGER.getDevicesBytype(type);
   </thead>
   <tbody>
     {
-      deviceArray.map((device) => {
+      deviceArray.map((device: Device) => {
         return (
           <tr>
             <td>

@@ -1,46 +1,94 @@
 import * as model from "./model";
+import { BrandEnum, DeviceTypeEnum } from "./parse";
 
 export class DeviceManager {
-  deviceCatalog: model.DeviceCatalog;
+  allDevices: model.Device[];
+  allDeviceTypes: model.DeviceType;
+  allBrands: model.Brand;
 
-  constructor(deviceCatalog: model.DeviceCatalog) {
-    this.deviceCatalog = deviceCatalog;
+  constructor(
+    allDevices: model.Device[],
+    allDeviceTypes: model.DeviceType,
+    allBrands: model.Brand,
+  ) {
+    this.allDevices = allDevices;
+    this.allDeviceTypes = allDeviceTypes;
+    this.allBrands = allBrands;
   }
 
-  public getDeviceById(id: string): model.Device {
-    var targetDevice = {} as model.Device;
-    this.deviceCatalog.deviceCatalogArray.filter((deviceCatalogItem) =>
-      deviceCatalogItem.deviceSeries.filter((series) => {
-        series.device.map((device) => {
-          if (device.device_id === id) targetDevice = device;
-        });
-      }),
-    );
-    return targetDevice;
+  public getDeviceById(id: string): model.Device | undefined {
+    for (let device of this.allDevices) {
+      if (device.device_id === id) {
+        return device;
+      }
+    }
+    return undefined;
   }
 
-  public getDeviceSeriesListByCategory(category: string): model.DeviceSeries[] {
-    return this.deviceCatalog.deviceCatalogArray.filter(
-      (deviceCatalogItem) => deviceCatalogItem.deviceCatalog === category,
-    )[0].deviceSeries;
+  public getDeviceListByType(
+    deviceType: DeviceTypeEnum | "all",
+  ): model.Device[] {
+    if (deviceType === "all") {
+      return this.allDevices;
+    }
+    const targetType = this.allDeviceTypes[deviceType];
+    return targetType ?? [];
   }
 
-  public getDevicesBytype(deviceType: string): model.Device[] {
-    var targetDeviceList: model.Device[] = [];
-    this.deviceCatalog.deviceCatalogArray.filter((deviceCatalogItem) =>
-      deviceCatalogItem.deviceSeries.filter((series) => {
-        series.device.map((device) => {
-          if (device.device_type === deviceType) targetDeviceList.push(device);
-        });
-      }),
-    );
-    return targetDeviceList;
+  public getDeviceListByModel(model: string): model.Device[] {
+    return this.allDevices.filter((device) => device.device_type === model);
+  }
+
+  public getDeviceListByBrand(brand: BrandEnum): model.Device[] {
+    const targetBrand = this.allBrands[brand];
+    return targetBrand ?? [];
+  }
+
+  public getDeviceList(
+    deviceType?: DeviceTypeEnum | "all",
+    brand?: BrandEnum,
+  ): model.Device[] {
+    const targetBrand: model.Device[] =
+      brand != null ? this.allBrands[brand] ?? [] : [];
+    const targetType: model.Device[] =
+      deviceType != null
+        ? deviceType === "all"
+          ? this.allDevices
+          : this.allDeviceTypes[deviceType] ?? []
+        : [];
+    return targetType.filter((d) =>
+      targetBrand.map((d) => d.device_id).includes(d.device_id),
+    ); // ref https://stackoverflow.com/a/1885569/19287186
+  }
+
+  public getBrandDeviceList(
+    deviceType: DeviceTypeEnum | "all",
+  ): Partial<Record<BrandEnum, model.Device[]>> {
+    let result: Partial<Record<BrandEnum, model.Device[]>> = {};
+    BrandEnum.options.forEach((b: BrandEnum) => {
+      const devices = this.getDeviceList(deviceType, b);
+      result[b] = devices;
+    });
+    return result;
   }
 }
 
-function makeDeviceManager(url: string): DeviceManager {
-  return new DeviceManager(model.parseDeviceCatalog(url));
+function makeDeviceManager(
+  deviceUrl: string,
+  deviceTypeUrl: string,
+  brandUrl: string,
+): DeviceManager {
+  const allDevices = model.parseAllDevices(deviceUrl);
+  const allDeviceTypes = model.parseAllDeviceTypes(deviceTypeUrl, allDevices);
+  const allBrands = model.parseAllBrands(brandUrl, allDevices);
+  return new DeviceManager(allDevices, allDeviceTypes, allBrands);
 }
 
-const url = "src/scripts/device_info.json";
-export const DEVICE_MANAGER = makeDeviceManager(url);
+const deviceUrl = "src/scripts/device_info.json";
+const deviceTypeUrl = "src/scripts/device_type.json";
+const brandUrl = "src/scripts/brand.json";
+export const DEVICE_MANAGER = makeDeviceManager(
+  deviceUrl,
+  deviceTypeUrl,
+  brandUrl,
+);

@@ -58,11 +58,14 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.device-type-list__circle-image-ios::after {
-  background-image: url("/Images/types/ios.svg");
+.device-type-list__circle-image-all::after {
+  background-image: url("/Images/types/all.svg");
 }
-.device-type-list__circle-image-android::after {
-  background-image: url("/Images/types/android.svg");
+.device-type-list__circle-image-phone::after {
+  background-image: url("/Images/types/phone.svg");
+}
+.device-type-list__circle-image-tablet::after {
+  background-image: url("/Images/types/tablet.svg");
 }
 .device-type-list__circle-image-wearables::after {
   background-image: url("/Images/types/wearables.svg");
@@ -74,9 +77,91 @@
   background-image: url("/Images/types/tv.svg");
 }
 .device-type-list__circle-image--chosen {
-  background: var(--white);
-  border: 2px solid #1963ef;
+  background: #0043e0;
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.16);
+}
+.device-type-list__circle-image-all--chosen::after {
+  background-image: url("/Images/types/all-white.svg");
+}
+.device-type-list__circle-image-phone--chosen::after {
+  background-image: url("/Images/types/phone-white.svg");
+}
+.device-type-list__circle-image-tablet--chosen::after {
+  background-image: url("/Images/types/tablet-white.svg");
+}
+.device-type-list__circle-image-wearables--chosen::after {
+  background-image: url("/Images/types/wearables-white.svg");
+}
+.device-type-list__circle-image-computer--chosen::after {
+  background-image: url("/Images/types/computer-white.svg");
+}
+.device-type-list__circle-image-tv--chosen::after {
+  background-image: url("/Images/types/tv-white.svg");
+}
+
+.device-brand-list {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 40px 0 0 0;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.device-brand-list::after {
+  content: "";
+  padding-left: 20px;
+}
+.device-brand-list::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 576px) {
+  .device-brand-list {
+    margin: 50px 0 0 0;
+    justify-content: center;
+  }
+}
+
+.device-brand-list__item {
+  margin-left: 20px;
+}
+.device-brand-list__item-button {
+  padding: 8px 20px 8px 20px;
+  border-radius: 100px;
+  border: 2px solid #b1b1b1;
+  cursor: pointer;
+  background-color: white;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 25px;
+  text-align: center;
+  text-transform: capitalize;
+
+  /* prevent button overflowing due to content */
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.device-brand-list__item-button:hover {
+  border: 2px solid #0043e0;
+  background-color: #e5ecfc;
+}
+
+.device-brand-list__item-button--selected {
+  border: 2px solid #0043e0;
+  background-color: #0043e0;
+  color: white;
+}
+.device-brand-list__item-button--selected:hover {
+  /* remain unchanged */
+  background-color: #0043e0;
+  color: white;
+}
+
+@media (min-width: 576px) {
+  .device-brand-list__item:not(:first-child) {
+    margin-left: 30px;
+  }
 }
 
 .device-type__name {
@@ -87,7 +172,7 @@
 }
 
 .select-device {
-  padding: 50px 20px 40px 20px;
+  padding: 50px 20px 50px 20px;
   background-color: rgba(0, 0, 0, 0.06);
 }
 @media (min-width: 992px) {
@@ -319,7 +404,7 @@
 
 .device-section-list {
   list-style: none;
-  margin: 40px 0 0 0;
+  margin: 0 0 0 0;
   padding: 0;
 }
 
@@ -331,14 +416,19 @@
   margin: 10px 0 0 0;
 }
 
+.device-section-list__item {
+  margin-bottom: 100px;
+}
+
 .device-section {
   scroll-margin-top: 80px;
 }
 
-.device-section__device-name {
+.device-section__brand-name {
   color: var(--gray-1);
-  font-size: 18px;
-  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 30px 0;
 }
 
 .device-grid-list {
@@ -349,11 +439,21 @@
   padding: 0;
 }
 
+.device-grid-container {
+  margin: 20px 0 0 10px;
+}
+
+.device-grid-container-header {
+  color: var(--gray-1);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+}
+
 .device-grid {
   position: relative;
   height: 160px;
   width: 160px;
-  margin: 10px 0 0 10px;
   background-color: var(--white);
   border: 1px solid var(--gray-5);
   box-sizing: border-box;

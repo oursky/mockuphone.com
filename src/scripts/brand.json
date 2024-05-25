@@ -1,0 +1,57 @@
+{
+  "apple": [
+    "apple-iphone14-blue",
+    "apple-iphone14plus-blue",
+    "apple-iphone14pro-deeppurple",
+    "apple-iphone14promax-deeppurple",
+    "apple-iphone13-blue",
+    "apple-iphone13mini-blue",
+    "apple-iphone13pro-gold",
+    "apple-iphone13promax-gold",
+    "apple-ipadpro11-spacegrey",
+    "apple-ipadpro13-spacegrey",
+    "apple-ipadair5-spacegrey",
+    "apple-ipad-silver",
+    "apple-ipadmini-starlight",
+    "apple-applewatchultra",
+    "apple-applewatch41mm-goldstainlesssteel",
+    "apple-applewatch45mm-goldstainlesssteel",
+    "apple-macbook-gold",
+    "apple-macbook-grey",
+    "apple-macbookair13",
+    "apple-macbookpro14",
+    "apple-macbookpro16",
+    "apple-imac2013",
+    "apple-imac2015",
+    "apple-imac2015retina"
+  ],
+  "google": [
+    "google-pixel5-justblack",
+    "google-pixel4xl-clearlywhite",
+    "google-pixel4-clearlywhite",
+    "google-pixel-quite-black"
+  ],
+  "motorola": ["motorola-motoe-black", "motorola-motog"],
+  "samsung": [
+    "samsung-galaxys21plus-black",
+    "samsung-galaxys21ultra-black",
+    "samsung-galaxys21-black",
+    "samsung-galaxys20plus-cloudblue",
+    "samsung-galaxys20ultra-cosmicblack",
+    "samsung-galaxys20-cloudblue",
+    "samsung-galaxynote5-black",
+    "samsung-galaxyy-black",
+    "samsung-galaxysduos",
+    "samsung-galaxys4-white",
+    "samsung-es8000",
+    "samsung-d8000"
+  ],
+  "dell": ["dell-xps13", "dell-xps15"],
+  "lg": ["lg-55lw5600", "lg-tm2792"],
+  "microsoft": [
+    "microsoft-surfacebook",
+    "microsoft-surfacepro4",
+    "microsoft-surfacepro3"
+  ],
+  "oneplus": ["oneplus-oneplus8pro"]
+}
