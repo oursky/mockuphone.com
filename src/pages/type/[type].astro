@@ -176,7 +176,6 @@ const brandList: string[] = ["all", ...nonEmptyBrands];
                 </h3>
                 {
                   <ul class="device-grid-list">
-                    {/* FIXME: Remove background color for debugging */}
                     {devices.map((deviceDetail: Device) => (
                       <div
                         class="device-grid-container"
@@ -187,9 +186,6 @@ const brandList: string[] = ["all", ...nonEmptyBrands];
                         </h3>
                         <li
                           class="device-grid"
-                          style={{
-                            backgroundColor: deviceDetail.color.hexcode,
-                          }}
                           data-image-index="0"
                           data-n-image={deviceDetail.imagePath?.length}
                           id={deviceDetail.device_id}
