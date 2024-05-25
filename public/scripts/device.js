@@ -22,30 +22,10 @@ class RootViewModel {
       searchText: mobx.observable,
       shouldShowSearchSuggestionList: mobx.observable,
       shouldShowFullscreenSearchOnBelowLg: mobx.observable,
-      suggestedDeviceList: mobx.computed,
-      shouldShowSearchClear: mobx.computed,
       selectedBrand: mobx.observable,
-      filteredDeviceList: mobx.computed,
     });
     this._deviceList = deviceList;
     this._brandDeviceList = brandDeviceList;
-  }
-
-  get suggestedDeviceList() {
-    const targetText = this.searchText.toLowerCase().replace(/\s/g, "");
-    return this._deviceList.filter(({ name }) => {
-      return name.toLowerCase().replace(/\s/g, "").includes(targetText);
-    });
-  }
-
-  get shouldShowSearchClear() {
-    return this.searchText.trim().length > 0;
-  }
-
-  get filteredDeviceList() {
-    return this.selectedBrand === "all"
-      ? this._deviceList
-      : this._brandDeviceList[this.selectedBrand];
   }
 }
 
@@ -111,7 +91,6 @@ function handleClickBrandLabelBtn(e, viewModel) {
 function main() {
   const deviceGrids = document.querySelectorAll(".device-grid");
   const brands = document.querySelectorAll(".device-brand-list__item-button");
-  const allDeviceGrids = document.querySelectorAll(".device-grid-container");
 
   const viewModel = new RootViewModel(
     window.deviceList,
@@ -124,37 +103,41 @@ function main() {
   mobx.reaction(
     () => viewModel.selectedBrand,
     (selectedBrand) => {
-      // console.log('inside reaction xd')
-      // console.log(selectedBrand)
-      const targetBrandListItem = document.querySelector(
-        `#device-brand-list__item-button__${selectedBrand}`,
-      );
+      // Show non-selected styles for all brand tags
       const allBrandListItems = document.querySelectorAll(
         ".device-brand-list__item-button",
       );
       allBrandListItems.forEach((n) =>
         n.classList.remove("device-brand-list__item-button--selected"),
       );
+
+      // Show selected styles for target brand tags
+      const targetBrandListItem = document.querySelector(
+        `#device-brand-list__item-button__${selectedBrand}`,
+      );
+
       targetBrandListItem.classList.add(
         "device-brand-list__item-button--selected",
       );
-      // targetNode.add
+
+      // Hide all brand sections
+      const allBrandSections = document.querySelectorAll(
+        ".device-section-list__item",
+      );
+      allBrandSections.forEach((n) => n.classList.add("d-none"));
+
+      // Show target brand sections
+      const targetBrandSections =
+        selectedBrand === "all"
+          ? allBrandSections
+          : [
+              document.querySelector(
+                `#device-section-list__item-${selectedBrand}`,
+              ),
+            ];
+      targetBrandSections.forEach((n) => n.classList.remove("d-none"));
     },
   );
-
-  mobx.autorun(() => {
-    const filteredDeviceIds = viewModel.filteredDeviceList.map(
-      (d) => d.device_id,
-    );
-    allDeviceGrids.forEach((deviceGridNode) => {
-      const deviceId = deviceGridNode.dataset.deviceId;
-      if (filteredDeviceIds.includes(deviceId)) {
-        deviceGridNode.classList.remove("d-none");
-      } else {
-        deviceGridNode.classList.add("d-none");
-      }
-    });
-  });
 
   deviceGrids.forEach((deviceGrid) => {
     deviceGrid.addEventListener("mouseenter", handleMouseEnterDeviceGrid);

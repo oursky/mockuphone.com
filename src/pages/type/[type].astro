@@ -161,8 +161,16 @@ const brandList: string[] = ["all", ...nonEmptyBrands];
             return undefined;
           }
           return (
-            <li class="device-section-list__item">
-              <section id={`device-section-${b}`} class="device-section">
+            <li
+              class="device-section-list__item"
+              id={`device-section-list__item-${b}`}
+              data-brand-name={b}
+            >
+              <section
+                id={`device-section-${b}`}
+                class="device-section"
+                data-brand-name={b}
+              >
                 <h3 class="device-section__brand-name">
                   {brand.toUpperCase()}
                 </h3>
