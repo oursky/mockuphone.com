@@ -77,8 +77,16 @@
   background-image: url("/Images/types/tv.svg");
 }
 .device-type-list__circle-image--chosen {
-  background: #0043e0;
+  background-color: #0043e0;
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.16);
+}
+.device-type-list__circle-image:hover {
+  border: 2px solid #0043e0;
+  background-color: #e5ecfc;
+}
+.device-type-list__circle-image--chosen:hover {
+  border: 2px solid #0043e0;
+  background-color: #0043e0;
 }
 .device-type-list__circle-image-all--chosen::after {
   background-image: url("/Images/types/all-white.svg");
