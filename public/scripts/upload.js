@@ -1,6 +1,6 @@
 /*
 Require: mobx,
-         utils/images.js, services/presign.js, models/image-upload.js
+         utils/images.js, utils/scroll.js, services/presign.js, models/image-upload.js
 */
 let dragZoneCounter = 0; // https://stackoverflow.com/a/21002544/19287186
 const isDebug = false;
@@ -367,6 +367,7 @@ function updateFileListItem(itemNode, imageUpload) {
 
 function main() {
   const htmlNode = document.querySelector("html");
+  const uploadSection = document.querySelector("#above-file-uploaded");
   const uploadBtn = document.querySelector(".upload-guide__browse-btn");
   const uploadGuideHint = document.querySelector(".upload-guide__hint");
   const fileInput = document.querySelector(".upload-guide__file-input");
@@ -502,6 +503,8 @@ function main() {
         }
         updateFileListItem(itemNode, imageUploads[i]);
       }
+      const HEADER_HEIGHT = 80;
+      scrollToElementTop(uploadSection, HEADER_HEIGHT);
     },
     {
       equals: mobx.comparer.shallow,
