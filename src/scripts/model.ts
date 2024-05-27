@@ -23,6 +23,7 @@ export interface Device {
 
 export type DeviceType = Partial<Record<schema.DeviceTypeEnum, Device[]>>;
 export type Brand = Partial<Record<schema.BrandEnum, Device[]>>;
+export type Model = Partial<Record<schema.ModelEnum, Device[]>>;
 
 export interface DeviceColor {
   name: string;
@@ -97,4 +98,23 @@ function mapBrand(data: schema.RawBrand, allDevices: Device[]): Brand {
 export function parseAllBrands(url: string, allDevices: Device[]): Brand {
   const rawBrand: schema.RawBrand = schema.parseRawBrandFile(url);
   return mapBrand(rawBrand, allDevices);
+}
+
+function mapModel(data: schema.RawModel, allDevices: Device[]): Model {
+  let result: Model = {};
+  Object.keys(data).forEach((modelKey: string) => {
+    const model = schema.ModelEnum.parse(modelKey);
+
+    const devices: Device[] = allDevices.filter(
+      (d) => data[model]?.slugs.includes(d.device_id),
+    );
+
+    result[model] = devices;
+  });
+  return result;
+}
+
+export function parseAllModels(url: string, allDevices: Device[]): Model {
+  const rawModel: schema.RawModel = schema.parseRawModelFile(url);
+  return mapModel(rawModel, allDevices);
 }

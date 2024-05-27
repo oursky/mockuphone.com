@@ -1,19 +1,22 @@
 import * as model from "./model";
-import { BrandEnum, DeviceTypeEnum } from "./parse";
+import { BrandEnum, DeviceTypeEnum, ModelEnum } from "./parse";
 
 export class DeviceManager {
   allDevices: model.Device[];
   allDeviceTypes: model.DeviceType;
   allBrands: model.Brand;
+  allDeviceModels: model.Model;
 
   constructor(
     allDevices: model.Device[],
     allDeviceTypes: model.DeviceType,
     allBrands: model.Brand,
+    allDeviceModels: model.Model,
   ) {
     this.allDevices = allDevices;
     this.allDeviceTypes = allDeviceTypes;
     this.allBrands = allBrands;
+    this.allDeviceModels = allDeviceModels;
   }
 
   public getDeviceById(id: string): model.Device | undefined {
@@ -41,6 +44,19 @@ export class DeviceManager {
     );
   }
 
+  public getDeviceListByModel(model: ModelEnum): model.Device[] {
+    const targetModel = this.allDeviceModels[model];
+    return targetModel ?? [];
+  }
+
+  public getDeviceThumbnailByModel(model: ModelEnum): model.Device | undefined {
+    const targetModel: model.Device[] | undefined = this.allDeviceModels[model];
+    if (targetModel == null || targetModel.length === 0) {
+      return undefined;
+    }
+    return targetModel[0];
+  }
+
   public getDeviceListByBrand(brand: BrandEnum): model.Device[] {
     const targetBrand = this.allBrands[brand];
     return targetBrand ?? [];
@@ -50,14 +66,18 @@ export class DeviceManager {
     deviceType?: DeviceTypeEnum | "all",
     brand?: BrandEnum,
   ): model.Device[] {
-    const targetBrand: model.Device[] =
-      brand != null ? this.allBrands[brand] ?? [] : [];
+    if (brand == null || deviceType == null) {
+      return [];
+    }
+    if (this.allBrands[brand] == null) {
+      return [];
+    }
+
+    const targetBrand: model.Device[] = this.allBrands[brand];
     const targetType: model.Device[] =
-      deviceType != null
-        ? deviceType === "all"
-          ? this.allDevices
-          : this.allDeviceTypes[deviceType] ?? []
-        : [];
+      deviceType === "all"
+        ? this.allDevices
+        : this.allDeviceTypes[deviceType] ?? [];
     return targetType.filter((d) =>
       targetBrand.map((d) => d.device_id).includes(d.device_id),
     ); // ref https://stackoverflow.com/a/1885569/19287186
@@ -79,18 +99,28 @@ function makeDeviceManager(
   deviceUrl: string,
   deviceTypeUrl: string,
   brandUrl: string,
+  deviceModelUrl: string,
 ): DeviceManager {
   const allDevices = model.parseAllDevices(deviceUrl);
   const allDeviceTypes = model.parseAllDeviceTypes(deviceTypeUrl, allDevices);
   const allBrands = model.parseAllBrands(brandUrl, allDevices);
-  return new DeviceManager(allDevices, allDeviceTypes, allBrands);
+  const allDeviceModels = model.parseAllModels(deviceModelUrl, allDevices);
+  return new DeviceManager(
+    allDevices,
+    allDeviceTypes,
+    allBrands,
+    allDeviceModels,
+  );
 }
 
-const deviceUrl = "src/scripts/device_info.json";
-const deviceTypeUrl = "src/scripts/device_type.json";
-const brandUrl = "src/scripts/brand.json";
+const DEVICE_URL = "src/scripts/device_info.json";
+const DEVICE_TYPE_URL = "src/scripts/device_type.json";
+const BRAND_URL = "src/scripts/brand.json";
+const DEVICE_MODEL_URL = "src/scripts/device_model.json";
+
 export const DEVICE_MANAGER = makeDeviceManager(
-  deviceUrl,
-  deviceTypeUrl,
-  brandUrl,
+  DEVICE_URL,
+  DEVICE_TYPE_URL,
+  BRAND_URL,
+  DEVICE_MODEL_URL,
 );
