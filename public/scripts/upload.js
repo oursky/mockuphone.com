@@ -358,7 +358,7 @@ function updateFileListItem(itemNode, imageUpload) {
     }
   }
 
-  if (imageUpload.isSuccessState) {
+  if (imageUpload.isSuccessState && !shouldShowAspectRatioWarning) {
     hintNode.classList.add("d-none");
   } else {
     hintNode.classList.remove("d-none");
