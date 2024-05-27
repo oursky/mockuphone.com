@@ -417,14 +417,7 @@ main {
 }
 
 .color-picker-item--selected {
-  width: 30px;
-  height: 30px;
   border: 3px #0043e0 solid;
-  display: inline-block;
-  border-radius: 9999px;
-  box-sizing: content-box;
-  background-clip: content-box;
-  padding: 3px;
 }
 
 .color-picker-item-container {
