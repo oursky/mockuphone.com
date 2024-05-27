@@ -110,11 +110,8 @@ export class DeviceManager {
     if (brand == null || deviceType == null) {
       return [];
     }
-    if (this.allBrands[brand] == null) {
-      return [];
-    }
 
-    const targetBrand: model.ModelThumbnail[] = this.allBrands[brand];
+    const targetBrand: model.ModelThumbnail[] = this.allBrands[brand] ?? [];
     const targetType: model.ModelThumbnail[] =
       deviceType === "all"
         ? this.allModelThumbnails
