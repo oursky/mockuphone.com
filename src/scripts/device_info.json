@@ -3556,17 +3556,6 @@
       "short_name": "S4",
       "orientations": [
         {
-          "alt": "galaxy s7 mockup",
-          "coords": [
-            [1600, 680],
-            [1600, 1367],
-            [397, 1367],
-            [397, 680]
-          ],
-          "legacy_file": "galaxys4_black_landscape.png",
-          "name": "landscape"
-        },
-        {
           "alt": "Samusung mockup",
           "coords": [
             [680, 400],
@@ -3576,6 +3565,17 @@
           ],
           "legacy_file": "galaxys4_black_portrait.png",
           "name": "portrait"
+        },
+        {
+          "alt": "galaxy s7 mockup",
+          "coords": [
+            [1600, 680],
+            [1600, 1367],
+            [397, 1367],
+            [397, 680]
+          ],
+          "legacy_file": "galaxys4_black_landscape.png",
+          "name": "landscape"
         }
       ],
       "view_desc": "Portrait<br/>Landscape",
