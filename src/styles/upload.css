@@ -387,17 +387,21 @@ main {
   background-image: url("/Images/droplet.svg");
 }
 
+.color-picker-scrollable {
+  margin: 0 0 8px 0;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .color-picker {
   list-style: none;
   display: flex;
   padding: 12px 0;
   align-items: center;
-  margin: 0 0 8px 0;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  margin: 0;
   justify-content: center;
+  width: max-content;
 }
 
 .color-picker-item {
