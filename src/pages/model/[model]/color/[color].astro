@@ -159,9 +159,8 @@ if (deviceDetail == null) {
                         ? "color-picker-item--selected"
                         : ""
                     }`}
-                  >
-                    <div class="color-picker-item__tooltip">{d.color.name}</div>
-                  </a>
+                    data-tippy-content={d.color.name}
+                  />
                 </li>
               ))
             }
