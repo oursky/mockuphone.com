@@ -4,6 +4,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Ultra",
       "color": {
+        "id": "ultra",
         "name": "Ultra",
         "hexcode": "#d3c9c0"
       },
@@ -43,6 +44,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Gold Stainless Steel",
       "color": {
+        "id": "gold-stainless-steel",
         "name": "Gold Stainless Steel",
         "hexcode": "#000000"
       },
@@ -82,6 +84,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Graphite Stainless Steel",
       "color": {
+        "id": "graphite-stainless-steel",
         "name": "Graphite Stainless Steel",
         "hexcode": "#000000"
       },
@@ -121,6 +124,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Midnight Aluminum",
       "color": {
+        "id": "midnight-aluminum",
         "name": "Midnight Aluminum",
         "hexcode": "#000000"
       },
@@ -160,6 +164,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Silver Aluminum",
       "color": {
+        "id": "silver-aluminum",
         "name": "Silver Aluminum",
         "hexcode": "#000000"
       },
@@ -199,6 +204,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Silver Stainless Steel",
       "color": {
+        "id": "silver-stainless-steel",
         "name": "Silver Stainless Steel",
         "hexcode": "#000000"
       },
@@ -238,6 +244,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Starlight Aluminum",
       "color": {
+        "id": "starlight-aluminum",
         "name": "Starlight Aluminum",
         "hexcode": "#000000"
       },
@@ -277,6 +284,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Gold Stainless Steel",
       "color": {
+        "id": "gold-stainless-steel",
         "name": "Gold Stainless Steel",
         "hexcode": "#000000"
       },
@@ -316,6 +324,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Graphite Stainless Steel",
       "color": {
+        "id": "graphite-stainless-steel",
         "name": "Graphite Stainless Steel",
         "hexcode": "#000000"
       },
@@ -355,6 +364,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Midnight Aluminum",
       "color": {
+        "id": "midnight-aluminum",
         "name": "Midnight Aluminum",
         "hexcode": "#000000"
       },
@@ -394,6 +404,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Silver Aluminum",
       "color": {
+        "id": "silver-aluminum",
         "name": "Silver Aluminum",
         "hexcode": "#000000"
       },
@@ -433,6 +444,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Silver Stainless Steel",
       "color": {
+        "id": "silver-stainless-steel",
         "name": "Silver Stainless Steel",
         "hexcode": "#000000"
       },
@@ -472,6 +484,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Starlight Aluminum",
       "color": {
+        "id": "starlight-aluminum",
         "name": "Starlight Aluminum",
         "hexcode": "#000000"
       },
@@ -511,6 +524,7 @@
       "credits": "<p><a href=\"http://www.elegantthemes.com/blog/freebie-of-the-week/free-imac-psd-templates\">Elegant Themes</a><br/> <a href=\"https://twitter.com/@elegantthemes\">@elegantthemes</a></p>",
       "desc": "2013",
       "color": {
+        "id": "2013",
         "name": "2013",
         "hexcode": "#000000"
       },
@@ -562,6 +576,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "2015",
       "color": {
+        "id": "2015",
         "name": "2015",
         "hexcode": "#000000"
       },
@@ -591,6 +606,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "2015",
       "color": {
+        "id": "2015",
         "name": "2015",
         "hexcode": "#000000"
       },
@@ -620,6 +636,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Blue",
       "color": {
+        "id": "blue",
         "name": "Blue",
         "hexcode": "#000000"
       },
@@ -661,6 +678,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Midnight",
       "color": {
+        "id": "midnight",
         "name": "Midnight",
         "hexcode": "#000000"
       },
@@ -702,6 +720,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Purple",
       "color": {
+        "id": "purple",
         "name": "Purple",
         "hexcode": "#000000"
       },
@@ -743,6 +762,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Red",
       "color": {
+        "id": "red",
         "name": "Red",
         "hexcode": "#000000"
       },
@@ -784,6 +804,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Starlight",
       "color": {
+        "id": "starlight",
         "name": "Starlight",
         "hexcode": "#000000"
       },
@@ -825,6 +846,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Blue",
       "color": {
+        "id": "blue",
         "name": "Blue",
         "hexcode": "#000000"
       },
@@ -866,6 +888,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Midnight",
       "color": {
+        "id": "midnight",
         "name": "Midnight",
         "hexcode": "#000000"
       },
@@ -907,6 +930,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Purple",
       "color": {
+        "id": "purple",
         "name": "Purple",
         "hexcode": "#000000"
       },
@@ -948,6 +972,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Red",
       "color": {
+        "id": "red",
         "name": "Red",
         "hexcode": "#000000"
       },
@@ -989,6 +1014,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Starlight",
       "color": {
+        "id": "starlight",
         "name": "Starlight",
         "hexcode": "#000000"
       },
@@ -1030,6 +1056,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Deep Purple",
       "color": {
+        "id": "deep-purple",
         "name": "Deep Purple",
         "hexcode": "#000000"
       },
@@ -1071,6 +1098,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Gold",
       "color": {
+        "id": "gold",
         "name": "Gold",
         "hexcode": "#000000"
       },
@@ -1112,6 +1140,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Silver",
       "color": {
+        "id": "silver",
         "name": "Silver",
         "hexcode": "#000000"
       },
@@ -1153,6 +1182,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Space Black",
       "color": {
+        "id": "space-black",
         "name": "Space Black",
         "hexcode": "#000000"
       },
@@ -1194,6 +1224,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Deep Purple",
       "color": {
+        "id": "deep-purple",
         "name": "Deep Purple",
         "hexcode": "#000000"
       },
@@ -1235,6 +1266,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Gold",
       "color": {
+        "id": "gold",
         "name": "Gold",
         "hexcode": "#000000"
       },
@@ -1276,6 +1308,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Silver",
       "color": {
+        "id": "silver",
         "name": "Silver",
         "hexcode": "#000000"
       },
@@ -1317,6 +1350,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Space Black",
       "color": {
+        "id": "space-black",
         "name": "Space Black",
         "hexcode": "#000000"
       },
@@ -1358,6 +1392,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Space Grey",
       "color": {
+        "id": "space-grey",
         "name": "Space Grey",
         "hexcode": "#000000"
       },
@@ -1399,6 +1434,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Space Grey",
       "color": {
+        "id": "space-grey",
         "name": "Space Grey",
         "hexcode": "#000000"
       },
@@ -1440,6 +1476,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Space Grey",
       "color": {
+        "id": "space-grey",
         "name": "Space Grey",
         "hexcode": "#000000"
       },
@@ -1481,6 +1518,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Silver",
       "color": {
+        "id": "silver",
         "name": "Silver",
         "hexcode": "#000000"
       },
@@ -1522,6 +1560,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "Starlight",
       "color": {
+        "id": "starlight",
         "name": "Starlight",
         "hexcode": "#000000"
       },
@@ -1563,6 +1602,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Blue",
       "color": {
+        "id": "blue",
         "name": "Blue",
         "hexcode": "#000000"
       },
@@ -1604,6 +1644,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Midnight",
       "color": {
+        "id": "midnight",
         "name": "Midnight",
         "hexcode": "#000000"
       },
@@ -1645,6 +1686,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Pink",
       "color": {
+        "id": "pink",
         "name": "Pink",
         "hexcode": "#000000"
       },
@@ -1686,6 +1728,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Red",
       "color": {
+        "id": "red",
         "name": "Red",
         "hexcode": "#000000"
       },
@@ -1727,6 +1770,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Starlight",
       "color": {
+        "id": "starlight",
         "name": "Starlight",
         "hexcode": "#000000"
       },
@@ -1768,6 +1812,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Blue",
       "color": {
+        "id": "blue",
         "name": "Blue",
         "hexcode": "#000000"
       },
@@ -1809,6 +1854,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Midnight",
       "color": {
+        "id": "midnight",
         "name": "Midnight",
         "hexcode": "#000000"
       },
@@ -1850,6 +1896,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Pink",
       "color": {
+        "id": "pink",
         "name": "Pink",
         "hexcode": "#000000"
       },
@@ -1891,6 +1938,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Red",
       "color": {
+        "id": "red",
         "name": "Red",
         "hexcode": "#000000"
       },
@@ -1932,6 +1980,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Starlight",
       "color": {
+        "id": "starlight",
         "name": "Starlight",
         "hexcode": "#000000"
       },
@@ -1973,6 +2022,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Gold",
       "color": {
+        "id": "gold",
         "name": "Gold",
         "hexcode": "#000000"
       },
@@ -2014,6 +2064,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Graphite",
       "color": {
+        "id": "graphite",
         "name": "Graphite",
         "hexcode": "#000000"
       },
@@ -2055,6 +2106,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Sierrablue",
       "color": {
+        "id": "sierrablue",
         "name": "Sierrablue",
         "hexcode": "#000000"
       },
@@ -2096,6 +2148,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Gold",
       "color": {
+        "id": "gold",
         "name": "Gold",
         "hexcode": "#000000"
       },
@@ -2137,6 +2190,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Gold",
       "color": {
+        "id": "gold",
         "name": "Gold",
         "hexcode": "#000000"
       },
@@ -2178,6 +2232,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Graphite",
       "color": {
+        "id": "graphite",
         "name": "Graphite",
         "hexcode": "#000000"
       },
@@ -2219,6 +2274,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Sierrablue",
       "color": {
+        "id": "sierrablue",
         "name": "Sierrablue",
         "hexcode": "#000000"
       },
@@ -2260,6 +2316,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Silver",
       "color": {
+        "id": "silver",
         "name": "Silver",
         "hexcode": "#000000"
       },
@@ -2301,6 +2358,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Gold",
       "color": {
+        "id": "gold",
         "name": "Gold",
         "hexcode": "#000000"
       },
@@ -2330,6 +2388,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Grey",
       "color": {
+        "id": "grey",
         "name": "Grey",
         "hexcode": "#000000"
       },
@@ -2359,6 +2418,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "13",
       "color": {
+        "id": "13",
         "name": "13",
         "hexcode": "#000000"
       },
@@ -2389,6 +2449,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "14",
       "color": {
+        "id": "14",
         "name": "14",
         "hexcode": "#000000"
       },
@@ -2419,6 +2480,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "16",
       "color": {
+        "id": "16",
         "name": "16",
         "hexcode": "#000000"
       },
@@ -2449,6 +2511,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "13",
       "color": {
+        "id": "13",
         "name": "13",
         "hexcode": "#000000"
       },
@@ -2477,6 +2540,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "15",
       "color": {
+        "id": "15",
         "name": "15",
         "hexcode": "#000000"
       },
@@ -2505,6 +2569,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Quite Black",
       "color": {
+        "id": "quite-black",
         "name": "Quite Black",
         "hexcode": "#000000"
       },
@@ -2546,6 +2611,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Really Blue",
       "color": {
+        "id": "really-blue",
         "name": "Really Blue",
         "hexcode": "#000000"
       },
@@ -2587,6 +2653,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Very Silver",
       "color": {
+        "id": "very-silver",
         "name": "Very Silver",
         "hexcode": "#000000"
       },
@@ -2628,6 +2695,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Clearly White",
       "color": {
+        "id": "clearly-white",
         "name": "Clearly White",
         "hexcode": "#000000"
       },
@@ -2668,6 +2736,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Just Black",
       "color": {
+        "id": "just-black",
         "name": "Just Black",
         "hexcode": "#000000"
       },
@@ -2708,6 +2777,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Oh So Orange",
       "color": {
+        "id": "oh-so-orange",
         "name": "Oh So Orange",
         "hexcode": "#000000"
       },
@@ -2748,6 +2818,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Clearly White",
       "color": {
+        "id": "clearly-white",
         "name": "Clearly White",
         "hexcode": "#000000"
       },
@@ -2788,6 +2859,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Just Black",
       "color": {
+        "id": "just-black",
         "name": "Just Black",
         "hexcode": "#000000"
       },
@@ -2828,6 +2900,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Oh So Orange",
       "color": {
+        "id": "oh-so-orange",
         "name": "Oh So Orange",
         "hexcode": "#000000"
       },
@@ -2868,6 +2941,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Just Black",
       "color": {
+        "id": "just-black",
         "name": "Just Black",
         "hexcode": "#000000"
       },
@@ -2908,6 +2982,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Sorta Sage",
       "color": {
+        "id": "sorta-sage",
         "name": "Sorta Sage",
         "hexcode": "#000000"
       },
@@ -2948,6 +3023,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
       "color": {
+        "id": "black",
         "name": "Black",
         "hexcode": "#000000"
       },
@@ -2988,6 +3064,7 @@
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
       "desc": "55LW5600",
       "color": {
+        "id": "55lw5600",
         "name": "55LW5600",
         "hexcode": "#000000"
       },
@@ -3029,6 +3106,7 @@
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
       "desc": "TM2792",
       "color": {
+        "id": "tm2792",
         "name": "TM2792",
         "hexcode": "#000000"
       },
@@ -3069,6 +3147,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "White",
       "color": {
+        "id": "white",
         "name": "White",
         "hexcode": "#000000"
       },
@@ -3097,6 +3176,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
       "color": {
+        "id": "black",
         "name": "Black",
         "hexcode": "#000000"
       },
@@ -3125,6 +3205,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
       "color": {
+        "id": "black",
         "name": "Black",
         "hexcode": "#000000"
       },
@@ -3153,6 +3234,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
       "color": {
+        "id": "black",
         "name": "Black",
         "hexcode": "#000000"
       },
@@ -3191,6 +3273,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "White",
       "color": {
+        "id": "white",
         "name": "White",
         "hexcode": "#000000"
       },
@@ -3229,6 +3312,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Dark",
       "color": {
+        "id": "dark",
         "name": "Dark",
         "hexcode": "#000000"
       },
@@ -3268,6 +3352,7 @@
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
       "desc": "D8000",
       "color": {
+        "id": "d8000",
         "name": "D8000",
         "hexcode": "#000000"
       },
@@ -3309,6 +3394,7 @@
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
       "desc": "ES8000",
       "color": {
+        "id": "es8000",
         "name": "ES8000",
         "hexcode": "#000000"
       },
@@ -3349,6 +3435,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
       "color": {
+        "id": "black",
         "name": "Black",
         "hexcode": "#000000"
       },
@@ -3388,6 +3475,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Gold",
       "color": {
+        "id": "gold",
         "name": "Gold",
         "hexcode": "#000000"
       },
@@ -3427,6 +3515,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Pink",
       "color": {
+        "id": "pink",
         "name": "Pink",
         "hexcode": "#000000"
       },
@@ -3466,6 +3555,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Silver Titanium",
       "color": {
+        "id": "silver-titanium",
         "name": "Silver Titanium",
         "hexcode": "#000000"
       },
@@ -3505,6 +3595,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "White",
       "color": {
+        "id": "white",
         "name": "White",
         "hexcode": "#000000"
       },
@@ -3544,6 +3635,7 @@
       "credits": "<p><a href=\"http://pixelartfactory.com/psd/samsung-galaxy-s4-psd\" target=\"blank\">Pixel Art Factory</a></p>",
       "desc": "Black",
       "color": {
+        "id": "black",
         "name": "Black",
         "hexcode": "#000000"
       },
@@ -3585,6 +3677,7 @@
       "credits": "<p><a href=\"http://pixelartfactory.com/psd/samsung-galaxy-s4-psd\" target=\"blank\">Pixel Art Factory</a></p>",
       "desc": "White",
       "color": {
+        "id": "white",
         "name": "White",
         "hexcode": "#000000"
       },
@@ -3626,6 +3719,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "White",
       "color": {
+        "id": "white",
         "name": "White",
         "hexcode": "#000000"
       },
@@ -3665,6 +3759,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
       "color": {
+        "id": "black",
         "name": "Black",
         "hexcode": "#000000"
       },
@@ -3704,6 +3799,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "White",
       "color": {
+        "id": "white",
         "name": "White",
         "hexcode": "#000000"
       },
@@ -3743,6 +3839,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Cloud Blue",
       "color": {
+        "id": "cloud-blue",
         "name": "Cloud Blue",
         "hexcode": "#000000"
       },
@@ -3783,6 +3880,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Cosmic Grey",
       "color": {
+        "id": "cosmic-grey",
         "name": "Cosmic Grey",
         "hexcode": "#000000"
       },
@@ -3823,6 +3921,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Pink",
       "color": {
+        "id": "pink",
         "name": "Pink",
         "hexcode": "#000000"
       },
@@ -3863,6 +3962,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Cosmic Black",
       "color": {
+        "id": "cosmic-black",
         "name": "Cosmic Black",
         "hexcode": "#000000"
       },
@@ -3903,6 +4003,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Cosmic Grey",
       "color": {
+        "id": "cosmic-grey",
         "name": "Cosmic Grey",
         "hexcode": "#000000"
       },
@@ -3942,6 +4043,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Cloud Blue",
       "color": {
+        "id": "cloud-blue",
         "name": "Cloud Blue",
         "hexcode": "#000000"
       },
@@ -3981,6 +4083,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Cosmic Grey",
       "color": {
+        "id": "cosmic-grey",
         "name": "Cosmic Grey",
         "hexcode": "#000000"
       },
@@ -4020,6 +4123,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Cosmic Black",
       "color": {
+        "id": "cosmic-black",
         "name": "Cosmic Black",
         "hexcode": "#000000"
       },
@@ -4059,6 +4163,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
       "color": {
+        "id": "black",
         "name": "Black",
         "hexcode": "#000000"
       },
@@ -4098,6 +4203,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Pink",
       "color": {
+        "id": "pink",
         "name": "Pink",
         "hexcode": "#000000"
       },
@@ -4137,6 +4243,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Violet",
       "color": {
+        "id": "violet",
         "name": "Violet",
         "hexcode": "#000000"
       },
@@ -4176,6 +4283,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "White",
       "color": {
+        "id": "white",
         "name": "White",
         "hexcode": "#000000"
       },
@@ -4215,6 +4323,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
       "color": {
+        "id": "black",
         "name": "Black",
         "hexcode": "#000000"
       },
@@ -4254,6 +4363,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Silver",
       "color": {
+        "id": "silver",
         "name": "Silver",
         "hexcode": "#000000"
       },
@@ -4293,6 +4403,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Black",
       "color": {
+        "id": "black",
         "name": "Black",
         "hexcode": "#000000"
       },
@@ -4332,6 +4443,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Silver",
       "color": {
+        "id": "silver",
         "name": "Silver",
         "hexcode": "#000000"
       },
@@ -4371,6 +4483,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "Violet",
       "color": {
+        "id": "violet",
         "name": "Violet",
         "hexcode": "#000000"
       },

@@ -35,6 +35,18 @@ export class DeviceManager {
     return undefined;
   }
 
+  public getModelColorDevice(
+    modelId: ModelEnum,
+    colorId: string,
+  ): model.Device | undefined {
+    const devices = this.getDeviceListByModel(modelId);
+    const result = devices.filter((d) => d.color.id === colorId);
+    if (result.length === 0) {
+      return undefined;
+    }
+    return result[0];
+  }
+
   public getModelThumbnailListByType(
     deviceType: DeviceTypeEnum | "all",
   ): model.ModelThumbnail[] {

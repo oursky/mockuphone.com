@@ -27,6 +27,7 @@ const RawDevice = z.object({
   // new fields
   // brand: BrandEnum,
   color: z.object({
+    id: z.string(),
     name: z.string(),
     hexcode: z.string().regex(HEX_CODE_REGEX),
   }),

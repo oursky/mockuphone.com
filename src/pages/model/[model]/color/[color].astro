@@ -1,27 +1,45 @@
 ---
-import DeviceBaseLayout from "../../layouts/BaseLayout.astro";
+import DeviceBaseLayout from "../../../../layouts/BaseLayout.astro";
 import "/src/styles/upload.css";
 import "/src/styles/pyscript.css";
-import deviceJson from "../../scripts/device_info.json";
-import { DEVICE_MANAGER } from "../../scripts/deviceManager";
-import type { Device } from "../../scripts/model";
-import ErrorPage from "../../components/ErrorPage.astro";
+import deviceJson from "../../../../scripts/device_info.json";
+import { DEVICE_MANAGER } from "../../../../scripts/deviceManager";
+import type { Device } from "../../../../scripts/model";
+import ErrorPage from "../../../../components/ErrorPage.astro";
+import { ModelEnum } from "../../../../scripts/parse";
 
 export async function getStaticPaths() {
-  const deviceAll: any = [];
-  deviceJson["devices"].forEach(function (device: any) {
-    var deviceInfo = {
-      params: { device: device["device_id"] },
-      props: { targetDevice: device["device_id"] },
-    };
-    deviceAll.push(deviceInfo);
+  const modelColorAll: {
+    params: { model: ModelEnum; color: string };
+    props: { targetModel: ModelEnum; targetColor: string };
+  }[] = [];
+
+  Object.keys(DEVICE_MANAGER.allDeviceModels).forEach((modelId: string) => {
+    const _modelId = ModelEnum.parse(modelId);
+    const allModelDevices: Device[] =
+      DEVICE_MANAGER.getDeviceListByModel(_modelId);
+    allModelDevices.forEach((d: Device) => {
+      const modelColorInfo = {
+        params: { model: _modelId, color: d.color.id },
+        props: { targetModel: _modelId, targetColor: d.color.id },
+      };
+      modelColorAll.push(modelColorInfo);
+    });
   });
-  return deviceAll;
+  return modelColorAll;
 }
 
-const { targetDevice } = Astro.props;
-// @ts-expect-error // astro will not show `page not found` if target device does not exist
-const deviceDetail: Device = DEVICE_MANAGER.getDeviceById(targetDevice);
+const { targetModel, targetColor } = Astro.props;
+const _targetModel = ModelEnum.parse(targetModel);
+
+const deviceDetail: Device | undefined = DEVICE_MANAGER.getModelColorDevice(
+  _targetModel,
+  targetColor,
+);
+
+if (deviceDetail == null) {
+  return Astro.redirect("/404");
+}
 ---
 
 <script>

@@ -71,6 +71,7 @@ export function mapModelThumbnails(
 }
 
 export interface DeviceColor {
+  id: string;
   name: string;
   hexcode: string; // #000000,
 }
