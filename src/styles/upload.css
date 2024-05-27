@@ -186,7 +186,6 @@ main {
 }
 
 .file-uploaded {
-  /* position: relative; */
   margin: 20px 20px 0 20px;
   padding: 20px 20px 20px 20px;
   background: var(--white);
@@ -347,6 +346,93 @@ main {
 }
 .file-list-item__progress-bar-fill--100 {
   width: 100%;
+}
+
+.color-section {
+  margin: 20px 0 0 0;
+}
+.color-section::after {
+  content: "";
+  display: block;
+  margin: 0px -20px 0 -20px;
+  width: calc(100% + 40px);
+  border-bottom: 1px solid var(--gray-5);
+}
+
+.color-section__heading {
+  display: flex;
+  margin: 0;
+  font-weight: 700;
+  font-size: 14px;
+  align-items: center;
+}
+
+.color-section__description {
+  margin: 12px 0 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.color-section__heading::before {
+  content: "";
+  display: block;
+  width: 9px;
+  height: 13px;
+  margin: 0 12px 0 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/Images/droplet.svg");
+}
+
+.color-picker {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  align-items: center;
+  margin: 12px 0 20px 0;
+}
+
+.color-picker-item {
+  width: 30px;
+  height: 30px;
+  border: 3px white solid;
+  display: inline-block;
+  border-radius: 9999px;
+  box-sizing: content-box;
+  background-clip: content-box;
+  padding: 3px;
+}
+
+.color-picker-item:hover {
+  background-color: #f3f2ed;
+  border: 3px #e4e4e4 solid;
+}
+
+.color-picker-item--selected:hover {
+  border: 3px #0043e0 solid;
+}
+
+.color-picker-item--selected {
+  width: 30px;
+  height: 30px;
+  border: 3px #0043e0 solid;
+  display: inline-block;
+  border-radius: 9999px;
+  box-sizing: content-box;
+  background-clip: content-box;
+  padding: 3px;
+}
+
+.color-picker-item-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.color-picker-item-container:not(:first-child) {
+  margin-left: 18px;
 }
 
 .generate-btn {

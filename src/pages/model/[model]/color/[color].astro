@@ -4,7 +4,7 @@ import "/src/styles/upload.css";
 import "/src/styles/pyscript.css";
 import deviceJson from "../../../../scripts/device_info.json";
 import { DEVICE_MANAGER } from "../../../../scripts/deviceManager";
-import type { Device } from "../../../../scripts/model";
+import type { Device, DeviceColor } from "../../../../scripts/model";
 import ErrorPage from "../../../../components/ErrorPage.astro";
 import { ModelEnum } from "../../../../scripts/parse";
 
@@ -36,6 +36,9 @@ const deviceDetail: Device | undefined = DEVICE_MANAGER.getModelColorDevice(
   _targetModel,
   targetColor,
 );
+
+const sameModelDevices: Device[] =
+  DEVICE_MANAGER.getDeviceListByModel(_targetModel);
 
 if (deviceDetail == null) {
   return Astro.redirect("/404");
@@ -139,6 +142,27 @@ if (deviceDetail == null) {
           }px, We support jpg, png and psd
         </p>
         <ul class="file-list"></ul>
+        <div class="color-section">
+          <h3 class="color-section__heading">COLOR</h3>
+          <p class="color-section__description">{deviceDetail.color.name}</p>
+          <ul class="color-picker">
+            {
+              sameModelDevices.map((d) => (
+                <li class="color-picker-item-container">
+                  <a
+                    href={`/model/${targetModel}/color/${d.color.id}`}
+                    style={{ backgroundColor: d.color.hexcode }}
+                    class={`color-picker-item ${
+                      d.color.id === targetColor
+                        ? "color-picker-item--selected"
+                        : ""
+                    }`}
+                  />
+                </li>
+              ))
+            }
+          </ul>
+        </div>
         <button disabled class="generate-btn">Generate product mockups</button>
         <button style="display:none" class="start-mockup-btn"
           >Generate product mockups</button
