@@ -234,7 +234,7 @@ function appendInitialFileListItem(fileIndex, filename) {
 
   itemNode.insertAdjacentHTML(
     "beforeend",
-    `<p class="file-list-item__hint"></p>`,
+    `<p class="file-list-item__hint d-none"></p>`,
   );
 
   itemNode.insertAdjacentHTML(
@@ -356,6 +356,12 @@ function updateFileListItem(itemNode, imageUpload) {
       default:
         break;
     }
+  }
+
+  if (imageUpload.isSuccessState) {
+    hintNode.classList.add("d-none");
+  } else {
+    hintNode.classList.remove("d-none");
   }
 }
 
