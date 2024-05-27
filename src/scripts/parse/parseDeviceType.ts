@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import { z } from "zod";
 import { Json } from "./common";
+import { ModelEnum } from "./parseModel";
 
 export const DeviceTypeEnum = z.enum([
   "phone",
@@ -11,7 +12,7 @@ export const DeviceTypeEnum = z.enum([
 ]);
 
 export type DeviceTypeEnum = z.infer<typeof DeviceTypeEnum>;
-const RawDeviceType = z.record(DeviceTypeEnum, z.array(z.string()));
+const RawDeviceType = z.record(DeviceTypeEnum, z.array(ModelEnum));
 export type RawDeviceType = z.infer<typeof RawDeviceType>;
 
 export function parseRawDeviceTypeFile(url: string): RawDeviceType {

@@ -1,0 +1,294 @@
+{
+  "iphone-14": {
+    "name": "iPhone 14",
+    "slugs": [
+      "apple-iphone14-blue",
+      "apple-iphone14-midnight",
+      "apple-iphone14-purple",
+      "apple-iphone14-red",
+      "apple-iphone14-starlight"
+    ]
+  },
+  "iphone-14-plus": {
+    "name": "iPhone 14 plus",
+    "slugs": [
+      "apple-iphone14plus-blue",
+      "apple-iphone14plus-midnight",
+      "apple-iphone14plus-purple",
+      "apple-iphone14plus-red",
+      "apple-iphone14plus-starlight"
+    ]
+  },
+  "iphone-14-pro": {
+    "name": "iPhone 14 pro",
+    "slugs": [
+      "apple-iphone14pro-deeppurple",
+      "apple-iphone14pro-gold",
+      "apple-iphone14pro-silver",
+      "apple-iphone14pro-spaceblack"
+    ]
+  },
+  "iphone-14-pro-max": {
+    "name": "iPhone 14 pro max",
+    "slugs": [
+      "apple-iphone14promax-deeppurple",
+      "apple-iphone14promax-gold",
+      "apple-iphone14promax-silver",
+      "apple-iphone14promax-spaceblack"
+    ]
+  },
+  "iphone-13": {
+    "name": "iPhone 13",
+    "slugs": [
+      "apple-iphone13-blue",
+      "apple-iphone13-midnight",
+      "apple-iphone13-pink",
+      "apple-iphone13-red",
+      "apple-iphone13-starlight"
+    ]
+  },
+  "iphone-13-mini": {
+    "name": "iPhone 13 mini",
+    "slugs": [
+      "apple-iphone13mini-blue",
+      "apple-iphone13mini-midnight",
+      "apple-iphone13mini-pink",
+      "apple-iphone13mini-red",
+      "apple-iphone13mini-starlight"
+    ]
+  },
+  "iphone-13-pro": {
+    "name": "iPhone 13 pro",
+    "slugs": [
+      "apple-iphone13pro-gold",
+      "apple-iphone13pro-graphite",
+      "apple-iphone13pro-sierrablue",
+      "apple-iphone13pro-silver"
+    ]
+  },
+  "iphone-13-pro-max": {
+    "name": "iPhone 13 pro max",
+    "slugs": [
+      "apple-iphone13promax-gold",
+      "apple-iphone13promax-graphite",
+      "apple-iphone13promax-sierrablue",
+      "apple-iphone13promax-silver"
+    ]
+  },
+  "ipad-pro-11-inch": {
+    "name": "iPad Pro 11\"",
+    "slugs": ["apple-ipadpro11-spacegrey"]
+  },
+  "ipad-pro-13-inch": {
+    "name": "iPad Pro 13\"",
+    "slugs": ["apple-ipadpro13-spacegrey"]
+  },
+  "ipad-air-5": {
+    "name": "iPad Air 5",
+    "slugs": ["apple-ipadair5-spacegrey"]
+  },
+  "ipad": {
+    "name": "iPad",
+    "slugs": ["apple-ipad-silver"]
+  },
+  "ipad-mini": {
+    "name": "iPad Mini",
+    "slugs": ["apple-ipadmini-starlight"]
+  },
+  "google-pixel-1": {
+    "name": "Google Pixel",
+    "slugs": [
+      "google-pixel-quite-black",
+      "google-pixel-really-blue",
+      "google-pixel-very-silver"
+    ]
+  },
+  "google-pixel-4": {
+    "name": "Google Pixel 4",
+    "slugs": [
+      "google-pixel4-clearlywhite",
+      "google-pixel4-justblack",
+      "google-pixel4-ohsoorange"
+    ]
+  },
+  "google-pixel-4-xl": {
+    "name": "Google Pixel 4 XL",
+    "slugs": [
+      "google-pixel4xl-clearlywhite",
+      "google-pixel4xl-justblack",
+      "google-pixel4xl-ohsoorange"
+    ]
+  },
+  "google-pixel-5": {
+    "name": "Google Pixel 5",
+    "slugs": ["google-pixel5-justblack", "google-pixel5-sortasage"]
+  },
+  "moto-e": {
+    "name": "Moto E",
+    "slugs": ["motorola-motoe-black", "motorola-motoe-white"]
+  },
+  "moto-g": {
+    "name": "Moto G",
+    "slugs": ["motorola-motog"]
+  },
+  "galaxy-s21-plus": {
+    "name": "Samsung Galaxy S21+",
+    "slugs": [
+      "samsung-galaxys21plus-black",
+      "samsung-galaxys21plus-silver",
+      "samsung-galaxys21plus-violet"
+    ]
+  },
+  "galaxy-s21-ultra": {
+    "name": "Samsung Galaxy S21 Ultra",
+    "slugs": ["samsung-galaxys21ultra-black", "samsung-galaxys21ultra-silver"]
+  },
+  "galaxy-s21": {
+    "name": "Samsung Galaxy S21",
+    "slugs": [
+      "samsung-galaxys21-black",
+      "samsung-galaxys21-pink",
+      "samsung-galaxys21-violet",
+      "samsung-galaxys21-white"
+    ]
+  },
+  "galaxy-s20-plus": {
+    "name": "Samsung Galaxy S20+",
+    "slugs": [
+      "samsung-galaxys20plus-cloudblue",
+      "samsung-galaxys20plus-cosmicgrey",
+      "samsung-galaxys20plus-cosmicblack"
+    ]
+  },
+  "galaxy-s20": {
+    "name": "Samsung Galaxy S20",
+    "slugs": [
+      "samsung-galaxys20-cloudblue",
+      "samsung-galaxys20-cosmicgrey",
+      "samsung-galaxys20-pink"
+    ]
+  },
+  "galaxy-s20-ultra": {
+    "name": "Samsung Galaxy S20 Ultra",
+    "slugs": [
+      "samsung-galaxys20ultra-cosmicblack",
+      "samsung-galaxys20ultra-cosmicgrey"
+    ]
+  },
+  "galaxy-s-duos": {
+    "name": "Samsung Galaxy S Duos",
+    "slugs": ["samsung-galaxysduos"]
+  },
+  "galaxy-s4": {
+    "name": "Samsung Galaxy S4",
+    "slugs": ["samsung-galaxys4-white", "samsung-galaxys4-black"]
+  },
+  "galaxy-note-5": {
+    "name": "Samsung Galaxy Note 5",
+    "slugs": [
+      "samsung-galaxynote5-black",
+      "samsung-galaxynote5-gold",
+      "samsung-galaxynote5-pink",
+      "samsung-galaxynote5-silvertitanium",
+      "samsung-galaxynote5-white"
+    ]
+  },
+  "galaxy-y": {
+    "name": "Samsung Galaxy Y",
+    "slugs": ["samsung-galaxyy-black", "samsung-galaxyy-white"]
+  },
+  "oneplus-8-pro": {
+    "name": "OnePlus 8 Pro",
+    "slugs": ["oneplus-oneplus8pro"]
+  },
+  "apple-watch-ultra": {
+    "name": "Apple Watch Ultra",
+    "slugs": ["apple-applewatchultra"]
+  },
+  "apple-watch-series-8-41mm": {
+    "name": "Apple Watch Series 8 41mm",
+    "slugs": [
+      "apple-applewatch41mm-goldstainlesssteel",
+      "apple-applewatch41mm-graphitestainlesssteel",
+      "apple-applewatch41mm-midnightaluminum",
+      "apple-applewatch41mm-silveraluminum",
+      "apple-applewatch41mm-silverstainlesssteel",
+      "apple-applewatch41mm-starlightaluminum"
+    ]
+  },
+  "apple-watch-series-8-45mm": {
+    "name": "Apple Watch Series 8 45mm",
+    "slugs": [
+      "apple-applewatch45mm-goldstainlesssteel",
+      "apple-applewatch45mm-graphitestainlesssteel",
+      "apple-applewatch45mm-midnightaluminum",
+      "apple-applewatch45mm-silveraluminum",
+      "apple-applewatch45mm-silverstainlesssteel",
+      "apple-applewatch45mm-starlightaluminum"
+    ]
+  },
+  "macbook-12-inch": {
+    "name": "Macbook 12\"",
+    "slugs": ["apple-macbook-gold", "apple-macbook-grey"]
+  },
+  "macbook-pro-14-inch": {
+    "name": "Macbook Pro 14\"",
+    "slugs": ["apple-macbookpro14"]
+  },
+  "macbook-pro-16-inch": {
+    "name": "Macbook Pro 16\"",
+    "slugs": ["apple-macbookpro16"]
+  },
+  "macbook-air-13-inch": {
+    "name": "Macbook Air 13\"",
+    "slugs": ["apple-macbookair13"]
+  },
+  "imac-2013": {
+    "name": "iMac 2013",
+    "slugs": ["apple-imac2013"]
+  },
+  "imac-2015": {
+    "name": "iMac 2015",
+    "slugs": ["apple-imac2015"]
+  },
+  "imac-2015-retina": {
+    "name": "iMac 2015 retina",
+    "slugs": ["apple-imac2015retina"]
+  },
+  "dell-xps-13": {
+    "name": "DELL XPS 13",
+    "slugs": ["dell-xps13"]
+  },
+  "dell-xps-15": {
+    "name": "DELL XPS 15",
+    "slugs": ["dell-xps15"]
+  },
+  "microsoft-surface-book": {
+    "name": "Surface Book",
+    "slugs": ["microsoft-surfacebook"]
+  },
+  "microsoft-surface-pro-4": {
+    "name": "Surface Pro 4",
+    "slugs": ["microsoft-surfacepro4"]
+  },
+  "microsoft-surface-pro-3": {
+    "name": "Surface Pro 3",
+    "slugs": ["microsoft-surfacepro3"]
+  },
+  "samsung-tv-es8000": {
+    "name": "Samsung TV ES8000",
+    "slugs": ["samsung-es8000"]
+  },
+  "samsung-tv-d8000": {
+    "name": "Samsung TV D8000",
+    "slugs": ["samsung-d8000"]
+  },
+  "lg-55lw5600": {
+    "name": "LG TV 55lw5600",
+    "slugs": ["lg-55lw5600"]
+  },
+  "lg-tm2792": {
+    "name": "LG TV tm2792",
+    "slugs": ["lg-tm2792"]
+  }
+}

@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import "/src/styles/device.css";
 
 import { DEVICE_MANAGER } from "../../scripts/deviceManager";
-import type { Device, DeviceType } from "../../scripts/model";
+import type { ModelThumbnail } from "../../scripts/model";
 import { BrandEnum, DeviceTypeEnum } from "../../scripts/parse";
 
 export async function getStaticPaths() {
@@ -19,14 +19,15 @@ export async function getStaticPaths() {
 const { type } = Astro.params;
 const { deviceType } = Astro.props;
 
-const deviceList: Device[] = DEVICE_MANAGER.getDeviceListByType(deviceType);
-const brandDeviceList: Partial<Record<BrandEnum, Device[]>> =
-  DEVICE_MANAGER.getBrandDeviceList(deviceType);
-const nonEmptyBrands: BrandEnum[] = Object.keys(brandDeviceList)
+const thumbnailList: ModelThumbnail[] =
+  DEVICE_MANAGER.getModelThumbnailListByType(deviceType);
+const brandThumbnailList: Partial<Record<BrandEnum, ModelThumbnail[]>> =
+  DEVICE_MANAGER.getBrandModelThumbnailList(deviceType);
+const nonEmptyBrands: BrandEnum[] = Object.keys(brandThumbnailList)
   .filter((b) => {
     const brand = BrandEnum.parse(b);
-    const devices: Device[] | undefined = brandDeviceList[brand];
-    return devices != null && devices.length > 0;
+    const thumbnails: ModelThumbnail[] | undefined = brandThumbnailList[brand];
+    return thumbnails != null && thumbnails.length > 0;
   })
   .map((b) => BrandEnum.parse(b));
 const brandList: string[] = ["all", ...nonEmptyBrands];
@@ -39,9 +40,9 @@ const brandList: string[] = ["all", ...nonEmptyBrands];
     content="MockUPhone supports devices including iPhone mockup, iPad mockup, Android mockup and TV mockup. You can check out the whole device list via this page."
   />
   <script type="text/javascript" src="/scripts/device.js"></script>
-  <script define:vars={{ deviceList, brandDeviceList }}>
-    window.deviceList = deviceList;
-    window.brandDeviceList = brandDeviceList;
+  <script define:vars={{ thumbnailList, brandThumbnailList }}>
+    window.thumbnailList = thumbnailList;
+    window.brandThumbnailList = brandThumbnailList;
   </script>
   <section class="device-type">
     <header>
@@ -154,10 +155,10 @@ const brandList: string[] = ["all", ...nonEmptyBrands];
   <section class="select-device">
     <ul class="device-section-list">
       {
-        Object.keys(brandDeviceList).map((b: string) => {
+        Object.keys(brandThumbnailList).map((b: string) => {
           const brand = BrandEnum.parse(b);
-          const devices = brandDeviceList[brand];
-          if (devices == null || devices.length === 0) {
+          const thumbnails = brandThumbnailList[brand];
+          if (thumbnails == null || thumbnails.length === 0) {
             return undefined;
           }
           return (
@@ -176,25 +177,25 @@ const brandList: string[] = ["all", ...nonEmptyBrands];
                 </h3>
                 {
                   <ul class="device-grid-list">
-                    {devices.map((deviceDetail: Device) => (
+                    {thumbnails.map((thumbnail: ModelThumbnail) => (
                       <div
                         class="device-grid-container"
-                        data-device-id={deviceDetail.device_id}
+                        data-device-id={thumbnail.device.device_id}
                       >
                         <h3 class="device-grid-container-header">
-                          {deviceDetail.name}
+                          {thumbnail.modelName}
                         </h3>
                         <li
                           class="device-grid"
                           data-image-index="0"
-                          data-n-image={deviceDetail.imagePath?.length}
-                          id={deviceDetail.device_id}
+                          data-n-image={thumbnail.device.imagePath?.length}
+                          id={thumbnail.device.device_id}
                         >
                           <a
                             class="device-grid__link"
-                            href={"/device/" + deviceDetail.device_id}
+                            href={"/device/" + thumbnail.device.device_id}
                           >
-                            {deviceDetail.imagePath?.map(
+                            {thumbnail.device.imagePath?.map(
                               (image: [string, string], index: number) => {
                                 if (index == 0)
                                   return (
@@ -218,10 +219,11 @@ const brandList: string[] = ["all", ...nonEmptyBrands];
                             <div class="device-grid__overlay d-none">
                               <header class="device-grid__overlay-header">
                                 <h3 class="device-grid__overlay-device-name">
-                                  {deviceDetail.short_name ?? deviceDetail.name}
+                                  {thumbnail.device.short_name ??
+                                    thumbnail.device.name}
                                 </h3>
                                 <p class="device-grid__overlay-device-desc">
-                                  {deviceDetail.desc}
+                                  {thumbnail.device.desc}
                                 </p>
                               </header>
                               <button class="device-grid__overlay-pick-btn">

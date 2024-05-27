@@ -2,7 +2,7 @@
 import { DEVICE_MANAGER } from "../scripts/deviceManager";
 import type { Device } from "../scripts/model";
 const { type } = Astro.props;
-const deviceArray: Device[] = DEVICE_MANAGER.getDeviceListByModel(type);
+const deviceArray: Device[] = DEVICE_MANAGER.getDeviceListByLegacyType(type);
 ---
 
 <h2>{type}</h2>
