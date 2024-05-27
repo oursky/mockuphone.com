@@ -256,14 +256,15 @@ main {
 .file-list-item__filename {
   display: flex;
   align-items: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
   font-size: 14px;
   line-height: 21px;
 }
 
 .file-list-item__filename-content {
   flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .file-list-item__cross {
