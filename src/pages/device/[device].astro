@@ -1,0 +1,29 @@
+---
+import deviceJson from "../../scripts/device_info.json";
+import { DEVICE_MANAGER } from "../../scripts/deviceManager";
+import type { Device } from "../../scripts/model";
+
+export async function getStaticPaths() {
+  const deviceAll: any = [];
+  deviceJson["devices"].forEach(function (device: any) {
+    var deviceInfo = {
+      params: { device: device["device_id"] },
+      props: { targetDevice: device["device_id"] },
+    };
+    deviceAll.push(deviceInfo);
+  });
+  return deviceAll;
+}
+
+const { targetDevice } = Astro.props;
+const deviceDetail: Device | undefined =
+  DEVICE_MANAGER.getDeviceById(targetDevice);
+if (deviceDetail == null) {
+  return Astro.redirect("/404");
+}
+const modelId = DEVICE_MANAGER.getModelIdByDevice(targetDevice);
+if (modelId == null) {
+  return Astro.redirect("/404");
+}
+return Astro.redirect(`/model/${modelId}/color/${deviceDetail.color.id}`);
+---

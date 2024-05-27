@@ -47,6 +47,19 @@ export class DeviceManager {
     return result[0];
   }
 
+  public getModelIdByDevice(deviceId: string): ModelEnum | undefined {
+    for (let modelId of Object.keys(this.allDeviceModels)) {
+      const _modelId = ModelEnum.parse(modelId);
+      const modelDevices = this.allDeviceModels[_modelId]?.devices ?? [];
+      for (let device of modelDevices) {
+        if (device.device_id === deviceId) {
+          return _modelId;
+        }
+      }
+    }
+    return undefined;
+  }
+
   public getModelThumbnailListByType(
     deviceType: DeviceTypeEnum | "all",
   ): model.ModelThumbnail[] {
