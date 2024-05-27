@@ -35,8 +35,10 @@ export class DeviceManager {
     return targetType ?? [];
   }
 
-  public getDeviceListByModel(model: string): model.Device[] {
-    return this.allDevices.filter((device) => device.device_type === model);
+  public getDeviceListByLegacyType(legacyType: string): model.Device[] {
+    return this.allDevices.filter(
+      (device) => device.device_type === legacyType,
+    );
   }
 
   public getDeviceListByBrand(brand: BrandEnum): model.Device[] {
