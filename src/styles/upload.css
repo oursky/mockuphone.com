@@ -387,16 +387,24 @@ main {
   background-image: url("/Images/droplet.svg");
 }
 
+.color-picker-scrollable {
+  margin: 0 0 8px 0;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .color-picker {
   list-style: none;
   display: flex;
-  padding: 0;
+  padding: 12px 0;
   align-items: center;
-  margin: 12px 0 20px 0;
+  margin: 0;
+  justify-content: center;
+  width: max-content;
 }
 
 .color-picker-item {
-  position: relative;
   width: 30px;
   height: 30px;
   border: 3px white solid;
@@ -417,14 +425,7 @@ main {
 }
 
 .color-picker-item--selected {
-  width: 30px;
-  height: 30px;
   border: 3px #0043e0 solid;
-  display: inline-block;
-  border-radius: 9999px;
-  box-sizing: content-box;
-  background-clip: content-box;
-  padding: 3px;
 }
 
 .color-picker-item-container {
@@ -435,34 +436,6 @@ main {
 
 .color-picker-item-container:not(:first-child) {
   margin-left: 18px;
-}
-
-.color-picker-item .color-picker-item__tooltip {
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s;
-
-  background-color: white;
-
-  padding: 4px 8px;
-  border-radius: 4px;
-  border: 1px #e7e7e7 solid;
-
-  color: black;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 18.5px;
-  text-align: center;
-  text-wrap: nowrap;
-
-  position: absolute;
-  z-index: 1;
-  top: 45px;
-  left: 30px;
-}
-.color-picker-item:hover .color-picker-item__tooltip {
-  visibility: visible;
-  opacity: 1;
 }
 
 .generate-btn {

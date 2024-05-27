@@ -147,25 +147,26 @@ if (deviceDetail == null) {
         <div class="color-section">
           <h3 class="color-section__heading">COLOR</h3>
           <p class="color-section__description">{deviceDetail.color.name}</p>
-          <ul class="color-picker">
-            {
-              sameModelDevices.map((d) => (
-                <li class="color-picker-item-container">
-                  <a
-                    href={`/model/${targetModel}/color/${d.color.id}`}
-                    style={{ backgroundColor: d.color.hexcode }}
-                    class={`color-picker-item ${
-                      d.color.id === targetColor
-                        ? "color-picker-item--selected"
-                        : ""
-                    }`}
-                  >
-                    <div class="color-picker-item__tooltip">{d.color.name}</div>
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
+          <div class="color-picker-scrollable">
+            <ul class="color-picker">
+              {
+                sameModelDevices.map((d) => (
+                  <li class="color-picker-item-container">
+                    <a
+                      href={`/model/${targetModel}/color/${d.color.id}`}
+                      style={{ backgroundColor: d.color.hexcode }}
+                      class={`color-picker-item ${
+                        d.color.id === targetColor
+                          ? "color-picker-item--selected"
+                          : ""
+                      }`}
+                      data-tippy-content={d.color.name}
+                    />
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
         </div>
         <button disabled class="generate-btn">Generate product mockups</button>
         <button style="display:none" class="start-mockup-btn"

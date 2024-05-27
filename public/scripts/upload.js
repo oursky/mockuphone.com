@@ -365,6 +365,13 @@ function updateFileListItem(itemNode, imageUpload) {
   }
 }
 
+function handleColorPickersTooltip() {
+  tippy("[data-tippy-content]", {
+    placement: "bottom-end",
+    theme: "light-border",
+  });
+}
+
 function main() {
   const htmlNode = document.querySelector("html");
   const uploadSection = document.querySelector("#above-file-uploaded");
@@ -377,6 +384,8 @@ function main() {
   const cancelMockupBtn = document.querySelector(
     ".generating-modal-dialog__cancel-btn",
   );
+
+  handleColorPickersTooltip();
 
   const fileListViewModel = new FileListViewModel(MAX_FILE_SIZE_BYTE);
   const viewModel = new RootViewModel(MAX_MOCKUP_WAIT_SEC, fileListViewModel);
