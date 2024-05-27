@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import { SafeParseReturnType, SafeParseSuccess, z } from "zod";
 import { Json } from "./common";
+import { ModelEnum } from "./parseModel";
 
 export const BrandEnum = z.enum([
   "apple",
@@ -14,7 +15,7 @@ export const BrandEnum = z.enum([
 ]);
 
 export type BrandEnum = z.infer<typeof BrandEnum>;
-const RawBrand = z.record(BrandEnum, z.array(z.string()));
+const RawBrand = z.record(BrandEnum, z.array(ModelEnum));
 export type RawBrand = z.infer<typeof RawBrand>;
 
 export function parseRawBrandFile(url: string): RawBrand {

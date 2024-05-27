@@ -19,6 +19,13 @@ export class DeviceManager {
     this.allDeviceModels = allDeviceModels;
   }
 
+  public get allModelThumbnails(): model.ModelThumbnail[] {
+    return Object.keys(this.allDeviceModels).flatMap((m: string) => {
+      const modelKey = ModelEnum.parse(m);
+      return model.mapModelThumbnails([modelKey], this.allDeviceModels);
+    });
+  }
+
   public getDeviceById(id: string): model.Device | undefined {
     for (let device of this.allDevices) {
       if (device.device_id === id) {
@@ -28,11 +35,11 @@ export class DeviceManager {
     return undefined;
   }
 
-  public getDeviceListByType(
+  public getModelThumbnailListByType(
     deviceType: DeviceTypeEnum | "all",
-  ): model.Device[] {
+  ): model.ModelThumbnail[] {
     if (deviceType === "all") {
-      return this.allDevices;
+      return this.allModelThumbnails;
     }
     const targetType = this.allDeviceTypes[deviceType];
     return targetType ?? [];
@@ -46,26 +53,35 @@ export class DeviceManager {
 
   public getDeviceListByModel(model: ModelEnum): model.Device[] {
     const targetModel = this.allDeviceModels[model];
-    return targetModel ?? [];
+    return targetModel == null ? [] : targetModel.devices;
   }
 
-  public getDeviceThumbnailByModel(model: ModelEnum): model.Device | undefined {
-    const targetModel: model.Device[] | undefined = this.allDeviceModels[model];
-    if (targetModel == null || targetModel.length === 0) {
+  public getDeviceThumbnailByModel(
+    model: ModelEnum,
+  ): model.ModelThumbnail | undefined {
+    const targetModel: model.ModelValue | undefined =
+      this.allDeviceModels[model];
+    if (targetModel == null || targetModel.devices.length === 0) {
       return undefined;
     }
-    return targetModel[0];
+    return {
+      modelId: targetModel.id,
+      modelName: targetModel.name,
+      device: targetModel.devices[0],
+    };
   }
 
-  public getDeviceListByBrand(brand: BrandEnum): model.Device[] {
+  public getModelThumbnailListByBrand(
+    brand: BrandEnum,
+  ): model.ModelThumbnail[] {
     const targetBrand = this.allBrands[brand];
     return targetBrand ?? [];
   }
 
-  public getDeviceList(
+  public getModelThumbnailList(
     deviceType?: DeviceTypeEnum | "all",
     brand?: BrandEnum,
-  ): model.Device[] {
+  ): model.ModelThumbnail[] {
     if (brand == null || deviceType == null) {
       return [];
     }
@@ -73,23 +89,23 @@ export class DeviceManager {
       return [];
     }
 
-    const targetBrand: model.Device[] = this.allBrands[brand];
-    const targetType: model.Device[] =
+    const targetBrand: model.ModelThumbnail[] = this.allBrands[brand];
+    const targetType: model.ModelThumbnail[] =
       deviceType === "all"
-        ? this.allDevices
+        ? this.allModelThumbnails
         : this.allDeviceTypes[deviceType] ?? [];
-    return targetType.filter((d) =>
-      targetBrand.map((d) => d.device_id).includes(d.device_id),
+    return targetType.filter((value) =>
+      targetBrand.map((value) => value.modelId).includes(value.modelId),
     ); // ref https://stackoverflow.com/a/1885569/19287186
   }
 
-  public getBrandDeviceList(
+  public getBrandModelThumbnailList(
     deviceType: DeviceTypeEnum | "all",
-  ): Partial<Record<BrandEnum, model.Device[]>> {
-    let result: Partial<Record<BrandEnum, model.Device[]>> = {};
+  ): Partial<Record<BrandEnum, model.ModelThumbnail[]>> {
+    let result: Partial<Record<BrandEnum, model.ModelThumbnail[]>> = {};
     BrandEnum.options.forEach((b: BrandEnum) => {
-      const devices = this.getDeviceList(deviceType, b);
-      result[b] = devices;
+      const thumbnails = this.getModelThumbnailList(deviceType, b);
+      result[b] = thumbnails;
     });
     return result;
   }
@@ -102,9 +118,13 @@ function makeDeviceManager(
   deviceModelUrl: string,
 ): DeviceManager {
   const allDevices = model.parseAllDevices(deviceUrl);
-  const allDeviceTypes = model.parseAllDeviceTypes(deviceTypeUrl, allDevices);
-  const allBrands = model.parseAllBrands(brandUrl, allDevices);
   const allDeviceModels = model.parseAllModels(deviceModelUrl, allDevices);
+  const allDeviceTypes = model.parseAllDeviceTypes(
+    deviceTypeUrl,
+    allDeviceModels,
+  );
+  const allBrands = model.parseAllBrands(brandUrl, allDeviceModels);
+
   return new DeviceManager(
     allDevices,
     allDeviceTypes,
