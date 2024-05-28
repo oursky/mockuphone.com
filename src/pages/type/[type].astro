@@ -134,23 +134,25 @@ const brandList: string[] = ["all", ...nonEmptyBrands];
         </a>
       </li>
     </ul>
-    <ul class="device-brand-list">
-      {
-        brandList.map((b: string) => (
-          <li class="device-brand-list__item">
-            <button
-              class={`device-brand-list__item-button ${
-                b === "all" ? "device-brand-list__item-button--selected" : ""
-              }`}
-              id={`device-brand-list__item-button__${b}`}
-              data-brand-name={b}
-            >
-              {b === "all" ? "All Brand" : b}
-            </button>
-          </li>
-        ))
-      }
-    </ul>
+    <div class="device-brand-list-container">
+      <ul class="device-brand-list">
+        {
+          brandList.map((b: string) => (
+            <li class="device-brand-list__item">
+              <button
+                class={`device-brand-list__item-button ${
+                  b === "all" ? "device-brand-list__item-button--selected" : ""
+                }`}
+                id={`device-brand-list__item-button__${b}`}
+                data-brand-name={b}
+              >
+                {b === "all" ? "All Brand" : b}
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </section>
   <section class="select-device">
     <ul class="device-section-list">

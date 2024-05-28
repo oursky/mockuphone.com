@@ -113,26 +113,27 @@
   background-image: url("/Images/types/tv-white.svg");
 }
 
-.device-brand-list {
-  list-style: none;
-  display: flex;
-  padding: 0;
+.device-brand-list-container {
   margin: 40px 0 0 0;
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.device-brand-list::after {
-  content: "";
-  padding-left: 20px;
+.device-brand-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0 12px;
+  min-width: 100%;
+  width: min-content;
 }
-.device-brand-list::-webkit-scrollbar {
+
+.device-brand-list-container::-webkit-scrollbar {
   display: none;
 }
 @media (min-width: 576px) {
-  .device-brand-list {
+  .device-brand-list-container {
     margin: 50px 0 0 0;
-    justify-content: center;
   }
 }
 
