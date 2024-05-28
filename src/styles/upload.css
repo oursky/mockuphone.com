@@ -10,6 +10,7 @@ main {
     display: flex;
     justify-content: center;
     margin: 0 100px;
+    padding: 50px 0;
   }
 }
 @media (min-width: 1200px) {
@@ -28,24 +29,26 @@ main {
 
 @media (min-width: 992px) {
   .mockup-lg-right {
-    margin: 100px 0 0 20px;
+    margin: 76px 0 0 20px;
     max-width: 450px;
   }
 }
 
-.device-header {
-  padding: 20px 0 0 20px;
-}
-
 .device-header__name {
+  font-size: 20px;
   font-weight: 700;
-  font-size: 24px;
+  line-height: 24.2px;
   color: var(--black);
+  padding: 20px;
 }
 
-.device-header__desc {
-  font-size: 18px;
-  color: var(--gray-1);
+@media (min-width: 992px) {
+  .device-header__name {
+    margin: 0 0 37px 0;
+    font-size: 32px;
+    line-height: 39px;
+    padding: 0;
+  }
 }
 
 .upload {
@@ -86,6 +89,13 @@ main {
   border: 1px solid var(--gray-5);
   box-sizing: border-box;
   background-color: white;
+}
+
+@media (min-width: 992px) {
+  .device {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+  }
 }
 
 .upload__inner-box {

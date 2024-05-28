@@ -25,17 +25,13 @@ const RawDevice = z.object({
   is_legacy: z.optional(z.boolean()).default(false),
 
   // new fields
-  // brand: BrandEnum,
-  color: z.object({
-    id: z.string(),
-    name: z.string(),
-    hexcode: z.string().regex(HEX_CODE_REGEX),
-  }),
-  // device_type_v2: DeviceTypeEnum,
-  // device_group: z.object({
-  //   name: z.string(),
-  //   id: z.string(),
-  // }),
+  color: z
+    .object({
+      id: z.string(),
+      name: z.string(),
+      hexcode: z.string().regex(HEX_CODE_REGEX),
+    })
+    .nullable(),
 });
 
 export type RawDevice = z.infer<typeof RawDevice>;

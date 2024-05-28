@@ -35,12 +35,21 @@ export class DeviceManager {
     return undefined;
   }
 
+  public getModel(modelId: ModelEnum): model.ModelValue | undefined {
+    return this.allDeviceModels[modelId];
+  }
+
   public getModelColorDevice(
     modelId: ModelEnum,
-    colorId: string,
+    colorId: string | "default",
   ): model.Device | undefined {
     const devices = this.getDeviceListByModel(modelId);
-    const result = devices.filter((d) => d.color.id === colorId);
+    const result = devices.filter((d) => {
+      const matchDefault = d.color == null && colorId === "default";
+      const matchColorId = d.color != null && d.color.id === colorId;
+
+      return matchDefault || matchColorId;
+    });
     if (result.length === 0) {
       return undefined;
     }
