@@ -12,15 +12,21 @@
   list-style: none;
   display: flex;
   padding: 0;
+  flex-wrap: wrap;
   margin: 50px 0 0 0;
-  overflow: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  justify-content: center;
+  row-gap: 12px;
 }
-.device-type-list::after {
-  content: "";
-  padding-left: 20px;
+
+@media (min-width: 640px) {
+  .device-type-list {
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+  }
 }
+
 .device-type-list::-webkit-scrollbar {
   display: none;
 }
@@ -174,9 +180,15 @@
 
 .device-type__name {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 12px;
   font-size: 14px;
   color: var(--black);
+}
+
+@media (min-width: 640px) {
+  .device-type__name {
+    margin-top: 20px;
+  }
 }
 
 .select-device {
