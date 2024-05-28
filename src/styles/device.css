@@ -514,8 +514,8 @@
 .device-grid__overlay {
   position: absolute;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  align-items: end;
   top: 0;
   left: 0;
   width: 100%;
@@ -528,47 +528,8 @@
   }
 }
 
-@media (min-width: 992px) {
-  .device-grid__overlay-header {
-    margin-top: auto;
-    max-width: 160px;
-  }
-}
-
-.device-grid__overlay-device-name {
-  margin: 40px 0 0 0;
-  color: var(--white);
-  text-align: center;
-  font-size: 14px;
-  font-weight: 700;
-}
-@media (min-width: 992px) {
-  .device-grid__overlay-device-name {
-    margin: 0;
-    text-align: start;
-    font-size: 18px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-}
-
-.device-grid__overlay-device-desc {
-  margin: 5px 0 0 0;
-  color: var(--white);
-  text-align: center;
-  font-size: 12px;
-  font-weight: 400;
-}
-@media (min-width: 992px) {
-  .device-grid__overlay-device-desc {
-    text-align: start;
-    font-size: 14px;
-  }
-}
-
 .device-grid__overlay-pick-btn {
-  margin: auto 0 15px 0;
+  margin: 0 0 15px 0;
   padding: 0;
   width: 100px;
   height: 40px;
@@ -594,7 +555,7 @@
 }
 @media (min-width: 992px) {
   .device-grid__overlay-pick-btn {
-    margin: auto 0 0 auto;
+    margin: 0;
   }
 }
 
