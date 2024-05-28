@@ -1,56 +1,88 @@
 {
-  "apple": [
-    "iphone-14",
-    "iphone-14-plus",
-    "iphone-14-pro",
-    "iphone-14-pro-max",
-    "iphone-13",
-    "iphone-13-mini",
-    "iphone-13-pro",
-    "iphone-13-pro-max",
-    "ipad-pro-11-inch",
-    "ipad-pro-13-inch",
-    "ipad-air-5",
-    "ipad",
-    "ipad-mini",
-    "apple-watch-ultra",
-    "apple-watch-series-8-41mm",
-    "apple-watch-series-8-45mm",
-    "macbook-12-inch",
-    "macbook-pro-14-inch",
-    "macbook-pro-16-inch",
-    "macbook-air-13-inch",
-    "imac-2013",
-    "imac-2015",
-    "imac-2015-retina"
-  ],
-  "google": [
-    "google-pixel-1",
-    "google-pixel-4",
-    "google-pixel-4-xl",
-    "google-pixel-5"
-  ],
-  "motorola": ["moto-e", "moto-g"],
-  "samsung": [
-    "galaxy-s21-plus",
-    "galaxy-s21-ultra",
-    "galaxy-s21",
-    "galaxy-s20-plus",
-    "galaxy-s20",
-    "galaxy-s20-ultra",
-    "galaxy-s-duos",
-    "galaxy-s4",
-    "galaxy-note-5",
-    "galaxy-y",
-    "samsung-tv-d8000",
-    "samsung-tv-es8000"
-  ],
-  "dell": ["dell-xps-13", "dell-xps-15"],
-  "lg": ["lg-55lw5600", "lg-tm2792"],
-  "microsoft": [
-    "microsoft-surface-book",
-    "microsoft-surface-pro-4",
-    "microsoft-surface-pro-3"
-  ],
-  "oneplus": ["oneplus-8-pro"]
+  "apple": {
+    "id": "apple",
+    "name": "Apple",
+    "modelIds": [
+      "iphone-14",
+      "iphone-14-plus",
+      "iphone-14-pro",
+      "iphone-14-pro-max",
+      "iphone-13",
+      "iphone-13-mini",
+      "iphone-13-pro",
+      "iphone-13-pro-max",
+      "ipad-pro-11-inch",
+      "ipad-pro-13-inch",
+      "ipad-air-5",
+      "ipad",
+      "ipad-mini",
+      "apple-watch-ultra",
+      "apple-watch-series-8-41mm",
+      "apple-watch-series-8-45mm",
+      "macbook-12-inch",
+      "macbook-pro-14-inch",
+      "macbook-pro-16-inch",
+      "macbook-air-13-inch",
+      "imac-2013",
+      "imac-2015",
+      "imac-2015-retina"
+    ]
+  },
+  "google": {
+    "id": "google",
+    "name": "Google",
+    "modelIds": [
+      "google-pixel-1",
+      "google-pixel-4",
+      "google-pixel-4-xl",
+      "google-pixel-5"
+    ]
+  },
+  "motorola": {
+    "id": "motorola",
+    "name": "Motorola",
+    "modelIds": ["moto-e", "moto-g"]
+  },
+  "samsung": {
+    "id": "samsung",
+    "name": "Samsung",
+    "modelIds": [
+      "galaxy-s21-plus",
+      "galaxy-s21-ultra",
+      "galaxy-s21",
+      "galaxy-s20-plus",
+      "galaxy-s20",
+      "galaxy-s20-ultra",
+      "galaxy-s-duos",
+      "galaxy-s4",
+      "galaxy-note-5",
+      "galaxy-y",
+      "samsung-tv-d8000",
+      "samsung-tv-es8000"
+    ]
+  },
+  "dell": {
+    "id": "dell",
+    "name": "Dell",
+    "modelIds": ["dell-xps-13", "dell-xps-15"]
+  },
+  "lg": {
+    "id": "lg",
+    "name": "LG",
+    "modelIds": ["lg-55lw5600", "lg-tm2792"]
+  },
+  "microsoft": {
+    "id": "microsoft",
+    "name": "Microsoft",
+    "modelIds": [
+      "microsoft-surface-book",
+      "microsoft-surface-pro-4",
+      "microsoft-surface-pro-3"
+    ]
+  },
+  "oneplus": {
+    "id": "oneplus",
+    "name": "OnePlus",
+    "modelIds": ["oneplus-8-pro"]
+  }
 }

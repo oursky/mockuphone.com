@@ -107,9 +107,9 @@ export class DeviceManager {
 
   public getModelThumbnailListByBrand(
     brand: BrandEnum,
-  ): model.ModelThumbnail[] {
+  ): model.BrandValue | undefined {
     const targetBrand = this.allBrands[brand];
-    return targetBrand ?? [];
+    return targetBrand;
   }
 
   public getModelThumbnailList(
@@ -120,13 +120,16 @@ export class DeviceManager {
       return [];
     }
 
-    const targetBrand: model.ModelThumbnail[] = this.allBrands[brand] ?? [];
+    const targetBrand: model.BrandValue | undefined = this.allBrands[brand];
     const targetType: model.ModelThumbnail[] =
       deviceType === "all"
         ? this.allModelThumbnails
         : this.allDeviceTypes[deviceType] ?? [];
-    return targetType.filter((value) =>
-      targetBrand.map((value) => value.modelId).includes(value.modelId),
+    return targetType.filter(
+      (value) =>
+        targetBrand?.thumbnails
+          .map((value) => value.modelId)
+          .includes(value.modelId),
     ); // ref https://stackoverflow.com/a/1885569/19287186
   }
 
@@ -137,6 +140,18 @@ export class DeviceManager {
     BrandEnum.options.forEach((b: BrandEnum) => {
       const thumbnails = this.getModelThumbnailList(deviceType, b);
       result[b] = thumbnails;
+    });
+    return result;
+  }
+
+  public getBrandValues(): Partial<Record<BrandEnum, model.BrandValue>> {
+    let result: Partial<Record<BrandEnum, model.BrandValue>> = {};
+    BrandEnum.options.forEach((b: BrandEnum) => {
+      const brandValue = this.allBrands[b];
+      if (brandValue == null) {
+        return;
+      }
+      result[b] = brandValue;
     });
     return result;
   }

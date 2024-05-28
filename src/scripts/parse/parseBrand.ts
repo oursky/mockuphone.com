@@ -15,7 +15,14 @@ export const BrandEnum = z.enum([
 ]);
 
 export type BrandEnum = z.infer<typeof BrandEnum>;
-const RawBrand = z.record(BrandEnum, z.array(ModelEnum));
+export const RawBrandValue = z.object({
+  id: BrandEnum,
+  name: z.string(),
+  modelIds: z.array(ModelEnum),
+});
+export type RawBrandValue = z.infer<typeof RawBrandValue>;
+const RawBrand = z.record(BrandEnum, RawBrandValue);
+
 export type RawBrand = z.infer<typeof RawBrand>;
 
 export function parseRawBrandFile(url: string): RawBrand {

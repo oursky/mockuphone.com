@@ -27,6 +27,12 @@ export interface ModelThumbnail {
   device: Device;
 }
 
+export interface BrandValue {
+  id: schema.BrandEnum;
+  name: string;
+  thumbnails: ModelThumbnail[];
+}
+
 export interface ModelValue {
   id: schema.ModelEnum;
   name: string;
@@ -36,7 +42,7 @@ export interface ModelValue {
 export type DeviceType = Partial<
   Record<schema.DeviceTypeEnum, ModelThumbnail[]>
 >;
-export type Brand = Partial<Record<schema.BrandEnum, ModelThumbnail[]>>;
+export type Brand = Partial<Record<schema.BrandEnum, BrandValue>>;
 export type Model = Partial<Record<schema.ModelEnum, ModelValue>>;
 
 export function getModelValue(
@@ -123,16 +129,25 @@ export function parseAllDeviceTypes(url: string, allModels: Model): DeviceType {
   return mapDeviceType(rawDeviceTypes, allModels);
 }
 
+function mapBrandValue(bv: schema.RawBrandValue, allModels: Model): BrandValue {
+  return {
+    ...bv,
+    thumbnails: mapModelThumbnails(bv.modelIds, allModels),
+  };
+}
 function mapBrand(data: schema.RawBrand, allModels: Model): Brand {
   let result: Brand = {};
   Object.keys(data).forEach((brandKey: string) => {
     const brand = schema.BrandEnum.parse(brandKey);
 
-    const models: schema.ModelEnum[] = data[brand] ?? [];
+    const rawBrandValue: schema.RawBrandValue | undefined = data[brand];
 
-    const modelThumbnails = mapModelThumbnails(models, allModels);
+    if (rawBrandValue == null) {
+      return;
+    }
+    const brandValue: BrandValue = mapBrandValue(rawBrandValue, allModels);
 
-    result[brand] = modelThumbnails;
+    result[brand] = brandValue;
   });
   return result;
 }

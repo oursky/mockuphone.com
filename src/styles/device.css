@@ -12,15 +12,21 @@
   list-style: none;
   display: flex;
   padding: 0;
+  flex-wrap: wrap;
   margin: 50px 0 0 0;
-  overflow: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  justify-content: center;
+  row-gap: 12px;
 }
-.device-type-list::after {
-  content: "";
-  padding-left: 20px;
+
+@media (min-width: 640px) {
+  .device-type-list {
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+  }
 }
+
 .device-type-list::-webkit-scrollbar {
   display: none;
 }
@@ -107,26 +113,55 @@
   background-image: url("/Images/types/tv-white.svg");
 }
 
-.device-brand-list {
-  list-style: none;
+.device-brand-select-container {
   display: flex;
-  padding: 0;
+  padding: 0 20px;
+  margin: 40px 0 0 0;
+}
+#device-brand-select {
+  flex: 1 1 auto;
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 1px #b1b1b1 solid;
+  background-color: white;
+
+  /* arrow style */
+  appearance: none;
+  background-image: url("/Images/chevron.svg");
+  background-position: bottom calc(50%) right 18px;
+  background-size: 14px 9px;
+  background-repeat: no-repeat;
+}
+
+.device-brand-select__option {
+  text-transform: capitalize;
+}
+.device-brand-list-container {
+  display: none;
   margin: 40px 0 0 0;
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.device-brand-list::after {
-  content: "";
-  padding-left: 20px;
+.device-brand-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0 12px;
+  min-width: 100%;
+  width: min-content;
 }
-.device-brand-list::-webkit-scrollbar {
+
+.device-brand-list-container::-webkit-scrollbar {
   display: none;
 }
-@media (min-width: 576px) {
-  .device-brand-list {
+@media (min-width: 640px) {
+  .device-brand-list-container {
+    display: block;
     margin: 50px 0 0 0;
-    justify-content: center;
+  }
+  .device-brand-select-container {
+    display: none;
   }
 }
 
@@ -174,9 +209,15 @@
 
 .device-type__name {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 12px;
   font-size: 14px;
   color: var(--black);
+}
+
+@media (min-width: 640px) {
+  .device-type__name {
+    margin-top: 20px;
+  }
 }
 
 .select-device {

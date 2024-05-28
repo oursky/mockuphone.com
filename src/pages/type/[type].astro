@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import "/src/styles/device.css";
 
 import { DEVICE_MANAGER } from "../../scripts/deviceManager";
-import type { ModelThumbnail } from "../../scripts/model";
+import type { BrandValue, ModelThumbnail } from "../../scripts/model";
 import { BrandEnum, DeviceTypeEnum } from "../../scripts/parse";
 
 export async function getStaticPaths() {
@@ -23,6 +23,8 @@ const thumbnailList: ModelThumbnail[] =
   DEVICE_MANAGER.getModelThumbnailListByType(deviceType);
 const brandThumbnailList: Partial<Record<BrandEnum, ModelThumbnail[]>> =
   DEVICE_MANAGER.getBrandModelThumbnailList(deviceType);
+const brandValues: Partial<Record<BrandEnum, BrandValue>> =
+  DEVICE_MANAGER.getBrandValues();
 const nonEmptyBrands: BrandEnum[] = Object.keys(brandThumbnailList)
   .filter((b) => {
     const brand = BrandEnum.parse(b);
@@ -30,7 +32,7 @@ const nonEmptyBrands: BrandEnum[] = Object.keys(brandThumbnailList)
     return thumbnails != null && thumbnails.length > 0;
   })
   .map((b) => BrandEnum.parse(b));
-const brandList: string[] = ["all", ...nonEmptyBrands];
+const brandList: Array<BrandEnum | "all"> = ["all", ...nonEmptyBrands];
 ---
 
 <BaseLayout>
@@ -134,23 +136,40 @@ const brandList: string[] = ["all", ...nonEmptyBrands];
         </a>
       </li>
     </ul>
-    <ul class="device-brand-list">
-      {
-        brandList.map((b: string) => (
-          <li class="device-brand-list__item">
-            <button
-              class={`device-brand-list__item-button ${
-                b === "all" ? "device-brand-list__item-button--selected" : ""
-              }`}
-              id={`device-brand-list__item-button__${b}`}
+    <div class="device-brand-list-container">
+      <ul class="device-brand-list">
+        {
+          brandList.map((b: BrandEnum | "all") => (
+            <li class="device-brand-list__item">
+              <button
+                class={`device-brand-list__item-button ${
+                  b === "all" ? "device-brand-list__item-button--selected" : ""
+                }`}
+                id={`device-brand-list__item-button__${b}`}
+                data-brand-name={b}
+              >
+                {b === "all" ? "All Brands" : brandValues[b]?.name ?? b}
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div class="device-brand-select-container">
+      <select name="device-brand-select" id="device-brand-select">
+        {
+          brandList.map((b: BrandEnum | "all") => (
+            <option
+              class="device-brand-select__option"
+              value={b}
               data-brand-name={b}
             >
-              {b === "all" ? "All Brand" : b}
-            </button>
-          </li>
-        ))
-      }
-    </ul>
+              {b === "all" ? "All Brands" : brandValues[b]?.name ?? b}
+            </option>
+          ))
+        }
+      </select>
+    </div>
   </section>
   <section class="select-device">
     <ul class="device-section-list">

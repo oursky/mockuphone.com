@@ -87,10 +87,18 @@ function handleClickBrandLabelBtn(e, viewModel) {
   const brand = e.target.dataset.brandName;
   viewModel.selectedBrand = brand;
 }
+function handleSelectBrandOption(selectParent, viewModel) {
+  const brand = selectParent.value;
+  viewModel.selectedBrand = brand;
+}
 
 function main() {
   const deviceGrids = document.querySelectorAll(".device-grid");
   const brands = document.querySelectorAll(".device-brand-list__item-button");
+  const brandSelect = document.querySelector("#device-brand-select");
+  const brandSelectOptions = document.querySelectorAll(
+    ".device-brand-select__option",
+  );
 
   const viewModel = new RootViewModel(
     window.deviceList,
@@ -136,6 +144,7 @@ function main() {
               ),
             ];
       targetBrandSections.forEach((n) => n.classList.remove("d-none"));
+      brandSelect.value = selectedBrand;
     },
   );
 
@@ -149,4 +158,8 @@ function main() {
       handleClickBrandLabelBtn(e, viewModel),
     );
   });
+
+  brandSelect.addEventListener("change", () =>
+    handleSelectBrandOption(brandSelect, viewModel),
+  );
 }
