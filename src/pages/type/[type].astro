@@ -153,6 +153,19 @@ const brandList: string[] = ["all", ...nonEmptyBrands];
         }
       </ul>
     </div>
+    <select name="device-brand-select" id="device-brand-select">
+      {
+        brandList.map((b: string) => (
+          <option
+            class="device-brand-select__option"
+            value={b}
+            data-brand-name={b}
+          >
+            {b === "all" ? "All Brand" : b}
+          </option>
+        ))
+      }
+    </select>
   </section>
   <section class="select-device">
     <ul class="device-section-list">
