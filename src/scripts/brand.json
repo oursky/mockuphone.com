@@ -41,7 +41,9 @@
     "galaxy-s-duos",
     "galaxy-s4",
     "galaxy-note-5",
-    "galaxy-y"
+    "galaxy-y",
+    "samsung-tv-d8000",
+    "samsung-tv-es8000"
   ],
   "dell": ["dell-xps-13", "dell-xps-15"],
   "lg": ["lg-55lw5600", "lg-tm2792"],
