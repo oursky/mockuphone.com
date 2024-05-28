@@ -35,6 +35,10 @@ export class DeviceManager {
     return undefined;
   }
 
+  public getModel(modelId: ModelEnum): model.ModelValue | undefined {
+    return this.allDeviceModels[modelId];
+  }
+
   public getModelColorDevice(
     modelId: ModelEnum,
     colorId: string | "default",

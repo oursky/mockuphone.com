@@ -4,7 +4,7 @@ import "/src/styles/upload.css";
 import "/src/styles/pyscript.css";
 import deviceJson from "../../../../scripts/device_info.json";
 import { DEVICE_MANAGER } from "../../../../scripts/deviceManager";
-import type { Device } from "../../../../scripts/model";
+import type { Device, ModelValue } from "../../../../scripts/model";
 import ErrorPage from "../../../../components/ErrorPage.astro";
 import { ModelEnum } from "../../../../scripts/parse";
 
@@ -40,7 +40,9 @@ const deviceDetail: Device | undefined = DEVICE_MANAGER.getModelColorDevice(
 const sameModelDevices: Device[] =
   DEVICE_MANAGER.getDeviceListByModel(_targetModel);
 
-if (deviceDetail == null) {
+const model: ModelValue | undefined = DEVICE_MANAGER.getModel(_targetModel);
+
+if (deviceDetail == null || model == null) {
   return Astro.redirect("/404");
 }
 ---
@@ -104,8 +106,7 @@ if (deviceDetail == null) {
   <div class="mockup-content">
     <div class="mockup-lg-left">
       <header class="device-header">
-        <h2 class="device-header__name">{deviceDetail.name}</h2>
-        <p class="device-header__desc">{deviceDetail.desc}</p>
+        <h2 class="device-header__name">{model.name}</h2>
       </header>
       <div class="device">
         <div class="upload__inner-box">

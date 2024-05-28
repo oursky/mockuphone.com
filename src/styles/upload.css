@@ -10,6 +10,7 @@ main {
     display: flex;
     justify-content: center;
     margin: 0 100px;
+    padding: 50px 0;
   }
 }
 @media (min-width: 1200px) {
@@ -28,24 +29,17 @@ main {
 
 @media (min-width: 992px) {
   .mockup-lg-right {
-    margin: 100px 0 0 20px;
+    margin: 76px 0 0 20px;
     max-width: 450px;
   }
 }
 
-.device-header {
-  padding: 20px 0 0 20px;
-}
-
 .device-header__name {
+  font-size: 32px;
   font-weight: 700;
-  font-size: 24px;
+  line-height: 39px;
   color: var(--black);
-}
-
-.device-header__desc {
-  font-size: 18px;
-  color: var(--gray-1);
+  margin: 0 0 37px 0;
 }
 
 .upload {
@@ -86,6 +80,8 @@ main {
   border: 1px solid var(--gray-5);
   box-sizing: border-box;
   background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
 }
 
 .upload__inner-box {
