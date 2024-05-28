@@ -18,7 +18,7 @@ export interface Device {
   orientations: Orientation[];
   view_desc: string;
   imagePath?: [string, string][];
-  color: DeviceColor;
+  color: DeviceColor | null;
 }
 
 export interface ModelThumbnail {
