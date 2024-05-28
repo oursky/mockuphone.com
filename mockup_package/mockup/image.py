@@ -5,24 +5,17 @@ from pyodide.http import pyfetch
 from mockup.image_generator import ImageGenerator as IG
 
 
-async def mockup(location, original_img_path_list, device_info):
-    phone_slug = location.split("/")[-1]  ## correct
-    if phone_slug == "":
-        phone_slug = location.split("/")[-2]  ## correct
-    # phone_slug = "samsung-d8000" ## convenient
+async def mockup(location, device_id, original_img_path_list, device_info):
     device_path_prefix = f"{location.split('/')[0]}//{location.split('/')[2]}"
     device_mask_path_prefix = device_path_prefix + "/Images/mockup_mask_templates/"
     device_path_prefix += "/Images/mockup_templates/"
-    # "http://localhost:8000/Images/mockup_templates/"
-    # device_path_prefix = "http://localhost:6543/Images/mockup_templates/"
-    # device_path_prefix = "http://localhost:3000/Images/mockup_templates/"
     device_path = "./device.png"
     device_mask_path = "./device_mask.png"
     output_img_path_list = []
     for original_img_path in original_img_path_list:
-        ig = IG(original_img_path, phone_slug, device_info)
+        ig = IG(original_img_path, device_id, device_info)
         ig.create_fit_resolution_image()
-        for spec in ig.phone_models.get(phone_slug).get("mockups").values():
+        for spec in ig.phone_models.get(device_id).get("mockups").values():
             try:
                 await process_response(
                     device_path_prefix + str(spec["image"]), device_path

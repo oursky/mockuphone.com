@@ -24,6 +24,7 @@ async function runWorker(worker) {
   worker.postMessage({
     imageUploadList: imageUploadList,
     location: window.location.toString(),
+    deviceId: window.deviceDetail.device_id,
     deviceInfo: window.deviceInfo,
   });
   worker.addEventListener(

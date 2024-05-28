@@ -27,10 +27,10 @@ async function runMockup(pyodide) {
     `
       import mockup
       import image_process
-      from js import locationKey, imageUploadList, deviceInfo
+      from js import locationKey, imageUploadList, deviceInfo, deviceId
       origin_image_List = await image_process.upload_files()
       print("start mockup")
-      output_img_path_list = await mockup.startMockup(locationKey, origin_image_List, deviceInfo)
+      output_img_path_list = await mockup.startMockup(locationKey, deviceId, origin_image_List, deviceInfo)
     `,
     { globals: pythonNamespace },
   );
@@ -50,6 +50,7 @@ async function main() {
 
     self["imageUploadList"] = event.data.imageUploadList;
     self["locationKey"] = event.data.location;
+    self["deviceId"] = event.data.deviceId;
     self["deviceInfo"] = event.data.deviceInfo;
 
     try {
