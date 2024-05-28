@@ -35,11 +35,20 @@ main {
 }
 
 .device-header__name {
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 700;
-  line-height: 39px;
+  line-height: 24.2px;
   color: var(--black);
-  margin: 0 0 37px 0;
+  padding: 20px;
+}
+
+@media (min-width: 992px) {
+  .device-header__name {
+    margin: 0 0 37px 0;
+    font-size: 32px;
+    line-height: 39px;
+    padding: 0;
+  }
 }
 
 .upload {
@@ -80,8 +89,13 @@ main {
   border: 1px solid var(--gray-5);
   box-sizing: border-box;
   background-color: white;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
-  border-radius: 10px;
+}
+
+@media (min-width: 992px) {
+  .device {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+  }
 }
 
 .upload__inner-box {
