@@ -524,8 +524,8 @@
       "credits": "<p><a href=\"http://www.elegantthemes.com/blog/freebie-of-the-week/free-imac-psd-templates\">Elegant Themes</a><br/> <a href=\"https://twitter.com/@elegantthemes\">@elegantthemes</a></p>",
       "desc": "2013",
       "color": {
-        "id": "2013",
-        "name": "white?",
+        "id": "silver",
+        "name": "Silver",
         "hexcode": "#E5E6E6"
       },
       "meta_title": "iMac 2013 Mock Up",
@@ -576,8 +576,8 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "2015",
       "color": {
-        "id": "2015",
-        "name": "white?",
+        "id": "silver",
+        "name": "Silver",
         "hexcode": "#E5E6E6"
       },
       "meta_title": "iMac 2015 Mock Up",
@@ -606,8 +606,8 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "2015",
       "color": {
-        "id": "2015",
-        "name": "white?",
+        "id": "silver",
+        "name": "Silver",
         "hexcode": "#E5E6E6"
       },
       "meta_title": "iMac Retina 2016 Mock Up",
@@ -2418,7 +2418,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "13",
       "color": {
-        "id": "13",
+        "id": "midnight",
         "name": "Midnight",
         "hexcode": "#3E4452"
       },
@@ -2449,7 +2449,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "14",
       "color": {
-        "id": "14",
+        "id": "silver",
         "name": "Silver",
         "hexcode": "#E8EBEC"
       },
@@ -2480,7 +2480,7 @@
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "desc": "16",
       "color": {
-        "id": "16",
+        "id": "silver",
         "name": "Silver",
         "hexcode": "#E8EBEC"
       },
@@ -2511,7 +2511,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "13",
       "color": {
-        "id": "13",
+        "id": "sky",
         "name": "Sky",
         "hexcode": "#C1CEDA"
       },
@@ -2540,7 +2540,7 @@
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
       "desc": "15",
       "color": {
-        "id": "15",
+        "id": "silver",
         "name": "Silver",
         "hexcode": "#494D4C"
       },
