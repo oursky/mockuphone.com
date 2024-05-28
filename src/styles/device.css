@@ -113,7 +113,31 @@
   background-image: url("/Images/types/tv-white.svg");
 }
 
+.device-brand-select-container {
+  display: flex;
+  padding: 0 20px;
+  margin: 40px 0 0 0;
+}
+#device-brand-select {
+  flex: 1 1 auto;
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 1px #b1b1b1 solid;
+  background-color: white;
+
+  /* arrow style */
+  appearance: none;
+  background-image: url("/Images/chevron.svg");
+  background-position: bottom calc(50%) right 18px;
+  background-size: 14px 9px;
+  background-repeat: no-repeat;
+}
+
+.device-brand-select__option {
+  text-transform: capitalize;
+}
 .device-brand-list-container {
+  display: none;
   margin: 40px 0 0 0;
   overflow: scroll;
   -ms-overflow-style: none;
@@ -131,9 +155,13 @@
 .device-brand-list-container::-webkit-scrollbar {
   display: none;
 }
-@media (min-width: 576px) {
+@media (min-width: 640px) {
   .device-brand-list-container {
+    display: block;
     margin: 50px 0 0 0;
+  }
+  .device-brand-select-container {
+    display: none;
   }
 }
 
