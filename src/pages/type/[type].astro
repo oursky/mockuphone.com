@@ -35,7 +35,7 @@ const nonEmptyBrands: BrandEnum[] = Object.keys(brandThumbnailList)
 const brandList: Array<BrandEnum | "all"> = ["all", ...nonEmptyBrands];
 ---
 
-<BaseLayout>
+<BaseLayout shouldRenderSearchBar={true}>
   <meta
     slot="meta"
     name="description"

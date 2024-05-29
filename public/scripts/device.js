@@ -11,8 +11,6 @@ ready(main);
 
 class RootViewModel {
   searchText = "";
-  shouldShowSearchSuggestionList = false;
-  shouldShowFullscreenSearchOnBelowLg = false;
   selectedBrand = "all";
   _deviceList;
   _brandDeviceList;
@@ -20,12 +18,15 @@ class RootViewModel {
   constructor(deviceList, brandDeviceList) {
     mobx.makeObservable(this, {
       searchText: mobx.observable,
-      shouldShowSearchSuggestionList: mobx.observable,
-      shouldShowFullscreenSearchOnBelowLg: mobx.observable,
       selectedBrand: mobx.observable,
+      shouldShowSearchClear: mobx.computed,
     });
     this._deviceList = deviceList;
     this._brandDeviceList = brandDeviceList;
+  }
+
+  get shouldShowSearchClear() {
+    return this.searchText !== "";
   }
 }
 
@@ -92,13 +93,56 @@ function handleSelectBrandOption(selectParent, viewModel) {
   viewModel.selectedBrand = brand;
 }
 
+function handleSearchInput(viewModel) {
+  const searchInput = document.querySelector(".device-list__search-input");
+  searchInput.addEventListener("input", (e) => {
+    viewModel.searchText = e.target.value;
+  });
+
+  const searchContainer = document.querySelector(
+    ".device-list__search-container",
+  );
+  searchContainer.addEventListener("click", () => {
+    searchInput.focus();
+  });
+}
+
+function handleSearchClearBtn(viewModel) {
+  const searchInput = document.querySelector(".device-list__search-input");
+  const searchClearBtn = document.querySelector(
+    ".device-list__search-input__clear-btn",
+  );
+  searchClearBtn.addEventListener("click", () => {
+    viewModel.searchText = "";
+  });
+
+  mobx.reaction(
+    () => viewModel.searchText,
+    () => {
+      searchInput.value = viewModel.searchText;
+      if (viewModel.shouldShowSearchClear) {
+        searchClearBtn.classList.remove("d-none");
+      } else {
+        searchClearBtn.classList.add("d-none");
+      }
+    },
+  );
+
+  tippy("[data-tippy-content]", {
+    placement: "bottom",
+    theme: "light-border",
+  });
+}
+
+function handleSearch(viewModel) {
+  handleSearchInput(viewModel);
+  handleSearchClearBtn(viewModel);
+}
+
 function main() {
   const deviceGrids = document.querySelectorAll(".device-grid");
   const brands = document.querySelectorAll(".device-brand-list__item-button");
   const brandSelect = document.querySelector("#device-brand-select");
-  const brandSelectOptions = document.querySelectorAll(
-    ".device-brand-select__option",
-  );
 
   const viewModel = new RootViewModel(
     window.deviceList,
@@ -107,6 +151,8 @@ function main() {
   if (isDebug) {
     window.viewModel = viewModel;
   }
+
+  handleSearch(viewModel);
 
   mobx.reaction(
     () => viewModel.selectedBrand,
