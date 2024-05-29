@@ -101,30 +101,34 @@ const { shouldRenderSearchBar } = Astro.props;
   <body>
     <div id="main-page">
       <header class="header">
-        <a
-          href="https://www.skymakers.co.uk/?utm_medium=web&utm_source=mockuphone"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            class="header__skymaker-logo"
-            src="/Images/oursky/skymaker-logo.svg"
-            alt="skymaker-logo.svg"
-            format="svg"
-            width={50}
-            height={48.5}
-          />
-        </a>
-        <a class="header__mockuphone-link" href="/">
-          <Image
-            class="header__mockuphone"
-            src="/Images/oursky/mockuphone-header.svg"
-            alt="mockuphone_header.svg"
-            format="svg"
-            width={50}
-            height={48.5}
-          />
-        </a>
+        <div class="header__logo-group">
+          <a
+            class="header__skymaker-logo-link"
+            href="https://www.skymakers.co.uk/?utm_medium=web&utm_source=mockuphone"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              class="header__skymaker-logo"
+              src="/Images/oursky/skymaker-logo.svg"
+              alt="skymaker-logo.svg"
+              format="svg"
+              width={50}
+              height={48.5}
+            />
+          </a>
+          <a class="header__mockuphone-link" href="/">
+            <Image
+              class="header__mockuphone"
+              src="/Images/oursky/mockuphone-header.svg"
+              alt="mockuphone_header.svg"
+              format="svg"
+              width={50}
+              height={48.5}
+            />
+          </a>
+        </div>
+
         {
           !!shouldRenderSearchBar ? (
             <div class="header__search-container">
@@ -144,7 +148,9 @@ const { shouldRenderSearchBar } = Astro.props;
               </div>
               {/* Add suggestion list here */}
             </div>
-          ) : undefined
+          ) : (
+            <div class="header__search-container"> </div>
+          )
         }
 
         <div class="header__share">
