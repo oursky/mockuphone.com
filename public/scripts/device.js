@@ -94,37 +94,54 @@ function handleSelectBrandOption(selectParent, viewModel) {
 }
 
 function handleSearchInput(viewModel) {
-  const searchInput = document.querySelector(".device-list__search-input");
-  searchInput.addEventListener("input", (e) => {
-    viewModel.searchText = e.target.value;
+  // both inputs: header for lg-screen & top-of-page for sm-screen
+  const searchInputList = document.querySelectorAll(
+    ".device-list__search-input",
+  );
+  searchInputList.forEach((searchInput) => {
+    searchInput.addEventListener("input", (e) => {
+      viewModel.searchText = e.target.value;
+    });
   });
 
-  const searchContainer = document.querySelector(
+  // both inputs: header for lg-screen & top-of-page for sm-screen
+  const searchContainerList = document.querySelectorAll(
     ".device-list__search-container",
   );
-  searchContainer.addEventListener("click", () => {
-    searchInput.focus();
+  searchContainerList.forEach((searchContainer, i) => {
+    searchContainer.addEventListener("click", () => {
+      searchInputList[i].focus();
+    });
   });
 }
 
 function handleSearchClearBtn(viewModel) {
-  const searchInput = document.querySelector(".device-list__search-input");
-  const searchClearBtn = document.querySelector(
+  const searchInputList = document.querySelectorAll(
+    ".device-list__search-input",
+  );
+  const searchClearBtnList = document.querySelectorAll(
     ".device-list__search-input__clear-btn",
   );
-  searchClearBtn.addEventListener("click", () => {
-    viewModel.searchText = "";
+
+  searchClearBtnList.forEach((searchClearBtn) => {
+    searchClearBtn.addEventListener("click", () => {
+      viewModel.searchText = "";
+    });
   });
 
   mobx.reaction(
     () => viewModel.searchText,
     () => {
-      searchInput.value = viewModel.searchText;
-      if (viewModel.shouldShowSearchClear) {
-        searchClearBtn.classList.remove("d-none");
-      } else {
-        searchClearBtn.classList.add("d-none");
-      }
+      searchInputList.forEach((searchInput) => {
+        searchInput.value = viewModel.searchText;
+      });
+      searchClearBtnList.forEach((searchClearBtn) => {
+        if (viewModel.shouldShowSearchClear) {
+          searchClearBtn.classList.remove("d-none");
+        } else {
+          searchClearBtn.classList.add("d-none");
+        }
+      });
     },
   );
 

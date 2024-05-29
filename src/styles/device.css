@@ -31,7 +31,7 @@
 
 @media (min-width: 992px) {
   .header__search-device__container {
-    margin: 0 0 0 112px; /* to prevent search bar overlapping with mockuphone logo */
+    margin: 0 0 0 136px; /* to prevent search bar overlapping with mockuphone logo */
   }
 }
 
@@ -70,8 +70,63 @@
   outline: none;
 }
 
+.search-device {
+  display: flex;
+  padding: 40px 20px 0 20px;
+}
+
+@media (min-width: 992px) {
+  .search-device {
+    display: none;
+  }
+}
+
+.search-device__container {
+  flex: 1 1 0%;
+  /* justify-content: space-between; */
+
+  margin: 0;
+  padding: 16px 20px;
+  display: flex;
+  height: 56px;
+  background: var(--white);
+  border: 1px solid var(--gray-5);
+  box-sizing: border-box;
+  border-radius: 9px;
+  column-gap: 12px;
+}
+
+.search-device__input {
+  flex: 1 1 0%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  max-width: 90%;
+  min-width: 0;
+}
+
+.search-device__input::placeholder {
+  color: var(--gray-3);
+  font-size: 14px;
+}
+
+.search-device__clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex: none;
+  background-color: white;
+  padding: 12px;
+  margin: -12px -36px -12px -12px;
+}
+
+.search-device__clear-btn:focus {
+  outline: none;
+}
+
 .device-type {
-  padding: 50px 0;
+  padding: 40px 0;
 }
 
 .device-type__heading {

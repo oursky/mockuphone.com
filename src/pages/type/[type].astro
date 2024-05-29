@@ -46,6 +46,23 @@ const brandList: Array<BrandEnum | "all"> = ["all", ...nonEmptyBrands];
     window.thumbnailList = thumbnailList;
     window.brandThumbnailList = brandThumbnailList;
   </script>
+  <section class="search-device">
+    <div class="search-device__container device-list__search-container">
+      <img src="/Images/search.svg" />
+      <input
+        class="search-device__input device-list__search-input"
+        placeholder="Search Device"
+        type="search"
+      />
+      <button
+        class="search-device__clear-btn d-none device-list__search-input__clear-btn"
+        data-tippy-content="Clear"
+      >
+        <img src="/Images/cross-gray.svg" />
+      </button>
+    </div>
+    {/* Add suggestion list here */}
+  </section>
   <section class="device-type">
     <header>
       <h2 class="device-type__heading">SELECT DEVICE TYPE</h2>
