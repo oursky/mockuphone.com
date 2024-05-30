@@ -175,6 +175,14 @@ function initializeSearch(viewModel, containerId) {
   });
 }
 
+function handleBrandSearchParams(viewModel) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const brandParam = urlParams.get("brand");
+  if (brandParam != null) {
+    viewModel.selectedBrand = brandParam.toLowerCase();
+  }
+}
+
 function main() {
   const deviceGrids = document.querySelectorAll(".device-grid");
   const brands = document.querySelectorAll(".device-brand-list__item-button");
@@ -253,10 +261,5 @@ function main() {
     handleSelectBrandOption(brandSelect, viewModel),
   );
 
-  const urlParams = new URLSearchParams(window.location.search);
-  const brandParam = urlParams.get("brand");
-
-  if (brandParam != null) {
-    viewModel.selectedBrand = brandParam;
-  }
+  handleBrandSearchParams(viewModel);
 }
