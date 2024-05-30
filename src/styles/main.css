@@ -71,12 +71,17 @@ figure {
   vertical-align: text-bottom;
 }
 
+.header__skymaker-logo-link {
+  z-index: 10;
+}
+
 .header__mockuphone-link {
   margin-left: -13px;
   font-family: "Red Hat Display", monospace;
   font-weight: 900;
   font-size: 20px;
   color: var(--black);
+  z-index: 10;
 }
 .header__mockuphone-link:hover {
   color: var(--black);
