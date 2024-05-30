@@ -1,6 +1,6 @@
 import { DeviceManager } from "../deviceManager";
-import { ModelValue } from "../model";
-import { ModelEnum } from "../parse";
+import { BrandValue, ModelValue } from "../model";
+import { BrandEnum, ModelEnum } from "../parse";
 
 export const getModelItems = (deviceManager: DeviceManager) =>
   Object.keys(deviceManager.allDeviceModels)
@@ -17,5 +17,23 @@ export const getModelItems = (deviceManager: DeviceManager) =>
         id: v.id,
         name: v.name,
         pathname: `/model/${v.id}/color/${v.devices[0].color?.id ?? "default"}`,
+      };
+    });
+
+export const getBrandItems = (deviceManager: DeviceManager) =>
+  Object.keys(deviceManager.allBrands)
+    .map((brandKey) => {
+      const _brandKey: BrandEnum = BrandEnum.parse(brandKey);
+      return deviceManager.allBrands[_brandKey];
+    })
+    .filter((v: BrandValue | undefined) => {
+      return v != null;
+    })
+    // @ts-expect-error // tsc cannot parse non-undefined
+    .map((v: BrandValue) => {
+      return {
+        id: v.id,
+        name: v.name,
+        pathname: `/type/all`, // FIXME: add brand query param
       };
     });

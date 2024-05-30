@@ -1,4 +1,5 @@
-const NUM_DEFAULT_ITEMS_TO_DISPLAY = 7;
+const NUM_DEFAULT_MODEL_ITEMS_TO_DISPLAY = 7;
+const NUM_DEFAULT_BRAND_ITEMS_TO_DISPLAY = 1;
 
 function ready(fn) {
   if (document.readyState != "loading") {
@@ -11,16 +12,16 @@ ready(main);
 
 class RootViewModel {
   searchText = "";
-  _brandThumbnailList;
   _modelItems;
+  _brandItems;
 
-  constructor(modelItems, brandThumbnailList) {
+  constructor(modelItems, brandItems) {
     mobx.makeObservable(this, {
       searchText: mobx.observable,
       shouldShowSearchClear: mobx.computed,
     });
-    this._brandThumbnailList = brandThumbnailList;
     this._modelItems = modelItems;
+    this._brandItems = brandItems;
   }
 
   get shouldShowSearchClear() {
@@ -39,6 +40,7 @@ function initializeAutocomplete(viewModel) {
   const { autocomplete } = window["@algolia/autocomplete-js"];
 
   const modelItems = viewModel._modelItems;
+  const brandItems = viewModel._brandItems;
 
   autocomplete({
     container: "#homepage-autocomplete",
@@ -50,7 +52,7 @@ function initializeAutocomplete(viewModel) {
           getItems({ query }) {
             const defaultDisplayItems = modelItems.slice(
               0,
-              NUM_DEFAULT_ITEMS_TO_DISPLAY,
+              NUM_DEFAULT_MODEL_ITEMS_TO_DISPLAY,
             );
             const filtered = modelItems.filter((model) => {
               return model.name.toLowerCase().includes(query.toLowerCase());
@@ -67,12 +69,21 @@ function initializeAutocomplete(viewModel) {
         },
         {
           sourceId: "brands",
-          getItems() {
-            return [{ name: "apple" }];
+          getItems({ query }) {
+            const defaultDisplayItems = brandItems.slice(
+              0,
+              NUM_DEFAULT_BRAND_ITEMS_TO_DISPLAY,
+            );
+            const filtered = brandItems.filter((brand) => {
+              return brand.name.toLowerCase().includes(query.toLowerCase());
+            });
+            return filtered.length > 0 ? filtered : defaultDisplayItems;
           },
           templates: {
             item({ item, components, html }) {
-              return html`<a class="aa-ItemWrapper">${item.name}</a>`;
+              return html`<a class="aa-ItemWrapper" href="${item.pathname}"
+                >${item.name}</a
+              >`;
             },
           },
         },
@@ -91,6 +102,7 @@ function initializeAutocomplete(viewModel) {
 function main() {
   const viewModel = new RootViewModel(
     window.modelItems,
+    window.brandItems,
     window.brandThumbnailList,
   );
   initializeAutocomplete(viewModel);
