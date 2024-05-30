@@ -1,3 +1,5 @@
+const NUM_DEFAULT_ITEMS_TO_DISPLAY = 7;
+
 function ready(fn) {
   if (document.readyState != "loading") {
     fn();
@@ -10,13 +12,15 @@ ready(main);
 class RootViewModel {
   searchText = "";
   _brandThumbnailList;
+  _modelItems;
 
-  constructor(brandThumbnailList) {
+  constructor(modelItems, brandThumbnailList) {
     mobx.makeObservable(this, {
       searchText: mobx.observable,
       shouldShowSearchClear: mobx.computed,
     });
     this._brandThumbnailList = brandThumbnailList;
+    this._modelItems = modelItems;
   }
 
   get shouldShowSearchClear() {
@@ -33,25 +37,42 @@ function handleSearchInput(viewModel) {
 
 function initializeAutocomplete(viewModel) {
   const { autocomplete } = window["@algolia/autocomplete-js"];
+
+  const modelItems = viewModel._modelItems;
+
   autocomplete({
     container: "#homepage-autocomplete",
     placeholder: "Search Device",
-    // FIXME: provide real sources
     getSources() {
       return [
         {
-          sourceId: "products",
+          sourceId: "models",
+          getItems({ query }) {
+            const defaultDisplayItems = modelItems.slice(
+              0,
+              NUM_DEFAULT_ITEMS_TO_DISPLAY,
+            );
+            const filtered = modelItems.filter((model) => {
+              return model.name.toLowerCase().includes(query.toLowerCase());
+            });
+            return filtered.length > 0 ? filtered : defaultDisplayItems;
+          },
+          templates: {
+            item({ item, html }) {
+              return html`<a class="aa-ItemWrapper" href="${item.pathname}"
+                >${item.name}</a
+              >`;
+            },
+          },
+        },
+        {
+          sourceId: "brands",
           getItems() {
-            return [{ name: "a" }, { name: "b" }];
+            return [{ name: "apple" }];
           },
           templates: {
             item({ item, components, html }) {
-              return html`<a
-                class="aa-ItemWrapper"
-                href="http://localhost:3000/model/iphone-14/color/blue"
-              >
-                ${item.name}
-              </a>`;
+              return html`<a class="aa-ItemWrapper">${item.name}</a>`;
             },
           },
         },
@@ -68,6 +89,9 @@ function initializeAutocomplete(viewModel) {
   });
 }
 function main() {
-  const viewModel = new RootViewModel(window.brandThumbnailList);
+  const viewModel = new RootViewModel(
+    window.modelItems,
+    window.brandThumbnailList,
+  );
   initializeAutocomplete(viewModel);
 }

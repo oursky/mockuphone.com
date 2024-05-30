@@ -1,9 +1,17 @@
 /* This file is to override styles in https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic */
 .aa-ClearButton:focus {
-  outline: none
+  outline: none;
 }
 
-.aa-InputWrapperPrefix, .aa-Label, .aa-SubmitButton, .aa-InputWrapper, .aa-Autocomplete, .aa-Form, .aa-Input, .aa-InputWrapperSuffix, .aa-ClearButton {
+.aa-InputWrapperPrefix,
+.aa-Label,
+.aa-SubmitButton,
+.aa-InputWrapper,
+.aa-Autocomplete,
+.aa-Form,
+.aa-Input,
+.aa-InputWrapperSuffix,
+.aa-ClearButton {
   height: 100%;
 }
 
@@ -25,7 +33,8 @@
 
 .aa-Form:focus-within {
   outline: none;
-  border:  1px solid rgba(var(--aa-input-border-color-rgb),var(--aa-input-border-color-alpha));
+  border: 1px solid
+    rgba(var(--aa-input-border-color-rgb), var(--aa-input-border-color-alpha));
   box-shadow: none;
 }
 
@@ -39,10 +48,13 @@
   margin: 0;
 }
 
-
 /* Mobile */
 
 .aa-DetachedFormContainer {
   height: 64px;
   padding: 8px 4px;
+}
+
+.aa-ItemWrapper {
+  height: 100%;
 }

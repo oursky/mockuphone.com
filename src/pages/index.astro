@@ -2,9 +2,16 @@
 import "/src/styles/home.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "@astrojs/image/components";
+
+import { DEVICE_MANAGER } from "../scripts/deviceManager";
+import { getModelItems } from "../scripts/algolia/generate";
+const modelItems = getModelItems(DEVICE_MANAGER);
 ---
 
 <BaseLayout>
+  <script define:vars={{ modelItems }}>
+    window.modelItems = modelItems;
+  </script>
   <script type="text/javascript" src="/scripts/home.js"></script>
   <div class="landing-content">
     <header class="headline">
