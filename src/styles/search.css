@@ -1,0 +1,48 @@
+/* This file is to override styles in https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic */
+.aa-ClearButton:focus {
+  outline: none
+}
+
+.aa-InputWrapperPrefix, .aa-Label, .aa-SubmitButton, .aa-InputWrapper, .aa-Autocomplete, .aa-Form, .aa-Input, .aa-InputWrapperSuffix, .aa-ClearButton {
+  height: 100%;
+}
+
+.aa-SubmitIcon {
+  display: none;
+}
+
+.aa-SubmitButton {
+  background-image: url("/Images/search.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 47px;
+  margin: 0 0 0 6px;
+}
+
+.aa-Form {
+  border-radius: 9px;
+}
+
+.aa-Form:focus-within {
+  outline: none;
+  border:  1px solid rgba(var(--aa-input-border-color-rgb),var(--aa-input-border-color-alpha));
+  box-shadow: none;
+}
+
+.aa-SubmitButton:focus {
+  background-image: url("/Images/search-dark.svg");
+  outline: none;
+  /* fill: red; */
+}
+
+.aa-Label {
+  margin: 0;
+}
+
+
+/* Mobile */
+
+.aa-DetachedFormContainer {
+  height: 64px;
+  padding: 8px 4px;
+}

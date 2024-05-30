@@ -15,18 +15,7 @@ import { Image } from "@astrojs/image/components";
         Wrap your design in mobile devices in a few clicks!
       </p>
     </header>
-    <div class="search-device__container">
-      <img src="/Images/search.svg" />
-      <input
-        class="search-device__input"
-        placeholder="Search Device"
-        type="search"
-      />
-      <button class="search-device__clear-btn d-none" data-tippy-content="Clear"
-        ><img src="/Images/cross-gray.svg" /></button
-      >
-      <!-- TODO: Add suggestion list here -->
-    </div>
+    <div id="homepage-autocomplete"></div>
     <ul class="quick-device-list">
       <li class="quick-device-list__item quick-device-list__item-iphone">
         <a
