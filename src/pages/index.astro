@@ -9,7 +9,7 @@ const modelItems = getModelItems(DEVICE_MANAGER);
 const brandItems = getBrandItems(DEVICE_MANAGER);
 ---
 
-<BaseLayout>
+<BaseLayout isHeaderTransparent={true}>
   <script define:vars={{ modelItems, brandItems }}>
     window.modelItems = modelItems;
     window.brandItems = brandItems;

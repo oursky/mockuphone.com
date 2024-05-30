@@ -9,7 +9,7 @@ const description =
   "MockUPhone is a free tool that helps you wrap app screenshots in different mobile devices. Support iPhone mockup, iPad mockup, Android mockup and TV mockup.";
 const social_url = "home_url";
 const social_icon = "/Images/mockuphone-logo.png";
-const { shouldRenderSearchBar } = Astro.props;
+const { shouldRenderSearchBar, isHeaderTransparent = false } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -106,7 +106,7 @@ const { shouldRenderSearchBar } = Astro.props;
   </head>
   <body>
     <div id="main-page">
-      <header class="header">
+      <header class=`header ${isHeaderTransparent ? "header-transparent" : ""}`>
         <div class="header__logo-group">
           <a
             class="header__skymaker-logo-link"
