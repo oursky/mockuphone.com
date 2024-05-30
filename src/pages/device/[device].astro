@@ -1,0 +1,24 @@
+---
+// LEGACY FILE, will redirect to /model/[model]
+import { Device as DeviceT } from "../../scripts/model";
+import redirect from "../../scripts/redirect.json";
+import { DEVICE_MANAGER } from "../../scripts/deviceManager";
+
+export async function getStaticPaths() {
+  return DEVICE_MANAGER.allDevices.map((d: DeviceT) => ({
+    params: { device: d.device_id },
+    props: { targetDevice: d.device_id },
+  }));
+}
+const { targetDevice } = Astro.props;
+
+// @ts-expect-error // somehow ts cannot recognise this
+const redirectTo = redirect[`/device/${targetDevice}`];
+---
+
+<head>
+  <meta
+    http-equiv="refresh"
+    content=`0; url="${Astro.url.origin}${redirectTo}"`
+  />
+</head>

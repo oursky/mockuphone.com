@@ -1,50 +1,42 @@
 ---
-import DeviceBaseLayout from "../../../../layouts/BaseLayout.astro";
+import DeviceBaseLayout from "../../layouts/BaseLayout.astro";
 import "/src/styles/upload.css";
 import "/src/styles/pyscript.css";
-import deviceJson from "../../../../scripts/device_info.json";
-import { DEVICE_MANAGER } from "../../../../scripts/deviceManager";
-import type { Device, ModelValue } from "../../../../scripts/model";
-import ErrorPage from "../../../../components/ErrorPage.astro";
-import { ModelEnum } from "../../../../scripts/parse";
+import { DEVICE_MANAGER } from "../../scripts/deviceManager";
+import type { ModelValue } from "../../scripts/model";
+import ErrorPage from "../../components/ErrorPage.astro";
+import { ModelEnum } from "../../scripts/parse";
+import deviceJson from "../../scripts/device_info.json";
 
 export async function getStaticPaths() {
-  const modelColorAll: {
-    params: { model: ModelEnum; color: string };
-    props: { targetModel: ModelEnum; targetColor: string };
+  const allModels: {
+    params: { model: ModelEnum };
+    props: { targetModel: ModelEnum };
   }[] = [];
 
   Object.keys(DEVICE_MANAGER.allDeviceModels).forEach((modelId: string) => {
     const _modelId = ModelEnum.parse(modelId);
-    const allModelDevices: Device[] =
-      DEVICE_MANAGER.getDeviceListByModel(_modelId);
-    allModelDevices.forEach((d: Device) => {
-      const modelColorInfo = {
-        params: { model: _modelId, color: d.color?.id ?? "default" },
-        props: { targetModel: _modelId, targetColor: d.color?.id ?? "default" },
-      };
-      modelColorAll.push(modelColorInfo);
+    allModels.push({
+      params: { model: _modelId },
+      props: { targetModel: _modelId },
     });
   });
-  return modelColorAll;
+  return allModels;
 }
 
-const { targetModel, targetColor } = Astro.props;
+const { targetModel } = Astro.props;
 const _targetModel = ModelEnum.parse(targetModel);
-
-const deviceDetail: Device | undefined = DEVICE_MANAGER.getModelColorDevice(
-  _targetModel,
-  targetColor,
-);
-
-const sameModelDevices: Device[] =
-  DEVICE_MANAGER.getDeviceListByModel(_targetModel);
 
 const model: ModelValue | undefined = DEVICE_MANAGER.getModel(_targetModel);
 
-if (deviceDetail == null || model == null) {
+if (model == null) {
   return Astro.redirect("/404");
 }
+const sameModelDevices = model.devices;
+
+const deviceDetail = sameModelDevices[0];
+
+const defaultColorId = deviceDetail.color?.id ?? "default";
 ---
 
 <script>
@@ -83,6 +75,13 @@ if (deviceDetail == null || model == null) {
   }
 </script>
 <DeviceBaseLayout>
+  <script define:vars={{ deviceDetail }}>
+    window.location.recommendsize = deviceDetail["display_resolution"];
+    window.deviceDetail = deviceDetail;
+  </script>
+  <script define:vars={{ deviceJson }}>
+    window.deviceInfo = deviceJson;
+  </script>
   <script type="text/javascript" src="/scripts/vendor/socket.io@3.0.4.min.js"
   ></script>
   <script type="text/javascript" src="/scripts/vendor/dataloader@1.4.0.js"
@@ -94,31 +93,23 @@ if (deviceDetail == null || model == null) {
   <script type="text/javascript" src="/scripts/upload.js"></script>
   <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"
   ></script>
-
-  <script define:vars={{ deviceDetail }}>
-    window.location.recommendsize = deviceDetail["display_resolution"];
-    window.deviceDetail = deviceDetail;
-  </script>
-
-  <script define:vars={{ deviceJson }}>
-    window.deviceInfo = deviceJson;
-  </script>
   <div class="mockup-content">
     <div class="mockup-lg-left">
       <header class="device-header">
         <h2 class="device-header__name">{model.name}</h2>
       </header>
+
       <div class="device">
-        <div class="upload__inner-box">
+        <div class="upload__inner-box" data-color-id={defaultColorId}>
           <img
             class="upload__device-image"
             src={deviceDetail.imagePath?.[0][0]}
             alt={deviceDetail.imagePath?.[0][1]}
           />
+          <div class="upload__device-hint">
+            Upload <br /> Image Here
+          </div>
         </div>
-        <div class="upload__device-hint">Upload <br /> Image Here</div>
-        <!-- FIXME: confirm if need uploading with webassembly or not -->
-        <input type="hidden" name="phone" value={deviceDetail.device_id} />
       </div>
     </div>
 
@@ -142,9 +133,13 @@ if (deviceDetail == null || model == null) {
           />
         </div>
         <p class="upload-guide__hint">
-          Recommend size {deviceDetail.display_resolution?.[0]}px * {
-            deviceDetail.display_resolution?.[1]
-          }px, We support jpg, png and psd
+          Recommend size <span id="upload-guide__hint-x"
+            >{deviceDetail.display_resolution?.[0]}</span
+          >px *
+
+          <span id="upload-guide__hint-y"
+            >{deviceDetail.display_resolution?.[1]}</span
+          >px, We support jpg, png and psd
         </p>
         <ul class="file-list"></ul>
         {
@@ -159,15 +154,21 @@ if (deviceDetail == null || model == null) {
                   {sameModelDevices.map((d) =>
                     d.color == null ? undefined : (
                       <li class="color-picker-item-container">
-                        <a
-                          href={`/model/${targetModel}/color/${d.color.id}`}
+                        <button
                           style={{ backgroundColor: d.color.hexcode }}
                           class={`color-picker-item ${
-                            d.color.id === targetColor
+                            d.color.id === defaultColorId
                               ? "color-picker-item--selected"
                               : ""
                           }`}
+                          type="button"
                           data-tippy-content={d.color.name}
+                          data-color-id={d.color.id}
+                          data-image-path-portrait={d.imagePath?.[0]?.[0]}
+                          data-image-path-landscape={d.imagePath?.[1]?.[0]}
+                          data-credits={d.credits}
+                          data-display-resolution-x={d.display_resolution?.[0]}
+                          data-display-resolution-y={d.display_resolution?.[1]}
                         />
                       </li>
                     ),
@@ -189,9 +190,10 @@ if (deviceDetail == null || model == null) {
           <h3 class="device-support__heading">DEVICE ORIENTATIONS</h3>
           <ul class="device-support__orientation-list">
             {
-              deviceDetail.imagePath?.map((path: string[]) => (
+              deviceDetail.imagePath?.map((path: string[], index: number) => (
                 <img
                   class="device-support__orientation-image"
+                  data-image-path-index={index}
                   src={path[0]}
                   alt={path[1]}
                 />

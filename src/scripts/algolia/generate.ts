@@ -16,7 +16,7 @@ export const getModelItems = (deviceManager: DeviceManager) =>
       return {
         id: v.id,
         name: v.name,
-        pathname: `/model/${v.id}/color/${v.devices[0].color?.id ?? "default"}`,
+        pathname: `/model/${v.id}`,
       };
     });
 
