@@ -11,8 +11,6 @@ ready(main);
 
 class RootViewModel {
   searchText = "";
-  shouldShowSearchSuggestionList = false;
-  shouldShowFullscreenSearchOnBelowLg = false;
   selectedBrand = "all";
   _deviceList;
   _brandDeviceList;
@@ -20,12 +18,15 @@ class RootViewModel {
   constructor(deviceList, brandDeviceList) {
     mobx.makeObservable(this, {
       searchText: mobx.observable,
-      shouldShowSearchSuggestionList: mobx.observable,
-      shouldShowFullscreenSearchOnBelowLg: mobx.observable,
       selectedBrand: mobx.observable,
+      shouldShowSearchClear: mobx.computed,
     });
     this._deviceList = deviceList;
     this._brandDeviceList = brandDeviceList;
+  }
+
+  get shouldShowSearchClear() {
+    return this.searchText !== "";
   }
 }
 
@@ -92,13 +93,73 @@ function handleSelectBrandOption(selectParent, viewModel) {
   viewModel.selectedBrand = brand;
 }
 
+function handleSearchInput(viewModel) {
+  // both inputs: header for lg-screen & top-of-page for sm-screen
+  const searchInputList = document.querySelectorAll(
+    ".device-list__search-input",
+  );
+  searchInputList.forEach((searchInput) => {
+    searchInput.addEventListener("input", (e) => {
+      viewModel.searchText = e.target.value;
+    });
+  });
+
+  // both inputs: header for lg-screen & top-of-page for sm-screen
+  const searchContainerList = document.querySelectorAll(
+    ".device-list__search-container",
+  );
+  searchContainerList.forEach((searchContainer, i) => {
+    searchContainer.addEventListener("click", () => {
+      searchInputList[i].focus();
+    });
+  });
+}
+
+function handleSearchClearBtn(viewModel) {
+  const searchInputList = document.querySelectorAll(
+    ".device-list__search-input",
+  );
+  const searchClearBtnList = document.querySelectorAll(
+    ".device-list__search-input__clear-btn",
+  );
+
+  searchClearBtnList.forEach((searchClearBtn) => {
+    searchClearBtn.addEventListener("click", () => {
+      viewModel.searchText = "";
+    });
+  });
+
+  mobx.reaction(
+    () => viewModel.searchText,
+    () => {
+      searchInputList.forEach((searchInput) => {
+        searchInput.value = viewModel.searchText;
+      });
+      searchClearBtnList.forEach((searchClearBtn) => {
+        if (viewModel.shouldShowSearchClear) {
+          searchClearBtn.classList.remove("d-none");
+        } else {
+          searchClearBtn.classList.add("d-none");
+        }
+      });
+    },
+  );
+
+  tippy("[data-tippy-content]", {
+    placement: "bottom",
+    theme: "light-border",
+  });
+}
+
+function handleSearch(viewModel) {
+  handleSearchInput(viewModel);
+  handleSearchClearBtn(viewModel);
+}
+
 function main() {
   const deviceGrids = document.querySelectorAll(".device-grid");
   const brands = document.querySelectorAll(".device-brand-list__item-button");
   const brandSelect = document.querySelector("#device-brand-select");
-  const brandSelectOptions = document.querySelectorAll(
-    ".device-brand-select__option",
-  );
 
   const viewModel = new RootViewModel(
     window.deviceList,
@@ -107,6 +168,8 @@ function main() {
   if (isDebug) {
     window.viewModel = viewModel;
   }
+
+  handleSearch(viewModel);
 
   mobx.reaction(
     () => viewModel.selectedBrand,

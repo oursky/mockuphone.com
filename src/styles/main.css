@@ -55,16 +55,19 @@ figure {
 }
 @media (min-width: 576px) {
   .header {
-    padding: 30px 40px;
+    padding: 15px 40px;
   }
 }
 
-.header__oursky-logo {
-  width: 90px;
+.header__logo-group {
+  display: flex;
+  min-width: 0;
+
+  flex: 1 1 0%;
 }
 
 .header__skymaker-logo {
-  width: 160px;
+  width: 176px;
   vertical-align: text-bottom;
 }
 
@@ -82,6 +85,7 @@ figure {
 .header__share {
   display: flex;
   margin-left: auto;
+  flex: none;
 }
 
 .header__share-small {
@@ -102,17 +106,24 @@ figure {
 }
 
 .header__mockuphone {
-  /* width: 160px; */
   width: 200px;
   vertical-align: text-bottom;
+  flex: 1 1 0%;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 640px) {
+  .header__skymaker-logo-link {
+    min-width: 0;
+    width: 47%; /* 176 / (176+200) */
+  }
   .header__skymaker-logo {
+    min-width: 0;
     width: 100%;
   }
 
   .header__mockuphone-link {
+    min-width: 0;
+    width: 53%; /* 200 / (176+200) */
     margin-left: 10px;
   }
 
@@ -121,6 +132,7 @@ figure {
   }
 
   .header__mockuphone {
+    min-width: 0;
     width: 100%;
   }
 }
