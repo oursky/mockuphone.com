@@ -1,0 +1,263 @@
+---
+import DeviceBaseLayout from "../../layouts/BaseLayout.astro";
+import "/src/styles/upload.css";
+import "/src/styles/pyscript.css";
+import { DEVICE_MANAGER } from "../../scripts/deviceManager";
+import type { ModelValue } from "../../scripts/model";
+import ErrorPage from "../../components/ErrorPage.astro";
+import { ModelEnum } from "../../scripts/parse";
+
+export async function getStaticPaths() {
+  const allModels: {
+    params: { model: ModelEnum };
+    props: { targetModel: ModelEnum };
+  }[] = [];
+
+  Object.keys(DEVICE_MANAGER.allDeviceModels).forEach((modelId: string) => {
+    const _modelId = ModelEnum.parse(modelId);
+    allModels.push({
+      params: { model: _modelId },
+      props: { targetModel: _modelId },
+    });
+  });
+  return allModels;
+}
+
+const { targetModel } = Astro.props;
+const _targetModel = ModelEnum.parse(targetModel);
+
+const model: ModelValue | undefined = DEVICE_MANAGER.getModel(_targetModel);
+
+if (model == null) {
+  return Astro.redirect("/404");
+}
+const sameModelDevices = model.devices;
+
+const deviceDetail = sameModelDevices[0];
+
+const defaultColorId = deviceDetail.color?.id ?? "default";
+---
+
+<script>
+  // ref: https://stackoverflow.com/questions/47879864/how-can-i-check-if-a-browser-supports-webassembly
+  const supportWebAssembly = () => {
+    try {
+      if (
+        typeof WebAssembly === "object" &&
+        typeof WebAssembly.instantiate === "function"
+      ) {
+        const module = new WebAssembly.Module(
+          Uint8Array.of(0x0, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00),
+        );
+        if (module instanceof WebAssembly.Module)
+          return (
+            new WebAssembly.Instance(module) instanceof WebAssembly.Instance
+          );
+      }
+    } catch (e) {}
+
+    return false;
+  };
+
+  const mainElem = document.getElementById("main-page");
+  const webassemblyNotSupportedElem = document.getElementById(
+    "webassembly-not-supported",
+  );
+  if (supportWebAssembly()) {
+    if (webassemblyNotSupportedElem) {
+      webassemblyNotSupportedElem.style.display = "none";
+    }
+  } else {
+    if (mainElem) {
+      mainElem.style.display = "none";
+    }
+  }
+</script>
+<DeviceBaseLayout>
+  <script type="text/javascript" src="/scripts/vendor/socket.io@3.0.4.min.js"
+  ></script>
+  <script type="text/javascript" src="/scripts/vendor/dataloader@1.4.0.js"
+  ></script>
+  <script type="text/javascript" src="/scripts/vendor/psd.min.js"></script>
+  <script type="text/javascript" src="/scripts/utils/images.js"></script>
+  <script type="text/javascript" src="/scripts/utils/scroll.js"></script>
+  <script type="text/javascript" src="/scripts/models/image-upload.js"></script>
+  <script type="text/javascript" src="/scripts/upload.js"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"
+  ></script>
+  <div class="mockup-content">
+    <div class="mockup-lg-left">
+      <header class="device-header">
+        <h2 class="device-header__name">{model.name}</h2>
+      </header>
+
+      <div class="device">
+        <div class="upload__inner-box" data-color-id={defaultColorId}>
+          <img
+            class="upload__device-image"
+            src={deviceDetail.imagePath?.[0][0]}
+            alt={deviceDetail.imagePath?.[0][1]}
+          />
+          <div class="upload__device-hint">
+            Upload <br /> Image Here
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mockup-lg-right">
+      <div id="above-file-uploaded"></div>
+      <section class="file-uploaded">
+        <h3 class="file-uploaded__heading">FILE UPLOAD</h3>
+        <div class="upload-guide">
+          <img src="/Images/upload-blue.svg" />
+          <h3 class="upload-guide__title">Upload your images here</h3>
+          <label class="upload-guide__browse-btn" for="file[]"
+            >Or browse files</label
+          >
+          <input
+            class="upload-guide__file-input"
+            id="download"
+            type="file"
+            name="file[]"
+            accept=".jpg,.png,.psd"
+            multiple
+          />
+        </div>
+        <p class="upload-guide__hint">
+          Recommend size <span id="upload-guide__hint-x"
+            >{deviceDetail.display_resolution?.[0]}</span
+          >px *
+
+          <span id="upload-guide__hint-y"
+            >{deviceDetail.display_resolution?.[1]}</span
+          >px, We support jpg, png and psd
+        </p>
+        <ul class="file-list"></ul>
+        {
+          deviceDetail.color == null ? undefined : (
+            <div class="color-section">
+              <h3 class="color-section__heading">COLOR</h3>
+              <p class="color-section__description">
+                {deviceDetail.color.name}
+              </p>
+              <div class="color-picker-scrollable">
+                <ul class="color-picker">
+                  {sameModelDevices.map((d) =>
+                    d.color == null ? undefined : (
+                      <li class="color-picker-item-container">
+                        <button
+                          style={{ backgroundColor: d.color.hexcode }}
+                          class={`color-picker-item ${
+                            d.color.id === defaultColorId
+                              ? "color-picker-item--selected"
+                              : ""
+                          }`}
+                          type="button"
+                          data-tippy-content={d.color.name}
+                          data-color-id={d.color.id}
+                          data-image-path-portrait={d.imagePath?.[0]?.[0]}
+                          data-image-path-landscape={d.imagePath?.[1]?.[0]}
+                          data-credits={d.credits}
+                          data-display-resolution-x={d.display_resolution?.[0]}
+                          data-display-resolution-y={d.display_resolution?.[1]}
+                        />
+                      </li>
+                    ),
+                  )}
+                </ul>
+              </div>
+            </div>
+          )
+        }
+
+        <button disabled class="generate-btn">Generate product mockups</button>
+        <button style="display:none" class="start-mockup-btn"
+          >Generate product mockups</button
+        >
+      </section>
+
+      <section class="device-info">
+        <div class="device-support">
+          <h3 class="device-support__heading">DEVICE ORIENTATIONS</h3>
+          <ul class="device-support__orientation-list">
+            {
+              deviceDetail.imagePath?.map((path: string[], index: number) => (
+                <img
+                  class="device-support__orientation-image"
+                  data-image-path-index={index}
+                  src={path[0]}
+                  alt={path[1]}
+                />
+              ))
+            }
+          </ul>
+        </div>
+        <div class="device-credits">
+          <h3 class="device-credits__heading">CREDITS</h3>
+          <div class="device-credits__desc">
+            <Fragment set:html={deviceDetail.credits} />
+          </div>
+        </div>
+      </section>
+
+      <section class="request-device-section">
+        <img
+          class="request-device-section__image"
+          src="/Images/request-device.svg"
+        />
+        <p class="request-device-section__desc">
+          Can't find the device you want?
+        </p>
+        <a class="request-device-section__request-link" href="/request_device"
+          ><button
+            class="request-device-section__request-btn"
+            id="targetButton"
+          >
+            Request your device
+          </button></a
+        >
+      </section>
+    </div>
+    <div class="generating-modal d-none">
+      <div class="generating-modal__overlay"></div>
+      <div class="generating-modal-dialog">
+        <div class="generating-modal__spinner"></div>
+        <h3 class="generating-modal-dialog__text">Generating...</h3>
+        <button class="generating-modal-dialog__cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+</DeviceBaseLayout>
+<ErrorPage pageId="webassembly-not-supported" paddingTop="50px">
+  <p slot="title">
+    This browser doesn't support web assembly<br />
+    <span class="blue">Consider upgrading to a modern browser:</span>
+  </p>
+  <div slot="list">
+    <ul>
+      <li>
+        <a target="_blank" href="https://www.mozilla.org/firefox/new/"
+          >Firefox</a
+        >
+      </li>
+      <li>
+        <a target="_blank" href="https://www.google.com/chrome/">Chrome</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://support.apple.com/downloads/safari"
+          >Safari</a
+        >
+      </li>
+      <li>
+        <a target="_blank" href="https://www.microsoft.com/en-us/edge/download"
+          >Edge</a
+        >
+      </li>
+    </ul>
+  </div>
+</ErrorPage>
+
+<div id="drop-zone-overlay" class="drop-zone-overlay">
+  Drop your screenshot anywhere.
+</div>

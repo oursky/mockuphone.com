@@ -444,11 +444,15 @@ main {
   box-sizing: content-box;
   background-clip: content-box;
   padding: 3px;
+  cursor: pointer;
 }
 
 .color-picker-item:hover {
   background-color: #f3f2ed;
   border: 3px #e4e4e4 solid;
+}
+.color-picker-item:focus {
+  outline: none;
 }
 
 .color-picker-item--selected:hover {

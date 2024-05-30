@@ -111,15 +111,18 @@ class RootViewModel {
   _socket = null;
   _redirectTimer = null;
   worker = new Worker("/scripts/web_worker.js");
+  selectedColorId = null;
 
-  constructor(maxMockupWaitSec, fileListViewModel) {
+  constructor(maxMockupWaitSec, fileListViewModel, selectedColorId) {
     mobx.makeObservable(this, {
+      selectedColorId: mobx.observable,
       isFileDragEnter: mobx.observable,
       _isGeneratingMockup: mobx.observable,
       isGeneratingMockup: mobx.computed,
       generateMockup: mobx.action,
       cancelMockup: mobx.action,
     });
+    this.selectedColorId = selectedColorId;
     this.maxMockupWaitSec = maxMockupWaitSec;
     this.fileList = fileListViewModel;
   }
@@ -196,7 +199,7 @@ function dismissUploading() {
   Array.from(uploadGuide.children).forEach((node) => {
     node.classList.remove("d-none");
   });
-  uploading.classList.add("d-none");
+  uploading?.classList.add("d-none");
 }
 
 function findFileListItem(fileIndex) {
@@ -373,6 +376,51 @@ function handleColorPickersTooltip() {
   });
 }
 
+function handleColorPickers(viewModel) {
+  const colorPickerItems = document.querySelectorAll(".color-picker-item");
+  colorPickerItems.forEach((node) => {
+    node.addEventListener("click", (e) => {
+      viewModel.selectedColorId = e.target.dataset.colorId;
+    });
+  });
+
+  const deviceImage = document.querySelector(".upload__device-image");
+  const orientationImages = document.querySelectorAll(
+    ".device-support__orientation-image",
+  );
+  const creditsDesc = document.querySelector(".device-credits__desc");
+  const uploadGuideHintX = document.querySelector("#upload-guide__hint-x");
+  const uploadGuideHintY = document.querySelector("#upload-guide__hint-y");
+
+  mobx.reaction(
+    () => viewModel.selectedColorId,
+    (selectedColorId) => {
+      colorPickerItems.forEach((node) => {
+        if (node.dataset.colorId === selectedColorId) {
+          // highlight color picker
+          node.classList.add("color-picker-item--selected");
+
+          // change device image
+          deviceImage.src =
+            node.dataset.imagePathPortrait ?? node.dataset.imagePathLandscape;
+
+          // change orientation image
+          orientationImages[0].src = node.dataset.imagePathPortrait;
+          orientationImages[1].src = node.dataset.imagePathLandscape;
+
+          // change credits
+          creditsDesc.innerHTML = node.dataset.credits;
+
+          uploadGuideHintX.innerText = node.dataset.displayResolutionX;
+          uploadGuideHintY.innerText = node.dataset.displayResolutionY;
+        } else {
+          node.classList.remove("color-picker-item--selected");
+        }
+      });
+    },
+  );
+}
+
 function main() {
   const htmlNode = document.querySelector("html");
   const uploadSection = document.querySelector("#above-file-uploaded");
@@ -389,8 +437,12 @@ function main() {
   handleColorPickersTooltip();
 
   const fileListViewModel = new FileListViewModel(MAX_FILE_SIZE_BYTE);
-  const viewModel = new RootViewModel(MAX_MOCKUP_WAIT_SEC, fileListViewModel);
-
+  const viewModel = new RootViewModel(
+    MAX_MOCKUP_WAIT_SEC,
+    fileListViewModel,
+    "blue",
+  );
+  handleColorPickers(viewModel);
   window.viewModel = viewModel;
   if (isDebug) {
     window.viewModel = viewModel;
