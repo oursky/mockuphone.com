@@ -97,12 +97,6 @@
   }
 }
 
-/* @media (min-width: 576px) {
-  .device-type-list__item:not(:first-child) {
-    margin-left: 30px;
-  }
-} */
-
 .device-type-list__circle-image {
   display: flex;
   justify-content: center;
