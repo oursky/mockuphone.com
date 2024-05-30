@@ -1,5 +1,5 @@
-const NUM_DEFAULT_MODEL_ITEMS_TO_DISPLAY = 7;
-const NUM_DEFAULT_BRAND_ITEMS_TO_DISPLAY = 1;
+const NUM_DEFAULT_MODEL_ITEMS_TO_DISPLAY = 0;
+const NUM_DEFAULT_BRAND_ITEMS_TO_DISPLAY = 0;
 
 function ready(fn) {
   if (document.readyState != "loading") {
@@ -66,6 +66,9 @@ function initializeAutocomplete(viewModel) {
               >`;
             },
           },
+          getItemUrl({ item }) {
+            return `${window.location.origin}${item.pathname}`;
+          },
         },
         {
           sourceId: "brands",
@@ -85,6 +88,9 @@ function initializeAutocomplete(viewModel) {
                 >${item.name}</a
               >`;
             },
+          },
+          getItemUrl({ item }) {
+            return `${window.location.origin}${item.pathname}`;
           },
         },
       ];
