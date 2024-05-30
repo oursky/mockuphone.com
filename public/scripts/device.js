@@ -110,7 +110,6 @@ function handleSearchInput(viewModel) {
 }
 
 function initializeSearch(viewModel, containerId) {
-  console.log(containerId);
   const { autocomplete } = window["@algolia/autocomplete-js"];
   autocomplete({
     container: containerId,
@@ -187,9 +186,6 @@ function main() {
     window.modelItems,
     window.brandItems,
   );
-  if (isDebug) {
-    window.viewModel = viewModel;
-  }
 
   [
     "#device-list__header__autocomplete",
@@ -200,7 +196,15 @@ function main() {
 
   mobx.reaction(
     () => viewModel.selectedBrand,
-    (selectedBrand) => {
+    (selectedBrand, prevBrand) => {
+      // check target exist
+      const targetBrandListItem = document.querySelector(
+        `#device-brand-list__item-button__${selectedBrand}`,
+      );
+
+      if (targetBrandListItem == null) {
+        viewModel.selectedBrand = prevBrand;
+      }
       // Show non-selected styles for all brand tags
       const allBrandListItems = document.querySelectorAll(
         ".device-brand-list__item-button",
@@ -210,10 +214,6 @@ function main() {
       );
 
       // Show selected styles for target brand tags
-      const targetBrandListItem = document.querySelector(
-        `#device-brand-list__item-button__${selectedBrand}`,
-      );
-
       targetBrandListItem.classList.add(
         "device-brand-list__item-button--selected",
       );
@@ -252,4 +252,11 @@ function main() {
   brandSelect.addEventListener("change", () =>
     handleSelectBrandOption(brandSelect, viewModel),
   );
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const brandParam = urlParams.get("brand");
+
+  if (brandParam != null) {
+    viewModel.selectedBrand = brandParam;
+  }
 }

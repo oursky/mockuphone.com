@@ -34,6 +34,6 @@ export const getBrandItems = (deviceManager: DeviceManager) =>
       return {
         id: v.id,
         name: v.name,
-        pathname: `/type/all`, // FIXME: add brand query param
+        pathname: `/type/all?brand=${v.id}`,
       };
     });
