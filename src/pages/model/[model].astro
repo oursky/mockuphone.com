@@ -6,6 +6,7 @@ import { DEVICE_MANAGER } from "../../scripts/deviceManager";
 import type { ModelValue } from "../../scripts/model";
 import ErrorPage from "../../components/ErrorPage.astro";
 import { ModelEnum } from "../../scripts/parse";
+import deviceJson from "../../scripts/device_info.json";
 
 export async function getStaticPaths() {
   const allModels: {
@@ -74,6 +75,13 @@ const defaultColorId = deviceDetail.color?.id ?? "default";
   }
 </script>
 <DeviceBaseLayout>
+  <script define:vars={{ deviceDetail }}>
+    window.location.recommendsize = deviceDetail["display_resolution"];
+    window.deviceDetail = deviceDetail;
+  </script>
+  <script define:vars={{ deviceJson }}>
+    window.deviceInfo = deviceJson;
+  </script>
   <script type="text/javascript" src="/scripts/vendor/socket.io@3.0.4.min.js"
   ></script>
   <script type="text/javascript" src="/scripts/vendor/dataloader@1.4.0.js"
