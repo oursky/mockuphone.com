@@ -1,4 +1,6 @@
-const isDebug = true;
+const isDebug = false;
+const NUM_DEFAULT_MODEL_ITEMS_TO_DISPLAY = 0;
+const NUM_DEFAULT_BRAND_ITEMS_TO_DISPLAY = 0;
 
 function ready(fn) {
   if (document.readyState != "loading") {
@@ -14,8 +16,10 @@ class RootViewModel {
   selectedBrand = "all";
   _deviceList;
   _brandDeviceList;
+  _modelItems;
+  _brandItems;
 
-  constructor(deviceList, brandDeviceList) {
+  constructor(deviceList, brandDeviceList, modelItems, brandItems) {
     mobx.makeObservable(this, {
       searchText: mobx.observable,
       selectedBrand: mobx.observable,
@@ -23,6 +27,8 @@ class RootViewModel {
     });
     this._deviceList = deviceList;
     this._brandDeviceList = brandDeviceList;
+    this._modelItems = modelItems;
+    this._brandItems = brandItems;
   }
 
   get shouldShowSearchClear() {
@@ -95,65 +101,79 @@ function handleSelectBrandOption(selectParent, viewModel) {
 
 function handleSearchInput(viewModel) {
   // both inputs: header for lg-screen & top-of-page for sm-screen
-  const searchInputList = document.querySelectorAll(
-    ".device-list__search-input",
-  );
+  const searchInputList = document.querySelectorAll(".aa-Input");
   searchInputList.forEach((searchInput) => {
     searchInput.addEventListener("input", (e) => {
       viewModel.searchText = e.target.value;
     });
   });
-
-  // both inputs: header for lg-screen & top-of-page for sm-screen
-  const searchContainerList = document.querySelectorAll(
-    ".device-list__search-container",
-  );
-  searchContainerList.forEach((searchContainer, i) => {
-    searchContainer.addEventListener("click", () => {
-      searchInputList[i].focus();
-    });
-  });
 }
 
-function handleSearchClearBtn(viewModel) {
-  const searchInputList = document.querySelectorAll(
-    ".device-list__search-input",
-  );
-  const searchClearBtnList = document.querySelectorAll(
-    ".device-list__search-input__clear-btn",
-  );
-
-  searchClearBtnList.forEach((searchClearBtn) => {
-    searchClearBtn.addEventListener("click", () => {
-      viewModel.searchText = "";
-    });
+function initializeSearch(viewModel, containerId) {
+  console.log(containerId);
+  const { autocomplete } = window["@algolia/autocomplete-js"];
+  autocomplete({
+    container: containerId,
+    placeholder: "Search Device",
+    getSources() {
+      return [
+        {
+          sourceId: "models",
+          getItems({ query }) {
+            const defaultDisplayItems = modelItems.slice(
+              0,
+              NUM_DEFAULT_MODEL_ITEMS_TO_DISPLAY,
+            );
+            const filtered = modelItems.filter((model) => {
+              return model.name.toLowerCase().includes(query.toLowerCase());
+            });
+            return filtered.length > 0 ? filtered : defaultDisplayItems;
+          },
+          templates: {
+            item({ item, html }) {
+              return html`<a class="aa-ItemWrapper" href="${item.pathname}"
+                >${item.name}</a
+              >`;
+            },
+          },
+          getItemUrl({ item }) {
+            return `${window.location.origin}${item.pathname}`;
+          },
+        },
+        {
+          sourceId: "brands",
+          getItems({ query }) {
+            const defaultDisplayItems = brandItems.slice(
+              0,
+              NUM_DEFAULT_BRAND_ITEMS_TO_DISPLAY,
+            );
+            const filtered = brandItems.filter((brand) => {
+              return brand.name.toLowerCase().includes(query.toLowerCase());
+            });
+            return filtered.length > 0 ? filtered : defaultDisplayItems;
+          },
+          templates: {
+            item({ item, components, html }) {
+              return html`<a class="aa-ItemWrapper" href="${item.pathname}"
+                >${item.name}</a
+              >`;
+            },
+          },
+          getItemUrl({ item }) {
+            return `${window.location.origin}${item.pathname}`;
+          },
+        },
+      ];
+    },
   });
 
-  mobx.reaction(
-    () => viewModel.searchText,
-    () => {
-      searchInputList.forEach((searchInput) => {
-        searchInput.value = viewModel.searchText;
-      });
-      searchClearBtnList.forEach((searchClearBtn) => {
-        if (viewModel.shouldShowSearchClear) {
-          searchClearBtn.classList.remove("d-none");
-        } else {
-          searchClearBtn.classList.add("d-none");
-        }
-      });
-    },
-  );
+  handleSearchInput(viewModel);
 
-  tippy("[data-tippy-content]", {
+  tippy(".aa-ClearButton", {
+    content: "Clear",
     placement: "bottom",
     theme: "light-border",
   });
-}
-
-function handleSearch(viewModel) {
-  handleSearchInput(viewModel);
-  handleSearchClearBtn(viewModel);
 }
 
 function main() {
@@ -164,12 +184,19 @@ function main() {
   const viewModel = new RootViewModel(
     window.deviceList,
     window.brandDeviceList,
+    window.modelItems,
+    window.brandItems,
   );
   if (isDebug) {
     window.viewModel = viewModel;
   }
 
-  handleSearch(viewModel);
+  [
+    "#device-list__header__autocomplete",
+    "#device-list__page__autocomplete",
+  ].forEach((containerId) => {
+    initializeSearch(viewModel, containerId);
+  });
 
   mobx.reaction(
     () => viewModel.selectedBrand,
