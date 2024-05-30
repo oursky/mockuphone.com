@@ -51,6 +51,9 @@
 .aa-ItemWrapper {
   height: 100%;
 }
+.aa-Panel {
+  z-index: 100;
+}
 
 /* Mobile */
 

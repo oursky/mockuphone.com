@@ -138,25 +138,9 @@ const { shouldRenderSearchBar } = Astro.props;
         {
           !!shouldRenderSearchBar ? (
             <div class="header__search-container">
-              <div class="header__search-device__container device-list__search-container">
-                <img src="/Images/search.svg" />
-                <input
-                  class="header__search-device__input device-list__search-input"
-                  placeholder="Search Device"
-                  type="search"
-                />
-                <button
-                  class="header__search-device__clear-btn d-none device-list__search-input__clear-btn"
-                  data-tippy-content="Clear"
-                >
-                  <img src="/Images/cross-gray.svg" />
-                </button>
-              </div>
-              {/* Add suggestion list here */}
+              <div id="device-list__header__autocomplete" />
             </div>
-          ) : (
-            <div class="header__search-container"> </div>
-          )
+          ) : undefined
         }
 
         <div class="header__share">

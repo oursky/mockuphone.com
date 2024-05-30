@@ -106,10 +106,6 @@ function initializeAutocomplete(viewModel) {
   });
 }
 function main() {
-  const viewModel = new RootViewModel(
-    window.modelItems,
-    window.brandItems,
-    window.brandThumbnailList,
-  );
+  const viewModel = new RootViewModel(window.modelItems, window.brandItems);
   initializeAutocomplete(viewModel);
 }

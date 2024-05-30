@@ -5,6 +5,9 @@ import "/src/styles/device.css";
 import { DEVICE_MANAGER } from "../../scripts/deviceManager";
 import type { BrandValue, ModelThumbnail } from "../../scripts/model";
 import { BrandEnum, DeviceTypeEnum } from "../../scripts/parse";
+import { getModelItems, getBrandItems } from "../../scripts/algolia/generate";
+const modelItems = getModelItems(DEVICE_MANAGER);
+const brandItems = getBrandItems(DEVICE_MANAGER);
 
 export async function getStaticPaths() {
   const devicePaths = DeviceTypeEnum.options.map((deviceType) => ({
@@ -42,25 +45,16 @@ const brandList: Array<BrandEnum | "all"> = ["all", ...nonEmptyBrands];
     content="MockUPhone supports devices including iPhone mockup, iPad mockup, Android mockup and TV mockup. You can check out the whole device list via this page."
   />
   <script type="text/javascript" src="/scripts/device.js"></script>
-  <script define:vars={{ thumbnailList, brandThumbnailList }}>
+  <script
+    define:vars={{ thumbnailList, brandThumbnailList, modelItems, brandItems }}
+  >
     window.thumbnailList = thumbnailList;
     window.brandThumbnailList = brandThumbnailList;
+    window.modelItems = modelItems;
+    window.brandItems = brandItems;
   </script>
   <section class="search-device">
-    <div class="search-device__container device-list__search-container">
-      <img src="/Images/search.svg" />
-      <input
-        class="search-device__input device-list__search-input"
-        placeholder="Search Device"
-        type="search"
-      />
-      <button
-        class="search-device__clear-btn d-none device-list__search-input__clear-btn"
-        data-tippy-content="Clear"
-      >
-        <img src="/Images/cross-gray.svg" />
-      </button>
-    </div>
+    <div id="device-list__page__autocomplete"></div>
     {/* Add suggestion list here */}
   </section>
   <section class="device-type">
