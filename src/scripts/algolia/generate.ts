@@ -34,6 +34,7 @@ export const getBrandItems = (deviceManager: DeviceManager) =>
       return {
         id: v.id,
         name: v.name,
-        pathname: `/type/all?brand=${v.id}`,
+        // Added trailing slash because astro can only read this
+        pathname: `/type/all/?brand=${v.id}`,
       };
     });
