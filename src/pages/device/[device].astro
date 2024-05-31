@@ -17,8 +17,7 @@ const redirectTo = redirect[`/device/${targetDevice}`];
 ---
 
 <head>
-  <meta
-    http-equiv="refresh"
-    content=`0; url="${Astro.url.origin}${redirectTo}"`
-  />
+  <script define:vars={{ redirectTo }}>
+    window.location.replace(`${window.location.origin}${redirectTo}`);
+  </script>
 </head>
