@@ -4,4 +4,5 @@ import image from "@astrojs/image";
 
 export default defineConfig({
   integrations: [image()],
+  trailingSlash: "ignore",
 });
