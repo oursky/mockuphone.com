@@ -65,105 +65,79 @@
 }
 
 .quick-device-list {
+  margin: 24px 20px 0 20px;
+  padding: 0;
   list-style: none;
+
   display: flex;
+
   flex-wrap: wrap;
-  margin: 16px 0 0 0;
-  padding: 0 20px;
+  column-gap: 5px;
+  row-gap: 12px;
+  justify-content: stretch;
 }
 @media (min-width: 992px) {
   .quick-device-list {
-    margin: 16px 0 0 55vw;
-    padding: 0 0 0 20px;
-    max-width: 500px;
+    justify-content: normal;
+    margin: 16px 0 0 calc(55vw + 20px);
   }
 }
 
 .quick-device-list__item {
-  font-weight: 700;
-  background-color: var(--black);
-  border-radius: 100px;
-  text-align: center;
+  min-width: max-content;
+  /* border-radius: 100px; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 1 1 0%;
 }
 
-.quick-device-list__item-iphone {
-  flex: 1 1 auto;
-  font-size: 17px;
-}
 @media (min-width: 992px) {
-  .quick-device-list__item-iphone {
-    flex: 0 1 auto;
-  }
-}
-
-.quick-device-list__item-googlepixel {
-  flex: 1 1 100%;
-  font-size: 17px;
-  margin: 10px 0 0 0;
-}
-@media (min-width: 400px) {
-  .quick-device-list__item-googlepixel {
-    flex: 1 1 auto;
-    margin: 0 0 0 10px;
-  }
-}
-@media (min-width: 992px) {
-  .quick-device-list__item-googlepixel {
-    flex: 0 1 auto;
+  .quick-device-list__item {
+    /* TODO: confirm behaivor ref https://www.figma.com/design/OD2cB4PTbSwl81KAgGMfHp?node-id=1-2486#825212424 */
+    flex: none;
   }
 }
 
-.quick-device-list__item-other {
-  flex: 1 1 100%;
-  margin: 10px 0 0 0;
-  font-size: 14px;
+.quick-device-list__link__light-blue {
+  background-color: #e5ecfc;
+  color: black;
 }
-@media (min-width: 992px) {
-  .quick-device-list__item-other {
-    flex: 0 1 auto;
-  }
+
+.quick-device-list__link__light-blue:hover {
+  background-color: #ced4e2;
+  color: black;
 }
-@media (min-width: 1200px) {
-  .quick-device-list__item-other {
-    font-size: 17px;
-  }
+
+.quick-device-list__link__light-blue:active {
+  background-color: #a0a5b0;
+}
+
+.quick-device-list__link__deep-blue {
+  background-color: #0043e0;
+  color: white;
+}
+
+.quick-device-list__link__deep-blue:hover {
+  background-color: #0035b3;
+  color: white;
+}
+
+.quick-device-list__link__deep-blue:active {
+  background-color: #002e9c;
 }
 
 .quick-device-list__link {
-  display: flex;
-  justify-content: center;
-  padding: 8px 20px;
+  border-radius: 100px;
   width: 100%;
-  color: var(--white);
-}
-.quick-device-list__link:hover {
-  color: var(--white);
-}
-.quick-device-list__link::before {
-  content: "";
-  display: inline-block;
-  margin: 0 5px 0 0;
-  width: 18px;
-  height: 18px;
-  transform: translate(0, 2px);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.quick-device-list__link-iphone::before {
-  background-image: url("/Images/types/iphone.svg");
-}
-
-.quick-device-list__link-googlepixel::before {
-  background-image: url("/Images/types/google-pixel.svg");
-}
-
-.quick-device-list__link-other {
-  padding: 10px 20px;
-}
-.quick-device-list__link-other::before {
-  display: none;
+  height: 41px;
+  padding: 8px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 25px;
+  text-align: center;
 }
 
 .hero-image {
