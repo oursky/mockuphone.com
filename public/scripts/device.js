@@ -1,6 +1,7 @@
 const isDebug = false;
 const NUM_DEFAULT_MODEL_ITEMS_TO_DISPLAY = 0;
 const NUM_DEFAULT_BRAND_ITEMS_TO_DISPLAY = 0;
+const MAX_SEARCH_HISTORY_ITEM = 5;
 
 function ready(fn) {
   if (document.readyState != "loading") {
@@ -131,9 +132,17 @@ function handleSelectBrandOption(selectParent, viewModel) {
 
 function initializeSearch(viewModel, containerId) {
   const { autocomplete } = window["@algolia/autocomplete-js"];
+  const { createLocalStorageRecentSearchesPlugin } =
+    window["@algolia/autocomplete-plugin-recent-searches"];
+
+  const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
+    key: `brandModelSearch`,
+    MAX_SEARCH_HISTORY_ITEM,
+  });
   autocomplete({
     container: containerId,
     openOnFocus: true,
+    plugins: [recentSearchesPlugin],
     placeholder: "Search Device",
     getSources() {
       return [
