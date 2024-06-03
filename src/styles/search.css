@@ -41,7 +41,6 @@
 .aa-SubmitButton:focus {
   background-image: url("/Images/search-dark.svg");
   outline: none;
-  /* fill: red; */
 }
 
 .aa-Label {
@@ -58,7 +57,6 @@
 /* Mobile */
 
 .aa-DetachedFormContainer {
-  /* height: 64px; */
   padding: 16px 20px;
 }
 
@@ -103,10 +101,9 @@
     background-image: url("/Images/arrow-back.svg");
     background-repeat: no-repeat;
     background-position: center;
-    /* margin: 0 12px 0 12px; */
     margin: 0;
-    padding: 0 12px;
-    width: 48px;
+    padding: -4px 14px 4px 10px;
+    width: 50px;
   }
   .aa-Form > .aa-DetachedCancelButton:hover {
     border: none;
