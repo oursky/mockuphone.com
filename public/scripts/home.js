@@ -95,6 +95,9 @@ function initializeAutocomplete(viewModel) {
         },
       ];
     },
+    onSubmit({ state }) {
+      window.location.href = `${window.location.origin}/type/all/?query=${state.query}`;
+    },
   });
 
   handleSearchInput(viewModel);

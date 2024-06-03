@@ -211,6 +211,8 @@ const brandList: Array<BrandEnum | "all"> = ["all", ...nonEmptyBrands];
                       <div
                         class="device-grid-container"
                         data-device-id={thumbnail.device.device_id}
+                        data-model-name={thumbnail.modelName}
+                        data-model-id={thumbnail.modelId}
                       >
                         <h3 class="device-grid-container-header">
                           {thumbnail.modelName}

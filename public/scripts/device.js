@@ -12,27 +12,57 @@ function ready(fn) {
 ready(main);
 
 class RootViewModel {
-  searchText = "";
+  submittedQuery = "";
   selectedBrand = "all";
-  _deviceList;
-  _brandDeviceList;
+  _thumbnailList;
+  _brandThumbnailList;
   _modelItems;
   _brandItems;
 
-  constructor(deviceList, brandDeviceList, modelItems, brandItems) {
+  constructor(thumbnailList, brandThumbnailList, modelItems, brandItems) {
     mobx.makeObservable(this, {
-      searchText: mobx.observable,
       selectedBrand: mobx.observable,
-      shouldShowSearchClear: mobx.computed,
+      submittedQuery: mobx.observable,
+      // brandDeviceQueryResult: mobx.computed,
     });
-    this._deviceList = deviceList;
-    this._brandDeviceList = brandDeviceList;
+    this._thumbnailList = thumbnailList;
+    this._brandThumbnailList = brandThumbnailList;
     this._modelItems = modelItems;
     this._brandItems = brandItems;
   }
 
-  get shouldShowSearchClear() {
-    return this.searchText !== "";
+  getBrandDeviceQueryResult(brandNodeList, deviceNodeClassName) {
+    // if whole-string match brand, return that brand directly
+    // otherwise, substring match model name
+    const brandMatches = [];
+    const deviceMatches = [];
+
+    for (let brandNode of brandNodeList) {
+      if (
+        brandNode.dataset.brandName.toLowerCase() ===
+        this.submittedQuery.toLowerCase()
+      ) {
+        return {
+          matchType: "singleBrandMatch",
+          brandId: this.submittedQuery.toLowerCase(),
+        };
+      }
+
+      let deviceNodes = Array.from(
+        brandNode.querySelectorAll(`.${deviceNodeClassName}`),
+      );
+      const matchedDeviceNodes = deviceNodes.filter((deviceNode) => {
+        return deviceNode.dataset.modelName
+          .toLowerCase()
+          .includes(this.submittedQuery.toLowerCase());
+      });
+      deviceMatches.push(...matchedDeviceNodes);
+      if (matchedDeviceNodes.length > 0) {
+        brandMatches.push(brandNode);
+      }
+    }
+
+    return { matchType: "deviceNameMatch", brandMatches, deviceMatches };
   }
 }
 
@@ -99,16 +129,6 @@ function handleSelectBrandOption(selectParent, viewModel) {
   viewModel.selectedBrand = brand;
 }
 
-function handleSearchInput(viewModel) {
-  // both inputs: header for lg-screen & top-of-page for sm-screen
-  const searchInputList = document.querySelectorAll(".aa-Input");
-  searchInputList.forEach((searchInput) => {
-    searchInput.addEventListener("input", (e) => {
-      viewModel.searchText = e.target.value;
-    });
-  });
-}
-
 function initializeSearch(viewModel, containerId) {
   const { autocomplete } = window["@algolia/autocomplete-js"];
   autocomplete({
@@ -164,9 +184,10 @@ function initializeSearch(viewModel, containerId) {
         },
       ];
     },
+    onSubmit({ state }) {
+      window.location.href = `${window.location.origin}/type/all/?query=${state.query}`;
+    },
   });
-
-  handleSearchInput(viewModel);
 
   tippy(".aa-ClearButton", {
     content: "Clear",
@@ -183,14 +204,79 @@ function handleBrandSearchParams(viewModel) {
   }
 }
 
+function handleQuerySearchParams(viewModel) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const queryParam = urlParams.get("query");
+  if (queryParam != null) {
+    viewModel.submittedQuery = queryParam;
+  }
+}
+
+function handleSubmittedQueryChange(viewModel) {
+  const allBrandSections = document.querySelectorAll(
+    ".device-section-list__item",
+  );
+  const deviceNodeClassName = "device-grid-container";
+  const allDevices = document.querySelectorAll(`.${deviceNodeClassName}`);
+  const searchInputs = document.querySelectorAll(".aa-Input");
+  mobx.reaction(
+    () => viewModel.submittedQuery,
+    (query) => {
+      if (query == null || query === "") {
+        return;
+      }
+
+      const result = viewModel.getBrandDeviceQueryResult(
+        Array.from(allBrandSections),
+        deviceNodeClassName,
+      );
+      searchInputs.forEach((input) => {
+        input.value = query;
+      });
+      switch (result.matchType) {
+        case "singleBrandMatch": {
+          viewModel.selectedBrand = result.brandId;
+          break;
+        }
+        case "deviceNameMatch": {
+          const brandIdMatches = result.brandMatches.map(
+            (node) => node.dataset.brandName,
+          );
+          const modelIdMatches = result.deviceMatches.map(
+            (node) => node.dataset.modelId,
+          );
+          allBrandSections.forEach((brandSection) => {
+            if (brandIdMatches.includes(brandSection.dataset.brandName)) {
+              brandSection.classList.remove("d-none");
+            } else {
+              brandSection.classList.add("d-none");
+            }
+          });
+          allDevices.forEach((device) => {
+            if (modelIdMatches.includes(device.dataset.modelId)) {
+              device.classList.remove("d-none");
+            } else {
+              device.classList.add("d-none");
+            }
+          });
+          break;
+        }
+        default: {
+          break; // Do Nothing
+        }
+      }
+    },
+  );
+}
+
 function main() {
   const deviceGrids = document.querySelectorAll(".device-grid");
   const brands = document.querySelectorAll(".device-brand-list__item-button");
   const brandSelect = document.querySelector("#device-brand-select");
 
   const viewModel = new RootViewModel(
-    window.deviceList,
-    window.brandDeviceList,
+    window.thumbnailList,
+    window.brandThumbnailList,
     window.modelItems,
     window.brandItems,
   );
@@ -201,6 +287,8 @@ function main() {
   ].forEach((containerId) => {
     initializeSearch(viewModel, containerId);
   });
+
+  handleSubmittedQueryChange(viewModel);
 
   mobx.reaction(
     () => viewModel.selectedBrand,
@@ -262,4 +350,5 @@ function main() {
   );
 
   handleBrandSearchParams(viewModel);
+  handleQuerySearchParams(viewModel);
 }
