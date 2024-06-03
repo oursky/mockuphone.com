@@ -37,6 +37,7 @@ function initializeAutocomplete(viewModel) {
 
   autocomplete({
     container: "#homepage-autocomplete",
+    openOnFocus: true,
     placeholder: "Search Device",
     getSources() {
       return [

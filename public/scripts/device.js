@@ -133,6 +133,7 @@ function initializeSearch(viewModel, containerId) {
   const { autocomplete } = window["@algolia/autocomplete-js"];
   autocomplete({
     container: containerId,
+    openOnFocus: true,
     placeholder: "Search Device",
     getSources() {
       return [
