@@ -29,12 +29,12 @@
 
 .aa-Form {
   border-radius: 9px;
+  border: 1px solid var(--gray-5);
 }
 
 .aa-Form:focus-within {
   outline: none;
-  border: 1px solid
-    rgba(var(--aa-input-border-color-rgb), var(--aa-input-border-color-alpha));
+  border: 1px solid var(--gray-5);
   box-shadow: none;
 }
 
@@ -63,6 +63,7 @@
 .aa-DetachedSearchButton {
   height: 100%;
   border-radius: 9px;
+  border: 1px solid var(--gray-5);
   padding: 0;
 }
 
@@ -81,8 +82,7 @@
 
 .aa-DetachedSearchButton:focus {
   outline: none;
-  border: 1px solid
-    rgba(var(--aa-input-border-color-rgb), var(--aa-input-border-color-alpha));
+  border: 1px solid var(--gray-5);
   box-shadow: none;
   background-color: #e5e5e5;
 }
