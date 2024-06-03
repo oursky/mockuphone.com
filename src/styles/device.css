@@ -535,12 +535,21 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  margin: 10px 0 0 -10px;
+  margin: 10px 0 0 0;
   padding: 0;
+  column-gap: 10px;
+  row-gap: 20px;
+}
+
+@media (min-width: 680px) {
+  .device-grid-list {
+    column-gap: 20px;
+    row-gap: 40px;
+  }
 }
 
 .device-grid-container {
-  margin: 20px 0 0 10px;
+  margin: 0 0 0 0;
 }
 
 .device-grid-container-header {
