@@ -29,13 +29,6 @@ class RootViewModel {
   }
 }
 
-function handleSearchInput(viewModel) {
-  const searchInput = document.querySelector(".aa-Input");
-  searchInput.addEventListener("input", (e) => {
-    viewModel.searchText = e.target.value;
-  });
-}
-
 function initializeAutocomplete(viewModel) {
   const { autocomplete } = window["@algolia/autocomplete-js"];
 
@@ -100,12 +93,34 @@ function initializeAutocomplete(viewModel) {
     },
   });
 
-  handleSearchInput(viewModel);
-
   tippy(".aa-ClearButton", {
     content: "Clear",
     placement: "bottom",
     theme: "light-border",
+  });
+
+  const detachedSearchButtonList = document.querySelectorAll(
+    ".aa-DetachedSearchButton",
+  );
+  detachedSearchButtonList.forEach((detachedSearchButton) => {
+    detachedSearchButton.addEventListener("click", () => {
+      const inputForm = document.querySelector(".aa-Form");
+
+      if (inputForm.querySelector(".aa-DetachedCancelButton") != null) {
+        return;
+      }
+      const newCancelButton = document.createElement("button");
+      newCancelButton.type = "button";
+      newCancelButton.classList.add("aa-DetachedCancelButton");
+
+      newCancelButton.addEventListener("click", () => {
+        // ref https://github.com/algolia/autocomplete/blob/d0b3b27d2d22f06590cef5606062ca0e48c9003f/packages/autocomplete-js/src/__tests__/detached.test.ts#L420
+        const detachedContainer = document.querySelector(".aa-DetachedOverlay");
+        document.body.removeChild(detachedContainer);
+        document.body.classList.remove("aa-Detached");
+      });
+      inputForm.appendChild(newCancelButton);
+    });
   });
 }
 function main() {
