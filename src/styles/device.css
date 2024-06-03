@@ -506,10 +506,9 @@
   list-style: none;
   margin: 0 0 0 0;
   padding: 0;
-}
-
-.device-section-list__item:not(:first-child) {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
 }
 
 .device-section-list__request-device:not(:first-child) {
