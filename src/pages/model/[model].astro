@@ -7,6 +7,7 @@ import type { ModelValue } from "../../scripts/model";
 import ErrorPage from "../../components/ErrorPage.astro";
 import { ModelEnum } from "../../scripts/parse";
 import deviceJson from "../../scripts/device_info.json";
+import RequestDeviceCard from "../../components/RequestDeviceCard/RequestDeviceCard.astro";
 
 export async function getStaticPaths() {
   const allModels: {
@@ -209,23 +210,7 @@ const defaultColorId = deviceDetail.color?.id ?? "default";
         </div>
       </section>
 
-      <section class="request-device-section">
-        <img
-          class="request-device-section__image"
-          src="/Images/request-device.svg"
-        />
-        <p class="request-device-section__desc">
-          Can't find the device you want?
-        </p>
-        <a class="request-device-section__request-link" href="/request_device"
-          ><button
-            class="request-device-section__request-btn"
-            id="targetButton"
-          >
-            Request your device
-          </button></a
-        >
-      </section>
+      <RequestDeviceCard />
     </div>
     <div class="generating-modal d-none">
       <div class="generating-modal__overlay"></div>

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import RequestDeviceCard from "../../components/RequestDeviceCard/RequestDeviceCard.astro";
+
 import "/src/styles/device.css";
 
 import { DEVICE_MANAGER } from "../../scripts/deviceManager";
@@ -211,6 +213,8 @@ const brandList: Array<BrandEnum | "all"> = ["all", ...nonEmptyBrands];
                       <div
                         class="device-grid-container"
                         data-device-id={thumbnail.device.device_id}
+                        data-model-name={thumbnail.modelName}
+                        data-model-id={thumbnail.modelId}
                       >
                         <h3 class="device-grid-container-header">
                           {thumbnail.modelName}
@@ -263,20 +267,7 @@ const brandList: Array<BrandEnum | "all"> = ["all", ...nonEmptyBrands];
         })
       }
       <li class="device-section-list__request-device">
-        <section class="request-device-section">
-          <img
-            class="request-device-section__image"
-            src="/Images/request-device.svg"
-          />
-          <p class="request-device-section__desc">
-            Can't find the device you want?
-          </p>
-          <a class="request-device-section__request-link" href="/request_device"
-            ><button class="request-device-section__request-btn">
-              Request your device
-            </button></a
-          >
-        </section>
+        <RequestDeviceCard />
       </li>
     </ul>
   </section>
