@@ -163,21 +163,23 @@ main {
   }
 }
 
-footer {
+.footer {
   background-color: var(--black);
-  min-height: 290px;
   color: var(--white);
+  padding: 46px;
 }
 @media (min-width: 992px) {
   .footer {
     display: flex;
-    min-height: 250px;
-    padding: 60px 100px 0 100px;
+    padding: 60px 100px 60px 100px;
+    align-items: flex-end;
+    justify-content: space-between;
   }
 }
 
 .footer__lg-left {
-  padding-top: 30px;
+  padding: 0;
+  flex: 1 1 0%;
 }
 
 .footer__skymaker-logo {
@@ -189,7 +191,7 @@ footer {
 
 @media (min-width: 992px) {
   .footer__lg-left {
-    padding-top: 0;
+    padding: 0;
   }
 
   .footer__skymaker-logo {
@@ -201,11 +203,11 @@ footer {
 .footer__slogan {
   font-size: 12px;
   text-align: center;
-  margin: 10px 0 0 0;
+  margin: 0 0 0 0;
 }
 @media (min-width: 992px) {
   .footer__slogan {
-    margin-top: 10px;
+    margin-top: 0;
     text-align: left;
   }
 }
@@ -214,16 +216,15 @@ footer {
   list-style: none;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  width: 210px;
   padding: 0;
-  margin: 30px auto 0 auto;
+  margin: 30px 0 30px 0;
+  column-gap: 15px;
+  row-gap: 5px;
 }
 .footer__sitemap-item {
   white-space: nowrap;
-}
-.footer__sitemap-item:not(:first-child) {
-  margin-left: 15px;
 }
 .footer__sitemap-link {
   color: var(--white);
@@ -235,18 +236,19 @@ footer {
 @media (min-width: 992px) {
   .footer__sitemap {
     justify-content: flex-start;
-    flex-wrap: nowrap;
-    width: fit-content;
+    margin: 30px 0 0 0;
   }
 }
 
 .footer__product-list {
   list-style: none;
-  display: flex;
-  justify-content: space-evenly;
   padding: 0;
-  margin: 30px auto 0 auto;
-  max-width: 500px;
+  margin: 0;
+
+  display: flex;
+  column-gap: 30px;
+  align-items: center;
+  justify-content: center;
 }
 .footer__product-image {
   display: block;
@@ -261,9 +263,10 @@ footer {
 }
 @media (min-width: 992px) {
   .footer__product-list {
-    margin: 0 0 0 auto;
-    width: 370px;
-    justify-content: space-between;
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+    justify-content: center;
   }
 }
 
