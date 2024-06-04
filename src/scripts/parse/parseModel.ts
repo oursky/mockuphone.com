@@ -1,9 +1,20 @@
 import * as fs from "fs";
-import { SafeParseReturnType, SafeParseSuccess, z } from "zod";
+import { z } from "zod";
 import { Json } from "./common";
 
 export const ModelEnum = z.enum([
   // https://en.wikipedia.org/wiki/List_of_Apple_products
+  "iphone-15",
+  "iphone-15-plus",
+  "iphone-15-pro",
+  "iphone-15-pro-max",
+  "iphone-8",
+  "iphone-8-plus",
+  "iphone-se",
+  "iphone-11",
+  "iphone-11-pro",
+  "iphone-11-pro-max",
+
   "iphone-14",
   "iphone-14-plus",
   "iphone-14-pro",
@@ -23,6 +34,9 @@ export const ModelEnum = z.enum([
   "google-pixel-4",
   "google-pixel-4-xl",
   "google-pixel-5",
+  "google-pixel-7",
+  "google-pixel-8",
+  "google-pixel-slate-2",
 
   // https://en.wikipedia.org/wiki/Motorola_Moto
   "moto-e",
@@ -30,6 +44,7 @@ export const ModelEnum = z.enum([
 
   // https://en.wikipedia.org/wiki/Samsung_Galaxy
   // https://en.wikipedia.org/wiki/Samsung_Galaxy_S_series
+  "galaxy-s24-ultra",
   "galaxy-s21-plus",
   "galaxy-s21-ultra",
   "galaxy-s21",
@@ -45,11 +60,20 @@ export const ModelEnum = z.enum([
   // https://en.wikipedia.org/wiki/Samsung_Galaxy_Y
   "galaxy-y",
 
+  // https://en.wikipedia.org/wiki/Samsung_Galaxy_Watch_series#Models
+  "galaxy-watch-4",
+
   "oneplus-8-pro",
 
+  "huawei-p40-pro+",
+
+  // https://en.wikipedia.org/wiki/Apple_Watch#Operating_system_support
   "apple-watch-ultra",
+  "apple-watch-ultra-2",
   "apple-watch-series-8-41mm",
   "apple-watch-series-8-45mm",
+
+  "apple-watch-series-5",
 
   // https://en.wikipedia.org/wiki/MacBook_Pro#Timeline
   "macbook-12-inch",
