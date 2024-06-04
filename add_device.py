@@ -1,10 +1,12 @@
 import cv2
 import json
+from add_device_utils import to_kebab_case
 
 x1, y1, x2, y2 = 0, 0, 0, 0
 
 device_id = input("Input device_id(ex: samsung-galaxys20ultra-cosmicgrey): ")
 device_color = input("Input device_color(ex: Pink): ")
+device_color_hexcode = input("Input device_color_hexcode(ex: #F0CBD3): ")
 device_name = input("Input device_name(ex: Samsung Galaxy S20): ")
 device_type = input("Input device_type(Android/iOS/TV/Laptops/Macbook): ")
 
@@ -84,6 +86,11 @@ while True:
             "credits": '<p><a href="http://facebook.design/devices" target="blank">'
             "Facebook - Design Resources</a></p>",
             "desc": f"{device_color}",
+            "color": {
+                "id": f"{to_kebab_case(device_color)}",
+                "name": f"{device_color}",
+                "hexcode": f"{device_color_hexcode}",
+            },
             "meta_title": f"{device_name} {device_color} Mock Up",
             "meta_description": f"1 click to generate your {device_name} "
             f"{device_color} mockup! You can wrap screenshots in {device_name} "
