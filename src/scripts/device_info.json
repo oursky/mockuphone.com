@@ -6161,6 +6161,65 @@
       ],
       "is_mockup_image_at_front": true,
       "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Titanium Gray",
+      "color": {
+        "id": "titanium-gray",
+        "name": "Titanium Gray",
+        "hexcode": "#ADA49B"
+      },
+      "meta_title": "Samsung Galaxy S24 Ultra Titanium Gray Mock Up",
+      "meta_description": "1 click to generate your Samsung Galaxy S24 Ultra Titanium Gray mockup! You can wrap screenshots in Samsung Galaxy S24 Ultra Titanium Gray for prototypes.",
+      "display_resolution": [963, 2075],
+      "device_type": "Android",
+      "device_id": "samsung-galaxy-s24-ultra",
+      "name": "Samsung Galaxy S24 Ultra",
+      "orientations": [
+        {
+          "alt": "Samsung Galaxy S24 Ultra Titanium Gray Mock Up",
+          "coords": [
+            [142, 141],
+            [1105, 141],
+            [1105, 2216],
+            [142, 2216]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Samsung Galaxy S24 Ultra Titanium Gray Mock Up",
+          "coords": [
+            [2218, 140],
+            [2218, 1103],
+            [143, 1103],
+            [143, 140]
+          ],
+          "name": "landscape"
+        },
+        {
+          "alt": "Samsung Galaxy S24 Ultra Titanium Gray Mock Up - Right",
+          "coords": [
+            [152, 526],
+            [1023, 111],
+            [2353, 1453],
+            [1462, 1910]
+          ],
+          "name": "right"
+        },
+        {
+          "alt": "Samsung Galaxy S24 Ultra Titanium Gray Mock Up - Left",
+          "coords": [
+            [1484, 109],
+            [2352, 525],
+            [1039, 1909],
+            [150, 1453]
+          ],
+          "name": "left"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape<br/>Right<br/>Left"
     }
   ]
 }

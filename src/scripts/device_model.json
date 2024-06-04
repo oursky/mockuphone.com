@@ -222,6 +222,10 @@
     "name": "Moto G",
     "slugs": ["motorola-motog"]
   },
+  "galaxy-s24-ultra": {
+    "name": "Samsung Galaxy S24 Ultra",
+    "slugs": ["samsung-galaxy-s24-ultra"]
+  },
   "galaxy-s21-plus": {
     "name": "Samsung Galaxy S21+",
     "slugs": [
