@@ -4512,6 +4512,251 @@
       ],
       "is_mockup_image_at_front": true,
       "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Black",
+      "color": {
+        "id": "black",
+        "name": "Black",
+        "hexcode": "#4C525F"
+      },
+      "meta_title": "iPhone 15 Black Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Black mockup! You can wrap screenshots in iPhone 15 Black for prototypes.",
+      "display_resolution": [1253, 2632],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-black",
+      "name": "iPhone 15",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Black Mock Up",
+          "coords": [
+            [71, 75],
+            [1343, 75],
+            [1343, 2729],
+            [71, 2729]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Black Mock Up",
+          "coords": [
+            [2721, 76],
+            [2721, 1348],
+            [67, 1348],
+            [67, 76]
+          ],
+          "name": "landscape"
+        },
+        {
+          "alt": "iPhone 15 Black Mock Up",
+          "coords": [
+            [571, 177],
+            [1684, 239],
+            [1210, 2927],
+            [144, 2607]
+          ],
+          "name": "left"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape<br/>Left"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Blue",
+      "color": {
+        "id": "blue",
+        "name": "Blue",
+        "hexcode": "#D7DDE0"
+      },
+      "meta_title": "iPhone 15 Blue Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Blue mockup! You can wrap screenshots in iPhone 15 Blue for prototypes.",
+      "display_resolution": [1253, 2632],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-blue",
+      "name": "iPhone 15",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Blue Mock Up",
+          "coords": [
+            [71, 75],
+            [1343, 75],
+            [1343, 2729],
+            [71, 2729]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Blue Mock Up",
+          "coords": [
+            [2721, 76],
+            [2721, 1348],
+            [67, 1348],
+            [67, 76]
+          ],
+          "name": "landscape"
+        },
+        {
+          "alt": "iPhone 15 Blue Mock Up",
+          "coords": [
+            [571, 177],
+            [1684, 239],
+            [1210, 2927],
+            [144, 2607]
+          ],
+          "name": "left"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape<br/>Left"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Green",
+      "color": {
+        "id": "green",
+        "name": "Green",
+        "hexcode": "#D3DBCD"
+      },
+      "meta_title": "iPhone 15 Green Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Green mockup! You can wrap screenshots in iPhone 15 Green for prototypes.",
+      "display_resolution": [1253, 2632],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-green",
+      "name": "iPhone 15",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Green Mock Up",
+          "coords": [
+            [71, 75],
+            [1343, 75],
+            [1343, 2729],
+            [71, 2729]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Green Mock Up",
+          "coords": [
+            [2721, 76],
+            [2721, 1348],
+            [67, 1348],
+            [67, 76]
+          ],
+          "name": "landscape"
+        },
+        {
+          "alt": "iPhone 15 Green Mock Up",
+          "coords": [
+            [571, 177],
+            [1684, 239],
+            [1210, 2927],
+            [144, 2607]
+          ],
+          "name": "left"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape<br/>Left"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Yellow",
+      "color": {
+        "id": "yellow",
+        "name": "Yellow",
+        "hexcode": "#ECE8CD"
+      },
+      "meta_title": "iPhone 15 Yellow Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Yellow mockup! You can wrap screenshots in iPhone 15 Yellow for prototypes.",
+      "display_resolution": [1253, 2632],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-yellow",
+      "name": "iPhone 15",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Yellow Mock Up",
+          "coords": [
+            [71, 75],
+            [1343, 75],
+            [1343, 2729],
+            [71, 2729]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Yellow Mock Up",
+          "coords": [
+            [2721, 76],
+            [2721, 1348],
+            [67, 1348],
+            [67, 76]
+          ],
+          "name": "landscape"
+        },
+        {
+          "alt": "iPhone 15 Yellow Mock Up",
+          "coords": [
+            [571, 177],
+            [1684, 239],
+            [1210, 2927],
+            [144, 2607]
+          ],
+          "name": "left"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape<br/>Left"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Pink",
+      "color": {
+        "id": "pink",
+        "name": "Pink",
+        "hexcode": "#E9D5D7"
+      },
+      "meta_title": "iPhone 15 Pink Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Pink mockup! You can wrap screenshots in iPhone 15 Pink for prototypes.",
+      "display_resolution": [1253, 2632],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-pink",
+      "name": "iPhone 15",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Pink Mock Up",
+          "coords": [
+            [71, 75],
+            [1343, 75],
+            [1343, 2729],
+            [71, 2729]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Pink Mock Up",
+          "coords": [
+            [2721, 76],
+            [2721, 1348],
+            [67, 1348],
+            [67, 76]
+          ],
+          "name": "landscape"
+        },
+        {
+          "alt": "iPhone 15 Pink Mock Up",
+          "coords": [
+            [571, 177],
+            [1684, 239],
+            [1210, 2927],
+            [144, 2607]
+          ],
+          "name": "left"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape<br/>Left"
     }
   ]
 }
