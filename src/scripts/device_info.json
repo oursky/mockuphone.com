@@ -6337,6 +6337,123 @@
       ],
       "is_mockup_image_at_front": true,
       "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Obsidian",
+      "color": {
+        "id": "obsidian",
+        "name": "Obsidian",
+        "hexcode": "#2F2F2F"
+      },
+      "meta_title": "Google Pixel 7 Obsidian Mock Up",
+      "meta_description": "1 click to generate your Google Pixel 7 Obsidian mockup! You can wrap screenshots in Google Pixel 7 Obsidian for prototypes.",
+      "display_resolution": [1044, 2268],
+      "device_type": "Android",
+      "device_id": "google-pixel-7-obsidian",
+      "name": "Google Pixel 7",
+      "orientations": [
+        {
+          "alt": "Google Pixel 7 Obsidian Mock Up",
+          "coords": [
+            [33, 49],
+            [1077, 49],
+            [1077, 2317],
+            [33, 2317]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Google Pixel 7 Obsidian Mock Up",
+          "coords": [
+            [2312, 41],
+            [2312, 1085],
+            [44, 1085],
+            [44, 41]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Snow",
+      "color": {
+        "id": "snow",
+        "name": "Snow",
+        "hexcode": "#E3E3E3"
+      },
+      "meta_title": "Google Pixel 7 Snow Mock Up",
+      "meta_description": "1 click to generate your Google Pixel 7 Snow mockup! You can wrap screenshots in Google Pixel 7 Snow for prototypes.",
+      "display_resolution": [1044, 2268],
+      "device_type": "Android",
+      "device_id": "google-pixel-7-snow",
+      "name": "Google Pixel 7",
+      "orientations": [
+        {
+          "alt": "Google Pixel 7 Snow Mock Up",
+          "coords": [
+            [33, 49],
+            [1077, 49],
+            [1077, 2317],
+            [33, 2317]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Google Pixel 7 Snow Mock Up",
+          "coords": [
+            [2312, 41],
+            [2312, 1085],
+            [44, 1085],
+            [44, 41]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Lemongrass",
+      "color": {
+        "id": "lemongrass",
+        "name": "Lemongrass",
+        "hexcode": "#E3E7D1"
+      },
+      "meta_title": "Google Pixel 7 Lemongrass Mock Up",
+      "meta_description": "1 click to generate your Google Pixel 7 Lemongrass mockup! You can wrap screenshots in Google Pixel 7 Lemongrass for prototypes.",
+      "display_resolution": [1044, 2268],
+      "device_type": "Android",
+      "device_id": "google-pixel-7-lemongrass",
+      "name": "Google Pixel 7",
+      "orientations": [
+        {
+          "alt": "Google Pixel 7 Lemongrass Mock Up",
+          "coords": [
+            [33, 49],
+            [1077, 49],
+            [1077, 2317],
+            [33, 2317]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Google Pixel 7 Lemongrass Mock Up",
+          "coords": [
+            [2312, 41],
+            [2312, 1085],
+            [44, 1085],
+            [44, 41]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
     }
   ]
 }

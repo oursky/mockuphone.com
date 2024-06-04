@@ -222,6 +222,14 @@
       "google-pixel-8-obsidian"
     ]
   },
+  "google-pixel-7": {
+    "name": "Google Pixel 7",
+    "slugs": [
+      "google-pixel-7-obsidian",
+      "google-pixel-7-snow",
+      "google-pixel-7-lemongrass"
+    ]
+  },
   "moto-e": {
     "name": "Moto E",
     "slugs": ["motorola-motoe-black", "motorola-motoe-white"]
