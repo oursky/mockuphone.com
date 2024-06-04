@@ -113,6 +113,14 @@
       "apple-iphone13promax-silver"
     ]
   },
+  "iphone-8": {
+    "name": "iPhone 8",
+    "slugs": [
+      "apple-iphone-8-gold",
+      "apple-iphone-8-silver",
+      "apple-iphone-8-space-grey"
+    ]
+  },
   "ipad-pro-11-inch": {
     "name": "iPad Pro 11\"",
     "slugs": ["apple-ipadpro11-spacegrey"]

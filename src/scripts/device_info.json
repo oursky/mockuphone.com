@@ -5264,6 +5264,123 @@
       ],
       "is_mockup_image_at_front": true,
       "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Gold",
+      "color": {
+        "id": "gold",
+        "name": "Gold",
+        "hexcode": "#F7EFE8"
+      },
+      "meta_title": "iPhone 8 Gold Mock Up",
+      "meta_description": "1 click to generate your iPhone 8 Gold mockup! You can wrap screenshots in iPhone 8 Gold for prototypes.",
+      "display_resolution": [757, 1345],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-8-gold",
+      "name": "iPhone 8",
+      "orientations": [
+        {
+          "alt": "iPhone 8 Gold Mock Up",
+          "coords": [
+            [96, 274],
+            [853, 274],
+            [853, 1619],
+            [96, 1619]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 8 Gold Mock Up",
+          "coords": [
+            [1620, 97],
+            [1620, 854],
+            [275, 854],
+            [275, 97]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Silver",
+      "color": {
+        "id": "silver",
+        "name": "Silver",
+        "hexcode": "#F0F1F3"
+      },
+      "meta_title": "iPhone 8 Silver Mock Up",
+      "meta_description": "1 click to generate your iPhone 8 Silver mockup! You can wrap screenshots in iPhone 8 Silver for prototypes.",
+      "display_resolution": [757, 1345],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-8-silver",
+      "name": "iPhone 8",
+      "orientations": [
+        {
+          "alt": "iPhone 8 Silver Mock Up",
+          "coords": [
+            [96, 274],
+            [853, 274],
+            [853, 1619],
+            [96, 1619]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 8 Silver Mock Up",
+          "coords": [
+            [1620, 97],
+            [1620, 854],
+            [275, 854],
+            [275, 97]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Space Gray",
+      "color": {
+        "id": "space-grey",
+        "name": "Space Gray",
+        "hexcode": "#49494B"
+      },
+      "meta_title": "iPhone 8 Space Gray Mock Up",
+      "meta_description": "1 click to generate your iPhone 8 Space Gray mockup! You can wrap screenshots in iPhone 8 Space Gray for prototypes.",
+      "display_resolution": [757, 1345],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-8-space-grey",
+      "name": "iPhone 8",
+      "orientations": [
+        {
+          "alt": "iPhone 8 Space Gray Mock Up",
+          "coords": [
+            [96, 274],
+            [853, 274],
+            [853, 1619],
+            [96, 1619]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 8 Space Gray Mock Up",
+          "coords": [
+            [1620, 97],
+            [1620, 854],
+            [275, 854],
+            [275, 97]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
     }
   ]
 }
