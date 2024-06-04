@@ -1,5 +1,15 @@
 {
   "phone": [
+    "iphone-15",
+    "iphone-15-plus",
+    "iphone-15-pro",
+    "iphone-15-pro-max",
+    "iphone-8",
+    "iphone-8-plus",
+    "iphone-se",
+    "iphone-11",
+    "iphone-11-pro",
+    "iphone-11-pro-max",
     "iphone-14",
     "iphone-14-plus",
     "iphone-14-pro",
@@ -12,8 +22,11 @@
     "google-pixel-4",
     "google-pixel-4-xl",
     "google-pixel-5",
+    "google-pixel-7",
+    "google-pixel-8",
     "moto-e",
     "moto-g",
+    "galaxy-s24-ultra",
     "galaxy-s21-plus",
     "galaxy-s21-ultra",
     "galaxy-s21",
@@ -31,7 +44,8 @@
     "ipad-pro-13-inch",
     "ipad-air-5",
     "ipad",
-    "ipad-mini"
+    "ipad-mini",
+    "google-pixel-slate-2"
   ],
   "laptop": [
     "macbook-12-inch",
@@ -49,8 +63,11 @@
   ],
   "wearables": [
     "apple-watch-ultra",
+    "apple-watch-ultra-2",
+    "apple-watch-series-5",
     "apple-watch-series-8-41mm",
-    "apple-watch-series-8-45mm"
+    "apple-watch-series-8-45mm",
+    "galaxy-watch-4"
   ],
   "tv": ["samsung-tv-es8000", "samsung-tv-d8000", "lg-55lw5600", "lg-tm2792"]
 }
