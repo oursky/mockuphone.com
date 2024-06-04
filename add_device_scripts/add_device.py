@@ -79,8 +79,12 @@ cv2.setTrackbarPos("y2", "image", h - 200)
 while True:
     key = cv2.waitKey(0)
     print(key)
-
-    if key == 13:
+    if key == 46:  # "."
+        print("Received . key. Printing Coords ...")
+        print(
+            [[x1, y1], [x2, y1], [x2, y2], [x1, y2]],
+        )
+    if key == 13:  # (carriage return)
         print("Received Enter key. Adding new device ...")
         new_device = {
             "credits": '<p><a href="http://facebook.design/devices" target="blank">'
