@@ -68,6 +68,7 @@ check-format:
 
 .PHONY: lint_astro
 lint_astro:
+	python3 -m ruff .
 	npx eslint --ext .js,.astro src
 	npx astro check
 	npx tsc --noEmit
