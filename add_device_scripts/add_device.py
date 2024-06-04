@@ -120,7 +120,7 @@ while True:
                     "name": "landscape",
                 },
             ],
-            "is_mockup_image_at_front": "true",
+            "is_mockup_image_at_front": True,
             "view_desc": "Portrait<br/>Landscape",
         }
 
