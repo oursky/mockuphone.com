@@ -392,11 +392,18 @@ function handleColorPickers(viewModel) {
   const uploadGuideHintX = document.querySelector("#upload-guide__hint-x");
   const uploadGuideHintY = document.querySelector("#upload-guide__hint-y");
 
+  const colorSectionDescription = document.querySelector(
+    ".color-section__description",
+  );
+
   mobx.reaction(
     () => viewModel.selectedColorId,
     (selectedColorId) => {
       colorPickerItems.forEach((node) => {
         if (node.dataset.colorId === selectedColorId) {
+          // update color description
+          colorSectionDescription.innerText = node.dataset.colorName;
+
           // highlight color picker
           node.classList.add("color-picker-item--selected");
 

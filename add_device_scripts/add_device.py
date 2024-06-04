@@ -1,13 +1,14 @@
 import cv2
 import json
+from add_device_utils import to_kebab_case
 
 x1, y1, x2, y2 = 0, 0, 0, 0
 
 device_id = input("Input device_id(ex: samsung-galaxys20ultra-cosmicgrey): ")
 device_color = input("Input device_color(ex: Pink): ")
+device_color_hexcode = input("Input device_color_hexcode(ex: #F0CBD3): ")
 device_name = input("Input device_name(ex: Samsung Galaxy S20): ")
 device_type = input("Input device_type(Android/iOS/TV/Laptops/Macbook): ")
-
 
 image_path = f"public/Images/mockup_mask_templates/{device_id}-portrait.png"
 img = cv2.imread(image_path)
@@ -78,12 +79,22 @@ cv2.setTrackbarPos("y2", "image", h - 200)
 while True:
     key = cv2.waitKey(0)
     print(key)
-
-    if key == 13:
+    if key == 46:  # "."
+        print("Received . key. Printing Coords ...")
+        print(
+            [[x1, y1], [x2, y1], [x2, y2], [x1, y2]],
+        )
+    if key == 13:  # (carriage return)
+        print("Received Enter key. Adding new device ...")
         new_device = {
             "credits": '<p><a href="http://facebook.design/devices" target="blank">'
             "Facebook - Design Resources</a></p>",
             "desc": f"{device_color}",
+            "color": {
+                "id": f"{to_kebab_case(device_color)}",
+                "name": f"{device_color}",
+                "hexcode": f"{device_color_hexcode}",
+            },
             "meta_title": f"{device_name} {device_color} Mock Up",
             "meta_description": f"1 click to generate your {device_name} "
             f"{device_color} mockup! You can wrap screenshots in {device_name} "
@@ -94,12 +105,12 @@ while True:
             "name": f"{device_name}",
             "orientations": [
                 {
-                    "alt": "",
+                    "alt": f"{device_name} {device_color} Mock Up",
                     "coords": [[x1, y1], [x2, y1], [x2, y2], [x1, y2]],
                     "name": "portrait",
                 },
                 {
-                    "alt": "",
+                    "alt": f"{device_name} {device_color} Mock Up",
                     "coords": [
                         [h - y1, w - x2],
                         [h - y1, w - x1],
@@ -109,6 +120,7 @@ while True:
                     "name": "landscape",
                 },
             ],
+            "is_mockup_image_at_front": True,
             "view_desc": "Portrait<br/>Landscape",
         }
 
@@ -121,5 +133,7 @@ while True:
             json.dump(data, json_file, indent=2)
 
     if key == 27:
+        """ESC key to exit"""
+        print("Received Esc key. Exiting ...")
         cv2.destroyAllWindows()
         break

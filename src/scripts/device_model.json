@@ -1,4 +1,42 @@
 {
+  "iphone-15": {
+    "name": "iPhone 15",
+    "slugs": [
+      "apple-iphone-15-black",
+      "apple-iphone-15-blue",
+      "apple-iphone-15-green",
+      "apple-iphone-15-yellow",
+      "apple-iphone-15-pink"
+    ]
+  },
+  "iphone-15-plus": {
+    "name": "iPhone 15 Plus",
+    "slugs": [
+      "apple-iphone-15-plus-black",
+      "apple-iphone-15-plus-blue",
+      "apple-iphone-15-plus-green",
+      "apple-iphone-15-plus-yellow",
+      "apple-iphone-15-plus-pink"
+    ]
+  },
+  "iphone-15-pro": {
+    "name": "iPhone 15 Pro",
+    "slugs": [
+      "apple-iphone-15-pro-black-titanium",
+      "apple-iphone-15-pro-white-titanium",
+      "apple-iphone-15-pro-blue-titanium",
+      "apple-iphone-15-pro-natural-titanium"
+    ]
+  },
+  "iphone-15-pro-max": {
+    "name": "iPhone 15 Pro Max",
+    "slugs": [
+      "apple-iphone-15-pro-max-black-titanium",
+      "apple-iphone-15-pro-max-white-titanium",
+      "apple-iphone-15-pro-max-blue-titanium",
+      "apple-iphone-15-pro-max-natural-titanium"
+    ]
+  },
   "iphone-14": {
     "name": "iPhone 14",
     "slugs": [
@@ -10,7 +48,7 @@
     ]
   },
   "iphone-14-plus": {
-    "name": "iPhone 14 plus",
+    "name": "iPhone 14 Plus",
     "slugs": [
       "apple-iphone14plus-blue",
       "apple-iphone14plus-midnight",
@@ -20,7 +58,7 @@
     ]
   },
   "iphone-14-pro": {
-    "name": "iPhone 14 pro",
+    "name": "iPhone 14 Pro",
     "slugs": [
       "apple-iphone14pro-deeppurple",
       "apple-iphone14pro-gold",
@@ -29,7 +67,7 @@
     ]
   },
   "iphone-14-pro-max": {
-    "name": "iPhone 14 pro max",
+    "name": "iPhone 14 Pro Max",
     "slugs": [
       "apple-iphone14promax-deeppurple",
       "apple-iphone14promax-gold",
@@ -48,7 +86,7 @@
     ]
   },
   "iphone-13-mini": {
-    "name": "iPhone 13 mini",
+    "name": "iPhone 13 Mini",
     "slugs": [
       "apple-iphone13mini-blue",
       "apple-iphone13mini-midnight",
@@ -58,7 +96,7 @@
     ]
   },
   "iphone-13-pro": {
-    "name": "iPhone 13 pro",
+    "name": "iPhone 13 Pro",
     "slugs": [
       "apple-iphone13pro-gold",
       "apple-iphone13pro-graphite",
@@ -67,12 +105,65 @@
     ]
   },
   "iphone-13-pro-max": {
-    "name": "iPhone 13 pro max",
+    "name": "iPhone 13 Pro Max",
     "slugs": [
       "apple-iphone13promax-gold",
       "apple-iphone13promax-graphite",
       "apple-iphone13promax-sierrablue",
       "apple-iphone13promax-silver"
+    ]
+  },
+  "iphone-se": {
+    "name": "iPhone SE",
+    "slugs": [
+      "apple-iphone-se-black",
+      "apple-iphone-se-white",
+      "apple-iphone-se-red"
+    ]
+  },
+  "iphone-8": {
+    "name": "iPhone 8",
+    "slugs": [
+      "apple-iphone-8-gold",
+      "apple-iphone-8-silver",
+      "apple-iphone-8-space-grey"
+    ]
+  },
+  "iphone-8-plus": {
+    "name": "iPhone 8 Plus",
+    "slugs": [
+      "apple-iphone-8-plus-gold",
+      "apple-iphone-8-plus-silver",
+      "apple-iphone-8-plus-space-grey"
+    ]
+  },
+  "iphone-11": {
+    "name": "iPhone 11",
+    "slugs": [
+      "apple-iphone-11-black",
+      "apple-iphone-11-green",
+      "apple-iphone-11-yellow",
+      "apple-iphone-11-purple",
+      "apple-iphone-11-red",
+      "apple-iphone-11-white"
+    ]
+  },
+  "iphone-11-pro": {
+    "name": "iPhone 11 Pro",
+    "slugs": [
+      "apple-iphone-11-pro-gold",
+      "apple-iphone-11-pro-silver",
+      "apple-iphone-11-pro-space-grey",
+      "apple-iphone-11-pro-midnight-green"
+    ]
+  },
+  "iphone-11-pro-max": {
+    "name": "iPhone 11 Pro Max",
+    "slugs": [
+      "apple-iphone-11-pro-max-gold",
+      "apple-iphone-11-pro-max-silver",
+      "apple-iphone-11-pro-max-space-grey",
+      "apple-iphone-11-pro-max-midnight-green"
     ]
   },
   "ipad-pro-11-inch": {
@@ -112,7 +203,7 @@
     ]
   },
   "google-pixel-4-xl": {
-    "name": "Google Pixel 4 XL",
+    "name": "Google Pixel 4 Xl",
     "slugs": [
       "google-pixel4xl-clearlywhite",
       "google-pixel4xl-justblack",
@@ -123,6 +214,26 @@
     "name": "Google Pixel 5",
     "slugs": ["google-pixel5-justblack", "google-pixel5-sortasage"]
   },
+  "google-pixel-8": {
+    "name": "Google Pixel 8",
+    "slugs": [
+      "google-pixel-8-rose",
+      "google-pixel-8-hazel",
+      "google-pixel-8-obsidian"
+    ]
+  },
+  "google-pixel-7": {
+    "name": "Google Pixel 7",
+    "slugs": [
+      "google-pixel-7-obsidian",
+      "google-pixel-7-snow",
+      "google-pixel-7-lemongrass"
+    ]
+  },
+  "google-pixel-slate": {
+    "name": "Google Pixel Slate",
+    "slugs": ["google-pixel-slate"]
+  },
   "moto-e": {
     "name": "Moto E",
     "slugs": ["motorola-motoe-black", "motorola-motoe-white"]
@@ -130,6 +241,10 @@
   "moto-g": {
     "name": "Moto G",
     "slugs": ["motorola-motog"]
+  },
+  "galaxy-s24-ultra": {
+    "name": "Samsung Galaxy S24 Ultra",
+    "slugs": ["samsung-galaxy-s24-ultra"]
   },
   "galaxy-s21-plus": {
     "name": "Samsung Galaxy S21+",
@@ -201,9 +316,37 @@
     "name": "OnePlus 8 Pro",
     "slugs": ["oneplus-oneplus8pro"]
   },
+  "huawei-p-40-pro-plus": {
+    "name": "Huawei P40 Pro+",
+    "slugs": ["huawei-p-40-pro-plus"]
+  },
   "apple-watch-ultra": {
     "name": "Apple Watch Ultra",
     "slugs": ["apple-applewatchultra"]
+  },
+  "apple-watch-ultra-2": {
+    "name": "Apple Watch Ultra 2",
+    "slugs": [
+      "apple-watch-ultra-2-orange-ocean-band",
+      "apple-watch-ultra-2-blue-alpine-loop",
+      "apple-watch-ultra-2-orange-beige-trail-loop"
+    ]
+  },
+  "apple-watch-series-5-40mm": {
+    "name": "Apple Watch Series 5 40mm",
+    "slugs": [
+      "apple-watch-series-5-40-mm-space-grey-aluminum-black-closed",
+      "apple-watch-series-5-40-mm-gold-aluminum-pink-sand-closed",
+      "apple-watch-series-5-40-mm-white-ceramic-white-closed"
+    ]
+  },
+  "galaxy-watch-4": {
+    "name": "Samsung Galaxy Watch 4",
+    "slugs": [
+      "samsung-galaxy-watch-4-black",
+      "samsung-galaxy-watch-4-pink-gold",
+      "samsung-galaxy-watch-4-silver"
+    ]
   },
   "apple-watch-series-8-41mm": {
     "name": "Apple Watch Series 8 41mm",
@@ -252,15 +395,15 @@
     "slugs": ["apple-imac2015"]
   },
   "imac-2015-retina": {
-    "name": "iMac 2015 retina",
+    "name": "iMac 2015 Retina",
     "slugs": ["apple-imac2015retina"]
   },
   "dell-xps-13": {
-    "name": "DELL XPS 13",
+    "name": "Dell XPS 13",
     "slugs": ["dell-xps13"]
   },
   "dell-xps-15": {
-    "name": "DELL XPS 15",
+    "name": "Dell XPS 15",
     "slugs": ["dell-xps15"]
   },
   "microsoft-surface-book": {
@@ -284,11 +427,11 @@
     "slugs": ["samsung-d8000"]
   },
   "lg-55lw5600": {
-    "name": "LG TV 55lw5600",
+    "name": "LG TV 55LW5600",
     "slugs": ["lg-55lw5600"]
   },
   "lg-tm2792": {
-    "name": "LG TV tm2792",
+    "name": "LG TV TM2792",
     "slugs": ["lg-tm2792"]
   }
 }

@@ -3,6 +3,16 @@
     "id": "apple",
     "name": "Apple",
     "modelIds": [
+      "iphone-15",
+      "iphone-15-plus",
+      "iphone-15-pro",
+      "iphone-15-pro-max",
+      "iphone-8",
+      "iphone-8-plus",
+      "iphone-se",
+      "iphone-11",
+      "iphone-11-pro",
+      "iphone-11-pro-max",
       "iphone-14",
       "iphone-14-plus",
       "iphone-14-pro",
@@ -17,6 +27,8 @@
       "ipad",
       "ipad-mini",
       "apple-watch-ultra",
+      "apple-watch-ultra-2",
+      "apple-watch-series-5-40mm",
       "apple-watch-series-8-41mm",
       "apple-watch-series-8-45mm",
       "macbook-12-inch",
@@ -35,7 +47,10 @@
       "google-pixel-1",
       "google-pixel-4",
       "google-pixel-4-xl",
-      "google-pixel-5"
+      "google-pixel-5",
+      "google-pixel-7",
+      "google-pixel-8",
+      "google-pixel-slate"
     ]
   },
   "motorola": {
@@ -47,6 +62,7 @@
     "id": "samsung",
     "name": "Samsung",
     "modelIds": [
+      "galaxy-s24-ultra",
       "galaxy-s21-plus",
       "galaxy-s21-ultra",
       "galaxy-s21",
@@ -57,6 +73,7 @@
       "galaxy-s4",
       "galaxy-note-5",
       "galaxy-y",
+      "galaxy-watch-4",
       "samsung-tv-d8000",
       "samsung-tv-es8000"
     ]
@@ -84,5 +101,10 @@
     "id": "oneplus",
     "name": "OnePlus",
     "modelIds": ["oneplus-8-pro"]
+  },
+  "huawei": {
+    "id": "huawei",
+    "name": "Huawei",
+    "modelIds": ["huawei-p-40-pro-plus"]
   }
 }

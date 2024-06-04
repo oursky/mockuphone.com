@@ -1424,10 +1424,20 @@
           ],
           "legacy_file": "ipadpro11_spacegrey_landscape.png",
           "name": "landscape"
+        },
+        {
+          "alt": "ipad pro 11-inch mockup",
+          "coords": [
+            [182, 220],
+            [1462, 220],
+            [2012, 1978],
+            [670, 2037]
+          ],
+          "name": "right"
         }
       ],
       "is_mockup_image_at_front": true,
-      "view_desc": "Portrait<br/>Landscape",
+      "view_desc": "Portrait<br/>Landscape<br/>Right",
       "is_legacy": true
     },
     {
@@ -4496,6 +4506,2377 @@
             [2600, 1280],
             [200, 1280],
             [200, 200]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Black",
+      "color": {
+        "id": "black",
+        "name": "Black",
+        "hexcode": "#4C525F"
+      },
+      "meta_title": "iPhone 15 Black Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Black mockup! You can wrap screenshots in iPhone 15 Black for prototypes.",
+      "display_resolution": [1253, 2632],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-black",
+      "name": "iPhone 15",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Black Mock Up",
+          "coords": [
+            [71, 75],
+            [1343, 75],
+            [1343, 2729],
+            [71, 2729]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Black Mock Up",
+          "coords": [
+            [2721, 76],
+            [2721, 1348],
+            [67, 1348],
+            [67, 76]
+          ],
+          "name": "landscape"
+        },
+        {
+          "alt": "iPhone 15 Black Mock Up",
+          "coords": [
+            [571, 177],
+            [1684, 239],
+            [1210, 2927],
+            [144, 2607]
+          ],
+          "name": "left"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape<br/>Left"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Blue",
+      "color": {
+        "id": "blue",
+        "name": "Blue",
+        "hexcode": "#D7DDE0"
+      },
+      "meta_title": "iPhone 15 Blue Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Blue mockup! You can wrap screenshots in iPhone 15 Blue for prototypes.",
+      "display_resolution": [1253, 2632],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-blue",
+      "name": "iPhone 15",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Blue Mock Up",
+          "coords": [
+            [71, 75],
+            [1343, 75],
+            [1343, 2729],
+            [71, 2729]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Blue Mock Up",
+          "coords": [
+            [2721, 76],
+            [2721, 1348],
+            [67, 1348],
+            [67, 76]
+          ],
+          "name": "landscape"
+        },
+        {
+          "alt": "iPhone 15 Blue Mock Up",
+          "coords": [
+            [571, 177],
+            [1684, 239],
+            [1210, 2927],
+            [144, 2607]
+          ],
+          "name": "left"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape<br/>Left"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Green",
+      "color": {
+        "id": "green",
+        "name": "Green",
+        "hexcode": "#D3DBCD"
+      },
+      "meta_title": "iPhone 15 Green Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Green mockup! You can wrap screenshots in iPhone 15 Green for prototypes.",
+      "display_resolution": [1253, 2632],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-green",
+      "name": "iPhone 15",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Green Mock Up",
+          "coords": [
+            [71, 75],
+            [1343, 75],
+            [1343, 2729],
+            [71, 2729]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Green Mock Up",
+          "coords": [
+            [2721, 76],
+            [2721, 1348],
+            [67, 1348],
+            [67, 76]
+          ],
+          "name": "landscape"
+        },
+        {
+          "alt": "iPhone 15 Green Mock Up",
+          "coords": [
+            [571, 177],
+            [1684, 239],
+            [1210, 2927],
+            [144, 2607]
+          ],
+          "name": "left"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape<br/>Left"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Yellow",
+      "color": {
+        "id": "yellow",
+        "name": "Yellow",
+        "hexcode": "#ECE8CD"
+      },
+      "meta_title": "iPhone 15 Yellow Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Yellow mockup! You can wrap screenshots in iPhone 15 Yellow for prototypes.",
+      "display_resolution": [1253, 2632],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-yellow",
+      "name": "iPhone 15",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Yellow Mock Up",
+          "coords": [
+            [71, 75],
+            [1343, 75],
+            [1343, 2729],
+            [71, 2729]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Yellow Mock Up",
+          "coords": [
+            [2721, 76],
+            [2721, 1348],
+            [67, 1348],
+            [67, 76]
+          ],
+          "name": "landscape"
+        },
+        {
+          "alt": "iPhone 15 Yellow Mock Up",
+          "coords": [
+            [571, 177],
+            [1684, 239],
+            [1210, 2927],
+            [144, 2607]
+          ],
+          "name": "left"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape<br/>Left"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Pink",
+      "color": {
+        "id": "pink",
+        "name": "Pink",
+        "hexcode": "#E9D5D7"
+      },
+      "meta_title": "iPhone 15 Pink Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Pink mockup! You can wrap screenshots in iPhone 15 Pink for prototypes.",
+      "display_resolution": [1253, 2632],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-pink",
+      "name": "iPhone 15",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Pink Mock Up",
+          "coords": [
+            [71, 75],
+            [1343, 75],
+            [1343, 2729],
+            [71, 2729]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Pink Mock Up",
+          "coords": [
+            [2721, 76],
+            [2721, 1348],
+            [67, 1348],
+            [67, 76]
+          ],
+          "name": "landscape"
+        },
+        {
+          "alt": "iPhone 15 Pink Mock Up",
+          "coords": [
+            [571, 177],
+            [1684, 239],
+            [1210, 2927],
+            [144, 2607]
+          ],
+          "name": "left"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape<br/>Left"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Black",
+      "color": {
+        "id": "black",
+        "name": "Black",
+        "hexcode": "#4C525F"
+      },
+      "meta_title": "iPhone 15 Black Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Black mockup! You can wrap screenshots in iPhone 15 Black for prototypes.",
+      "display_resolution": [1381, 2897],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-plus-black",
+      "name": "iPhone 15",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Black Mock Up",
+          "coords": [
+            [77, 68],
+            [1458, 68],
+            [1458, 2965],
+            [77, 2965]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Black Mock Up",
+          "coords": [
+            [2968, 72],
+            [2968, 1453],
+            [71, 1453],
+            [71, 72]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Blue",
+      "color": {
+        "id": "blue",
+        "name": "Blue",
+        "hexcode": "#D7DDE0"
+      },
+      "meta_title": "iPhone 15 Blue Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Blue mockup! You can wrap screenshots in iPhone 15 Blue for prototypes.",
+      "display_resolution": [1381, 2897],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-plus-blue",
+      "name": "iPhone 15",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Blue Mock Up",
+          "coords": [
+            [77, 68],
+            [1458, 68],
+            [1458, 2965],
+            [77, 2965]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Blue Mock Up",
+          "coords": [
+            [2968, 72],
+            [2968, 1453],
+            [71, 1453],
+            [71, 72]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Green",
+      "color": {
+        "id": "green",
+        "name": "Green",
+        "hexcode": "#D3DBCD"
+      },
+      "meta_title": "iPhone 15 Green Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Green mockup! You can wrap screenshots in iPhone 15 Green for prototypes.",
+      "display_resolution": [1381, 2897],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-plus-green",
+      "name": "iPhone 15",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Green Mock Up",
+          "coords": [
+            [77, 68],
+            [1458, 68],
+            [1458, 2965],
+            [77, 2965]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Green Mock Up",
+          "coords": [
+            [2968, 72],
+            [2968, 1453],
+            [71, 1453],
+            [71, 72]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Yellow",
+      "color": {
+        "id": "yellow",
+        "name": "Yellow",
+        "hexcode": "#ECE8CD"
+      },
+      "meta_title": "iPhone 15 Yellow Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Yellow mockup! You can wrap screenshots in iPhone 15 Yellow for prototypes.",
+      "display_resolution": [1381, 2897],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-plus-yellow",
+      "name": "iPhone 15",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Yellow Mock Up",
+          "coords": [
+            [77, 68],
+            [1458, 68],
+            [1458, 2965],
+            [77, 2965]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Yellow Mock Up",
+          "coords": [
+            [2968, 72],
+            [2968, 1453],
+            [71, 1453],
+            [71, 72]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Pink",
+      "color": {
+        "id": "pink",
+        "name": "Pink",
+        "hexcode": "#E9D5D7"
+      },
+      "meta_title": "iPhone 15 Pink Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Pink mockup! You can wrap screenshots in iPhone 15 Pink for prototypes.",
+      "display_resolution": [1381, 2897],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-plus-pink",
+      "name": "iPhone 15",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Pink Mock Up",
+          "coords": [
+            [77, 68],
+            [1458, 68],
+            [1458, 2965],
+            [77, 2965]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Pink Mock Up",
+          "coords": [
+            [2968, 72],
+            [2968, 1453],
+            [71, 1453],
+            [71, 72]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Black Titanium",
+      "color": {
+        "id": "black-titanium",
+        "name": "Black Titanium",
+        "hexcode": "#4E5051"
+      },
+      "meta_title": "iPhone 15 Pro Black Titanium Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Pro Black Titanium mockup! You can wrap screenshots in iPhone 15 Pro Black Titanium for prototypes.",
+      "display_resolution": [1247, 2641],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-pro-black-titanium",
+      "name": "iPhone 15 Pro",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Pro Black Titanium Mock Up",
+          "coords": [
+            [87, 81],
+            [1334, 81],
+            [1334, 2722],
+            [87, 2722]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Pro Black Titanium Mock Up",
+          "coords": [
+            [2715, 85],
+            [2715, 1332],
+            [74, 1332],
+            [74, 85]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "White Titanium",
+      "color": {
+        "id": "white-titanium",
+        "name": "White Titanium",
+        "hexcode": "#F3F2EC"
+      },
+      "meta_title": "iPhone 15 Pro White Titanium Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Pro White Titanium mockup! You can wrap screenshots in iPhone 15 Pro White Titanium for prototypes.",
+      "display_resolution": [1247, 2641],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-pro-white-titanium",
+      "name": "iPhone 15 Pro",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Pro White Titanium Mock Up",
+          "coords": [
+            [87, 81],
+            [1334, 81],
+            [1334, 2722],
+            [87, 2722]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Pro White Titanium Mock Up",
+          "coords": [
+            [2715, 85],
+            [2715, 1332],
+            [74, 1332],
+            [74, 85]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Blue Titanium",
+      "color": {
+        "id": "blue-titanium",
+        "name": "Blue Titanium",
+        "hexcode": "#4E5051"
+      },
+      "meta_title": "iPhone 15 Pro Blue Titanium Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Pro Blue Titanium mockup! You can wrap screenshots in iPhone 15 Pro Blue Titanium for prototypes.",
+      "display_resolution": [1247, 2641],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-pro-blue-titanium",
+      "name": "iPhone 15 Pro",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Pro Blue Titanium Mock Up",
+          "coords": [
+            [87, 81],
+            [1334, 81],
+            [1334, 2722],
+            [87, 2722]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Pro Blue Titanium Mock Up",
+          "coords": [
+            [2715, 85],
+            [2715, 1332],
+            [74, 1332],
+            [74, 85]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Natural Titanium",
+      "color": {
+        "id": "natural-titanium",
+        "name": "Natural Titanium",
+        "hexcode": "#4E5051"
+      },
+      "meta_title": "iPhone 15 Pro Natural Titanium Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Pro Natural Titanium mockup! You can wrap screenshots in iPhone 15 Pro Natural Titanium for prototypes.",
+      "display_resolution": [1247, 2641],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-pro-natural-titanium",
+      "name": "iPhone 15 Pro",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Pro Natural Titanium Mock Up",
+          "coords": [
+            [87, 81],
+            [1334, 81],
+            [1334, 2722],
+            [87, 2722]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Pro Black Titanium Mock Up",
+          "coords": [
+            [2715, 85],
+            [2715, 1332],
+            [74, 1332],
+            [74, 85]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Black Titanium",
+      "color": {
+        "id": "black-titanium",
+        "name": "Black Titanium",
+        "hexcode": "#4E5051"
+      },
+      "meta_title": "iPhone 15 Pro Max Black Titanium Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Pro Max Black Titanium mockup! You can wrap screenshots in iPhone 15 Pro Max Black Titanium for prototypes.",
+      "display_resolution": [1360, 2875],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-pro-max-black-titanium",
+      "name": "iPhone 15 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Pro Max Black Titanium Mock Up",
+          "coords": [
+            [85, 80],
+            [1445, 80],
+            [1445, 2955],
+            [85, 2955]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Pro Max Black Titanium Mock Up",
+          "coords": [
+            [2956, 85],
+            [2956, 1445],
+            [81, 1445],
+            [81, 85]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "White Titanium",
+      "color": {
+        "id": "white-titanium",
+        "name": "White Titanium",
+        "hexcode": "#F3F2EC"
+      },
+      "meta_title": "iPhone 15 Pro Max White Titanium Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Pro Max White Titanium mockup! You can wrap screenshots in iPhone 15 Pro Max White Titanium for prototypes.",
+      "display_resolution": [1360, 2875],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-pro-max-white-titanium",
+      "name": "iPhone 15 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Pro Max White Titanium Mock Up",
+          "coords": [
+            [85, 80],
+            [1445, 80],
+            [1445, 2955],
+            [85, 2955]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Pro Max White Titanium Mock Up",
+          "coords": [
+            [2956, 85],
+            [2956, 1445],
+            [81, 1445],
+            [81, 85]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Blue Titanium",
+      "color": {
+        "id": "blue-titanium",
+        "name": "Blue Titanium",
+        "hexcode": "#535A68"
+      },
+      "meta_title": "iPhone 15 Pro Max Blue Titanium Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Pro Max Blue Titanium mockup! You can wrap screenshots in iPhone 15 Pro Max Blue Titanium for prototypes.",
+      "display_resolution": [1360, 2875],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-pro-max-blue-titanium",
+      "name": "iPhone 15 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Pro Max Blue Titanium Mock Up",
+          "coords": [
+            [85, 80],
+            [1445, 80],
+            [1445, 2955],
+            [85, 2955]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Pro Max Blue Titanium Mock Up",
+          "coords": [
+            [2956, 85],
+            [2956, 1445],
+            [81, 1445],
+            [81, 85]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Natural Titanium",
+      "color": {
+        "id": "natural-titanium",
+        "name": "Natural Titanium",
+        "hexcode": "#BBB5A9"
+      },
+      "meta_title": "iPhone 15 Pro Max Natural Titanium Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Pro Max Natural Titanium mockup! You can wrap screenshots in iPhone 15 Pro Max Natural Titanium for prototypes.",
+      "display_resolution": [1360, 2875],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-pro-max-natural-titanium",
+      "name": "iPhone 15 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Pro Max Natural Titanium Mock Up",
+          "coords": [
+            [85, 80],
+            [1445, 80],
+            [1445, 2955],
+            [85, 2955]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Pro Max Natural Titanium Mock Up",
+          "coords": [
+            [2956, 85],
+            [2956, 1445],
+            [81, 1445],
+            [81, 85]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Gold",
+      "color": {
+        "id": "gold",
+        "name": "Gold",
+        "hexcode": "#F7EFE8"
+      },
+      "meta_title": "iPhone 8 Gold Mock Up",
+      "meta_description": "1 click to generate your iPhone 8 Gold mockup! You can wrap screenshots in iPhone 8 Gold for prototypes.",
+      "display_resolution": [757, 1345],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-8-gold",
+      "name": "iPhone 8",
+      "orientations": [
+        {
+          "alt": "iPhone 8 Gold Mock Up",
+          "coords": [
+            [96, 274],
+            [853, 274],
+            [853, 1619],
+            [96, 1619]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 8 Gold Mock Up",
+          "coords": [
+            [1620, 97],
+            [1620, 854],
+            [275, 854],
+            [275, 97]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Silver",
+      "color": {
+        "id": "silver",
+        "name": "Silver",
+        "hexcode": "#F0F1F3"
+      },
+      "meta_title": "iPhone 8 Silver Mock Up",
+      "meta_description": "1 click to generate your iPhone 8 Silver mockup! You can wrap screenshots in iPhone 8 Silver for prototypes.",
+      "display_resolution": [757, 1345],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-8-silver",
+      "name": "iPhone 8",
+      "orientations": [
+        {
+          "alt": "iPhone 8 Silver Mock Up",
+          "coords": [
+            [96, 274],
+            [853, 274],
+            [853, 1619],
+            [96, 1619]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 8 Silver Mock Up",
+          "coords": [
+            [1620, 97],
+            [1620, 854],
+            [275, 854],
+            [275, 97]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Space Gray",
+      "color": {
+        "id": "space-grey",
+        "name": "Space Gray",
+        "hexcode": "#49494B"
+      },
+      "meta_title": "iPhone 8 Space Gray Mock Up",
+      "meta_description": "1 click to generate your iPhone 8 Space Gray mockup! You can wrap screenshots in iPhone 8 Space Gray for prototypes.",
+      "display_resolution": [757, 1345],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-8-space-grey",
+      "name": "iPhone 8",
+      "orientations": [
+        {
+          "alt": "iPhone 8 Space Gray Mock Up",
+          "coords": [
+            [96, 274],
+            [853, 274],
+            [853, 1619],
+            [96, 1619]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 8 Space Gray Mock Up",
+          "coords": [
+            [1620, 97],
+            [1620, 854],
+            [275, 854],
+            [275, 97]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Gold",
+      "color": {
+        "id": "gold",
+        "name": "Gold",
+        "hexcode": "#F7EFE8"
+      },
+      "meta_title": "iPhone 8 Plus Gold Mock Up",
+      "meta_description": "1 click to generate your iPhone 8 Plus Gold mockup! You can wrap screenshots in iPhone 8 Plus Gold for prototypes.",
+      "display_resolution": [1258, 2222],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-8-plus-gold",
+      "name": "iPhone 8 Plus",
+      "orientations": [
+        {
+          "alt": "iPhone 8 Plus Gold Mock Up",
+          "coords": [
+            [191, 391],
+            [1449, 391],
+            [1449, 2613],
+            [191, 2613]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 8 Plus Gold Mock Up",
+          "coords": [
+            [2617, 193],
+            [2617, 1451],
+            [395, 1451],
+            [395, 193]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Silver",
+      "color": {
+        "id": "silver",
+        "name": "Silver",
+        "hexcode": "#F0F1F3"
+      },
+      "meta_title": "iPhone 8 Plus Silver Mock Up",
+      "meta_description": "1 click to generate your iPhone 8 Plus Silver mockup! You can wrap screenshots in iPhone 8 Plus Silver for prototypes.",
+      "display_resolution": [1258, 2222],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-8-plus-silver",
+      "name": "iPhone 8 Plus",
+      "orientations": [
+        {
+          "alt": "iPhone 8 Plus Silver Mock Up",
+          "coords": [
+            [191, 391],
+            [1449, 391],
+            [1449, 2613],
+            [191, 2613]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 8 Plus Silver Mock Up",
+          "coords": [
+            [2617, 193],
+            [2617, 1451],
+            [395, 1451],
+            [395, 193]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Space Gray",
+      "color": {
+        "id": "space-grey",
+        "name": "Space Gray",
+        "hexcode": "#49494B"
+      },
+      "meta_title": "iPhone 8 Plus Space Gray Mock Up",
+      "meta_description": "1 click to generate your iPhone 8 Plus Space Gray mockup! You can wrap screenshots in iPhone 8 Plus Space Gray for prototypes.",
+      "display_resolution": [1258, 2222],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-8-plus-space-grey",
+      "name": "iPhone 8 Plus",
+      "orientations": [
+        {
+          "alt": "iPhone 8 Plus Space Gray Mock Up",
+          "coords": [
+            [191, 391],
+            [1449, 391],
+            [1449, 2613],
+            [191, 2613]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 8 Plus Space Gray Mock Up",
+          "coords": [
+            [2617, 193],
+            [2617, 1451],
+            [395, 1451],
+            [395, 193]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Black",
+      "color": {
+        "id": "black",
+        "name": "Black",
+        "hexcode": "#1C1C1D"
+      },
+      "meta_title": "iPhone 8 Black Mock Up",
+      "meta_description": "1 click to generate your iPhone 8 Black mockup! You can wrap screenshots in iPhone 8 Black for prototypes.",
+      "display_resolution": [757, 1330],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-se-black",
+      "name": "iPhone 8",
+      "orientations": [
+        {
+          "alt": "iPhone 8 Black Mock Up",
+          "coords": [
+            [142, 302],
+            [899, 302],
+            [899, 1632],
+            [142, 1632]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 8 Black Mock Up",
+          "coords": [
+            [1632, 151],
+            [1632, 908],
+            [302, 908],
+            [302, 151]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Red",
+      "color": {
+        "id": "red",
+        "name": "Red",
+        "hexcode": "#C52238"
+      },
+      "meta_title": "iPhone 8 Red Mock Up",
+      "meta_description": "1 click to generate your iPhone 8 Red mockup! You can wrap screenshots in iPhone 8 Red for prototypes.",
+      "display_resolution": [757, 1330],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-se-red",
+      "name": "iPhone 8",
+      "orientations": [
+        {
+          "alt": "iPhone 8 Red Mock Up",
+          "coords": [
+            [142, 302],
+            [899, 302],
+            [899, 1632],
+            [142, 1632]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 8 Red Mock Up",
+          "coords": [
+            [1632, 151],
+            [1632, 908],
+            [302, 908],
+            [302, 151]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "White",
+      "color": {
+        "id": "white",
+        "name": "White",
+        "hexcode": "#FAFAFA"
+      },
+      "meta_title": "iPhone 8 White Mock Up",
+      "meta_description": "1 click to generate your iPhone 8 White mockup! You can wrap screenshots in iPhone 8 White for prototypes.",
+      "display_resolution": [757, 1330],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-se-white",
+      "name": "iPhone 8",
+      "orientations": [
+        {
+          "alt": "iPhone 8 White Mock Up",
+          "coords": [
+            [142, 302],
+            [899, 302],
+            [899, 1632],
+            [142, 1632]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 8 White Mock Up",
+          "coords": [
+            [1632, 151],
+            [1632, 908],
+            [302, 908],
+            [302, 151]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Black",
+      "color": {
+        "id": "black",
+        "name": "Black",
+        "hexcode": "#1C1C1D"
+      },
+      "meta_title": "iPhone 11 Black Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Black mockup! You can wrap screenshots in iPhone 11 Black for prototypes.",
+      "display_resolution": [818, 1808],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-black",
+      "name": "iPhone 11",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Black Mock Up",
+          "coords": [
+            [104, 87],
+            [922, 87],
+            [922, 1895],
+            [104, 1895]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Black Mock Up",
+          "coords": [
+            [1905, 106],
+            [1905, 924],
+            [97, 924],
+            [97, 106]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Green",
+      "color": {
+        "id": "green",
+        "name": "Green",
+        "hexcode": "#BDE8D6"
+      },
+      "meta_title": "iPhone 11 Green Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Green mockup! You can wrap screenshots in iPhone 11 Green for prototypes.",
+      "display_resolution": [818, 1808],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-green",
+      "name": "iPhone 11",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Green Mock Up",
+          "coords": [
+            [104, 87],
+            [922, 87],
+            [922, 1895],
+            [104, 1895]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Green Mock Up",
+          "coords": [
+            [1905, 106],
+            [1905, 924],
+            [97, 924],
+            [97, 106]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Yellow",
+      "color": {
+        "id": "yellow",
+        "name": "Yellow",
+        "hexcode": "#FFE88B"
+      },
+      "meta_title": "iPhone 11 Yellow Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Yellow mockup! You can wrap screenshots in iPhone 11 Yellow for prototypes.",
+      "display_resolution": [818, 1808],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-yellow",
+      "name": "iPhone 11",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Yellow Mock Up",
+          "coords": [
+            [104, 87],
+            [922, 87],
+            [922, 1895],
+            [104, 1895]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Yellow Mock Up",
+          "coords": [
+            [1905, 106],
+            [1905, 924],
+            [97, 924],
+            [97, 106]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Purple",
+      "color": {
+        "id": "purple",
+        "name": "Purple",
+        "hexcode": "#D5D2DD"
+      },
+      "meta_title": "iPhone 11 Purple Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Purple mockup! You can wrap screenshots in iPhone 11 Purple for prototypes.",
+      "display_resolution": [818, 1808],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-purple",
+      "name": "iPhone 11",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Purple Mock Up",
+          "coords": [
+            [104, 87],
+            [922, 87],
+            [922, 1895],
+            [104, 1895]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Purple Mock Up",
+          "coords": [
+            [1905, 106],
+            [1905, 924],
+            [97, 924],
+            [97, 106]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Red",
+      "color": {
+        "id": "red",
+        "name": "Red",
+        "hexcode": "#D12942"
+      },
+      "meta_title": "iPhone 11 Red Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Red mockup! You can wrap screenshots in iPhone 11 Red for prototypes.",
+      "display_resolution": [818, 1808],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-red",
+      "name": "iPhone 11",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Red Mock Up",
+          "coords": [
+            [104, 87],
+            [922, 87],
+            [922, 1895],
+            [104, 1895]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Red Mock Up",
+          "coords": [
+            [1905, 106],
+            [1905, 924],
+            [97, 924],
+            [97, 106]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "White",
+      "color": {
+        "id": "white",
+        "name": "White",
+        "hexcode": "#FDFAF5"
+      },
+      "meta_title": "iPhone 11 White Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 White mockup! You can wrap screenshots in iPhone 11 White for prototypes.",
+      "display_resolution": [818, 1808],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-white",
+      "name": "iPhone 11",
+      "orientations": [
+        {
+          "alt": "iPhone 11 White Mock Up",
+          "coords": [
+            [104, 87],
+            [922, 87],
+            [922, 1895],
+            [104, 1895]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 White Mock Up",
+          "coords": [
+            [1905, 106],
+            [1905, 924],
+            [97, 924],
+            [97, 106]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Gold",
+      "color": {
+        "id": "gold",
+        "name": "Gold",
+        "hexcode": "#FBDDC1"
+      },
+      "meta_title": "iPhone 11 Pro Gold Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Pro Gold mockup! You can wrap screenshots in iPhone 11 Pro Gold for prototypes.",
+      "display_resolution": [1124, 2427],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-pro-gold",
+      "name": "iPhone 11 Pro",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Pro Gold Mock Up",
+          "coords": [
+            [131, 134],
+            [1255, 134],
+            [1255, 2561],
+            [131, 2561]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Pro Gold Mock Up",
+          "coords": [
+            [2562, 130],
+            [2562, 1254],
+            [135, 1254],
+            [135, 130]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Silver",
+      "color": {
+        "id": "silver",
+        "name": "Silver",
+        "hexcode": "#F3F2ED"
+      },
+      "meta_title": "iPhone 11 Pro Silver Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Pro Silver mockup! You can wrap screenshots in iPhone 11 Pro Silver for prototypes.",
+      "display_resolution": [1124, 2427],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-pro-silver",
+      "name": "iPhone 11 Pro",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Pro Silver Mock Up",
+          "coords": [
+            [131, 134],
+            [1255, 134],
+            [1255, 2561],
+            [131, 2561]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Pro Silver Mock Up",
+          "coords": [
+            [2562, 130],
+            [2562, 1254],
+            [135, 1254],
+            [135, 130]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Space Gray",
+      "color": {
+        "id": "space-grey",
+        "name": "Space Gray",
+        "hexcode": "#7E7E7E"
+      },
+      "meta_title": "iPhone 11 Pro Space Gray Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Pro Space Gray mockup! You can wrap screenshots in iPhone 11 Pro Space Gray for prototypes.",
+      "display_resolution": [1124, 2427],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-pro-space-grey",
+      "name": "iPhone 11 Pro",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Pro Space Gray Mock Up",
+          "coords": [
+            [131, 134],
+            [1255, 134],
+            [1255, 2561],
+            [131, 2561]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Pro Space Gray Mock Up",
+          "coords": [
+            [2562, 130],
+            [2562, 1254],
+            [135, 1254],
+            [135, 130]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Midnight Green",
+      "color": {
+        "id": "midnight-green",
+        "name": "Midnight Green",
+        "hexcode": "#626C64"
+      },
+      "meta_title": "iPhone 11 Pro Midnight Green Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Pro Midnight Green mockup! You can wrap screenshots in iPhone 11 Pro Midnight Green for prototypes.",
+      "display_resolution": [1124, 2427],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-pro-midnight-green",
+      "name": "iPhone 11 Pro",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Pro Midnight Green Mock Up",
+          "coords": [
+            [131, 134],
+            [1255, 134],
+            [1255, 2561],
+            [131, 2561]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Pro Midnight Green Mock Up",
+          "coords": [
+            [2562, 130],
+            [2562, 1254],
+            [135, 1254],
+            [135, 130]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Gold",
+      "color": {
+        "id": "gold",
+        "name": "Gold",
+        "hexcode": "#FBDDC1"
+      },
+      "meta_title": "iPhone 11 Pro Max Gold Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Pro Max Gold mockup! You can wrap screenshots in iPhone 11 Pro Max Gold for prototypes.",
+      "display_resolution": [1221, 2705],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-pro-max-gold",
+      "name": "iPhone 11 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Pro Max Gold Mock Up",
+          "coords": [
+            [138, 120],
+            [1359, 120],
+            [1359, 2825],
+            [138, 2825]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Pro Max Gold Mock Up",
+          "coords": [
+            [2828, 143],
+            [2828, 1364],
+            [123, 1364],
+            [123, 143]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Silver",
+      "color": {
+        "id": "silver",
+        "name": "Silver",
+        "hexcode": "#F3F2ED"
+      },
+      "meta_title": "iPhone 11 Pro Max Silver Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Pro Max Silver mockup! You can wrap screenshots in iPhone 11 Pro Max Silver for prototypes.",
+      "display_resolution": [1221, 2705],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-pro-max-silver",
+      "name": "iPhone 11 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Pro Max Silver Mock Up",
+          "coords": [
+            [138, 120],
+            [1359, 120],
+            [1359, 2825],
+            [138, 2825]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Pro Max Silver Mock Up",
+          "coords": [
+            [2828, 143],
+            [2828, 1364],
+            [123, 1364],
+            [123, 143]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Space Gray",
+      "color": {
+        "id": "space-grey",
+        "name": "Space Gray",
+        "hexcode": "#7E7E7E"
+      },
+      "meta_title": "iPhone 11 Pro Max Space Gray Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Pro Max Space Gray mockup! You can wrap screenshots in iPhone 11 Pro Max Space Gray for prototypes.",
+      "display_resolution": [1221, 2705],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-pro-max-space-grey",
+      "name": "iPhone 11 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Pro Max Space Gray Mock Up",
+          "coords": [
+            [138, 120],
+            [1359, 120],
+            [1359, 2825],
+            [138, 2825]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Pro Max Space Gray Mock Up",
+          "coords": [
+            [2828, 143],
+            [2828, 1364],
+            [123, 1364],
+            [123, 143]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Midnight Green",
+      "color": {
+        "id": "midnight-green",
+        "name": "Midnight Green",
+        "hexcode": "#626C64"
+      },
+      "meta_title": "iPhone 11 Pro Max Midnight Green Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Pro Max Midnight Green mockup! You can wrap screenshots in iPhone 11 Pro Max Midnight Green for prototypes.",
+      "display_resolution": [1221, 2705],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-pro-max-midnight-green",
+      "name": "iPhone 11 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Pro Max Midnight Green Mock Up",
+          "coords": [
+            [138, 120],
+            [1359, 120],
+            [1359, 2825],
+            [138, 2825]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Pro Max Midnight Green Mock Up",
+          "coords": [
+            [2828, 143],
+            [2828, 1364],
+            [123, 1364],
+            [123, 143]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Titanium Gray",
+      "color": {
+        "id": "titanium-gray",
+        "name": "Titanium Gray",
+        "hexcode": "#ADA49B"
+      },
+      "meta_title": "Samsung Galaxy S24 Ultra Titanium Gray Mock Up",
+      "meta_description": "1 click to generate your Samsung Galaxy S24 Ultra Titanium Gray mockup! You can wrap screenshots in Samsung Galaxy S24 Ultra Titanium Gray for prototypes.",
+      "display_resolution": [963, 2075],
+      "device_type": "Android",
+      "device_id": "samsung-galaxy-s24-ultra",
+      "name": "Samsung Galaxy S24 Ultra",
+      "orientations": [
+        {
+          "alt": "Samsung Galaxy S24 Ultra Titanium Gray Mock Up",
+          "coords": [
+            [142, 141],
+            [1105, 141],
+            [1105, 2216],
+            [142, 2216]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Samsung Galaxy S24 Ultra Titanium Gray Mock Up",
+          "coords": [
+            [2218, 140],
+            [2218, 1103],
+            [143, 1103],
+            [143, 140]
+          ],
+          "name": "landscape"
+        },
+        {
+          "alt": "Samsung Galaxy S24 Ultra Titanium Gray Mock Up - Right",
+          "coords": [
+            [152, 526],
+            [1023, 111],
+            [2353, 1453],
+            [1462, 1910]
+          ],
+          "name": "right"
+        },
+        {
+          "alt": "Samsung Galaxy S24 Ultra Titanium Gray Mock Up - Left",
+          "coords": [
+            [1484, 109],
+            [2352, 525],
+            [1039, 1909],
+            [150, 1453]
+          ],
+          "name": "left"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape<br/>Right<br/>Left"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Rose",
+      "color": {
+        "id": "rose",
+        "name": "Rose",
+        "hexcode": "#F5DDC8"
+      },
+      "meta_title": "Google Pixel 8 Rose Mock Up",
+      "meta_description": "1 click to generate your Google Pixel 8 Rose mockup! You can wrap screenshots in Google Pixel 8 Rose for prototypes.",
+      "display_resolution": [916, 2003],
+      "device_type": "Android",
+      "device_id": "google-pixel-8-rose",
+      "name": "Google Pixel 8",
+      "orientations": [
+        {
+          "alt": "Google Pixel 8 Rose Mock Up",
+          "coords": [
+            [27, 49],
+            [943, 49],
+            [943, 2052],
+            [27, 2052]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Google Pixel 8 Rose Mock Up",
+          "coords": [
+            [2051, 35],
+            [2051, 951],
+            [48, 951],
+            [48, 35]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Hazel",
+      "color": {
+        "id": "hazel",
+        "name": "Hazel",
+        "hexcode": "#878883"
+      },
+      "meta_title": "Google Pixel 8 Hazel Mock Up",
+      "meta_description": "1 click to generate your Google Pixel 8 Hazel mockup! You can wrap screenshots in Google Pixel 8 Hazel for prototypes.",
+      "display_resolution": [916, 2003],
+      "device_type": "Android",
+      "device_id": "google-pixel-8-hazel",
+      "name": "Google Pixel 8",
+      "orientations": [
+        {
+          "alt": "Google Pixel 8 Hazel Mock Up",
+          "coords": [
+            [27, 49],
+            [943, 49],
+            [943, 2052],
+            [27, 2052]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Google Pixel 8 Hazel Mock Up",
+          "coords": [
+            [2051, 35],
+            [2051, 951],
+            [48, 951],
+            [48, 35]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Obsidian",
+      "color": {
+        "id": "obsidian",
+        "name": "Obsidian",
+        "hexcode": "#262626"
+      },
+      "meta_title": "Google Pixel 8 Obsidian Mock Up",
+      "meta_description": "1 click to generate your Google Pixel 8 Obsidian mockup! You can wrap screenshots in Google Pixel 8 Obsidian for prototypes.",
+      "display_resolution": [916, 2003],
+      "device_type": "Android",
+      "device_id": "google-pixel-8-obsidian",
+      "name": "Google Pixel 8",
+      "orientations": [
+        {
+          "alt": "Google Pixel 8 Obsidian Mock Up",
+          "coords": [
+            [27, 49],
+            [943, 49],
+            [943, 2052],
+            [27, 2052]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Google Pixel 8 Obsidian Mock Up",
+          "coords": [
+            [2051, 35],
+            [2051, 951],
+            [48, 951],
+            [48, 35]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Obsidian",
+      "color": {
+        "id": "obsidian",
+        "name": "Obsidian",
+        "hexcode": "#2F2F2F"
+      },
+      "meta_title": "Google Pixel 7 Obsidian Mock Up",
+      "meta_description": "1 click to generate your Google Pixel 7 Obsidian mockup! You can wrap screenshots in Google Pixel 7 Obsidian for prototypes.",
+      "display_resolution": [1044, 2268],
+      "device_type": "Android",
+      "device_id": "google-pixel-7-obsidian",
+      "name": "Google Pixel 7",
+      "orientations": [
+        {
+          "alt": "Google Pixel 7 Obsidian Mock Up",
+          "coords": [
+            [33, 49],
+            [1077, 49],
+            [1077, 2317],
+            [33, 2317]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Google Pixel 7 Obsidian Mock Up",
+          "coords": [
+            [2312, 41],
+            [2312, 1085],
+            [44, 1085],
+            [44, 41]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Snow",
+      "color": {
+        "id": "snow",
+        "name": "Snow",
+        "hexcode": "#E3E3E3"
+      },
+      "meta_title": "Google Pixel 7 Snow Mock Up",
+      "meta_description": "1 click to generate your Google Pixel 7 Snow mockup! You can wrap screenshots in Google Pixel 7 Snow for prototypes.",
+      "display_resolution": [1044, 2268],
+      "device_type": "Android",
+      "device_id": "google-pixel-7-snow",
+      "name": "Google Pixel 7",
+      "orientations": [
+        {
+          "alt": "Google Pixel 7 Snow Mock Up",
+          "coords": [
+            [33, 49],
+            [1077, 49],
+            [1077, 2317],
+            [33, 2317]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Google Pixel 7 Snow Mock Up",
+          "coords": [
+            [2312, 41],
+            [2312, 1085],
+            [44, 1085],
+            [44, 41]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Lemongrass",
+      "color": {
+        "id": "lemongrass",
+        "name": "Lemongrass",
+        "hexcode": "#E3E7D1"
+      },
+      "meta_title": "Google Pixel 7 Lemongrass Mock Up",
+      "meta_description": "1 click to generate your Google Pixel 7 Lemongrass mockup! You can wrap screenshots in Google Pixel 7 Lemongrass for prototypes.",
+      "display_resolution": [1044, 2268],
+      "device_type": "Android",
+      "device_id": "google-pixel-7-lemongrass",
+      "name": "Google Pixel 7",
+      "orientations": [
+        {
+          "alt": "Google Pixel 7 Lemongrass Mock Up",
+          "coords": [
+            [33, 49],
+            [1077, 49],
+            [1077, 2317],
+            [33, 2317]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Google Pixel 7 Lemongrass Mock Up",
+          "coords": [
+            [2312, 41],
+            [2312, 1085],
+            [44, 1085],
+            [44, 41]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Black",
+      "color": {
+        "id": "black",
+        "name": "Black",
+        "hexcode": "#202020"
+      },
+      "meta_title": "Huawei P40 Pro+ Black Mock Up",
+      "meta_description": "1 click to generate your Huawei P40 Pro+ Black mockup! You can wrap screenshots in Huawei P40 Pro+ Black for prototypes.",
+      "display_resolution": [974, 2175],
+      "device_type": "Android",
+      "device_id": "huawei-p-40-pro-plus",
+      "name": "Huawei P40 Pro+",
+      "orientations": [
+        {
+          "alt": "Huawei P40 Pro+ Black Mock Up",
+          "coords": [
+            [174, 154],
+            [1148, 154],
+            [1148, 2329],
+            [174, 2329]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Huawei P40 Pro+ Black Mock Up",
+          "coords": [
+            [2336, 173],
+            [2336, 1147],
+            [161, 1147],
+            [161, 173]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Black",
+      "color": {
+        "id": "black",
+        "name": "Black",
+        "hexcode": "#202020"
+      },
+      "meta_title": "Google Pixel Slate Black Mock Up",
+      "meta_description": "1 click to generate your Google Pixel Slate Black mockup! You can wrap screenshots in Google Pixel Slate Black for prototypes.",
+      "display_resolution": [1274, 1917],
+      "device_type": "Android",
+      "device_id": "google-pixel-slate",
+      "name": "Google Pixel Slate",
+      "orientations": [
+        {
+          "alt": "Google Pixel Slate Black Mock Up",
+          "coords": [
+            [153, 155],
+            [1427, 155],
+            [1427, 2072],
+            [153, 2072]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Google Pixel Slate Black Mock Up",
+          "coords": [
+            [2071, 163],
+            [2071, 1437],
+            [154, 1437],
+            [154, 163]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Orange Ocean Band",
+      "color": {
+        "id": "orange-ocean-band",
+        "name": "Orange Ocean Band",
+        "hexcode": "#FF7949"
+      },
+      "meta_title": "Apple Watch Ultra 2 Orange Ocean Band Mock Up",
+      "meta_description": "1 click to generate your Apple Watch Ultra 2 Orange Ocean Band mockup! You can wrap screenshots in Apple Watch Ultra 2 Orange Ocean Band for prototypes.",
+      "display_resolution": [643, 773],
+      "device_type": "watchOS",
+      "device_id": "apple-watch-ultra-2-orange-ocean-band",
+      "name": "Apple Watch Ultra 2",
+      "orientations": [
+        {
+          "alt": "Apple Watch Ultra 2 Orange Ocean Band Mock Up",
+          "coords": [
+            [60, 267],
+            [703, 267],
+            [703, 1040],
+            [60, 1040]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Apple Watch Ultra 2 Orange Ocean Band Mock Up",
+          "coords": [
+            [1042, 97],
+            [1042, 740],
+            [269, 740],
+            [269, 97]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Blue Alpine Loop",
+      "color": {
+        "id": "blue-alpine-loop",
+        "name": "Blue Alpine Loop",
+        "hexcode": "#6C80A9"
+      },
+      "meta_title": "Apple Watch Ultra 2 Blue Alpine Loop Mock Up",
+      "meta_description": "1 click to generate your Apple Watch Ultra 2 Blue Alpine Loop mockup! You can wrap screenshots in Apple Watch Ultra 2 Blue Alpine Loop for prototypes.",
+      "display_resolution": [643, 773],
+      "device_type": "watchOS",
+      "device_id": "apple-watch-ultra-2-blue-alpine-loop",
+      "name": "Apple Watch Ultra 2",
+      "orientations": [
+        {
+          "alt": "Apple Watch Ultra 2 Blue Alpine Loop Mock Up",
+          "coords": [
+            [60, 267],
+            [703, 267],
+            [703, 1040],
+            [60, 1040]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Apple Watch Ultra 2 Blue Alpine Loop Mock Up",
+          "coords": [
+            [1042, 97],
+            [1042, 740],
+            [269, 740],
+            [269, 97]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Orange Beige Trail Loop",
+      "color": {
+        "id": "orange-beige-trail-loop",
+        "name": "Orange Beige Trail Loop",
+        "hexcode": "#FBE0C2"
+      },
+      "meta_title": "Apple Watch Ultra 2 Orange Beige Trail Loop Mock Up",
+      "meta_description": "1 click to generate your Apple Watch Ultra 2 Orange Beige Trail Loop mockup! You can wrap screenshots in Apple Watch Ultra 2 Orange Beige Trail Loop for prototypes.",
+      "display_resolution": [643, 773],
+      "device_type": "watchOS",
+      "device_id": "apple-watch-ultra-2-orange-beige-trail-loop",
+      "name": "Apple Watch Ultra 2",
+      "orientations": [
+        {
+          "alt": "Apple Watch Ultra 2 Orange Beige Trail Loop Mock Up",
+          "coords": [
+            [60, 267],
+            [703, 267],
+            [703, 1040],
+            [60, 1040]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Apple Watch Ultra 2 Orange Ocean Band Mock Up",
+          "coords": [
+            [1042, 97],
+            [1042, 740],
+            [269, 740],
+            [269, 97]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Space Gray Aluminium",
+      "color": {
+        "id": "space-grey-aluminum-black",
+        "name": "Space Gray Aluminium",
+        "hexcode": "#494845"
+      },
+      "meta_title": "Apple Watch Series 5 40mm Space Gray Aluminium Mock Up",
+      "meta_description": "1 click to generate your Apple Watch Series 5 40mm Space Gray Aluminium mockup! You can wrap screenshots in Apple Watch Series 5 40mm Space Gray Aluminium for prototypes.",
+      "display_resolution": [566, 693],
+      "device_type": "watchOS",
+      "device_id": "apple-watch-series-5-40-mm-space-grey-aluminum-black-closed",
+      "name": "Apple Watch Series 5 40mm",
+      "orientations": [
+        {
+          "alt": "Apple Watch Series 5 40mm Space Gray Aluminium Mock Up",
+          "coords": [
+            [167, 426],
+            [733, 426],
+            [733, 1119],
+            [167, 1119]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Apple Watch Series 5 40mm Space Gray Aluminium Mock Up",
+          "coords": [
+            [1153, 172],
+            [1153, 738],
+            [460, 738],
+            [460, 172]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Gold Aluminium",
+      "color": {
+        "id": "gold-aluminum-pink-sand",
+        "name": "Gold Aluminium",
+        "hexcode": "#F7DDD2"
+      },
+      "meta_title": "Apple Watch Series 5 40mm Gold Aluminium Mock Up",
+      "meta_description": "1 click to generate your Apple Watch Series 5 40mm Gold Aluminium mockup! You can wrap screenshots in Apple Watch Series 5 40mm Gold Aluminium for prototypes.",
+      "display_resolution": [566, 693],
+      "device_type": "watchOS",
+      "device_id": "apple-watch-series-5-40-mm-gold-aluminum-pink-sand-closed",
+      "name": "Apple Watch Series 5 40mm",
+      "orientations": [
+        {
+          "alt": "Apple Watch Series 5 40mm Gold Aluminium Mock Up",
+          "coords": [
+            [167, 426],
+            [733, 426],
+            [733, 1119],
+            [167, 1119]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Apple Watch Series 5 40mm Space Gray Aluminium Mock Up",
+          "coords": [
+            [1153, 172],
+            [1153, 738],
+            [460, 738],
+            [460, 172]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "White Ceramic",
+      "color": {
+        "id": "white-ceramic",
+        "name": "White Ceramic",
+        "hexcode": "#ECEBE9"
+      },
+      "meta_title": "Apple Watch Series 5 40mm White Ceramic Mock Up",
+      "meta_description": "1 click to generate your Apple Watch Series 5 40mm White Ceramic mockup! You can wrap screenshots in Apple Watch Series 5 40mm White Ceramic for prototypes.",
+      "display_resolution": [566, 693],
+      "device_type": "watchOS",
+      "device_id": "apple-watch-series-5-40-mm-white-ceramic-white-closed",
+      "name": "Apple Watch Series 5 40mm",
+      "orientations": [
+        {
+          "alt": "Apple Watch Series 5 40mm White Ceramic Mock Up",
+          "coords": [
+            [167, 426],
+            [733, 426],
+            [733, 1119],
+            [167, 1119]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Apple Watch Series 5 40mm White Ceramic Mock Up",
+          "coords": [
+            [1153, 172],
+            [1153, 738],
+            [460, 738],
+            [460, 172]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Black",
+      "color": {
+        "id": "black",
+        "name": "Black",
+        "hexcode": "#3E3E40"
+      },
+      "meta_title": "Samsung Galaxy Watch 4 Black Mock Up",
+      "meta_description": "1 click to generate your Samsung Galaxy Watch 4 Black mockup! You can wrap screenshots in Samsung Galaxy Watch 4 Black for prototypes.",
+      "display_resolution": [633, 616],
+      "device_type": "Wear",
+      "device_id": "samsung-galaxy-watch-4-black",
+      "name": "Samsung Galaxy Watch 4",
+      "orientations": [
+        {
+          "alt": "Samsung Galaxy Watch 4 Black Mock Up",
+          "coords": [
+            [147, 491],
+            [780, 491],
+            [780, 1107],
+            [147, 1107]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Samsung Galaxy Watch 4 Black Mock Up",
+          "coords": [
+            [1129, 132],
+            [1129, 765],
+            [513, 765],
+            [513, 132]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Pink Gold",
+      "color": {
+        "id": "pink-gold",
+        "name": "Pink Gold",
+        "hexcode": "#FAE1C9"
+      },
+      "meta_title": "Samsung Galaxy Watch 4 Pink Gold Mock Up",
+      "meta_description": "1 click to generate your Samsung Galaxy Watch 4 Pink Gold mockup! You can wrap screenshots in Samsung Galaxy Watch 4 Pink Gold for prototypes.",
+      "display_resolution": [633, 616],
+      "device_type": "Wear",
+      "device_id": "samsung-galaxy-watch-4-pink-gold",
+      "name": "Samsung Galaxy Watch 4",
+      "orientations": [
+        {
+          "alt": "Samsung Galaxy Watch 4 Pink Gold Mock Up",
+          "coords": [
+            [147, 491],
+            [780, 491],
+            [780, 1107],
+            [147, 1107]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Samsung Galaxy Watch 4 Black Mock Up",
+          "coords": [
+            [1129, 132],
+            [1129, 765],
+            [513, 765],
+            [513, 132]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Silver",
+      "color": {
+        "id": "silver",
+        "name": "Silver",
+        "hexcode": "#D8D8D8"
+      },
+      "meta_title": "Samsung Galaxy Watch 4 Silver Mock Up",
+      "meta_description": "1 click to generate your Samsung Galaxy Watch 4 Silver mockup! You can wrap screenshots in Samsung Galaxy Watch 4 Silver for prototypes.",
+      "display_resolution": [633, 616],
+      "device_type": "Wear",
+      "device_id": "samsung-galaxy-watch-4-silver",
+      "name": "Samsung Galaxy Watch 4",
+      "orientations": [
+        {
+          "alt": "Samsung Galaxy Watch 4 Silver Mock Up",
+          "coords": [
+            [147, 491],
+            [780, 491],
+            [780, 1107],
+            [147, 1107]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Samsung Galaxy Watch 4 Black Mock Up",
+          "coords": [
+            [1129, 132],
+            [1129, 765],
+            [513, 765],
+            [513, 132]
           ],
           "name": "landscape"
         }
