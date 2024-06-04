@@ -4,7 +4,8 @@ import numpy as np
 x1, y1, x2, y2, x3, y3, x4, y4 = 0, 0, 0, 0, 0, 0, 0, 0
 
 image_path = input(
-    "Input image path\n(ex: public/Images/devices_picture/apple-ipadpro11-spacegrey-right.png)\n"
+    "Input image path\n(ex: public/Images/devices_picture/"
+    "apple-ipadpro11-spacegrey-right.png)\n"
 )
 img = cv2.imread(image_path)
 cv2_window_name = "image-angled"
