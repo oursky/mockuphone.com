@@ -214,6 +214,14 @@
     "name": "Google Pixel 5",
     "slugs": ["google-pixel5-justblack", "google-pixel5-sortasage"]
   },
+  "google-pixel-8": {
+    "name": "Google Pixel 8",
+    "slugs": [
+      "google-pixel-8-rose",
+      "google-pixel-8-hazel",
+      "google-pixel-8-obsidian"
+    ]
+  },
   "moto-e": {
     "name": "Moto E",
     "slugs": ["motorola-motoe-black", "motorola-motoe-white"]

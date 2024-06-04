@@ -6220,6 +6220,123 @@
       ],
       "is_mockup_image_at_front": true,
       "view_desc": "Portrait<br/>Landscape<br/>Right<br/>Left"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Rose",
+      "color": {
+        "id": "rose",
+        "name": "Rose",
+        "hexcode": "#F5DDC8"
+      },
+      "meta_title": "Google Pixel 8 Rose Mock Up",
+      "meta_description": "1 click to generate your Google Pixel 8 Rose mockup! You can wrap screenshots in Google Pixel 8 Rose for prototypes.",
+      "display_resolution": [916, 2003],
+      "device_type": "Android",
+      "device_id": "google-pixel-8-rose",
+      "name": "Google Pixel 8",
+      "orientations": [
+        {
+          "alt": "Google Pixel 8 Rose Mock Up",
+          "coords": [
+            [27, 49],
+            [943, 49],
+            [943, 2052],
+            [27, 2052]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Google Pixel 8 Rose Mock Up",
+          "coords": [
+            [2051, 35],
+            [2051, 951],
+            [48, 951],
+            [48, 35]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Hazel",
+      "color": {
+        "id": "hazel",
+        "name": "Hazel",
+        "hexcode": "#878883"
+      },
+      "meta_title": "Google Pixel 8 Hazel Mock Up",
+      "meta_description": "1 click to generate your Google Pixel 8 Hazel mockup! You can wrap screenshots in Google Pixel 8 Hazel for prototypes.",
+      "display_resolution": [916, 2003],
+      "device_type": "Android",
+      "device_id": "google-pixel-8-hazel",
+      "name": "Google Pixel 8",
+      "orientations": [
+        {
+          "alt": "Google Pixel 8 Hazel Mock Up",
+          "coords": [
+            [27, 49],
+            [943, 49],
+            [943, 2052],
+            [27, 2052]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Google Pixel 8 Hazel Mock Up",
+          "coords": [
+            [2051, 35],
+            [2051, 951],
+            [48, 951],
+            [48, 35]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Obsidian",
+      "color": {
+        "id": "obsidian",
+        "name": "Obsidian",
+        "hexcode": "#262626"
+      },
+      "meta_title": "Google Pixel 8 Obsidian Mock Up",
+      "meta_description": "1 click to generate your Google Pixel 8 Obsidian mockup! You can wrap screenshots in Google Pixel 8 Obsidian for prototypes.",
+      "display_resolution": [916, 2003],
+      "device_type": "Android",
+      "device_id": "google-pixel-8-obsidian",
+      "name": "Google Pixel 8",
+      "orientations": [
+        {
+          "alt": "Google Pixel 8 Obsidian Mock Up",
+          "coords": [
+            [27, 49],
+            [943, 49],
+            [943, 2052],
+            [27, 2052]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Google Pixel 8 Obsidian Mock Up",
+          "coords": [
+            [2051, 35],
+            [2051, 951],
+            [48, 951],
+            [48, 35]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
     }
   ]
 }
