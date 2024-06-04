@@ -113,6 +113,14 @@
       "apple-iphone13promax-silver"
     ]
   },
+  "iphone-se": {
+    "name": "iPhone SE",
+    "slugs": [
+      "apple-iphone-se-black",
+      "apple-iphone-se-white",
+      "apple-iphone-se-red"
+    ]
+  },
   "iphone-8": {
     "name": "iPhone 8",
     "slugs": [

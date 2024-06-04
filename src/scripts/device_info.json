@@ -5498,6 +5498,123 @@
       ],
       "is_mockup_image_at_front": true,
       "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Black",
+      "color": {
+        "id": "black",
+        "name": "Black",
+        "hexcode": "#1C1C1D"
+      },
+      "meta_title": "iPhone 8 Black Mock Up",
+      "meta_description": "1 click to generate your iPhone 8 Black mockup! You can wrap screenshots in iPhone 8 Black for prototypes.",
+      "display_resolution": [757, 1330],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-se-black",
+      "name": "iPhone 8",
+      "orientations": [
+        {
+          "alt": "iPhone 8 Black Mock Up",
+          "coords": [
+            [142, 302],
+            [899, 302],
+            [899, 1632],
+            [142, 1632]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 8 Black Mock Up",
+          "coords": [
+            [1632, 151],
+            [1632, 908],
+            [302, 908],
+            [302, 151]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Red",
+      "color": {
+        "id": "red",
+        "name": "Red",
+        "hexcode": "#C52238"
+      },
+      "meta_title": "iPhone 8 Red Mock Up",
+      "meta_description": "1 click to generate your iPhone 8 Red mockup! You can wrap screenshots in iPhone 8 Red for prototypes.",
+      "display_resolution": [757, 1330],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-se-red",
+      "name": "iPhone 8",
+      "orientations": [
+        {
+          "alt": "iPhone 8 Red Mock Up",
+          "coords": [
+            [142, 302],
+            [899, 302],
+            [899, 1632],
+            [142, 1632]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 8 Red Mock Up",
+          "coords": [
+            [1632, 151],
+            [1632, 908],
+            [302, 908],
+            [302, 151]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "White",
+      "color": {
+        "id": "white",
+        "name": "White",
+        "hexcode": "#FAFAFA"
+      },
+      "meta_title": "iPhone 8 White Mock Up",
+      "meta_description": "1 click to generate your iPhone 8 White mockup! You can wrap screenshots in iPhone 8 White for prototypes.",
+      "display_resolution": [757, 1330],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-se-white",
+      "name": "iPhone 8",
+      "orientations": [
+        {
+          "alt": "iPhone 8 White Mock Up",
+          "coords": [
+            [142, 302],
+            [899, 302],
+            [899, 1632],
+            [142, 1632]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 8 White Mock Up",
+          "coords": [
+            [1632, 151],
+            [1632, 908],
+            [302, 908],
+            [302, 151]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
     }
   ]
 }
