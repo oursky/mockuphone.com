@@ -6532,6 +6532,240 @@
       ],
       "is_mockup_image_at_front": true,
       "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Orange Ocean Band",
+      "color": {
+        "id": "orange-ocean-band",
+        "name": "Orange Ocean Band",
+        "hexcode": "#FF7949"
+      },
+      "meta_title": "Apple Watch Ultra 2 Orange Ocean Band Mock Up",
+      "meta_description": "1 click to generate your Apple Watch Ultra 2 Orange Ocean Band mockup! You can wrap screenshots in Apple Watch Ultra 2 Orange Ocean Band for prototypes.",
+      "display_resolution": [643, 773],
+      "device_type": "watchOS",
+      "device_id": "apple-watch-ultra-2-orange-ocean-band",
+      "name": "Apple Watch Ultra 2",
+      "orientations": [
+        {
+          "alt": "Apple Watch Ultra 2 Orange Ocean Band Mock Up",
+          "coords": [
+            [60, 267],
+            [703, 267],
+            [703, 1040],
+            [60, 1040]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Apple Watch Ultra 2 Orange Ocean Band Mock Up",
+          "coords": [
+            [1042, 97],
+            [1042, 740],
+            [269, 740],
+            [269, 97]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Blue Alpine Loop",
+      "color": {
+        "id": "blue-alpine-loop",
+        "name": "Blue Alpine Loop",
+        "hexcode": "#6C80A9"
+      },
+      "meta_title": "Apple Watch Ultra 2 Blue Alpine Loop Mock Up",
+      "meta_description": "1 click to generate your Apple Watch Ultra 2 Blue Alpine Loop mockup! You can wrap screenshots in Apple Watch Ultra 2 Blue Alpine Loop for prototypes.",
+      "display_resolution": [643, 773],
+      "device_type": "watchOS",
+      "device_id": "apple-watch-ultra-2-blue-alpine-loop",
+      "name": "Apple Watch Ultra 2",
+      "orientations": [
+        {
+          "alt": "Apple Watch Ultra 2 Blue Alpine Loop Mock Up",
+          "coords": [
+            [60, 267],
+            [703, 267],
+            [703, 1040],
+            [60, 1040]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Apple Watch Ultra 2 Blue Alpine Loop Mock Up",
+          "coords": [
+            [1042, 97],
+            [1042, 740],
+            [269, 740],
+            [269, 97]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Orange Beige Trail Loop",
+      "color": {
+        "id": "orange-beige-trail-loop",
+        "name": "Orange Beige Trail Loop",
+        "hexcode": "#FBE0C2"
+      },
+      "meta_title": "Apple Watch Ultra 2 Orange Beige Trail Loop Mock Up",
+      "meta_description": "1 click to generate your Apple Watch Ultra 2 Orange Beige Trail Loop mockup! You can wrap screenshots in Apple Watch Ultra 2 Orange Beige Trail Loop for prototypes.",
+      "display_resolution": [643, 773],
+      "device_type": "watchOS",
+      "device_id": "apple-watch-ultra-2-orange-beige-trail-loop",
+      "name": "Apple Watch Ultra 2",
+      "orientations": [
+        {
+          "alt": "Apple Watch Ultra 2 Orange Beige Trail Loop Mock Up",
+          "coords": [
+            [60, 267],
+            [703, 267],
+            [703, 1040],
+            [60, 1040]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Apple Watch Ultra 2 Orange Ocean Band Mock Up",
+          "coords": [
+            [1042, 97],
+            [1042, 740],
+            [269, 740],
+            [269, 97]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Space Gray Aluminium",
+      "color": {
+        "id": "space-grey-aluminum-black",
+        "name": "Space Gray Aluminium",
+        "hexcode": "#494845"
+      },
+      "meta_title": "Apple Watch Series 5 40mm Space Gray Aluminium Mock Up",
+      "meta_description": "1 click to generate your Apple Watch Series 5 40mm Space Gray Aluminium mockup! You can wrap screenshots in Apple Watch Series 5 40mm Space Gray Aluminium for prototypes.",
+      "display_resolution": [566, 693],
+      "device_type": "watchOS",
+      "device_id": "apple-watch-series-5-40-mm-space-grey-aluminum-black-closed",
+      "name": "Apple Watch Series 5 40mm",
+      "orientations": [
+        {
+          "alt": "Apple Watch Series 5 40mm Space Gray Aluminium Mock Up",
+          "coords": [
+            [167, 426],
+            [733, 426],
+            [733, 1119],
+            [167, 1119]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Apple Watch Series 5 40mm Space Gray Aluminium Mock Up",
+          "coords": [
+            [1153, 172],
+            [1153, 738],
+            [460, 738],
+            [460, 172]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Gold Aluminium",
+      "color": {
+        "id": "gold-aluminum-pink-sand",
+        "name": "Gold Aluminium",
+        "hexcode": "#F7DDD2"
+      },
+      "meta_title": "Apple Watch Series 5 40mm Gold Aluminium Mock Up",
+      "meta_description": "1 click to generate your Apple Watch Series 5 40mm Gold Aluminium mockup! You can wrap screenshots in Apple Watch Series 5 40mm Gold Aluminium for prototypes.",
+      "display_resolution": [566, 693],
+      "device_type": "watchOS",
+      "device_id": "apple-watch-series-5-40-mm-gold-aluminum-pink-sand-closed",
+      "name": "Apple Watch Series 5 40mm",
+      "orientations": [
+        {
+          "alt": "Apple Watch Series 5 40mm Gold Aluminium Mock Up",
+          "coords": [
+            [167, 426],
+            [733, 426],
+            [733, 1119],
+            [167, 1119]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Apple Watch Series 5 40mm Space Gray Aluminium Mock Up",
+          "coords": [
+            [1153, 172],
+            [1153, 738],
+            [460, 738],
+            [460, 172]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "White Ceramic",
+      "color": {
+        "id": "white-ceramic",
+        "name": "White Ceramic",
+        "hexcode": "#ECEBE9"
+      },
+      "meta_title": "Apple Watch Series 5 40mm White Ceramic Mock Up",
+      "meta_description": "1 click to generate your Apple Watch Series 5 40mm White Ceramic mockup! You can wrap screenshots in Apple Watch Series 5 40mm White Ceramic for prototypes.",
+      "display_resolution": [566, 693],
+      "device_type": "watchOS",
+      "device_id": "apple-watch-series-5-40-mm-white-ceramic-white-closed",
+      "name": "Apple Watch Series 5 40mm",
+      "orientations": [
+        {
+          "alt": "Apple Watch Series 5 40mm White Ceramic Mock Up",
+          "coords": [
+            [167, 426],
+            [733, 426],
+            [733, 1119],
+            [167, 1119]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Apple Watch Series 5 40mm White Ceramic Mock Up",
+          "coords": [
+            [1153, 172],
+            [1153, 738],
+            [460, 738],
+            [460, 172]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
     }
   ]
 }

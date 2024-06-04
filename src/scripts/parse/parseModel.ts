@@ -74,7 +74,7 @@ export const ModelEnum = z.enum([
   "apple-watch-series-8-41mm",
   "apple-watch-series-8-45mm",
 
-  "apple-watch-series-5",
+  "apple-watch-series-5-40mm",
 
   // https://en.wikipedia.org/wiki/MacBook_Pro#Timeline
   "macbook-12-inch",

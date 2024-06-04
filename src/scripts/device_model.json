@@ -324,6 +324,22 @@
     "name": "Apple Watch Ultra",
     "slugs": ["apple-applewatchultra"]
   },
+  "apple-watch-ultra-2": {
+    "name": "Apple Watch Ultra 2",
+    "slugs": [
+      "apple-watch-ultra-2-orange-ocean-band",
+      "apple-watch-ultra-2-blue-alpine-loop",
+      "apple-watch-ultra-2-orange-beige-trail-loop"
+    ]
+  },
+  "apple-watch-series-5-40mm": {
+    "name": "Apple Watch Series 5 40mm",
+    "slugs": [
+      "apple-watch-series-5-40-mm-space-grey-aluminum-black-closed",
+      "apple-watch-series-5-40-mm-gold-aluminum-pink-sand-closed",
+      "apple-watch-series-5-40-mm-white-ceramic-white-closed"
+    ]
+  },
   "apple-watch-series-8-41mm": {
     "name": "Apple Watch Series 8 41mm",
     "slugs": [
