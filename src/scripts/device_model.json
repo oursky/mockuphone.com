@@ -340,6 +340,14 @@
       "apple-watch-series-5-40-mm-white-ceramic-white-closed"
     ]
   },
+  "galaxy-watch-4": {
+    "name": "Samsung Galaxy Watch 4",
+    "slugs": [
+      "samsung-galaxy-watch-4-black",
+      "samsung-galaxy-watch-4-pink-gold",
+      "samsung-galaxy-watch-4-silver"
+    ]
+  },
   "apple-watch-series-8-41mm": {
     "name": "Apple Watch Series 8 41mm",
     "slugs": [
