@@ -52,6 +52,7 @@ start: dev
 .PHONY: format
 format:
 	npm run format
+	python3 -m black .
 
 .PHONY: ci
 ci:
