@@ -10,7 +10,6 @@ device_color_hexcode = input("Input device_color_hexcode(ex: #F0CBD3): ")
 device_name = input("Input device_name(ex: Samsung Galaxy S20): ")
 device_type = input("Input device_type(Android/iOS/TV/Laptops/Macbook): ")
 
-
 image_path = f"public/Images/mockup_mask_templates/{device_id}-portrait.png"
 img = cv2.imread(image_path)
 cv2.namedWindow("image")
@@ -82,6 +81,7 @@ while True:
     print(key)
 
     if key == 13:
+        print("Received Enter key. Adding new device ...")
         new_device = {
             "credits": '<p><a href="http://facebook.design/devices" target="blank">'
             "Facebook - Design Resources</a></p>",
@@ -101,12 +101,12 @@ while True:
             "name": f"{device_name}",
             "orientations": [
                 {
-                    "alt": "",
+                    "alt": f"{device_name} {device_color} Mock Up",
                     "coords": [[x1, y1], [x2, y1], [x2, y2], [x1, y2]],
                     "name": "portrait",
                 },
                 {
-                    "alt": "",
+                    "alt": f"{device_name} {device_color} Mock Up",
                     "coords": [
                         [h - y1, w - x2],
                         [h - y1, w - x1],
@@ -116,6 +116,7 @@ while True:
                     "name": "landscape",
                 },
             ],
+            "is_mockup_image_at_front": "true",
             "view_desc": "Portrait<br/>Landscape",
         }
 
@@ -128,5 +129,7 @@ while True:
             json.dump(data, json_file, indent=2)
 
     if key == 27:
+        """ESC key to exit"""
+        print("Received Esc key. Exiting ...")
         cv2.destroyAllWindows()
         break

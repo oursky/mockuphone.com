@@ -27,6 +27,21 @@ pageship=docker run --rm \
 		${ARGS} \
 		ghcr.io/oursky/pageship:v0.5.1
 
+.PHONY: get-angled-device-coords
+get-angled-device-coords:
+	@python --version
+	@python add_device_scripts/get_angled_device_coord.py
+
+.PHONY: create-mask-image
+create-mask-image:
+	@python --version
+	@python add_device_scripts/create_mask_image.py
+
+.PHONY: add-new-device
+add-new-device:
+	@python --version
+	@python add_device_scripts/add_device.py
+
 .PHONY: dev
 dev:
 	npm run dev

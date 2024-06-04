@@ -24,9 +24,11 @@ mockup_package/dist/
 mockup_package/build/
 mockup_package/mockup.egg-info/
 
-#pageship
+# pageship
 
 pageship.toml
 pageship_config/client.json
 pageship_config/id_rsa
 
+# python
+__pycache__
