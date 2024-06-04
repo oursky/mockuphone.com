@@ -148,6 +148,15 @@
       "apple-iphone-11-white"
     ]
   },
+  "iphone-11-pro": {
+    "name": "iPhone 11 Pro",
+    "slugs": [
+      "apple-iphone-11-pro-gold",
+      "apple-iphone-11-pro-silver",
+      "apple-iphone-11-pro-space-grey",
+      "apple-iphone-11-pro-midnight-green"
+    ]
+  },
   "ipad-pro-11-inch": {
     "name": "iPad Pro 11\"",
     "slugs": ["apple-ipadpro11-spacegrey"]
