@@ -1424,10 +1424,20 @@
           ],
           "legacy_file": "ipadpro11_spacegrey_landscape.png",
           "name": "landscape"
+        },
+        {
+          "alt": "ipad pro 11-inch mockup",
+          "coords": [
+            [182, 220],
+            [1462, 220],
+            [2012, 1978],
+            [670, 2037]
+          ],
+          "name": "right"
         }
       ],
       "is_mockup_image_at_front": true,
-      "view_desc": "Portrait<br/>Landscape",
+      "view_desc": "Portrait<br/>Landscape<br/>Right",
       "is_legacy": true
     },
     {
