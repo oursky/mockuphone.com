@@ -36,7 +36,7 @@ export const ModelEnum = z.enum([
   "google-pixel-5",
   "google-pixel-7",
   "google-pixel-8",
-  "google-pixel-slate-2",
+  "google-pixel-slate",
 
   // https://en.wikipedia.org/wiki/Motorola_Moto
   "moto-e",

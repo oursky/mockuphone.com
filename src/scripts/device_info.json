@@ -6493,6 +6493,45 @@
       ],
       "is_mockup_image_at_front": true,
       "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Black",
+      "color": {
+        "id": "black",
+        "name": "Black",
+        "hexcode": "#202020"
+      },
+      "meta_title": "Google Pixel Slate Black Mock Up",
+      "meta_description": "1 click to generate your Google Pixel Slate Black mockup! You can wrap screenshots in Google Pixel Slate Black for prototypes.",
+      "display_resolution": [1274, 1917],
+      "device_type": "Android",
+      "device_id": "google-pixel-slate",
+      "name": "Google Pixel Slate",
+      "orientations": [
+        {
+          "alt": "Google Pixel Slate Black Mock Up",
+          "coords": [
+            [153, 155],
+            [1427, 155],
+            [1427, 2072],
+            [153, 2072]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Google Pixel Slate Black Mock Up",
+          "coords": [
+            [2071, 163],
+            [2071, 1437],
+            [154, 1437],
+            [154, 163]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
     }
   ]
 }

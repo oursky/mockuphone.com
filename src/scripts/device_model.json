@@ -230,6 +230,10 @@
       "google-pixel-7-lemongrass"
     ]
   },
+  "google-pixel-slate": {
+    "name": "Google Pixel Slate",
+    "slugs": ["google-pixel-slate"]
+  },
   "moto-e": {
     "name": "Moto E",
     "slugs": ["motorola-motoe-black", "motorola-motoe-white"]
