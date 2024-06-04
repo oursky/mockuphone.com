@@ -6454,6 +6454,45 @@
       ],
       "is_mockup_image_at_front": true,
       "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Black",
+      "color": {
+        "id": "black",
+        "name": "Black",
+        "hexcode": "#202020"
+      },
+      "meta_title": "Huawei P40 Pro+ Black Mock Up",
+      "meta_description": "1 click to generate your Huawei P40 Pro+ Black mockup! You can wrap screenshots in Huawei P40 Pro+ Black for prototypes.",
+      "display_resolution": [974, 2175],
+      "device_type": "Android",
+      "device_id": "huawei-p-40-pro-plus",
+      "name": "Huawei P40 Pro+",
+      "orientations": [
+        {
+          "alt": "Huawei P40 Pro+ Black Mock Up",
+          "coords": [
+            [174, 154],
+            [1148, 154],
+            [1148, 2329],
+            [174, 2329]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Huawei P40 Pro+ Black Mock Up",
+          "coords": [
+            [2336, 173],
+            [2336, 1147],
+            [161, 1147],
+            [161, 173]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
     }
   ]
 }

@@ -312,6 +312,10 @@
     "name": "OnePlus 8 Pro",
     "slugs": ["oneplus-oneplus8pro"]
   },
+  "huawei-p-40-pro-plus": {
+    "name": "Huawei P40 Pro+",
+    "slugs": ["huawei-p-40-pro-plus"]
+  },
   "apple-watch-ultra": {
     "name": "Apple Watch Ultra",
     "slugs": ["apple-applewatchultra"]

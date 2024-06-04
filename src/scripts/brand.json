@@ -105,6 +105,6 @@
   "huawei": {
     "id": "huawei",
     "name": "Huawei",
-    "modelIds": ["huawei-p40-pro+"]
+    "modelIds": ["huawei-p-40-pro-plus"]
   }
 }

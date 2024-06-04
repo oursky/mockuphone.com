@@ -65,7 +65,8 @@ export const ModelEnum = z.enum([
 
   "oneplus-8-pro",
 
-  "huawei-p40-pro+",
+  // https://en.wikipedia.org/wiki/Huawei_Pura_series
+  "huawei-p-40-pro-plus",
 
   // https://en.wikipedia.org/wiki/Apple_Watch#Operating_system_support
   "apple-watch-ultra",
