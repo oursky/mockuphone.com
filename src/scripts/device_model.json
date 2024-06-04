@@ -28,6 +28,15 @@
       "apple-iphone-15-pro-natural-titanium"
     ]
   },
+  "iphone-15-pro-max": {
+    "name": "iPhone 15 Pro Max",
+    "slugs": [
+      "apple-iphone-15-pro-max-black-titanium",
+      "apple-iphone-15-pro-max-white-titanium",
+      "apple-iphone-15-pro-max-blue-titanium",
+      "apple-iphone-15-pro-max-natural-titanium"
+    ]
+  },
   "iphone-14": {
     "name": "iPhone 14",
     "slugs": [

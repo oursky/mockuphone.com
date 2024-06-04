@@ -5108,6 +5108,162 @@
       ],
       "is_mockup_image_at_front": true,
       "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Black Titanium",
+      "color": {
+        "id": "black-titanium",
+        "name": "Black Titanium",
+        "hexcode": "#4E5051"
+      },
+      "meta_title": "iPhone 15 Pro Max Black Titanium Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Pro Max Black Titanium mockup! You can wrap screenshots in iPhone 15 Pro Max Black Titanium for prototypes.",
+      "display_resolution": [1360, 2875],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-pro-max-black-titanium",
+      "name": "iPhone 15 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Pro Max Black Titanium Mock Up",
+          "coords": [
+            [85, 80],
+            [1445, 80],
+            [1445, 2955],
+            [85, 2955]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Pro Max Black Titanium Mock Up",
+          "coords": [
+            [2956, 85],
+            [2956, 1445],
+            [81, 1445],
+            [81, 85]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "White Titanium",
+      "color": {
+        "id": "white-titanium",
+        "name": "White Titanium",
+        "hexcode": "#F3F2EC"
+      },
+      "meta_title": "iPhone 15 Pro Max White Titanium Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Pro Max White Titanium mockup! You can wrap screenshots in iPhone 15 Pro Max White Titanium for prototypes.",
+      "display_resolution": [1360, 2875],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-pro-max-white-titanium",
+      "name": "iPhone 15 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Pro Max White Titanium Mock Up",
+          "coords": [
+            [85, 80],
+            [1445, 80],
+            [1445, 2955],
+            [85, 2955]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Pro Max White Titanium Mock Up",
+          "coords": [
+            [2956, 85],
+            [2956, 1445],
+            [81, 1445],
+            [81, 85]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Blue Titanium",
+      "color": {
+        "id": "blue-titanium",
+        "name": "Blue Titanium",
+        "hexcode": "#535A68"
+      },
+      "meta_title": "iPhone 15 Pro Max Blue Titanium Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Pro Max Blue Titanium mockup! You can wrap screenshots in iPhone 15 Pro Max Blue Titanium for prototypes.",
+      "display_resolution": [1360, 2875],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-pro-max-blue-titanium",
+      "name": "iPhone 15 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Pro Max Blue Titanium Mock Up",
+          "coords": [
+            [85, 80],
+            [1445, 80],
+            [1445, 2955],
+            [85, 2955]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Pro Max Blue Titanium Mock Up",
+          "coords": [
+            [2956, 85],
+            [2956, 1445],
+            [81, 1445],
+            [81, 85]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Natural Titanium",
+      "color": {
+        "id": "natural-titanium",
+        "name": "Natural Titanium",
+        "hexcode": "#BBB5A9"
+      },
+      "meta_title": "iPhone 15 Pro Max Natural Titanium Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Pro Max Natural Titanium mockup! You can wrap screenshots in iPhone 15 Pro Max Natural Titanium for prototypes.",
+      "display_resolution": [1360, 2875],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-15-pro-max-natural-titanium",
+      "name": "iPhone 15 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 15 Pro Max Natural Titanium Mock Up",
+          "coords": [
+            [85, 80],
+            [1445, 80],
+            [1445, 2955],
+            [85, 2955]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 15 Pro Max Natural Titanium Mock Up",
+          "coords": [
+            [2956, 85],
+            [2956, 1445],
+            [81, 1445],
+            [81, 85]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
     }
   ]
 }
