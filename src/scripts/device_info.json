@@ -6005,6 +6005,162 @@
       ],
       "is_mockup_image_at_front": true,
       "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Gold",
+      "color": {
+        "id": "gold",
+        "name": "Gold",
+        "hexcode": "#FBDDC1"
+      },
+      "meta_title": "iPhone 11 Pro Max Gold Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Pro Max Gold mockup! You can wrap screenshots in iPhone 11 Pro Max Gold for prototypes.",
+      "display_resolution": [1221, 2705],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-pro-max-gold",
+      "name": "iPhone 11 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Pro Max Gold Mock Up",
+          "coords": [
+            [138, 120],
+            [1359, 120],
+            [1359, 2825],
+            [138, 2825]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Pro Max Gold Mock Up",
+          "coords": [
+            [2828, 143],
+            [2828, 1364],
+            [123, 1364],
+            [123, 143]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Silver",
+      "color": {
+        "id": "silver",
+        "name": "Silver",
+        "hexcode": "#F3F2ED"
+      },
+      "meta_title": "iPhone 11 Pro Max Silver Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Pro Max Silver mockup! You can wrap screenshots in iPhone 11 Pro Max Silver for prototypes.",
+      "display_resolution": [1221, 2705],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-pro-max-silver",
+      "name": "iPhone 11 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Pro Max Silver Mock Up",
+          "coords": [
+            [138, 120],
+            [1359, 120],
+            [1359, 2825],
+            [138, 2825]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Pro Max Silver Mock Up",
+          "coords": [
+            [2828, 143],
+            [2828, 1364],
+            [123, 1364],
+            [123, 143]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Space Gray",
+      "color": {
+        "id": "space-grey",
+        "name": "Space Gray",
+        "hexcode": "#7E7E7E"
+      },
+      "meta_title": "iPhone 11 Pro Max Space Gray Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Pro Max Space Gray mockup! You can wrap screenshots in iPhone 11 Pro Max Space Gray for prototypes.",
+      "display_resolution": [1221, 2705],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-pro-max-space-grey",
+      "name": "iPhone 11 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Pro Max Space Gray Mock Up",
+          "coords": [
+            [138, 120],
+            [1359, 120],
+            [1359, 2825],
+            [138, 2825]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Pro Max Space Gray Mock Up",
+          "coords": [
+            [2828, 143],
+            [2828, 1364],
+            [123, 1364],
+            [123, 143]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
+    },
+    {
+      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
+      "desc": "Midnight Green",
+      "color": {
+        "id": "midnight-green",
+        "name": "Midnight Green",
+        "hexcode": "#626C64"
+      },
+      "meta_title": "iPhone 11 Pro Max Midnight Green Mock Up",
+      "meta_description": "1 click to generate your iPhone 11 Pro Max Midnight Green mockup! You can wrap screenshots in iPhone 11 Pro Max Midnight Green for prototypes.",
+      "display_resolution": [1221, 2705],
+      "device_type": "iOS",
+      "device_id": "apple-iphone-11-pro-max-midnight-green",
+      "name": "iPhone 11 Pro Max",
+      "orientations": [
+        {
+          "alt": "iPhone 11 Pro Max Midnight Green Mock Up",
+          "coords": [
+            [138, 120],
+            [1359, 120],
+            [1359, 2825],
+            [138, 2825]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "iPhone 11 Pro Max Midnight Green Mock Up",
+          "coords": [
+            [2828, 143],
+            [2828, 1364],
+            [123, 1364],
+            [123, 143]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "view_desc": "Portrait<br/>Landscape"
     }
   ]
 }

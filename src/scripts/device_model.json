@@ -157,6 +157,15 @@
       "apple-iphone-11-pro-midnight-green"
     ]
   },
+  "iphone-11-pro-max": {
+    "name": "iPhone 11 Pro Max",
+    "slugs": [
+      "apple-iphone-11-pro-max-gold",
+      "apple-iphone-11-pro-max-silver",
+      "apple-iphone-11-pro-max-space-grey",
+      "apple-iphone-11-pro-max-midnight-green"
+    ]
+  },
   "ipad-pro-11-inch": {
     "name": "iPad Pro 11\"",
     "slugs": ["apple-ipadpro11-spacegrey"]
