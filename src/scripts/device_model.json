@@ -121,6 +121,14 @@
       "apple-iphone-8-space-grey"
     ]
   },
+  "iphone-8-plus": {
+    "name": "iPhone 8 Plus",
+    "slugs": [
+      "apple-iphone-8-plus-gold",
+      "apple-iphone-8-plus-silver",
+      "apple-iphone-8-plus-space-grey"
+    ]
+  },
   "ipad-pro-11-inch": {
     "name": "iPad Pro 11\"",
     "slugs": ["apple-ipadpro11-spacegrey"]
