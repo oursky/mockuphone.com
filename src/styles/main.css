@@ -87,11 +87,7 @@ figure {
 }
 
 .header__mockuphone-link {
-  margin-left: -13px;
-  font-family: "Red Hat Display", monospace;
-  font-weight: 900;
-  font-size: 20px;
-  color: var(--black);
+  margin-left: 25px;
   z-index: 10;
 }
 .header__mockuphone-link:hover {
@@ -115,16 +111,29 @@ figure {
 .header__share-default {
   min-width: 56.5px;
   margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.header__share-twitter {
+.header__share-facebook-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__share-twitter-link {
   margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header__mockuphone {
-  width: 200px;
-  vertical-align: text-bottom;
+  width: 114px;
+  max-width: 114px;
   flex: 1 1 0%;
+  vertical-align: middle;
 }
 
 @media (max-width: 640px) {

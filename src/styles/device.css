@@ -61,8 +61,10 @@
 }
 
 .device-type__heading {
-  font-size: 24px;
-  font-weight: bold;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 21.26px;
   text-align: center;
 }
 
@@ -71,7 +73,7 @@
   display: flex;
   padding: 0;
   flex-wrap: wrap;
-  margin: 50px 0 0 0;
+  margin: 40px 0 0 0;
   justify-content: center;
   row-gap: 12px;
   column-gap: 20px;
@@ -91,7 +93,7 @@
 }
 @media (min-width: 576px) {
   .device-type-list {
-    margin: 50px 0 0 0;
+    margin: 40px 0 0 0;
     justify-content: center;
     column-gap: 30px;
   }
@@ -102,8 +104,8 @@
   justify-content: center;
   align-items: center;
   background-color: var(--gray-6);
-  width: 85px;
-  height: 85px;
+  width: 92px;
+  height: 92px;
   border-radius: 100%;
 }
 .device-type-list__circle-image::after {
@@ -116,6 +118,8 @@
   background-position: center;
 }
 .device-type-list__circle-image-all::after {
+  height: 24px;
+  width: 24px;
   background-image: url("/Images/types/all.svg");
 }
 .device-type-list__circle-image-phone::after {
@@ -146,6 +150,8 @@
   background-color: #0043e0;
 }
 .device-type-list__circle-image-all--chosen::after {
+  height: 24px;
+  width: 24px;
   background-image: url("/Images/types/all-white.svg");
 }
 .device-type-list__circle-image-phone--chosen::after {
@@ -201,6 +207,7 @@
   padding: 0 12px;
   min-width: 100%;
   width: min-content;
+  column-gap: 12px;
 }
 
 .device-brand-list-container::-webkit-scrollbar {
@@ -209,16 +216,13 @@
 @media (min-width: 640px) {
   .device-brand-list-container {
     display: block;
-    margin: 50px 0 0 0;
+    margin: 40px 0 0 0;
   }
   .device-brand-select-container {
     display: none;
   }
 }
 
-.device-brand-list__item {
-  margin-left: 20px;
-}
 .device-brand-list__item-button {
   padding: 8px 20px 8px 20px;
   border-radius: 100px;
@@ -250,12 +254,6 @@
   /* remain unchanged */
   background-color: #0043e0;
   color: white;
-}
-
-@media (min-width: 576px) {
-  .device-brand-list__item:not(:first-child) {
-    margin-left: 30px;
-  }
 }
 
 .device-type__name {
@@ -506,10 +504,9 @@
   list-style: none;
   margin: 0 0 0 0;
   padding: 0;
-}
-
-.device-section-list__item:not(:first-child) {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
 }
 
 .device-section-list__request-device:not(:first-child) {

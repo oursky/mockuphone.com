@@ -46,7 +46,8 @@
 @media (min-width: 992px) {
   .headline__desc {
     margin: 30px 0 0 0;
-    font-size: 24px;
+    font-size: 21px;
+    line-height: 32.57px;
   }
 }
 
@@ -85,8 +86,6 @@
 
 .quick-device-list__item {
   min-width: max-content;
-  /* border-radius: 100px; */
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,7 +93,7 @@
   flex: 1 1 0%;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1380px) {
   .quick-device-list__item {
     /* TODO: confirm behaivor ref https://www.figma.com/design/OD2cB4PTbSwl81KAgGMfHp?node-id=1-2486#825212424 */
     flex: none;
@@ -138,6 +137,13 @@
   font-weight: 500;
   line-height: 25px;
   text-align: center;
+}
+
+.quick-device-list__all-device {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
 }
 
 .hero-image {

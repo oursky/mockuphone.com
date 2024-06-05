@@ -123,13 +123,25 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 22px;
   text-align: center;
   font-weight: 700;
   color: #b1b1b1;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 680px) {
+  .upload__device-hint {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .upload__device-hint {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 1280px) {
   .upload__device-hint {
     font-size: 30px;
   }
@@ -148,6 +160,7 @@ main {
   border: 2px dashed rgba(0, 67, 224, 1);
   border-radius: 20px;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .upload-guide__title {
@@ -493,7 +506,7 @@ main {
 }
 
 .device-info {
-  margin: 20px 20px 0 20px;
+  margin: 20px 20px 20px 20px;
   padding: 20px;
   background: var(--white);
   border: 1px solid var(--gray-5);
@@ -503,7 +516,7 @@ main {
 }
 @media (min-width: 992px) {
   .device-info {
-    margin: 0;
+    margin: 0 0 20px 0;
   }
 }
 
@@ -674,4 +687,58 @@ main {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.request-device-section {
+  margin: 0 20px 20px 20px;
+  min-width: none !important;
+  width: auto !important;
+  /* width: 100% !important; */
+  padding: 56px 40px !important;
+}
+@media (min-width: 992px) {
+  .request-device-section {
+    margin: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .request-device-section {
+    width: 100%;
+    padding: 60px 200px;
+  }
+}
+
+.request-device-section__image {
+  display: block;
+  width: 190px !important;
+  height: auto;
+}
+
+.request-device-section__desc {
+  margin: 20px 0 0 0 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 22px !important;
+
+  text-align: center;
+  color: var(--black);
+}
+
+.request-device-section__image--tall {
+  display: none !important;
+}
+.request-device-section__image--flat {
+  display: block !important;
+}
+
+.request-device-section__request-link {
+  margin: 10px 0 0 0 !important;
+}
+
+.request-device-section__request-btn {
+  padding: 8px 14px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 22px !important;
 }
