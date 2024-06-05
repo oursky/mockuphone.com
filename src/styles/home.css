@@ -46,7 +46,8 @@
 @media (min-width: 992px) {
   .headline__desc {
     margin: 30px 0 0 0;
-    font-size: 24px;
+    font-size: 21px;
+    line-height: 32.57px;
   }
 }
 
