@@ -111,10 +111,22 @@ figure {
 .header__share-default {
   min-width: 56.5px;
   margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.header__share-twitter {
+.header__share-facebook-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__share-twitter-link {
   margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header__mockuphone {
