@@ -85,8 +85,6 @@
 
 .quick-device-list__item {
   min-width: max-content;
-  /* border-radius: 100px; */
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,7 +92,7 @@
   flex: 1 1 0%;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1380px) {
   .quick-device-list__item {
     /* TODO: confirm behaivor ref https://www.figma.com/design/OD2cB4PTbSwl81KAgGMfHp?node-id=1-2486#825212424 */
     flex: none;
