@@ -160,6 +160,7 @@ main {
   border: 2px dashed rgba(0, 67, 224, 1);
   border-radius: 20px;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .upload-guide__title {

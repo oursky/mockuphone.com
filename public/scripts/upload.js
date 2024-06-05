@@ -430,6 +430,14 @@ function handleColorPickers(viewModel) {
   );
 }
 
+function registerUploadGuide() {
+  const uploadGuide = document.querySelector(".upload-guide");
+  const fileInput = document.querySelector(".upload-guide__file-input");
+  uploadGuide.addEventListener("click", () => {
+    fileInput.click();
+  });
+}
+
 function main() {
   const htmlNode = document.querySelector("html");
   const uploadSection = document.querySelector("#above-file-uploaded");
@@ -444,6 +452,7 @@ function main() {
   );
 
   handleColorPickersTooltip();
+  registerUploadGuide();
 
   const fileListViewModel = new FileListViewModel(MAX_FILE_SIZE_BYTE);
   const viewModel = new RootViewModel(
