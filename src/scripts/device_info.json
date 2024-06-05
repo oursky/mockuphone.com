@@ -5392,7 +5392,7 @@
       },
       "meta_title": "iPhone 8 Plus Gold Mock Up",
       "meta_description": "1 click to generate your iPhone 8 Plus Gold mockup! You can wrap screenshots in iPhone 8 Plus Gold for prototypes.",
-      "display_resolution": [1258, 2222],
+      "display_resolution": [1242, 2208],
       "device_type": "iOS",
       "device_id": "apple-iphone-8-plus-gold",
       "name": "iPhone 8 Plus",
@@ -5400,20 +5400,20 @@
         {
           "alt": "iPhone 8 Plus Gold Mock Up",
           "coords": [
-            [191, 391],
-            [1449, 391],
-            [1449, 2613],
-            [191, 2613]
+            [200, 400],
+            [1442, 400],
+            [1442, 2608],
+            [200, 2608]
           ],
           "name": "portrait"
         },
         {
           "alt": "iPhone 8 Plus Gold Mock Up",
           "coords": [
-            [2617, 193],
-            [2617, 1451],
-            [395, 1451],
-            [395, 193]
+            [2608, 200],
+            [2608, 1442],
+            [400, 1442],
+            [400, 200]
           ],
           "name": "landscape"
         }
@@ -5431,7 +5431,7 @@
       },
       "meta_title": "iPhone 8 Plus Silver Mock Up",
       "meta_description": "1 click to generate your iPhone 8 Plus Silver mockup! You can wrap screenshots in iPhone 8 Plus Silver for prototypes.",
-      "display_resolution": [1258, 2222],
+      "display_resolution": [1242, 2208],
       "device_type": "iOS",
       "device_id": "apple-iphone-8-plus-silver",
       "name": "iPhone 8 Plus",
@@ -5439,20 +5439,20 @@
         {
           "alt": "iPhone 8 Plus Silver Mock Up",
           "coords": [
-            [191, 391],
-            [1449, 391],
-            [1449, 2613],
-            [191, 2613]
+            [200, 400],
+            [1442, 400],
+            [1442, 2608],
+            [200, 2608]
           ],
           "name": "portrait"
         },
         {
           "alt": "iPhone 8 Plus Silver Mock Up",
           "coords": [
-            [2617, 193],
-            [2617, 1451],
-            [395, 1451],
-            [395, 193]
+            [2608, 200],
+            [2608, 1442],
+            [400, 1442],
+            [400, 200]
           ],
           "name": "landscape"
         }
@@ -5470,7 +5470,7 @@
       },
       "meta_title": "iPhone 8 Plus Space Gray Mock Up",
       "meta_description": "1 click to generate your iPhone 8 Plus Space Gray mockup! You can wrap screenshots in iPhone 8 Plus Space Gray for prototypes.",
-      "display_resolution": [1258, 2222],
+      "display_resolution": [1242, 2208],
       "device_type": "iOS",
       "device_id": "apple-iphone-8-plus-space-grey",
       "name": "iPhone 8 Plus",
@@ -5478,20 +5478,20 @@
         {
           "alt": "iPhone 8 Plus Space Gray Mock Up",
           "coords": [
-            [191, 391],
-            [1449, 391],
-            [1449, 2613],
-            [191, 2613]
+            [200, 400],
+            [1442, 400],
+            [1442, 2608],
+            [200, 2608]
           ],
           "name": "portrait"
         },
         {
           "alt": "iPhone 8 Plus Space Gray Mock Up",
           "coords": [
-            [2617, 193],
-            [2617, 1451],
-            [395, 1451],
-            [395, 193]
+            [2608, 200],
+            [2608, 1442],
+            [400, 1442],
+            [400, 200]
           ],
           "name": "landscape"
         }
