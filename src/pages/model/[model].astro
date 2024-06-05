@@ -79,6 +79,7 @@ const defaultColorId = deviceDetail.color?.id ?? "default";
   <script define:vars={{ deviceDetail }}>
     window.location.recommendsize = deviceDetail["display_resolution"];
     window.deviceDetail = deviceDetail;
+    window.workerDeviceId = deviceDetail.device_id;
   </script>
   <script define:vars={{ deviceJson }}>
     window.deviceInfo = deviceJson;
@@ -163,6 +164,7 @@ const defaultColorId = deviceDetail.color?.id ?? "default";
                               : ""
                           }`}
                           type="button"
+                          data-device-id={d.device_id}
                           data-tippy-content={d.color.name}
                           data-color-id={d.color.id}
                           data-color-name={d.color.name}

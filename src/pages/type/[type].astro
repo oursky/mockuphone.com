@@ -227,7 +227,7 @@ const brandList: Array<BrandEnum | "all"> = ["all", ...nonEmptyBrands];
                         >
                           <a
                             class="device-grid__link"
-                            href={"/device/" + thumbnail.device.device_id}
+                            href={"/model/" + thumbnail.modelId}
                           >
                             {thumbnail.device.imagePath?.map(
                               (image: [string, string], index: number) => {
