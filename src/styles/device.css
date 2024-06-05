@@ -547,6 +547,16 @@
 
 .device-grid-container {
   margin: 0 0 0 0;
+  max-width: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+@media (min-width: 992px) {
+  .device-grid-container {
+    max-width: 295px;
+  }
 }
 
 .device-grid-container-header {
@@ -554,6 +564,12 @@
   font-size: 18px;
   font-weight: 600;
   margin: 0 0 20px 0;
+
+  /* line-clamp-2 */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .device-grid {
