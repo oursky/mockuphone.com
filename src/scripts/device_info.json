@@ -6348,7 +6348,7 @@
       },
       "meta_title": "Google Pixel 7 Obsidian Mock Up",
       "meta_description": "1 click to generate your Google Pixel 7 Obsidian mockup! You can wrap screenshots in Google Pixel 7 Obsidian for prototypes.",
-      "display_resolution": [1044, 2268],
+      "display_resolution": [1035, 2253],
       "device_type": "Android",
       "device_id": "google-pixel-7-obsidian",
       "name": "Google Pixel 7",
@@ -6356,20 +6356,20 @@
         {
           "alt": "Google Pixel 7 Obsidian Mock Up",
           "coords": [
-            [33, 49],
-            [1077, 49],
-            [1077, 2317],
-            [33, 2317]
+            [36, 47],
+            [1071, 47],
+            [1071, 2300],
+            [36, 2300]
           ],
           "name": "portrait"
         },
         {
           "alt": "Google Pixel 7 Obsidian Mock Up",
           "coords": [
-            [2312, 41],
-            [2312, 1085],
-            [44, 1085],
-            [44, 41]
+            [2314, 47],
+            [2314, 1082],
+            [61, 1082],
+            [61, 47]
           ],
           "name": "landscape"
         }
@@ -6387,7 +6387,7 @@
       },
       "meta_title": "Google Pixel 7 Snow Mock Up",
       "meta_description": "1 click to generate your Google Pixel 7 Snow mockup! You can wrap screenshots in Google Pixel 7 Snow for prototypes.",
-      "display_resolution": [1044, 2268],
+      "display_resolution": [1035, 2253],
       "device_type": "Android",
       "device_id": "google-pixel-7-snow",
       "name": "Google Pixel 7",
@@ -6395,20 +6395,20 @@
         {
           "alt": "Google Pixel 7 Snow Mock Up",
           "coords": [
-            [33, 49],
-            [1077, 49],
-            [1077, 2317],
-            [33, 2317]
+            [36, 47],
+            [1071, 47],
+            [1071, 2300],
+            [36, 2300]
           ],
           "name": "portrait"
         },
         {
           "alt": "Google Pixel 7 Snow Mock Up",
           "coords": [
-            [2312, 41],
-            [2312, 1085],
-            [44, 1085],
-            [44, 41]
+            [2314, 47],
+            [2314, 1082],
+            [61, 1082],
+            [61, 47]
           ],
           "name": "landscape"
         }
@@ -6426,7 +6426,7 @@
       },
       "meta_title": "Google Pixel 7 Lemongrass Mock Up",
       "meta_description": "1 click to generate your Google Pixel 7 Lemongrass mockup! You can wrap screenshots in Google Pixel 7 Lemongrass for prototypes.",
-      "display_resolution": [1044, 2268],
+      "display_resolution": [1035, 2253],
       "device_type": "Android",
       "device_id": "google-pixel-7-lemongrass",
       "name": "Google Pixel 7",
@@ -6434,20 +6434,20 @@
         {
           "alt": "Google Pixel 7 Lemongrass Mock Up",
           "coords": [
-            [33, 49],
-            [1077, 49],
-            [1077, 2317],
-            [33, 2317]
+            [36, 47],
+            [1071, 47],
+            [1071, 2300],
+            [36, 2300]
           ],
           "name": "portrait"
         },
         {
           "alt": "Google Pixel 7 Lemongrass Mock Up",
           "coords": [
-            [2312, 41],
-            [2312, 1085],
-            [44, 1085],
-            [44, 41]
+            [2314, 47],
+            [2314, 1082],
+            [61, 1082],
+            [61, 47]
           ],
           "name": "landscape"
         }
