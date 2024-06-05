@@ -6231,7 +6231,7 @@
       },
       "meta_title": "Google Pixel 8 Rose Mock Up",
       "meta_description": "1 click to generate your Google Pixel 8 Rose mockup! You can wrap screenshots in Google Pixel 8 Rose for prototypes.",
-      "display_resolution": [916, 2003],
+      "display_resolution": [902, 2002],
       "device_type": "Android",
       "device_id": "google-pixel-8-rose",
       "name": "Google Pixel 8",
@@ -6239,20 +6239,20 @@
         {
           "alt": "Google Pixel 8 Rose Mock Up",
           "coords": [
-            [27, 49],
-            [943, 49],
-            [943, 2052],
-            [27, 2052]
+            [33, 49],
+            [935, 49],
+            [935, 2051],
+            [33, 2051]
           ],
           "name": "portrait"
         },
         {
           "alt": "Google Pixel 8 Rose Mock Up",
           "coords": [
-            [2051, 35],
-            [2051, 951],
-            [48, 951],
-            [48, 35]
+            [2051, 43],
+            [2051, 945],
+            [49, 945],
+            [49, 43]
           ],
           "name": "landscape"
         }
@@ -6270,7 +6270,7 @@
       },
       "meta_title": "Google Pixel 8 Hazel Mock Up",
       "meta_description": "1 click to generate your Google Pixel 8 Hazel mockup! You can wrap screenshots in Google Pixel 8 Hazel for prototypes.",
-      "display_resolution": [916, 2003],
+      "display_resolution": [902, 2002],
       "device_type": "Android",
       "device_id": "google-pixel-8-hazel",
       "name": "Google Pixel 8",
@@ -6278,20 +6278,20 @@
         {
           "alt": "Google Pixel 8 Hazel Mock Up",
           "coords": [
-            [27, 49],
-            [943, 49],
-            [943, 2052],
-            [27, 2052]
+            [33, 49],
+            [935, 49],
+            [935, 2051],
+            [33, 2051]
           ],
           "name": "portrait"
         },
         {
           "alt": "Google Pixel 8 Hazel Mock Up",
           "coords": [
-            [2051, 35],
-            [2051, 951],
-            [48, 951],
-            [48, 35]
+            [2051, 43],
+            [2051, 945],
+            [49, 945],
+            [49, 43]
           ],
           "name": "landscape"
         }
@@ -6309,7 +6309,7 @@
       },
       "meta_title": "Google Pixel 8 Obsidian Mock Up",
       "meta_description": "1 click to generate your Google Pixel 8 Obsidian mockup! You can wrap screenshots in Google Pixel 8 Obsidian for prototypes.",
-      "display_resolution": [916, 2003],
+      "display_resolution": [902, 2002],
       "device_type": "Android",
       "device_id": "google-pixel-8-obsidian",
       "name": "Google Pixel 8",
@@ -6317,20 +6317,20 @@
         {
           "alt": "Google Pixel 8 Obsidian Mock Up",
           "coords": [
-            [27, 49],
-            [943, 49],
-            [943, 2052],
-            [27, 2052]
+            [33, 49],
+            [935, 49],
+            [935, 2051],
+            [33, 2051]
           ],
           "name": "portrait"
         },
         {
           "alt": "Google Pixel 8 Obsidian Mock Up",
           "coords": [
-            [2051, 35],
-            [2051, 951],
-            [48, 951],
-            [48, 35]
+            [2051, 43],
+            [2051, 945],
+            [49, 945],
+            [49, 43]
           ],
           "name": "landscape"
         }
@@ -6877,45 +6877,6 @@
             [1129, 765],
             [513, 765],
             [513, 132]
-          ],
-          "name": "landscape"
-        }
-      ],
-      "is_mockup_image_at_front": true,
-      "view_desc": "Portrait<br/>Landscape"
-    },
-    {
-      "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "",
-      "color": {
-        "id": "",
-        "name": "",
-        "hexcode": ""
-      },
-      "meta_title": "  Mock Up",
-      "meta_description": "1 click to generate your   mockup! You can wrap screenshots in   for prototypes.",
-      "display_resolution": [828, 1792],
-      "device_type": "",
-      "device_id": "apple-iphone-11-black",
-      "name": "",
-      "orientations": [
-        {
-          "alt": "  Mock Up",
-          "coords": [
-            [100, 100],
-            [928, 100],
-            [928, 1892],
-            [100, 1892]
-          ],
-          "name": "portrait"
-        },
-        {
-          "alt": "  Mock Up",
-          "coords": [
-            [1892, 100],
-            [1892, 928],
-            [100, 928],
-            [100, 100]
           ],
           "name": "landscape"
         }
