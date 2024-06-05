@@ -24,7 +24,7 @@ async function runWorker(worker) {
   worker.postMessage({
     imageUploadList: imageUploadList,
     location: window.location.toString(),
-    deviceId: window.deviceDetail.device_id,
+    deviceId: window.workerDeviceId,
     deviceInfo: window.deviceInfo,
   });
   worker.addEventListener(
@@ -401,6 +401,8 @@ function handleColorPickers(viewModel) {
     (selectedColorId) => {
       colorPickerItems.forEach((node) => {
         if (node.dataset.colorId === selectedColorId) {
+          // update worker device id
+          window.workerDeviceId = node.dataset.deviceId;
           // update color description
           colorSectionDescription.innerText = node.dataset.colorName;
 
