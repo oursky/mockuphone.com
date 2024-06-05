@@ -5509,7 +5509,7 @@
       },
       "meta_title": "iPhone 8 Black Mock Up",
       "meta_description": "1 click to generate your iPhone 8 Black mockup! You can wrap screenshots in iPhone 8 Black for prototypes.",
-      "display_resolution": [757, 1330],
+      "display_resolution": [750, 1334],
       "device_type": "iOS",
       "device_id": "apple-iphone-se-black",
       "name": "iPhone 8",
@@ -5517,20 +5517,20 @@
         {
           "alt": "iPhone 8 Black Mock Up",
           "coords": [
-            [142, 302],
-            [899, 302],
-            [899, 1632],
-            [142, 1632]
+            [150, 300],
+            [900, 300],
+            [900, 1634],
+            [150, 1634]
           ],
           "name": "portrait"
         },
         {
           "alt": "iPhone 8 Black Mock Up",
           "coords": [
-            [1632, 151],
-            [1632, 908],
-            [302, 908],
-            [302, 151]
+            [1634, 150],
+            [1634, 900],
+            [300, 900],
+            [300, 150]
           ],
           "name": "landscape"
         }
@@ -5548,7 +5548,7 @@
       },
       "meta_title": "iPhone 8 Red Mock Up",
       "meta_description": "1 click to generate your iPhone 8 Red mockup! You can wrap screenshots in iPhone 8 Red for prototypes.",
-      "display_resolution": [757, 1330],
+      "display_resolution": [750, 1334],
       "device_type": "iOS",
       "device_id": "apple-iphone-se-red",
       "name": "iPhone 8",
@@ -5556,20 +5556,20 @@
         {
           "alt": "iPhone 8 Red Mock Up",
           "coords": [
-            [142, 302],
-            [899, 302],
-            [899, 1632],
-            [142, 1632]
+            [150, 300],
+            [900, 300],
+            [900, 1634],
+            [150, 1634]
           ],
           "name": "portrait"
         },
         {
           "alt": "iPhone 8 Red Mock Up",
           "coords": [
-            [1632, 151],
-            [1632, 908],
-            [302, 908],
-            [302, 151]
+            [1634, 150],
+            [1634, 900],
+            [300, 900],
+            [300, 150]
           ],
           "name": "landscape"
         }
@@ -5587,7 +5587,7 @@
       },
       "meta_title": "iPhone 8 White Mock Up",
       "meta_description": "1 click to generate your iPhone 8 White mockup! You can wrap screenshots in iPhone 8 White for prototypes.",
-      "display_resolution": [757, 1330],
+      "display_resolution": [750, 1334],
       "device_type": "iOS",
       "device_id": "apple-iphone-se-white",
       "name": "iPhone 8",
@@ -5595,20 +5595,20 @@
         {
           "alt": "iPhone 8 White Mock Up",
           "coords": [
-            [142, 302],
-            [899, 302],
-            [899, 1632],
-            [142, 1632]
+            [150, 300],
+            [900, 300],
+            [900, 1634],
+            [150, 1634]
           ],
           "name": "portrait"
         },
         {
           "alt": "iPhone 8 White Mock Up",
           "coords": [
-            [1632, 151],
-            [1632, 908],
-            [302, 908],
-            [302, 151]
+            [1634, 150],
+            [1634, 900],
+            [300, 900],
+            [300, 150]
           ],
           "name": "landscape"
         }
