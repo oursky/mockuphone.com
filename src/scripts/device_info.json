@@ -6543,7 +6543,7 @@
       },
       "meta_title": "Apple Watch Ultra 2 Orange Ocean Band Mock Up",
       "meta_description": "1 click to generate your Apple Watch Ultra 2 Orange Ocean Band mockup! You can wrap screenshots in Apple Watch Ultra 2 Orange Ocean Band for prototypes.",
-      "display_resolution": [643, 773],
+      "display_resolution": [572, 698],
       "device_type": "watchOS",
       "device_id": "apple-watch-ultra-2-orange-ocean-band",
       "name": "Apple Watch Ultra 2",
@@ -6551,20 +6551,20 @@
         {
           "alt": "Apple Watch Ultra 2 Orange Ocean Band Mock Up",
           "coords": [
-            [60, 267],
-            [703, 267],
-            [703, 1040],
-            [60, 1040]
+            [96, 306],
+            [668, 306],
+            [668, 1004],
+            [96, 1004]
           ],
           "name": "portrait"
         },
         {
           "alt": "Apple Watch Ultra 2 Orange Ocean Band Mock Up",
           "coords": [
-            [1042, 97],
-            [1042, 740],
-            [269, 740],
-            [269, 97]
+            [1003, 96],
+            [1003, 668],
+            [305, 668],
+            [305, 132]
           ],
           "name": "landscape"
         }
@@ -6582,7 +6582,7 @@
       },
       "meta_title": "Apple Watch Ultra 2 Blue Alpine Loop Mock Up",
       "meta_description": "1 click to generate your Apple Watch Ultra 2 Blue Alpine Loop mockup! You can wrap screenshots in Apple Watch Ultra 2 Blue Alpine Loop for prototypes.",
-      "display_resolution": [643, 773],
+      "display_resolution": [572, 698],
       "device_type": "watchOS",
       "device_id": "apple-watch-ultra-2-blue-alpine-loop",
       "name": "Apple Watch Ultra 2",
@@ -6590,20 +6590,20 @@
         {
           "alt": "Apple Watch Ultra 2 Blue Alpine Loop Mock Up",
           "coords": [
-            [60, 267],
-            [703, 267],
-            [703, 1040],
-            [60, 1040]
+            [96, 306],
+            [668, 306],
+            [668, 1004],
+            [96, 1004]
           ],
           "name": "portrait"
         },
         {
           "alt": "Apple Watch Ultra 2 Blue Alpine Loop Mock Up",
           "coords": [
-            [1042, 97],
-            [1042, 740],
-            [269, 740],
-            [269, 97]
+            [1003, 96],
+            [1003, 668],
+            [305, 668],
+            [305, 132]
           ],
           "name": "landscape"
         }
@@ -6621,7 +6621,7 @@
       },
       "meta_title": "Apple Watch Ultra 2 Orange Beige Trail Loop Mock Up",
       "meta_description": "1 click to generate your Apple Watch Ultra 2 Orange Beige Trail Loop mockup! You can wrap screenshots in Apple Watch Ultra 2 Orange Beige Trail Loop for prototypes.",
-      "display_resolution": [643, 773],
+      "display_resolution": [572, 698],
       "device_type": "watchOS",
       "device_id": "apple-watch-ultra-2-orange-beige-trail-loop",
       "name": "Apple Watch Ultra 2",
@@ -6629,20 +6629,20 @@
         {
           "alt": "Apple Watch Ultra 2 Orange Beige Trail Loop Mock Up",
           "coords": [
-            [60, 267],
-            [703, 267],
-            [703, 1040],
-            [60, 1040]
+            [96, 306],
+            [668, 306],
+            [668, 1004],
+            [96, 1004]
           ],
           "name": "portrait"
         },
         {
           "alt": "Apple Watch Ultra 2 Orange Ocean Band Mock Up",
           "coords": [
-            [1042, 97],
-            [1042, 740],
-            [269, 740],
-            [269, 97]
+            [1003, 96],
+            [1003, 668],
+            [305, 668],
+            [305, 96]
           ],
           "name": "landscape"
         }
