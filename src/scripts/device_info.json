@@ -6465,7 +6465,7 @@
       },
       "meta_title": "Huawei P40 Pro+ Black Mock Up",
       "meta_description": "1 click to generate your Huawei P40 Pro+ Black mockup! You can wrap screenshots in Huawei P40 Pro+ Black for prototypes.",
-      "display_resolution": [974, 2175],
+      "display_resolution": [984, 2182],
       "device_type": "Android",
       "device_id": "huawei-p-40-pro-plus",
       "name": "Huawei P40 Pro+",
@@ -6473,20 +6473,20 @@
         {
           "alt": "Huawei P40 Pro+ Black Mock Up",
           "coords": [
-            [174, 154],
-            [1148, 154],
-            [1148, 2329],
-            [174, 2329]
+            [170, 152],
+            [1154, 152],
+            [1154, 2334],
+            [170, 2334]
           ],
           "name": "portrait"
         },
         {
           "alt": "Huawei P40 Pro+ Black Mock Up",
           "coords": [
-            [2336, 173],
-            [2336, 1147],
-            [161, 1147],
-            [161, 173]
+            [2338, 167],
+            [2338, 1151],
+            [156, 1151],
+            [156, 167]
           ],
           "name": "landscape"
         }
