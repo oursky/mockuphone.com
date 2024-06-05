@@ -140,6 +140,13 @@
   text-align: center;
 }
 
+.quick-device-list__all-device {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+}
+
 .hero-image {
   position: relative;
   display: flex;
