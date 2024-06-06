@@ -338,9 +338,7 @@ function updateFileListItem(itemNode, imageUpload) {
         break;
     }
   } else if (shouldShowAspectRatioWarning) {
-    hintNode.innerText = `File aspect ratio differs from ${recommendAspectRatio.toPrecision(
-      3,
-    )} (ideally ${recommendDim.width}px * ${recommendDim.height}px).`;
+    hintNode.innerText = `Uploaded file dimension (${imageDim.width} × ${imageDim.height} pixels) differs from ideal (${recommendDim.width} × ${recommendDim.height} pixels).`;
   }
   // update progress bar
   if (imageUpload.isProcessingState || imageUpload.isSuccessState) {
