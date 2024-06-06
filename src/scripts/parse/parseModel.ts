@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import { z } from "zod";
 import { Json } from "./common";
+import { DeviceTypeEnum } from "./common";
 
 export const ModelEnum = z.enum([
   // https://en.wikipedia.org/wiki/List_of_Apple_products
@@ -102,6 +103,8 @@ export type ModelEnum = z.infer<typeof ModelEnum>;
 
 const ModelValues = z.object({
   name: z.string(),
+  type: DeviceTypeEnum,
+  launchDateTimestamp: z.string().datetime(),
   slugs: z.array(z.string()),
 });
 const RawModel = z.record(ModelEnum, ModelValues);
