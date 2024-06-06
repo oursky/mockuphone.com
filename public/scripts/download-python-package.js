@@ -22,6 +22,15 @@ function dataURLtoFile(dataurl, filename) {
   return new File([u8arr], filename, { type: mime });
 }
 
+function getJSZipDateWithOffset() {
+  // copied workaround to fix JSZip bug https://github.com/Stuk/jszip/issues/369#issuecomment-388324954
+  const currDate = new Date();
+  const dateWithOffset = new Date(
+    currDate.getTime() - currDate.getTimezoneOffset() * 60000,
+  );
+
+  return dateWithOffset;
+}
 async function generateZIP() {
   var zip = new JSZip();
   var count = 0;
@@ -36,7 +45,10 @@ async function generateZIP() {
     var filename = unescape(k.substring(3, k.length)) + ".png";
     var image = await fetch(imgURL);
     var imageBlob = await image.blob();
-    zip.file(filename, imageBlob, { binary: true });
+    zip.file(filename, imageBlob, {
+      binary: true,
+      date: getJSZipDateWithOffset(),
+    });
     count++;
     if (count == images.size) {
       zip.generateAsync({ type: "blob" }).then(function (content) {
