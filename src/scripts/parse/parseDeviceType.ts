@@ -1,17 +1,8 @@
 import * as fs from "fs";
 import { z } from "zod";
-import { Json } from "./common";
+import { DeviceTypeEnum, Json } from "./common";
 import { ModelEnum } from "./parseModel";
 
-export const DeviceTypeEnum = z.enum([
-  "phone",
-  "tablet",
-  "laptop",
-  "wearables",
-  "tv",
-]);
-
-export type DeviceTypeEnum = z.infer<typeof DeviceTypeEnum>;
 const RawDeviceType = z.record(DeviceTypeEnum, z.array(ModelEnum));
 export type RawDeviceType = z.infer<typeof RawDeviceType>;
 

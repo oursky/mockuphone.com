@@ -1,6 +1,26 @@
 import * as model from "./model";
 import { BrandEnum, DeviceTypeEnum, ModelEnum } from "./parse";
 
+const MODEL_TYPE_SORT_ORDER: Record<DeviceTypeEnum, number> = {
+  phone: 1,
+  tablet: 2,
+  laptop: 3,
+  wearables: 4,
+  tv: 5,
+};
+function sortModel(a: model.ModelThumbnail, b: model.ModelThumbnail): number {
+  const typeSort =
+    MODEL_TYPE_SORT_ORDER[a.modelType] - MODEL_TYPE_SORT_ORDER[b.modelType];
+  const dateSort = sortByDate(a.modelLaunchDate, b.modelLaunchDate, "desc");
+  const nameSort = a.modelName.localeCompare(b.modelName);
+  return typeSort || dateSort || nameSort;
+}
+function sortByDate(a: Date, b: Date, order: "asc" | "desc" = "asc"): number {
+  const epochA = a.getTime();
+  const epochB = b.getTime();
+  return order === "asc" ? epochA - epochB : epochB - epochA;
+}
+
 export class DeviceManager {
   allDevices: model.Device[];
   allDeviceTypes: model.DeviceType;
@@ -101,6 +121,8 @@ export class DeviceManager {
     return {
       modelId: targetModel.id,
       modelName: targetModel.name,
+      modelLaunchDate: targetModel.launchDate,
+      modelType: targetModel.type,
       device: targetModel.devices[0],
     };
   }
@@ -125,12 +147,14 @@ export class DeviceManager {
       deviceType === "all"
         ? this.allModelThumbnails
         : this.allDeviceTypes[deviceType] ?? [];
-    return targetType.filter(
+    const typeBrandIntersection = targetType.filter(
       (value) =>
         targetBrand?.thumbnails
           .map((value) => value.modelId)
           .includes(value.modelId),
     ); // ref https://stackoverflow.com/a/1885569/19287186
+
+    return typeBrandIntersection.sort(sortModel);
   }
 
   public getBrandModelThumbnailList(

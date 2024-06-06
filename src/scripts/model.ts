@@ -24,6 +24,8 @@ export interface Device {
 export interface ModelThumbnail {
   modelId: schema.ModelEnum;
   modelName: string;
+  modelLaunchDate: Date;
+  modelType: schema.DeviceTypeEnum;
   device: Device;
 }
 
@@ -36,6 +38,8 @@ export interface BrandValue {
 export interface ModelValue {
   id: schema.ModelEnum;
   name: string;
+  launchDate: Date;
+  type: schema.DeviceTypeEnum;
   devices: Device[];
 }
 
@@ -70,6 +74,8 @@ export function mapModelThumbnails(
     result.push({
       modelId: modelValue.id,
       modelName: modelValue.name,
+      modelLaunchDate: new Date(modelValue.launchDate),
+      modelType: modelValue.type,
       device: modelValue.devices[0],
     });
   });
@@ -162,13 +168,20 @@ function mapModel(data: schema.RawModel, allDevices: Device[]): Model {
   Object.keys(data).forEach((modelKey: string) => {
     const model = schema.ModelEnum.parse(modelKey);
 
-    const devices: Device[] = allDevices.filter(
-      (d) => data[model]?.slugs.includes(d.device_id),
+    const target = data[model];
+    if (target == null) {
+      throw new Error("Error in mapping Model");
+    }
+
+    const devices: Device[] = allDevices.filter((d) =>
+      target.slugs.includes(d.device_id),
     );
 
     result[model] = {
       id: model,
-      name: data[model]?.name ?? "",
+      name: target.name,
+      launchDate: new Date(target.launchDateTimestamp),
+      type: target.type,
       devices,
     };
   });
