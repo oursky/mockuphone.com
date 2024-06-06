@@ -66,6 +66,11 @@ check-format:
 	# TODO: upgrade prettier to 3.1 when it is available
 	npx prettier --check "**/*" --ignore-unknown
 
+# ref https://superuser.com/a/1170997
+.PHONY: bundle-python
+bundle-python:
+	ditto -c -k --sequesterRsrc --keepParent ./mockup_package/mockup ./public/mockup.zip
+
 .PHONY: lint_astro
 lint_astro:
 	python3 -m ruff .
