@@ -488,6 +488,7 @@ function main() {
     }
   };
   const handlehtmlNodeDrop = async (e) => {
+    dragZoneCounter--;
     viewModel.isFileDragEnter = false;
     await viewModel.fileList.add(Array.from(e.dataTransfer.files));
   };
