@@ -60,9 +60,6 @@ export const ModelEnum = z.enum([
   // https://en.wikipedia.org/wiki/Samsung_Galaxy_Y
   "galaxy-y",
 
-  // https://en.wikipedia.org/wiki/Samsung_Galaxy_Watch_series#Models
-  "galaxy-watch-4",
-
   "oneplus-8-pro",
 
   // https://en.wikipedia.org/wiki/Huawei_Pura_series
