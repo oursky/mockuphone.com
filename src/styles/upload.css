@@ -7,29 +7,41 @@ main {
 }
 @media (min-width: 992px) {
   .mockup-content {
-    display: flex;
-    justify-content: center;
-    margin: 0 100px;
-    padding: 50px 0;
+    padding: 50px 100px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1440px) {
   .mockup-content {
+    padding: 50px 200px;
+  }
+}
+
+.device-header {
+  flex: 1 1 0%;
+}
+
+.mockup-lg {
+  flex: 1 1 0%;
+}
+
+@media (min-width: 992px) {
+  .mockup-lg {
     display: flex;
-    margin: 0 200px;
+    column-gap: 20px;
   }
 }
 
 @media (min-width: 992px) {
   .mockup-lg-left {
-    flex: 1 1 auto;
+    flex: 1 1 0%;
     max-width: 800px;
   }
 }
 
 @media (min-width: 992px) {
   .mockup-lg-right {
-    margin: 76px 0 0 20px;
+    flex: 1 1 0%;
+    margin: 0 0 0 0;
     max-width: 450px;
   }
 }
@@ -241,7 +253,7 @@ main {
 @media (min-width: 992px) {
   .file-uploaded {
     margin: 0 0 20px 0;
-    width: 335px;
+    width: 100%;
   }
 }
 

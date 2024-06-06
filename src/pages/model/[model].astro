@@ -96,124 +96,130 @@ const defaultColorId = deviceDetail.color?.id ?? "default";
   <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"
   ></script>
   <div class="mockup-content">
-    <div class="mockup-lg-left">
-      <header class="device-header">
-        <h2 class="device-header__name">{model.name}</h2>
-      </header>
-
-      <div class="device">
-        <div class="upload__inner-box" data-color-id={defaultColorId}>
-          <img
-            class="upload__device-image"
-            src={deviceDetail.imagePath?.[0][0]}
-            alt={deviceDetail.imagePath?.[0][1]}
-          />
-          <div class="upload__device-hint">
-            Upload <br /> Image Here
+    <header class="device-header">
+      <h2 class="device-header__name">{model.name}</h2>
+    </header>
+    <div class="mockup-lg">
+      <div class="mockup-lg-left">
+        <div class="device">
+          <div class="upload__inner-box" data-color-id={defaultColorId}>
+            <img
+              class="upload__device-image"
+              src={deviceDetail.imagePath?.[0][0]}
+              alt={deviceDetail.imagePath?.[0][1]}
+            />
+            <div class="upload__device-hint">
+              Upload <br /> Image Here
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="mockup-lg-right">
-      <div id="above-file-uploaded"></div>
-      <section class="file-uploaded">
-        <h3 class="file-uploaded__heading">FILE UPLOAD</h3>
-        <div class="upload-guide">
-          <img src="/Images/upload-blue.svg" />
-          <h3 class="upload-guide__title">Upload your images here</h3>
-          <label class="upload-guide__browse-btn" for="file[]"
-            >Or browse files</label
-          >
-          <input
-            class="upload-guide__file-input"
-            id="download"
-            type="file"
-            name="file[]"
-            accept=".jpg,.png,.psd"
-            multiple
-          />
-        </div>
-        <p class="upload-guide__hint">
-          Recommend size <span id="upload-guide__hint-x"
-            >{deviceDetail.display_resolution?.[0]}</span
-          >px *
-
-          <span id="upload-guide__hint-y"
-            >{deviceDetail.display_resolution?.[1]}</span
-          >px, We support jpg, png and psd
-        </p>
-        <ul class="file-list"></ul>
-        {
-          deviceDetail.color == null ? undefined : (
-            <div class="color-section">
-              <h3 class="color-section__heading">COLOR</h3>
-              <p class="color-section__description">
-                {deviceDetail.color.name}
-              </p>
-              <div class="color-picker-scrollable">
-                <ul class="color-picker">
-                  {sameModelDevices.map((d) =>
-                    d.color == null ? undefined : (
-                      <li class="color-picker-item-container">
-                        <button
-                          style={{ backgroundColor: d.color.hexcode }}
-                          class={`color-picker-item ${
-                            d.color.id === defaultColorId
-                              ? "color-picker-item--selected"
-                              : ""
-                          }`}
-                          type="button"
-                          data-device-id={d.device_id}
-                          data-tippy-content={d.color.name}
-                          data-color-id={d.color.id}
-                          data-color-name={d.color.name}
-                          data-image-path-portrait={d.imagePath?.[0]?.[0]}
-                          data-image-path-landscape={d.imagePath?.[1]?.[0]}
-                          data-credits={d.credits}
-                          data-display-resolution-x={d.display_resolution?.[0]}
-                          data-display-resolution-y={d.display_resolution?.[1]}
-                        />
-                      </li>
-                    ),
-                  )}
-                </ul>
-              </div>
-            </div>
-          )
-        }
-
-        <button disabled class="generate-btn">Generate product mockups</button>
-        <button style="display:none" class="start-mockup-btn"
-          >Generate product mockups</button
-        >
-      </section>
-
-      <section class="device-info">
-        <div class="device-support">
-          <h3 class="device-support__heading">DEVICE ORIENTATIONS</h3>
-          <ul class="device-support__orientation-list">
-            {
-              deviceDetail.imagePath?.map((path: string[], index: number) => (
-                <img
-                  class="device-support__orientation-image"
-                  data-image-path-index={index}
-                  src={path[0]}
-                  alt={path[1]}
-                />
-              ))
-            }
-          </ul>
-        </div>
-        <div class="device-credits">
-          <h3 class="device-credits__heading">CREDITS</h3>
-          <div class="device-credits__desc">
-            <Fragment set:html={deviceDetail.credits} />
+      <div class="mockup-lg-right">
+        <div id="above-file-uploaded"></div>
+        <section class="file-uploaded">
+          <h3 class="file-uploaded__heading">FILE UPLOAD</h3>
+          <div class="upload-guide">
+            <img src="/Images/upload-blue.svg" />
+            <h3 class="upload-guide__title">Upload your images here</h3>
+            <label class="upload-guide__browse-btn" for="file[]"
+              >Or browse files</label
+            >
+            <input
+              class="upload-guide__file-input"
+              id="download"
+              type="file"
+              name="file[]"
+              accept=".jpg,.png,.psd"
+              multiple
+            />
           </div>
-        </div>
-      </section>
+          <p class="upload-guide__hint">
+            Recommend size <span id="upload-guide__hint-x"
+              >{deviceDetail.display_resolution?.[0]}</span
+            >px *
 
-      <RequestDeviceCard />
+            <span id="upload-guide__hint-y"
+              >{deviceDetail.display_resolution?.[1]}</span
+            >px, We support jpg, png and psd
+          </p>
+          <ul class="file-list"></ul>
+          {
+            deviceDetail.color == null ? undefined : (
+              <div class="color-section">
+                <h3 class="color-section__heading">COLOR</h3>
+                <p class="color-section__description">
+                  {deviceDetail.color.name}
+                </p>
+                <div class="color-picker-scrollable">
+                  <ul class="color-picker">
+                    {sameModelDevices.map((d) =>
+                      d.color == null ? undefined : (
+                        <li class="color-picker-item-container">
+                          <button
+                            style={{ backgroundColor: d.color.hexcode }}
+                            class={`color-picker-item ${
+                              d.color.id === defaultColorId
+                                ? "color-picker-item--selected"
+                                : ""
+                            }`}
+                            type="button"
+                            data-device-id={d.device_id}
+                            data-tippy-content={d.color.name}
+                            data-color-id={d.color.id}
+                            data-color-name={d.color.name}
+                            data-image-path-portrait={d.imagePath?.[0]?.[0]}
+                            data-image-path-landscape={d.imagePath?.[1]?.[0]}
+                            data-credits={d.credits}
+                            data-display-resolution-x={
+                              d.display_resolution?.[0]
+                            }
+                            data-display-resolution-y={
+                              d.display_resolution?.[1]
+                            }
+                          />
+                        </li>
+                      ),
+                    )}
+                  </ul>
+                </div>
+              </div>
+            )
+          }
+
+          <button disabled class="generate-btn">Generate product mockups</button
+          >
+          <button style="display:none" class="start-mockup-btn"
+            >Generate product mockups</button
+          >
+        </section>
+
+        <section class="device-info">
+          <div class="device-support">
+            <h3 class="device-support__heading">DEVICE ORIENTATIONS</h3>
+            <ul class="device-support__orientation-list">
+              {
+                deviceDetail.imagePath?.map((path: string[], index: number) => (
+                  <img
+                    class="device-support__orientation-image"
+                    data-image-path-index={index}
+                    src={path[0]}
+                    alt={path[1]}
+                  />
+                ))
+              }
+            </ul>
+          </div>
+          <div class="device-credits">
+            <h3 class="device-credits__heading">CREDITS</h3>
+            <div class="device-credits__desc">
+              <Fragment set:html={deviceDetail.credits} />
+            </div>
+          </div>
+        </section>
+
+        <RequestDeviceCard />
+      </div>
     </div>
     <div class="generating-modal d-none">
       <div class="generating-modal__overlay"></div>
