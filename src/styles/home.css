@@ -93,9 +93,8 @@
   flex: 1 1 0%;
 }
 
-@media (min-width: 1380px) {
+@media (min-width: 1460px) {
   .quick-device-list__item {
-    /* TODO: confirm behaivor ref https://www.figma.com/design/OD2cB4PTbSwl81KAgGMfHp?node-id=1-2486#825212424 */
     flex: none;
   }
 }
