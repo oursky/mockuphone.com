@@ -31,10 +31,10 @@ function getJSZipDateWithOffset() {
 
   return dateWithOffset;
 }
-async function generateZIP() {
+async function generateZIP(deviceId) {
   var zip = new JSZip();
   var count = 0;
-  var zipFilename = "mockup.zip";
+  const zipFilename = !!deviceId ? `${deviceId}-mockup.zip` : "mockup.zip";
   var images = new Map();
   dataurlkey = await allStorage();
   dataurlkey.forEach(function (value, key) {

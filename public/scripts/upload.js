@@ -34,7 +34,7 @@ async function runWorker(worker) {
       window.localforage
         .setItem("pictureArray", e.data)
         .then(function (pictureArray) {
-          window.location.href = "/download";
+          window.location.href = "/download/?deviceId=" + window.workerDeviceId;
         })
         .catch(function (err) {
           console.error("Get error while storing images to localforage:", err);
@@ -169,7 +169,7 @@ class RootViewModel {
   }
 
   get previewUrl() {
-    return "/download/";
+    return "/download/?deviceId=" + window.workerDeviceId;
   }
 }
 
