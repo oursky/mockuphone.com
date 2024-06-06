@@ -2,6 +2,8 @@ const isDebug = false;
 const NUM_DEFAULT_MODEL_ITEMS_TO_DISPLAY = 0;
 const NUM_DEFAULT_BRAND_ITEMS_TO_DISPLAY = 0;
 const MAX_SEARCH_HISTORY_ITEM = 5;
+const ALGOLIA_SEARCH_HISTORY_KEY = "brandModelSearch";
+const LOCAL_STORAGE_KEY = `AUTOCOMPLETE_RECENT_SEARCHES:${ALGOLIA_SEARCH_HISTORY_KEY}`;
 
 function ready(fn) {
   if (document.readyState != "loading") {
@@ -130,14 +132,78 @@ function handleSelectBrandOption(selectParent, viewModel) {
   viewModel.selectedBrand = brand;
 }
 
+function isArray(obj) {
+  return Object.prototype.toString.call(obj) === "[object Array]";
+}
+
+function appendToLocalStorageRecentSearches(item, type) {
+  const existingStr = localStorage.getItem(LOCAL_STORAGE_KEY);
+  const existing = JSON.parse(existingStr);
+
+  const newHistoryItem = { id: item.id, label: item.name, type };
+
+  if (!isArray(existing)) {
+    const newHistory = [newHistoryItem];
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newHistory));
+    return;
+  }
+  const hasDuplicateHistory =
+    existing.filter((history) => history.id === item.id).length > 0;
+  if (hasDuplicateHistory) {
+    const existingWithoutDuplicate = existing.filter(
+      (history) => history.id !== item.id,
+    );
+    const newHistory = [newHistoryItem, ...existingWithoutDuplicate];
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newHistory));
+    return;
+  }
+
+  const newHistory = [newHistoryItem, ...existing];
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newHistory));
+}
+
+function moveOldHistoryToTop(oldHistoryItem) {
+  const existingStr = localStorage.getItem(LOCAL_STORAGE_KEY);
+  const existing = JSON.parse(existingStr);
+  if (!isArray(existing)) {
+    // unexpected, just return
+    return;
+  }
+  const existingWithoutDuplicate = existing.filter(
+    (history) => history.id !== oldHistoryItem.id,
+  );
+  const newHistory = [oldHistoryItem, ...existingWithoutDuplicate];
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newHistory));
+}
+
 function initializeSearch(viewModel, containerId) {
   const { autocomplete } = window["@algolia/autocomplete-js"];
   const { createLocalStorageRecentSearchesPlugin } =
     window["@algolia/autocomplete-plugin-recent-searches"];
 
   const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
-    key: `brandModelSearch`,
+    key: ALGOLIA_SEARCH_HISTORY_KEY,
     MAX_SEARCH_HISTORY_ITEM,
+    transformSource({ source }) {
+      return {
+        ...source,
+        onSelect({ item }) {
+          const { id, label } = item;
+          const type = item.type ?? "";
+          moveOldHistoryToTop(item); // move most recent to top
+          switch (type) {
+            case "model":
+              window.location.href = `/model/${id}`;
+              break;
+            case "brand":
+              window.location.href = `/type/all/?brand=${id}`;
+              break;
+            default:
+              window.location.href = `/type/all/?query=${label}`;
+          }
+        },
+      };
+    },
   });
   autocomplete({
     container: containerId,
@@ -165,6 +231,9 @@ function initializeSearch(viewModel, containerId) {
               >`;
             },
           },
+          onSelect({ item }) {
+            appendToLocalStorageRecentSearches(item, "model");
+          },
           getItemUrl({ item }) {
             return `${window.location.origin}${item.pathname}`;
           },
@@ -187,6 +256,9 @@ function initializeSearch(viewModel, containerId) {
                 >${item.name}</a
               >`;
             },
+          },
+          onSelect({ item }) {
+            appendToLocalStorageRecentSearches(item, "brand");
           },
           getItemUrl({ item }) {
             return `${window.location.origin}${item.pathname}`;
