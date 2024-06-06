@@ -67,8 +67,7 @@
     "apple-watch-ultra-2",
     "apple-watch-series-5-40mm",
     "apple-watch-series-8-41mm",
-    "apple-watch-series-8-45mm",
-    "galaxy-watch-4"
+    "apple-watch-series-8-45mm"
   ],
   "tv": ["samsung-tv-es8000", "samsung-tv-d8000", "lg-55lw5600", "lg-tm2792"]
 }
