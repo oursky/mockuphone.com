@@ -241,7 +241,7 @@ main {
 @media (min-width: 992px) {
   .file-uploaded {
     margin: 0 0 20px 0;
-    width: 335px;
+    width: 100%;
   }
 }
 
