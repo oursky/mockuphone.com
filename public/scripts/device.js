@@ -363,7 +363,13 @@ function main() {
                 `#device-section-list__item-${selectedBrand}`,
               ),
             ];
-      targetBrandSections.forEach((n) => n.classList.remove("d-none"));
+      targetBrandSections.forEach((n) => {
+        n.classList.remove("d-none");
+
+        // Show device children
+        const deviceChildren = n.querySelectorAll(".device-grid-container");
+        deviceChildren.forEach((n) => n.classList.remove("d-none"));
+      });
       brandSelect.value = selectedBrand;
     },
   );
