@@ -493,6 +493,10 @@ function main() {
 
   const handleFileInputChange = async (e) => {
     await viewModel.fileList.add(Array.from(e.target.files));
+
+    // ref https://stackoverflow.com/a/60887378/19287186
+    // wordaround to allow upload same files again
+    e.target.value = "";
   };
 
   // observe fileListViewModel: isProcessing
