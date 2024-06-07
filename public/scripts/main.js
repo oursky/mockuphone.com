@@ -16,7 +16,7 @@ function main() {
     // Regardless of screen width, hide native mobile share section which require share api, show default share section
     mobileShareBtn.classList.remove("d-block", "d-sm-none");
     mobileShareBtn.classList.add("d-none");
-    defaultShareSection.classList.remove("d-none", "d-sm-block");
+    defaultShareSection.classList.remove("d-none", "d-sm-flex");
   }
 
   mobileShareBtn.addEventListener("click", () => {
