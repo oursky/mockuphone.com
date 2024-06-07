@@ -490,12 +490,13 @@ function main() {
     viewModel.isFileDragEnter = false;
     await viewModel.fileList.add(Array.from(e.dataTransfer.files));
   };
-  const handleUploadBtnClick = (e) => {
-    fileInput.click();
-  };
+
   const handleFileInputChange = async (e) => {
     await viewModel.fileList.add(Array.from(e.target.files));
-    htmlNode.reset();
+
+    // ref https://stackoverflow.com/a/60887378/19287186
+    // wordaround to allow upload same files again
+    e.target.value = "";
   };
 
   // observe fileListViewModel: isProcessing
@@ -504,14 +505,12 @@ function main() {
       htmlNode.removeEventListener("dragenter", handlehtmlNodeDragEnter);
       htmlNode.removeEventListener("dragleave", handlehtmlNodeDragLeave);
       htmlNode.removeEventListener("drop", handlehtmlNodeDrop);
-      uploadBtn.removeEventListener("click", handleUploadBtnClick);
       fileInput.removeEventListener("change", handleFileInputChange);
       showUploading();
     } else {
       htmlNode.addEventListener("dragenter", handlehtmlNodeDragEnter);
       htmlNode.addEventListener("dragleave", handlehtmlNodeDragLeave);
       htmlNode.addEventListener("drop", handlehtmlNodeDrop);
-      uploadBtn.addEventListener("click", handleUploadBtnClick);
       fileInput.addEventListener("change", handleFileInputChange);
       dismissUploading();
     }
@@ -582,8 +581,12 @@ function main() {
         }
         updateFileListItem(itemNode, imageUploads[i]);
       }
-      const HEADER_HEIGHT = 80;
-      scrollToElementTop(uploadSection, HEADER_HEIGHT);
+
+      // scroll to upload element on mobile devices
+      if (window.innerWidth <= 992) {
+        const HEADER_HEIGHT = 80;
+        scrollToElementTop(uploadSection, HEADER_HEIGHT);
+      }
     },
     {
       equals: mobx.comparer.shallow,
