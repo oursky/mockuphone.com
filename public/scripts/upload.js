@@ -577,8 +577,12 @@ function main() {
         }
         updateFileListItem(itemNode, imageUploads[i]);
       }
-      const HEADER_HEIGHT = 80;
-      scrollToElementTop(uploadSection, HEADER_HEIGHT);
+
+      // scroll to upload element on mobile devices
+      if (window.innerWidth <= 992) {
+        const HEADER_HEIGHT = 80;
+        scrollToElementTop(uploadSection, HEADER_HEIGHT);
+      }
     },
     {
       equals: mobx.comparer.shallow,
