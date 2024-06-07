@@ -490,12 +490,9 @@ function main() {
     viewModel.isFileDragEnter = false;
     await viewModel.fileList.add(Array.from(e.dataTransfer.files));
   };
-  const handleUploadBtnClick = (e) => {
-    fileInput.click();
-  };
+
   const handleFileInputChange = async (e) => {
     await viewModel.fileList.add(Array.from(e.target.files));
-    htmlNode.reset();
   };
 
   // observe fileListViewModel: isProcessing
@@ -504,14 +501,12 @@ function main() {
       htmlNode.removeEventListener("dragenter", handlehtmlNodeDragEnter);
       htmlNode.removeEventListener("dragleave", handlehtmlNodeDragLeave);
       htmlNode.removeEventListener("drop", handlehtmlNodeDrop);
-      uploadBtn.removeEventListener("click", handleUploadBtnClick);
       fileInput.removeEventListener("change", handleFileInputChange);
       showUploading();
     } else {
       htmlNode.addEventListener("dragenter", handlehtmlNodeDragEnter);
       htmlNode.addEventListener("dragleave", handlehtmlNodeDragLeave);
       htmlNode.addEventListener("drop", handlehtmlNodeDrop);
-      uploadBtn.addEventListener("click", handleUploadBtnClick);
       fileInput.addEventListener("change", handleFileInputChange);
       dismissUploading();
     }
