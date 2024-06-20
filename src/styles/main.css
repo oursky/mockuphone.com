@@ -40,6 +40,12 @@ figure {
   margin: 0;
 }
 
+#main-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .header {
   z-index: 100;
   display: flex;
@@ -159,13 +165,8 @@ figure {
 }
 
 main {
+  flex: 1;
   margin-top: 80px;
-  min-height: calc(100vh - 80px - 290px);
-}
-@media (min-width: 992px) {
-  main {
-    min-height: calc(100vh - 80px - 250px);
-  }
 }
 
 .footer {
