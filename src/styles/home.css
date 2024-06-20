@@ -1,4 +1,10 @@
 @import url("./search.css");
+
+.main--landing-content {
+  display: flex;
+  flex-direction: row;
+}
+
 .landing-content {
   position: relative;
   padding: 0;

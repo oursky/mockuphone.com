@@ -9,7 +9,10 @@ const modelItems = getModelItems(DEVICE_MANAGER);
 const brandItems = getBrandItems(DEVICE_MANAGER);
 ---
 
-<BaseLayout isHeaderTransparent={true}>
+<BaseLayout
+  isHeaderTransparent={true}
+  mainContainerClass="main--landing-content"
+>
   <script define:vars={{ modelItems, brandItems }}>
     window.modelItems = modelItems;
     window.brandItems = brandItems;
