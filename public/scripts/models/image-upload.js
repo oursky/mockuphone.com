@@ -45,6 +45,10 @@ class ImageUpload {
     });
     this.file = file;
     this.maxFileSizeByte = maxFileSizeByte;
+  }
+
+  async read() {
+    this.readState = ReadState.Reading;
     if (!this.supportedFileTypes.includes(file.type)) {
       this.readState = ReadState.ErrUnsupportedFileType;
       return;
@@ -53,8 +57,12 @@ class ImageUpload {
       this.readState = ReadState.ErrExceedMaxFileSize;
       return;
     }
-    this.readState = ReadState.Reading;
-    this.loadDimensionPromise = this._loadDimension();
+    const loadDimensionResult = await this._loadDimension();
+    if (loadDimensionResult.type === "failed") {
+      this.readState = loadDimensionResult.reason;
+      return;
+    }
+    this.readState = ReadState.ReadSuccess;
   }
 
   async _loadDimension() {
@@ -77,7 +85,6 @@ class ImageUpload {
           mobx.action(() => {
             this.width = psd.image.getImageWidth();
             this.height = psd.image.getImageHeight();
-            this.readState = ReadState.ReadSuccess;
           })();
 
           resolve({ type: "success" });
@@ -85,16 +92,10 @@ class ImageUpload {
       };
       fileReader.onabort = () => {
         console.warn("onabort");
-        mobx.action(() => {
-          this.readState = ReadState.ErrRead;
-        })();
         resolve({ type: "failed", reason: ReadState.ErrRead });
       };
       fileReader.onerror = () => {
         console.warn("onerror");
-        mobx.action(() => {
-          this.readState = ReadState.ErrRead;
-        })();
         resolve({ type: "failed", reason: ReadState.ErrRead });
       };
       fileReader.readAsDataURL(this.file);
@@ -110,38 +111,25 @@ class ImageUpload {
           mobx.action(() => {
             this.width = img.width;
             this.height = img.height;
-            this.readState = ReadState.ReadSuccess;
           })();
 
           resolve({ type: "success" });
         };
         img.onerror = () => {
           console.warn("onerror");
-          mobx.action(() => {
-            this.readState = ReadState.ErrRead;
-          })();
           resolve({ type: "failed", reason: ReadState.ErrRead });
         };
         img.onabort = () => {
           console.warn("onabort");
-          mobx.action(() => {
-            this.readState = ReadState.ErrRead;
-          })();
           resolve({ type: "failed", reason: ReadState.ErrRead });
         };
         img.src = fileReader.result;
       };
       fileReader.onabort = () => {
-        mobx.action(() => {
-          this.readState = ReadState.ErrRead;
-        })();
         resolve({ type: "failed", reason: ReadState.ErrRead });
       };
       fileReader.onerror = () => {
         console.log("onerror");
-        mobx.action(() => {
-          this.readState = ReadState.ErrRead;
-        })();
         resolve({ type: "failed", reason: ReadState.ErrRead });
       };
       fileReader.readAsDataURL(this.file);

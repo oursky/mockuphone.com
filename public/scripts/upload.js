@@ -87,9 +87,7 @@ class FileListViewModel {
 
     for (const file of files) {
       const imageUpload = new ImageUpload(file, MAX_FILE_SIZE_BYTE);
-      if (imageUpload.loadDimensionPromise != null) {
-        await imageUpload.loadDimensionPromise;
-      }
+      await imageUpload.read();
       this._imageUploads.push(imageUpload);
     }
   }
