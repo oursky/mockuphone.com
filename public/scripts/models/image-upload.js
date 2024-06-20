@@ -43,7 +43,7 @@ class ImageUpload {
 
   async read() {
     this.readState = ReadState.Reading;
-    if (!this._verifyFileType()) {
+    if (!(await this._verifyFileType())) {
       this.readState = ReadState.ErrUnsupportedFileType;
       return;
     }
@@ -59,9 +59,37 @@ class ImageUpload {
     this.readState = ReadState.ReadSuccess;
   }
 
-  _isPsd() {
+  // Cache file type from header such that no need to parse again
+  __fileTypeFromHeader = null;
+  async _getFileTypeFromHeader() {
+    if (this.__fileTypeFromHeader != null) {
+      return this.__fileTypeFromHeader;
+    }
+    const arrayBuffer = await this.file.arrayBuffer();
+    const FILE_TYPE_HEADER_BYTES = 4;
+    const headerFileTypeBuff = new Uint8Array(arrayBuffer).subarray(
+      0,
+      FILE_TYPE_HEADER_BYTES,
+    );
+    let fileTypeFromHeader = "";
+    for (let i = 0; i < headerFileTypeBuff.length; i++) {
+      fileTypeFromHeader += String.fromCharCode(headerFileTypeBuff[i]);
+    }
+    this.__fileTypeFromHeader = fileTypeFromHeader;
+    return this.__fileTypeFromHeader;
+  }
+
+  async _isPsd() {
     const MIME_TYPES = ["application/x-photoshop", "image/vnd.adobe.photoshop"];
-    return MIME_TYPES.includes(this.file.type);
+    const fileTypesFromHeader = [
+      "8BPS", // https://www.fileformat.info/format/psd/egff.htm
+    ];
+    return (
+      MIME_TYPES.includes(this.file.type) ||
+      // Windows workaround
+      // https://stackoverflow.com/questions/51724649/mime-type-of-file-returning-empty-in-javascript-on-some-machines
+      fileTypesFromHeader.includes(await this._getFileTypeFromHeader())
+    );
   }
 
   _isImg() {
@@ -69,8 +97,8 @@ class ImageUpload {
     return MIME_TYPES.includes(this.file.type);
   }
 
-  _verifyFileType() {
-    return this._isPsd() || this._isImg();
+  async _verifyFileType() {
+    return (await this._isPsd()) || this._isImg();
   }
 
   _verifyFileSize() {
@@ -81,7 +109,7 @@ class ImageUpload {
   }
 
   async _loadDimension() {
-    if (this._isPsd()) {
+    if (await this._isPsd()) {
       return await this._loadPsdDimennsion();
     } else {
       return await this._loadImageDimension();
