@@ -80,7 +80,7 @@ class ImageUpload {
             this.readState = ReadState.ReadSuccess;
           })();
 
-          resolve();
+          resolve({ type: "success" });
         });
       };
       fileReader.onabort = () => {
@@ -88,14 +88,14 @@ class ImageUpload {
         mobx.action(() => {
           this.readState = ReadState.ErrRead;
         })();
-        resolve();
+        resolve({ type: "failed", reason: ReadState.ErrRead });
       };
       fileReader.onerror = () => {
         console.warn("onerror");
         mobx.action(() => {
           this.readState = ReadState.ErrRead;
         })();
-        resolve();
+        resolve({ type: "failed", reason: ReadState.ErrRead });
       };
       fileReader.readAsDataURL(this.file);
     });
@@ -113,21 +113,21 @@ class ImageUpload {
             this.readState = ReadState.ReadSuccess;
           })();
 
-          resolve();
+          resolve({ type: "success" });
         };
         img.onerror = () => {
           console.warn("onerror");
           mobx.action(() => {
             this.readState = ReadState.ErrRead;
           })();
-          resolve();
+          resolve({ type: "failed", reason: ReadState.ErrRead });
         };
         img.onabort = () => {
           console.warn("onabort");
           mobx.action(() => {
             this.readState = ReadState.ErrRead;
           })();
-          resolve();
+          resolve({ type: "failed", reason: ReadState.ErrRead });
         };
         img.src = fileReader.result;
       };
@@ -135,14 +135,14 @@ class ImageUpload {
         mobx.action(() => {
           this.readState = ReadState.ErrRead;
         })();
-        resolve();
+        resolve({ type: "failed", reason: ReadState.ErrRead });
       };
       fileReader.onerror = () => {
         console.log("onerror");
         mobx.action(() => {
           this.readState = ReadState.ErrRead;
         })();
-        resolve();
+        resolve({ type: "failed", reason: ReadState.ErrRead });
       };
       fileReader.readAsDataURL(this.file);
     });
