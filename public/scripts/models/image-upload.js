@@ -12,12 +12,6 @@ const ReadState = {
 };
 
 class ImageUpload {
-  supportedFileTypes = [
-    "application/x-photoshop",
-    "image/vnd.adobe.photoshop",
-    "image/jpeg",
-    "image/png",
-  ];
   maxFileSizeByte = null;
   file = null;
   width = null;
@@ -49,11 +43,11 @@ class ImageUpload {
 
   async read() {
     this.readState = ReadState.Reading;
-    if (!this.supportedFileTypes.includes(file.type)) {
+    if (!this._verifyFileType()) {
       this.readState = ReadState.ErrUnsupportedFileType;
       return;
     }
-    if (this.maxFileSizeByte != null && this.file.size > this.maxFileSizeByte) {
+    if (!this._verifyFileSize()) {
       this.readState = ReadState.ErrExceedMaxFileSize;
       return;
     }
@@ -65,11 +59,29 @@ class ImageUpload {
     this.readState = ReadState.ReadSuccess;
   }
 
+  _isPsd() {
+    const MIME_TYPES = ["application/x-photoshop", "image/vnd.adobe.photoshop"];
+    return MIME_TYPES.includes(this.file.type);
+  }
+
+  _isImg() {
+    const MIME_TYPES = ["image/jpeg", "image/png"];
+    return MIME_TYPES.includes(this.file.type);
+  }
+
+  _verifyFileType() {
+    return this._isPsd() || this._isImg();
+  }
+
+  _verifyFileSize() {
+    if (this.maxFileSizeByte != null && this.file.size > this.maxFileSizeByte) {
+      return false;
+    }
+    return true;
+  }
+
   async _loadDimension() {
-    if (
-      this.file.type === "image/vnd.adobe.photoshop" ||
-      this.file.type === "application/x-photoshop"
-    ) {
+    if (this._isPsd()) {
       return await this._loadPsdDimennsion();
     } else {
       return await this._loadImageDimension();
