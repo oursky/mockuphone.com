@@ -2,8 +2,9 @@
 id = "mockuphone-prod"
 
 team = [
-    { githubuser="rickmak", access="deployer" },
-    { githubuser="pkong-ds", access="deployer" },
+    { githubuser="rickmak", access="admin" },
+    { githubuser="chankiyu22", access="admin" },
+    { githubuser="pkong-ds", access="admin" },
     # Allow GitHub Actions in your repo to deploy
     { gitHubRepositoryActions="oursky/mockuphone.com", access="deployer" },
     { gitHubRepositoryActions="pkong-ds/mockuphone.com", access="deployer" }
