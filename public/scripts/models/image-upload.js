@@ -12,12 +12,6 @@ const ReadState = {
 };
 
 class ImageUpload {
-  supportedFileTypes = [
-    "application/x-photoshop",
-    "image/vnd.adobe.photoshop",
-    "image/jpeg",
-    "image/png",
-  ];
   maxFileSizeByte = null;
   file = null;
   width = null;
@@ -45,23 +39,77 @@ class ImageUpload {
     });
     this.file = file;
     this.maxFileSizeByte = maxFileSizeByte;
-    if (!this.supportedFileTypes.includes(file.type)) {
+  }
+
+  async read() {
+    this.readState = ReadState.Reading;
+    if (!(await this._verifyFileType())) {
       this.readState = ReadState.ErrUnsupportedFileType;
       return;
     }
-    if (this.maxFileSizeByte != null && this.file.size > this.maxFileSizeByte) {
+    if (!this._verifyFileSize()) {
       this.readState = ReadState.ErrExceedMaxFileSize;
       return;
     }
-    this.readState = ReadState.Reading;
-    this.loadDimensionPromise = this._loadDimension();
+    const loadDimensionResult = await this._loadDimension();
+    if (loadDimensionResult.type === "failed") {
+      this.readState = loadDimensionResult.reason;
+      return;
+    }
+    this.readState = ReadState.ReadSuccess;
+  }
+
+  // Cache file type from header such that no need to parse again
+  __fileTypeFromHeader = null;
+  async _getFileTypeFromHeader() {
+    if (this.__fileTypeFromHeader != null) {
+      return this.__fileTypeFromHeader;
+    }
+    const arrayBuffer = await this.file.arrayBuffer();
+    const FILE_TYPE_HEADER_BYTES = 4;
+    const headerFileTypeBuff = new Uint8Array(arrayBuffer).subarray(
+      0,
+      FILE_TYPE_HEADER_BYTES,
+    );
+    let fileTypeFromHeader = "";
+    for (let i = 0; i < headerFileTypeBuff.length; i++) {
+      fileTypeFromHeader += String.fromCharCode(headerFileTypeBuff[i]);
+    }
+    this.__fileTypeFromHeader = fileTypeFromHeader;
+    return this.__fileTypeFromHeader;
+  }
+
+  async _isPsd() {
+    const MIME_TYPES = ["application/x-photoshop", "image/vnd.adobe.photoshop"];
+    const fileTypesFromHeader = [
+      "8BPS", // https://www.fileformat.info/format/psd/egff.htm
+    ];
+    return (
+      MIME_TYPES.includes(this.file.type) ||
+      // Windows workaround
+      // https://stackoverflow.com/questions/51724649/mime-type-of-file-returning-empty-in-javascript-on-some-machines
+      fileTypesFromHeader.includes(await this._getFileTypeFromHeader())
+    );
+  }
+
+  _isImg() {
+    const MIME_TYPES = ["image/jpeg", "image/png"];
+    return MIME_TYPES.includes(this.file.type);
+  }
+
+  async _verifyFileType() {
+    return (await this._isPsd()) || this._isImg();
+  }
+
+  _verifyFileSize() {
+    if (this.maxFileSizeByte != null && this.file.size > this.maxFileSizeByte) {
+      return false;
+    }
+    return true;
   }
 
   async _loadDimension() {
-    if (
-      this.file.type === "image/vnd.adobe.photoshop" ||
-      this.file.type === "application/x-photoshop"
-    ) {
+    if (await this._isPsd()) {
       return await this._loadPsdDimennsion();
     } else {
       return await this._loadImageDimension();
@@ -77,25 +125,18 @@ class ImageUpload {
           mobx.action(() => {
             this.width = psd.image.getImageWidth();
             this.height = psd.image.getImageHeight();
-            this.readState = ReadState.ReadSuccess;
           })();
 
-          resolve();
+          resolve({ type: "success" });
         });
       };
       fileReader.onabort = () => {
         console.warn("onabort");
-        mobx.action(() => {
-          this.readState = ReadState.ErrRead;
-        })();
-        resolve();
+        resolve({ type: "failed", reason: ReadState.ErrRead });
       };
       fileReader.onerror = () => {
         console.warn("onerror");
-        mobx.action(() => {
-          this.readState = ReadState.ErrRead;
-        })();
-        resolve();
+        resolve({ type: "failed", reason: ReadState.ErrRead });
       };
       fileReader.readAsDataURL(this.file);
     });
@@ -110,39 +151,26 @@ class ImageUpload {
           mobx.action(() => {
             this.width = img.width;
             this.height = img.height;
-            this.readState = ReadState.ReadSuccess;
           })();
 
-          resolve();
+          resolve({ type: "success" });
         };
         img.onerror = () => {
           console.warn("onerror");
-          mobx.action(() => {
-            this.readState = ReadState.ErrRead;
-          })();
-          resolve();
+          resolve({ type: "failed", reason: ReadState.ErrRead });
         };
         img.onabort = () => {
           console.warn("onabort");
-          mobx.action(() => {
-            this.readState = ReadState.ErrRead;
-          })();
-          resolve();
+          resolve({ type: "failed", reason: ReadState.ErrRead });
         };
         img.src = fileReader.result;
       };
       fileReader.onabort = () => {
-        mobx.action(() => {
-          this.readState = ReadState.ErrRead;
-        })();
-        resolve();
+        resolve({ type: "failed", reason: ReadState.ErrRead });
       };
       fileReader.onerror = () => {
         console.log("onerror");
-        mobx.action(() => {
-          this.readState = ReadState.ErrRead;
-        })();
-        resolve();
+        resolve({ type: "failed", reason: ReadState.ErrRead });
       };
       fileReader.readAsDataURL(this.file);
     });
