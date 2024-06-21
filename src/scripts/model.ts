@@ -7,7 +7,7 @@ export interface Orientation {
 
 export interface Device {
   credits: string;
-  desc: string; // desc is usually [color], if [color] not available, will fallback to [model_no]
+  color_str: string;
   meta_title: string;
   meta_description: string;
   display_resolution: number[];
@@ -16,7 +16,7 @@ export interface Device {
   name: string;
   short_name?: string;
   orientations: Orientation[];
-  view_desc: string;
+  available_perspectives: string[];
   imagePath?: [string, string][];
   color: DeviceColor | null;
 }

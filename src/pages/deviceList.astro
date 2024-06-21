@@ -1,8 +1,15 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
 import ListItem from "../components/ListItem.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { DeviceTypeEnum } from "../scripts/parse";
 
-const device_type = ["iOS", "Android", "TV", "iMac", "Macbook", "Laptops"];
+const deviceTypes: DeviceTypeEnum[] = [
+  "phone",
+  "tablet",
+  "laptop",
+  "wearables",
+  "tv",
+];
 ---
 
 <BaseLayout>
@@ -14,7 +21,7 @@ const device_type = ["iOS", "Android", "TV", "iMac", "Macbook", "Laptops"];
   <div class="static-page device-list-page">
     <h1 class="title">Device list</h1>
     <div class="content">
-      {device_type.map((item) => <ListItem type={item} />)}
+      {deviceTypes.map((deviceType) => <ListItem type={deviceType} />)}
     </div>
   </div>
 </BaseLayout>

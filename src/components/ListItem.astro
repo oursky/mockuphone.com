@@ -1,11 +1,82 @@
 ---
 import { DEVICE_MANAGER } from "../scripts/deviceManager";
 import type { Device } from "../scripts/model";
+import * as model from "../scripts/model";
+import { DeviceTypeEnum } from "../scripts/parse";
 const { type } = Astro.props;
-const deviceArray: Device[] = DEVICE_MANAGER.getDeviceListByLegacyType(type);
+const deviceArray: Device[] = DEVICE_MANAGER.getDeviceListByType(type);
+
+const typeName: { [key in string]: string } = {
+  laptop: "Laptop",
+  phone: "Phone",
+  tablet: "Tablet",
+  tv: "TV",
+  wearables: "Wareables",
+} satisfies { [key in DeviceTypeEnum]: string };
+
+interface LineItem {
+  credits: string;
+  colorStrings: string[];
+  model: string;
+  modelId: string;
+  availablePerspectives: string[];
+  deviceType: string;
+}
+
+function dedupe(deviceModel: model.Model, devices: model.Device[]) {
+  const deviceIdToModelMap: { [key in string]: model.ModelValue } = {};
+  for (const [, model] of Object.entries(deviceModel)) {
+    for (const device of model.devices) {
+      deviceIdToModelMap[device.device_id] = model;
+    }
+  }
+
+  const lineItems: LineItem[] = devices.map((d) => ({
+    credits: d.credits,
+    colorStrings: [d.color_str],
+    model: d.name,
+    modelId: deviceIdToModelMap[d.device_id].id,
+    availablePerspectives: d.available_perspectives,
+    deviceType: d.device_type,
+  }));
+  const modelDevicesMap: { [key in string]: LineItem[] } = {};
+
+  const modelIds: string[] = [];
+  for (const device of devices) {
+    const exists = modelIds.find(
+      (m) => m === deviceIdToModelMap[device.device_id].id,
+    );
+    if (!exists) {
+      modelIds.push(deviceIdToModelMap[device.device_id].id);
+    }
+  }
+
+  for (const lineItem of lineItems) {
+    const modelDevices = modelDevicesMap[lineItem.modelId] ?? [];
+
+    modelDevices.push(lineItem);
+
+    modelDevicesMap[lineItem.modelId] = modelDevices;
+  }
+
+  const normalizedModelDevice: LineItem[] = modelIds.map((modelId) => {
+    const devices = modelDevicesMap[modelId];
+    const colorStrings = devices.reduce<string[]>(
+      (prev, curr) => [...prev, ...curr.colorStrings],
+      [],
+    );
+    return {
+      ...devices[0],
+      colorStrings,
+    };
+  });
+  return normalizedModelDevice;
+}
+
+const lineItems = dedupe(DEVICE_MANAGER.allDeviceModels, deviceArray);
 ---
 
-<h2>{type}</h2>
+<h2>{typeName[type]}</h2>
 <table class="table table-bordered">
   <colgroup>
     <col class="model-name" />
@@ -14,23 +85,35 @@ const deviceArray: Device[] = DEVICE_MANAGER.getDeviceListByLegacyType(type);
   </colgroup>
   <thead>
     <tr>
-      <th>Model</th>
-      <th>Color</th>
-      <th>Available Perspectives</th>
-      <th>Credits</th>
+      <th style="width: 30%">Model</th>
+      <th style="width: 20%">Color</th>
+      <th style="width: 20%">Available Perspectives</th>
+      <th style="width: 30%">Credits</th>
     </tr>
   </thead>
   <tbody>
     {
-      deviceArray.map((device: Device) => {
+      lineItems.map((lineItem: LineItem) => {
         return (
           <tr>
             <td>
-              <a href={"/device/" + device.device_id}>{device.name}</a>
+              <a href={"/model/" + lineItem.modelId}>{lineItem.model}</a>
             </td>
-            <td>{device.desc}</td>
-            <td set:html={device.view_desc} />
-            <td set:html={device.credits} />
+            <td>
+              <ul class="m-0 pl-3">
+                {lineItem.colorStrings.map((d) => {
+                  return <li>{d}</li>;
+                })}
+              </ul>
+            </td>
+            <td>
+              <ul class="m-0 pl-3">
+                {lineItem.availablePerspectives.map((d) => {
+                  return <li>{d}</li>;
+                })}
+              </ul>
+            </td>
+            <td set:html={lineItem.credits} />
           </tr>
         );
       })
