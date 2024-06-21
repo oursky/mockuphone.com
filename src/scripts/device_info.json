@@ -2,7 +2,7 @@
   "devices": [
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "color_str": "Ultra",
+      "color_str": "Titanium",
       "color": {
         "id": "ultra",
         "name": "Titanium",
@@ -522,7 +522,7 @@
     },
     {
       "credits": "<p><a href=\"http://www.elegantthemes.com/blog/freebie-of-the-week/free-imac-psd-templates\">Elegant Themes</a><br/> <a href=\"https://twitter.com/@elegantthemes\">@elegantthemes</a></p>",
-      "color_str": "2013",
+      "color_str": "Silver",
       "color": {
         "id": "silver",
         "name": "Silver",
@@ -533,7 +533,7 @@
       "display_resolution": [1920, 1080],
       "device_type": "iMac",
       "device_id": "apple-imac2013",
-      "name": "iMac",
+      "name": "iMac 2013",
       "orientations": [
         {
           "alt": "imac mockup generator",
@@ -574,7 +574,7 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "color_str": "2015",
+      "color_str": "Silver",
       "color": {
         "id": "silver",
         "name": "Silver",
@@ -585,7 +585,7 @@
       "display_resolution": [1920, 1080],
       "device_type": "iMac",
       "device_id": "apple-imac2015",
-      "name": "iMac",
+      "name": "iMac 2015",
       "orientations": [
         {
           "alt": "imac mockup",
@@ -604,18 +604,18 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "color_str": "2015",
+      "color_str": "Silver",
       "color": {
         "id": "silver",
         "name": "Silver",
         "hexcode": "#E5E6E6"
       },
-      "meta_title": "iMac Retina 2016 Mock Up",
-      "meta_description": "1 click to generate your iMac Retina 2016 mockup! You can wrap screenshots in iMac Retina 2016 for prototypes.",
+      "meta_title": "iMac Retina 2015 Mock Up",
+      "meta_description": "1 click to generate your iMac Retina 2015 mockup! You can wrap screenshots in iMac Retina 2015 for prototypes.",
       "display_resolution": [1920, 1080],
       "device_type": "iMac",
       "device_id": "apple-imac2015retina",
-      "name": "iMac Retina",
+      "name": "iMac Retina 2015",
       "orientations": [
         {
           "alt": "imac mock up",
@@ -2426,7 +2426,7 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "color_str": "13",
+      "color_str": "Midnight",
       "color": {
         "id": "midnight",
         "name": "Midnight",
@@ -2437,7 +2437,7 @@
       "display_resolution": [2560, 1664],
       "device_type": "Macbook",
       "device_id": "apple-macbookair13",
-      "name": "Macbook Air",
+      "name": "Macbook Air 13\"",
       "orientations": [
         {
           "alt": "macbook air 13 mockup",
@@ -2457,7 +2457,7 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "color_str": "14",
+      "color_str": "Silver",
       "color": {
         "id": "silver",
         "name": "Silver",
@@ -2468,7 +2468,7 @@
       "display_resolution": [3024, 1964],
       "device_type": "Macbook",
       "device_id": "apple-macbookpro14",
-      "name": "Macbook Pro",
+      "name": "Macbook Pro 14\"",
       "orientations": [
         {
           "alt": "macbook pro mockup",
@@ -2488,7 +2488,7 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "color_str": "16",
+      "color_str": "Silver",
       "color": {
         "id": "silver",
         "name": "Silver",
@@ -2499,7 +2499,7 @@
       "display_resolution": [3456, 2234],
       "device_type": "Macbook",
       "device_id": "apple-macbookpro16",
-      "name": "Macbook Pro",
+      "name": "Macbook Pro 16 \"",
       "orientations": [
         {
           "alt": "macbook pro mock up",
@@ -2519,7 +2519,7 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "color_str": "13",
+      "color_str": "Sky",
       "color": {
         "id": "sky",
         "name": "Sky",
@@ -2530,7 +2530,7 @@
       "display_resolution": [1920, 1080],
       "device_type": "Laptops",
       "device_id": "dell-xps13",
-      "name": "Dell XPS 13",
+      "name": "Dell XPS 13\"",
       "orientations": [
         {
           "alt": "",
@@ -2548,7 +2548,7 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "color_str": "15",
+      "color_str": "Silver",
       "color": {
         "id": "silver",
         "name": "Silver",
@@ -2559,7 +2559,7 @@
       "display_resolution": [1920, 1080],
       "device_type": "Laptops",
       "device_id": "dell-xps15",
-      "name": "Dell XPS 15",
+      "name": "Dell XPS 15\"",
       "orientations": [
         {
           "alt": "",
@@ -2588,7 +2588,7 @@
       "display_resolution": [1440, 2560],
       "device_type": "Android",
       "device_id": "google-pixel-quite-black",
-      "name": "Google Pixel Quite Black",
+      "name": "Google Pixel",
       "short_name": "Google Pixel",
       "orientations": [
         {
@@ -2630,7 +2630,7 @@
       "display_resolution": [1440, 2560],
       "device_type": "Android",
       "device_id": "google-pixel-really-blue",
-      "name": "Google Pixel Really Blue",
+      "name": "Google Pixel",
       "short_name": "Google Pixel",
       "orientations": [
         {
@@ -2672,7 +2672,7 @@
       "display_resolution": [1440, 2560],
       "device_type": "Android",
       "device_id": "google-pixel-very-silver",
-      "name": "Google Pixel Very Silver",
+      "name": "Google Pixel",
       "short_name": "Google Pixel",
       "orientations": [
         {
@@ -2714,7 +2714,7 @@
       "display_resolution": [1080, 2280],
       "device_type": "Android",
       "device_id": "google-pixel4-clearlywhite",
-      "name": "Google Pixel 4 Clearly White",
+      "name": "Google Pixel 4",
       "short_name": "Google Pixel 4",
       "orientations": [
         {
@@ -2755,7 +2755,7 @@
       "display_resolution": [1080, 2280],
       "device_type": "Android",
       "device_id": "google-pixel4-justblack",
-      "name": "Google Pixel 4 Just Black",
+      "name": "Google Pixel 4",
       "short_name": "Google Pixel 4",
       "orientations": [
         {
@@ -2796,7 +2796,7 @@
       "display_resolution": [1080, 2280],
       "device_type": "Android",
       "device_id": "google-pixel4-ohsoorange",
-      "name": "Google Pixel 4 Oh So Orange",
+      "name": "Google Pixel 4",
       "short_name": "Google Pixel 4",
       "orientations": [
         {
@@ -2837,7 +2837,7 @@
       "display_resolution": [1440, 3040],
       "device_type": "Android",
       "device_id": "google-pixel4xl-clearlywhite",
-      "name": "Google Pixel 4 XL Clearly White",
+      "name": "Google Pixel 4 XL",
       "short_name": "Google Pixel 4 XL",
       "orientations": [
         {
@@ -2878,7 +2878,7 @@
       "display_resolution": [1440, 3040],
       "device_type": "Android",
       "device_id": "google-pixel4xl-justblack",
-      "name": "Google Pixel 4 XL Just Black",
+      "name": "Google Pixel 4 XL",
       "short_name": "Google Pixel 4 XL",
       "orientations": [
         {
@@ -2919,7 +2919,7 @@
       "display_resolution": [1440, 3040],
       "device_type": "Android",
       "device_id": "google-pixel4xl-ohsoorange",
-      "name": "Google Pixel 4 XL Oh So Orange",
+      "name": "Google Pixel 4 XL",
       "short_name": "Google Pixel 4 XL",
       "orientations": [
         {
@@ -2960,7 +2960,7 @@
       "display_resolution": [1080, 2340],
       "device_type": "Android",
       "device_id": "google-pixel5-justblack",
-      "name": "Google Pixel 5 Just Black",
+      "name": "Google Pixel 5",
       "short_name": "Google Pixel 5",
       "orientations": [
         {
@@ -3001,7 +3001,7 @@
       "display_resolution": [1080, 2340],
       "device_type": "Android",
       "device_id": "google-pixel5-sortasage",
-      "name": "Google Pixel 5 Sorta Sage",
+      "name": "Google Pixel 5",
       "short_name": "Google Pixel 5",
       "orientations": [
         {
@@ -3072,14 +3072,14 @@
     {
       "background_class": "fish-bg3",
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
-      "color_str": "55LW5600",
+      "color_str": "Default",
       "color": null,
       "meta_title": "LG Smart TV 55LW5600 Mock Up",
       "meta_description": "1 click to generate your LG Smart TV 55LW5600 mockup! You can wrap screenshots in LG Smart TV 55LW5600 for prototypes.",
       "display_resolution": [1923, 1087],
       "device_type": "TV",
       "device_id": "lg-55lw5600",
-      "name": "LG Smart TV",
+      "name": "LG TV 55LW5600",
       "orientations": [
         {
           "alt": "LG tv screen mock up png",
@@ -3104,20 +3104,20 @@
           "name": "side"
         }
       ],
-      "available_perspectives": ["Font", "Side"],
+      "available_perspectives": ["Front", "Side"],
       "is_legacy": true
     },
     {
       "background_class": "fish-bg4",
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
-      "color_str": "TM2792",
+      "color_str": "Default",
       "color": null,
       "meta_title": "LG Personal Smart TV Mock Up",
       "meta_description": "1 click to generate your LG Personal Smart TV mockup! You can wrap screenshots in LG Personal Smart TV for prototypes.",
       "display_resolution": [1923, 1087],
       "device_type": "TV",
       "device_id": "lg-tm2792",
-      "name": "LG Personal Smart TV",
+      "name": "LG TV TM2792",
       "orientations": [
         {
           "alt": "smart tv mockup",
@@ -3142,7 +3142,7 @@
           "name": "side"
         }
       ],
-      "available_perspectives": ["Font", "Side"],
+      "available_perspectives": ["Front", "Side"],
       "is_legacy": true
     },
     {
@@ -3352,14 +3352,14 @@
     {
       "background_class": "fish-bg2",
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
-      "color_str": "D8000",
+      "color_str": "Default",
       "color": null,
       "meta_title": "Samsung Smart TV D8000 Mock Up",
       "meta_description": "1 click to generate your Samsung Smart TV D8000 mockup! You can wrap screenshots in Samsung Smart TV D8000 for prototypes.",
       "display_resolution": [1696, 955],
       "device_type": "TV",
       "device_id": "samsung-d8000",
-      "name": "Samsung Smart TV",
+      "name": "Samsung TV D8000",
       "orientations": [
         {
           "alt": "samsung tv mock up",
@@ -3384,20 +3384,20 @@
           "name": "side"
         }
       ],
-      "available_perspectives": ["Font", "Side"],
+      "available_perspectives": ["Front", "Side"],
       "is_legacy": true
     },
     {
       "background_class": "fish-bg",
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
-      "color_str": "ES8000",
+      "color_str": "Default",
       "color": null,
       "meta_title": "Samsung Smart TV ES8000 Mock Up",
       "meta_description": "1 click to generate your Samsung Smart TV ES8000 mockup! You can wrap screenshots in Samsung Smart TV ES8000 for prototypes.",
       "display_resolution": [1923, 1087],
       "device_type": "TV",
       "device_id": "samsung-es8000",
-      "name": "Samsung Smart TV",
+      "name": "Samsung TV ES8000",
       "orientations": [
         {
           "alt": "samsung tv mock up png",
@@ -3422,7 +3422,7 @@
           "name": "side"
         }
       ],
-      "available_perspectives": ["Font", "Side"],
+      "available_perspectives": ["Front", "Side"],
       "is_legacy": true
     },
     {
@@ -4766,15 +4766,15 @@
         "name": "Black",
         "hexcode": "#4C525F"
       },
-      "meta_title": "iPhone 15 Black Mock Up",
-      "meta_description": "1 click to generate your iPhone 15 Black mockup! You can wrap screenshots in iPhone 15 Black for prototypes.",
+      "meta_title": "iPhone 15 Plus Black Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Plus Black mockup! You can wrap screenshots in iPhone 15 Plus Black for prototypes.",
       "display_resolution": [1290, 2796],
       "device_type": "iOS",
       "device_id": "apple-iphone-15-plus-black",
-      "name": "iPhone 15",
+      "name": "iPhone 15 Plus",
       "orientations": [
         {
-          "alt": "iPhone 15 Black Mock Up",
+          "alt": "iPhone 15 Plus Black Mock Up",
           "coords": [
             [120, 120],
             [1410, 120],
@@ -4784,7 +4784,7 @@
           "name": "portrait"
         },
         {
-          "alt": "iPhone 15 Black Mock Up",
+          "alt": "iPhone 15 Plus Black Mock Up",
           "coords": [
             [2916, 120],
             [2916, 1410],
@@ -4805,15 +4805,15 @@
         "name": "Blue",
         "hexcode": "#D7DDE0"
       },
-      "meta_title": "iPhone 15 Blue Mock Up",
-      "meta_description": "1 click to generate your iPhone 15 Blue mockup! You can wrap screenshots in iPhone 15 Blue for prototypes.",
+      "meta_title": "iPhone 15 Plus Blue Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Plus Blue mockup! You can wrap screenshots in iPhone 15 Plus Blue for prototypes.",
       "display_resolution": [1290, 2796],
       "device_type": "iOS",
       "device_id": "apple-iphone-15-plus-blue",
-      "name": "iPhone 15",
+      "name": "iPhone 15 Plus",
       "orientations": [
         {
-          "alt": "iPhone 15 Blue Mock Up",
+          "alt": "iPhone 15 Plus Blue Mock Up",
           "coords": [
             [120, 120],
             [1410, 120],
@@ -4823,7 +4823,7 @@
           "name": "portrait"
         },
         {
-          "alt": "iPhone 15 Blue Mock Up",
+          "alt": "iPhone 15 Plus Blue Mock Up",
           "coords": [
             [2916, 120],
             [2916, 1410],
@@ -4844,15 +4844,15 @@
         "name": "Green",
         "hexcode": "#D3DBCD"
       },
-      "meta_title": "iPhone 15 Green Mock Up",
-      "meta_description": "1 click to generate your iPhone 15 Green mockup! You can wrap screenshots in iPhone 15 Green for prototypes.",
+      "meta_title": "iPhone 15 Plus Green Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Plus Green mockup! You can wrap screenshots in iPhone 15 Plus Green for prototypes.",
       "display_resolution": [1290, 2796],
       "device_type": "iOS",
       "device_id": "apple-iphone-15-plus-green",
-      "name": "iPhone 15",
+      "name": "iPhone 15 Plus",
       "orientations": [
         {
-          "alt": "iPhone 15 Green Mock Up",
+          "alt": "iPhone 15 Plus Green Mock Up",
           "coords": [
             [120, 120],
             [1410, 120],
@@ -4862,7 +4862,7 @@
           "name": "portrait"
         },
         {
-          "alt": "iPhone 15 Green Mock Up",
+          "alt": "iPhone 15 Plus Green Mock Up",
           "coords": [
             [2916, 120],
             [2916, 1410],
@@ -4883,15 +4883,15 @@
         "name": "Yellow",
         "hexcode": "#ECE8CD"
       },
-      "meta_title": "iPhone 15 Yellow Mock Up",
-      "meta_description": "1 click to generate your iPhone 15 Yellow mockup! You can wrap screenshots in iPhone 15 Yellow for prototypes.",
+      "meta_title": "iPhone 15 Plus Yellow Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Plus Yellow mockup! You can wrap screenshots in iPhone 15 Plus Yellow for prototypes.",
       "display_resolution": [1290, 2796],
       "device_type": "iOS",
       "device_id": "apple-iphone-15-plus-yellow",
-      "name": "iPhone 15",
+      "name": "iPhone 15 Plus",
       "orientations": [
         {
-          "alt": "iPhone 15 Yellow Mock Up",
+          "alt": "iPhone 15 Plus Yellow Mock Up",
           "coords": [
             [120, 120],
             [1410, 120],
@@ -4901,7 +4901,7 @@
           "name": "portrait"
         },
         {
-          "alt": "iPhone 15 Yellow Mock Up",
+          "alt": "iPhone 15 Plus Yellow Mock Up",
           "coords": [
             [2916, 120],
             [2916, 1410],
@@ -4922,15 +4922,15 @@
         "name": "Pink",
         "hexcode": "#E9D5D7"
       },
-      "meta_title": "iPhone 15 Pink Mock Up",
-      "meta_description": "1 click to generate your iPhone 15 Pink mockup! You can wrap screenshots in iPhone 15 Pink for prototypes.",
+      "meta_title": "iPhone 15 Plus Pink Mock Up",
+      "meta_description": "1 click to generate your iPhone 15 Plus Pink mockup! You can wrap screenshots in iPhone 15 Plus Pink for prototypes.",
       "display_resolution": [1290, 2796],
       "device_type": "iOS",
       "device_id": "apple-iphone-15-plus-pink",
-      "name": "iPhone 15",
+      "name": "iPhone 15 Plus",
       "orientations": [
         {
-          "alt": "iPhone 15 Pink Mock Up",
+          "alt": "iPhone 15 Plus Pink Mock Up",
           "coords": [
             [120, 120],
             [1410, 120],
@@ -4940,7 +4940,7 @@
           "name": "portrait"
         },
         {
-          "alt": "iPhone 15 Pink Mock Up",
+          "alt": "iPhone 15 Plus Pink Mock Up",
           "coords": [
             [2916, 120],
             [2916, 1410],
@@ -5507,15 +5507,15 @@
         "name": "Black",
         "hexcode": "#1C1C1D"
       },
-      "meta_title": "iPhone 8 Black Mock Up",
-      "meta_description": "1 click to generate your iPhone 8 Black mockup! You can wrap screenshots in iPhone 8 Black for prototypes.",
+      "meta_title": "iPhone SE Black Mock Up",
+      "meta_description": "1 click to generate your iPhone SE Black mockup! You can wrap screenshots in iPhone SE Black for prototypes.",
       "display_resolution": [750, 1334],
       "device_type": "iOS",
       "device_id": "apple-iphone-se-black",
-      "name": "iPhone 8",
+      "name": "iPhone SE",
       "orientations": [
         {
-          "alt": "iPhone 8 Black Mock Up",
+          "alt": "iPhone SE Black Mock Up",
           "coords": [
             [150, 300],
             [900, 300],
@@ -5525,7 +5525,7 @@
           "name": "portrait"
         },
         {
-          "alt": "iPhone 8 Black Mock Up",
+          "alt": "iPhone SE Black Mock Up",
           "coords": [
             [1634, 150],
             [1634, 900],
@@ -5546,15 +5546,15 @@
         "name": "Red",
         "hexcode": "#C52238"
       },
-      "meta_title": "iPhone 8 Red Mock Up",
-      "meta_description": "1 click to generate your iPhone 8 Red mockup! You can wrap screenshots in iPhone 8 Red for prototypes.",
+      "meta_title": "iPhone SE Red Mock Up",
+      "meta_description": "1 click to generate your iPhone SE Red mockup! You can wrap screenshots in iPhone SE Red for prototypes.",
       "display_resolution": [750, 1334],
       "device_type": "iOS",
       "device_id": "apple-iphone-se-red",
-      "name": "iPhone 8",
+      "name": "iPhone SE",
       "orientations": [
         {
-          "alt": "iPhone 8 Red Mock Up",
+          "alt": "iPhone SE Red Mock Up",
           "coords": [
             [150, 300],
             [900, 300],
@@ -5564,7 +5564,7 @@
           "name": "portrait"
         },
         {
-          "alt": "iPhone 8 Red Mock Up",
+          "alt": "iPhone SE Red Mock Up",
           "coords": [
             [1634, 150],
             [1634, 900],
@@ -5585,15 +5585,15 @@
         "name": "White",
         "hexcode": "#FAFAFA"
       },
-      "meta_title": "iPhone 8 White Mock Up",
-      "meta_description": "1 click to generate your iPhone 8 White mockup! You can wrap screenshots in iPhone 8 White for prototypes.",
+      "meta_title": "iPhone SE White Mock Up",
+      "meta_description": "1 click to generate your iPhone SE White mockup! You can wrap screenshots in iPhone SE White for prototypes.",
       "display_resolution": [750, 1334],
       "device_type": "iOS",
       "device_id": "apple-iphone-se-white",
-      "name": "iPhone 8",
+      "name": "iPhone SE",
       "orientations": [
         {
-          "alt": "iPhone 8 White Mock Up",
+          "alt": "iPhone SE White Mock Up",
           "coords": [
             [150, 300],
             [900, 300],
@@ -5603,7 +5603,7 @@
           "name": "portrait"
         },
         {
-          "alt": "iPhone 8 White Mock Up",
+          "alt": "iPhone SE White Mock Up",
           "coords": [
             [1634, 150],
             [1634, 900],
