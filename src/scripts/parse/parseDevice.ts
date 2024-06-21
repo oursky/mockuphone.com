@@ -4,7 +4,6 @@ import { SafeParseReturnType, SafeParseSuccess, z } from "zod";
 const HEX_CODE_REGEX = /^#(?:[0-9a-fA-F]{3}){1,2}$/; // ref https://stackoverflow.com/a/1636354/19287186
 const RawDevice = z.object({
   credits: z.string(),
-  desc: z.string(),
   color_str: z.string(),
   meta_title: z.string(),
   meta_description: z.string(),

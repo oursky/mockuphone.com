@@ -2,7 +2,6 @@
   "devices": [
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Ultra",
       "color_str": "Ultra",
       "color": {
         "id": "ultra",
@@ -44,7 +43,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Gold Stainless Steel",
       "color_str": "Gold Stainless Steel",
       "color": {
         "id": "gold-stainless-steel",
@@ -86,7 +84,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Graphite Stainless Steel",
       "color_str": "Graphite Stainless Steel",
       "color": {
         "id": "graphite-stainless-steel",
@@ -128,7 +125,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Midnight Aluminum",
       "color_str": "Midnight Aluminum",
       "color": {
         "id": "midnight-aluminum",
@@ -170,7 +166,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Silver Aluminum",
       "color_str": "Silver Aluminum",
       "color": {
         "id": "silver-aluminum",
@@ -212,7 +207,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Silver Stainless Steel",
       "color_str": "Silver Stainless Steel",
       "color": {
         "id": "silver-stainless-steel",
@@ -254,7 +248,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Starlight Aluminum",
       "color_str": "Starlight Aluminum",
       "color": {
         "id": "starlight-aluminum",
@@ -296,7 +289,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Gold Stainless Steel",
       "color_str": "Gold Stainless Steel",
       "color": {
         "id": "gold-stainless-steel",
@@ -338,7 +330,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Graphite Stainless Steel",
       "color_str": "Graphite Stainless Steel",
       "color": {
         "id": "graphite-stainless-steel",
@@ -380,7 +371,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Midnight Aluminum",
       "color_str": "Midnight Aluminum",
       "color": {
         "id": "midnight-aluminum",
@@ -422,7 +412,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Silver Aluminum",
       "color_str": "Silver Aluminum",
       "color": {
         "id": "silver-aluminum",
@@ -464,7 +453,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Silver Stainless Steel",
       "color_str": "Silver Stainless Steel",
       "color": {
         "id": "silver-stainless-steel",
@@ -506,7 +494,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Starlight Aluminum",
       "color_str": "Starlight Aluminum",
       "color": {
         "id": "starlight-aluminum",
@@ -548,7 +535,6 @@
     },
     {
       "credits": "<p><a href=\"http://www.elegantthemes.com/blog/freebie-of-the-week/free-imac-psd-templates\">Elegant Themes</a><br/> <a href=\"https://twitter.com/@elegantthemes\">@elegantthemes</a></p>",
-      "desc": "2013",
       "color_str": "2013",
       "color": {
         "id": "silver",
@@ -602,7 +588,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "2015",
       "color_str": "2015",
       "color": {
         "id": "silver",
@@ -634,7 +619,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "2015",
       "color_str": "2015",
       "color": {
         "id": "silver",
@@ -666,7 +650,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Blue",
       "color_str": "Blue",
       "color": {
         "id": "blue",
@@ -710,7 +693,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Midnight",
       "color_str": "Midnight",
       "color": {
         "id": "midnight",
@@ -754,7 +736,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Purple",
       "color_str": "Purple",
       "color": {
         "id": "purple",
@@ -798,7 +779,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Red",
       "color_str": "Red",
       "color": {
         "id": "red",
@@ -842,7 +822,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Starlight",
       "color_str": "Starlight",
       "color": {
         "id": "starlight",
@@ -886,7 +865,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Blue",
       "color_str": "Blue",
       "color": {
         "id": "blue",
@@ -930,7 +908,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Midnight",
       "color_str": "Midnight",
       "color": {
         "id": "midnight",
@@ -974,7 +951,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Purple",
       "color_str": "Purple",
       "color": {
         "id": "purple",
@@ -1018,7 +994,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Red",
       "color_str": "Red",
       "color": {
         "id": "red",
@@ -1062,7 +1037,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Starlight",
       "color_str": "Starlight",
       "color": {
         "id": "starlight",
@@ -1106,7 +1080,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Deep Purple",
       "color_str": "Deep Purple",
       "color": {
         "id": "deep-purple",
@@ -1150,7 +1123,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Gold",
       "color_str": "Gold",
       "color": {
         "id": "gold",
@@ -1194,7 +1166,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Silver",
       "color_str": "Silver",
       "color": {
         "id": "silver",
@@ -1238,7 +1209,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Space Black",
       "color_str": "Space Black",
       "color": {
         "id": "space-black",
@@ -1282,7 +1252,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Deep Purple",
       "color_str": "Deep Purple",
       "color": {
         "id": "deep-purple",
@@ -1326,7 +1295,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Gold",
       "color_str": "Gold",
       "color": {
         "id": "gold",
@@ -1370,7 +1338,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Silver",
       "color_str": "Silver",
       "color": {
         "id": "silver",
@@ -1414,7 +1381,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Space Black",
       "color_str": "Space Black",
       "color": {
         "id": "space-black",
@@ -1458,7 +1424,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Space Grey",
       "color_str": "Space Grey",
       "color": {
         "id": "space-grey",
@@ -1512,7 +1477,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Space Grey",
       "color_str": "Space Grey",
       "color": {
         "id": "space-grey",
@@ -1556,7 +1520,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Space Grey",
       "color_str": "Space Grey",
       "color": {
         "id": "space-grey",
@@ -1600,7 +1563,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Silver",
       "color_str": "Silver",
       "color": {
         "id": "silver",
@@ -1644,7 +1606,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "Starlight",
       "color_str": "Starlight",
       "color": {
         "id": "starlight",
@@ -1688,7 +1649,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Blue",
       "color_str": "Blue",
       "color": {
         "id": "blue",
@@ -1732,7 +1692,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Midnight",
       "color_str": "Midnight",
       "color": {
         "id": "midnight",
@@ -1776,7 +1735,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Pink",
       "color_str": "Pink",
       "color": {
         "id": "pink",
@@ -1820,7 +1778,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Red",
       "color_str": "Red",
       "color": {
         "id": "red",
@@ -1864,7 +1821,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Starlight",
       "color_str": "Starlight",
       "color": {
         "id": "starlight",
@@ -1908,7 +1864,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Blue",
       "color_str": "Blue",
       "color": {
         "id": "blue",
@@ -1952,7 +1907,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Midnight",
       "color_str": "Midnight",
       "color": {
         "id": "midnight",
@@ -1996,7 +1950,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Pink",
       "color_str": "Pink",
       "color": {
         "id": "pink",
@@ -2040,7 +1993,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Red",
       "color_str": "Red",
       "color": {
         "id": "red",
@@ -2084,7 +2036,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Starlight",
       "color_str": "Starlight",
       "color": {
         "id": "starlight",
@@ -2128,7 +2079,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Gold",
       "color_str": "Gold",
       "color": {
         "id": "gold",
@@ -2172,7 +2122,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Graphite",
       "color_str": "Graphite",
       "color": {
         "id": "graphite",
@@ -2216,7 +2165,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Sierrablue",
       "color_str": "Sierrablue",
       "color": {
         "id": "sierrablue",
@@ -2260,7 +2208,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Gold",
       "color_str": "Gold",
       "color": {
         "id": "gold",
@@ -2304,7 +2251,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Gold",
       "color_str": "Gold",
       "color": {
         "id": "gold",
@@ -2348,7 +2294,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Graphite",
       "color_str": "Graphite",
       "color": {
         "id": "graphite",
@@ -2392,7 +2337,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Sierrablue",
       "color_str": "Sierrablue",
       "color": {
         "id": "sierrablue",
@@ -2436,7 +2380,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Silver",
       "color_str": "Silver",
       "color": {
         "id": "silver",
@@ -2480,7 +2423,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Gold",
       "color_str": "Gold",
       "color": {
         "id": "gold",
@@ -2512,7 +2454,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Grey",
       "color_str": "Grey",
       "color": {
         "id": "grey",
@@ -2544,7 +2485,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "13",
       "color_str": "13",
       "color": {
         "id": "midnight",
@@ -2577,7 +2517,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "14",
       "color_str": "14",
       "color": {
         "id": "silver",
@@ -2610,7 +2549,6 @@
     },
     {
       "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
-      "desc": "16",
       "color_str": "16",
       "color": {
         "id": "silver",
@@ -2643,7 +2581,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "13",
       "color_str": "13",
       "color": {
         "id": "sky",
@@ -2674,7 +2611,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "15",
       "color_str": "15",
       "color": {
         "id": "silver",
@@ -2705,7 +2641,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Quite Black",
       "color_str": "Quite Black",
       "color": {
         "id": "quite-black",
@@ -2749,7 +2684,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Really Blue",
       "color_str": "Really Blue",
       "color": {
         "id": "really-blue",
@@ -2793,7 +2727,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Very Silver",
       "color_str": "Very Silver",
       "color": {
         "id": "very-silver",
@@ -2837,7 +2770,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Clearly White",
       "color_str": "Clearly White",
       "color": {
         "id": "clearly-white",
@@ -2880,7 +2812,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Just Black",
       "color_str": "Just Black",
       "color": {
         "id": "just-black",
@@ -2923,7 +2854,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Oh So Orange",
       "color_str": "Oh So Orange",
       "color": {
         "id": "oh-so-orange",
@@ -2966,7 +2896,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Clearly White",
       "color_str": "Clearly White",
       "color": {
         "id": "clearly-white",
@@ -3009,7 +2938,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Just Black",
       "color_str": "Just Black",
       "color": {
         "id": "just-black",
@@ -3052,7 +2980,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Oh So Orange",
       "color_str": "Oh So Orange",
       "color": {
         "id": "oh-so-orange",
@@ -3095,7 +3022,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Just Black",
       "color_str": "Just Black",
       "color": {
         "id": "just-black",
@@ -3138,7 +3064,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Sorta Sage",
       "color_str": "Sorta Sage",
       "color": {
         "id": "sorta-sage",
@@ -3181,7 +3106,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -3224,7 +3148,6 @@
     {
       "background_class": "fish-bg3",
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
-      "desc": "55LW5600",
       "color_str": "55LW5600",
       "color": null,
       "meta_title": "LG Smart TV 55LW5600 Mock Up",
@@ -3264,7 +3187,6 @@
     {
       "background_class": "fish-bg4",
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
-      "desc": "TM2792",
       "color_str": "TM2792",
       "color": null,
       "meta_title": "LG Personal Smart TV Mock Up",
@@ -3303,7 +3225,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "White",
       "color_str": "White",
       "color": {
         "id": "white",
@@ -3334,7 +3255,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -3365,7 +3285,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -3396,7 +3315,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -3437,7 +3355,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "White",
       "color_str": "White",
       "color": {
         "id": "white",
@@ -3478,7 +3395,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Dark",
       "color_str": "Dark",
       "color": {
         "id": "dark",
@@ -3520,7 +3436,6 @@
     {
       "background_class": "fish-bg2",
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
-      "desc": "D8000",
       "color_str": "D8000",
       "color": null,
       "meta_title": "Samsung Smart TV D8000 Mock Up",
@@ -3560,7 +3475,6 @@
     {
       "background_class": "fish-bg",
       "credits": "<p><a href=\"http://dashinsky.com/\">Artiom Dashinsky</a><br/> <a href=\"http://twitter.com/hvost\">@hvost</a></p>",
-      "desc": "ES8000",
       "color_str": "ES8000",
       "color": null,
       "meta_title": "Samsung Smart TV ES8000 Mock Up",
@@ -3599,7 +3513,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -3641,7 +3554,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Gold",
       "color_str": "Gold",
       "color": {
         "id": "gold",
@@ -3683,7 +3595,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Pink",
       "color_str": "Pink",
       "color": {
         "id": "pink",
@@ -3725,7 +3636,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Silver Titanium",
       "color_str": "Silver Titanium",
       "color": {
         "id": "silver-titanium",
@@ -3767,7 +3677,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "White",
       "color_str": "White",
       "color": {
         "id": "white",
@@ -3809,7 +3718,6 @@
     },
     {
       "credits": "<p><a href=\"http://pixelartfactory.com/psd/samsung-galaxy-s4-psd\" target=\"blank\">Pixel Art Factory</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -3853,7 +3761,6 @@
     },
     {
       "credits": "<p><a href=\"http://pixelartfactory.com/psd/samsung-galaxy-s4-psd\" target=\"blank\">Pixel Art Factory</a></p>",
-      "desc": "White",
       "color_str": "White",
       "color": {
         "id": "white",
@@ -3897,7 +3804,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "White",
       "color_str": "White",
       "color": {
         "id": "white",
@@ -3939,7 +3845,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -3981,7 +3886,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "White",
       "color_str": "White",
       "color": {
         "id": "white",
@@ -4023,7 +3927,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Cloud Blue",
       "color_str": "Cloud Blue",
       "color": {
         "id": "cloud-blue",
@@ -4066,7 +3969,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Cosmic Grey",
       "color_str": "Cosmic Grey",
       "color": {
         "id": "cosmic-grey",
@@ -4109,7 +4011,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Pink",
       "color_str": "Pink",
       "color": {
         "id": "pink",
@@ -4152,7 +4053,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Cosmic Black",
       "color_str": "Cosmic Black",
       "color": {
         "id": "cosmic-black",
@@ -4195,7 +4095,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Cosmic Grey",
       "color_str": "Cosmic Grey",
       "color": {
         "id": "cosmic-grey",
@@ -4237,7 +4136,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Cloud Blue",
       "color_str": "Cloud Blue",
       "color": {
         "id": "cloud-blue",
@@ -4279,7 +4177,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Cosmic Grey",
       "color_str": "Cosmic Grey",
       "color": {
         "id": "cosmic-grey",
@@ -4321,7 +4218,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Cosmic Black",
       "color_str": "Cosmic Black",
       "color": {
         "id": "cosmic-black",
@@ -4363,7 +4259,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -4405,7 +4300,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Pink",
       "color_str": "Pink",
       "color": {
         "id": "pink",
@@ -4447,7 +4341,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Violet",
       "color_str": "Violet",
       "color": {
         "id": "violet",
@@ -4489,7 +4382,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "White",
       "color_str": "White",
       "color": {
         "id": "white",
@@ -4531,7 +4423,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -4573,7 +4464,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Silver",
       "color_str": "Silver",
       "color": {
         "id": "silver",
@@ -4615,7 +4505,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -4657,7 +4546,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Silver",
       "color_str": "Silver",
       "color": {
         "id": "silver",
@@ -4699,7 +4587,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Violet",
       "color_str": "Violet",
       "color": {
         "id": "violet",
@@ -4741,7 +4628,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -4792,7 +4678,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Blue",
       "color_str": "Blue",
       "color": {
         "id": "blue",
@@ -4843,7 +4728,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Green",
       "color_str": "Green",
       "color": {
         "id": "green",
@@ -4894,7 +4778,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Yellow",
       "color_str": "Yellow",
       "color": {
         "id": "yellow",
@@ -4945,7 +4828,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Pink",
       "color_str": "Pink",
       "color": {
         "id": "pink",
@@ -4996,7 +4878,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -5037,7 +4918,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Blue",
       "color_str": "Blue",
       "color": {
         "id": "blue",
@@ -5078,7 +4958,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Green",
       "color_str": "Green",
       "color": {
         "id": "green",
@@ -5119,7 +4998,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Yellow",
       "color_str": "Yellow",
       "color": {
         "id": "yellow",
@@ -5160,7 +5038,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Pink",
       "color_str": "Pink",
       "color": {
         "id": "pink",
@@ -5201,7 +5078,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black Titanium",
       "color_str": "Black Titanium",
       "color": {
         "id": "black-titanium",
@@ -5242,7 +5118,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "White Titanium",
       "color_str": "White Titanium",
       "color": {
         "id": "white-titanium",
@@ -5283,7 +5158,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Blue Titanium",
       "color_str": "Blue Titanium",
       "color": {
         "id": "blue-titanium",
@@ -5324,7 +5198,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Natural Titanium",
       "color_str": "Natural Titanium",
       "color": {
         "id": "natural-titanium",
@@ -5365,7 +5238,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black Titanium",
       "color_str": "Black Titanium",
       "color": {
         "id": "black-titanium",
@@ -5406,7 +5278,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "White Titanium",
       "color_str": "White Titanium",
       "color": {
         "id": "white-titanium",
@@ -5447,7 +5318,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Blue Titanium",
       "color_str": "Blue Titanium",
       "color": {
         "id": "blue-titanium",
@@ -5488,7 +5358,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Natural Titanium",
       "color_str": "Natural Titanium",
       "color": {
         "id": "natural-titanium",
@@ -5529,7 +5398,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Gold",
       "color_str": "Gold",
       "color": {
         "id": "gold",
@@ -5570,7 +5438,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Silver",
       "color_str": "Silver",
       "color": {
         "id": "silver",
@@ -5611,7 +5478,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Space Gray",
       "color_str": "Space Gray",
       "color": {
         "id": "space-grey",
@@ -5652,7 +5518,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Gold",
       "color_str": "Gold",
       "color": {
         "id": "gold",
@@ -5693,7 +5558,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Silver",
       "color_str": "Silver",
       "color": {
         "id": "silver",
@@ -5734,7 +5598,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Space Gray",
       "color_str": "Space Gray",
       "color": {
         "id": "space-grey",
@@ -5775,7 +5638,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -5816,7 +5678,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Red",
       "color_str": "Red",
       "color": {
         "id": "red",
@@ -5857,7 +5718,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "White",
       "color_str": "White",
       "color": {
         "id": "white",
@@ -5898,7 +5758,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -5939,7 +5798,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Green",
       "color_str": "Green",
       "color": {
         "id": "green",
@@ -5980,7 +5838,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Yellow",
       "color_str": "Yellow",
       "color": {
         "id": "yellow",
@@ -6021,7 +5878,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Purple",
       "color_str": "Purple",
       "color": {
         "id": "purple",
@@ -6062,7 +5918,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Red",
       "color_str": "Red",
       "color": {
         "id": "red",
@@ -6103,7 +5958,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "White",
       "color_str": "White",
       "color": {
         "id": "white",
@@ -6144,7 +5998,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Gold",
       "color_str": "Gold",
       "color": {
         "id": "gold",
@@ -6185,7 +6038,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Silver",
       "color_str": "Silver",
       "color": {
         "id": "silver",
@@ -6226,7 +6078,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Space Gray",
       "color_str": "Space Gray",
       "color": {
         "id": "space-grey",
@@ -6267,7 +6118,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Midnight Green",
       "color_str": "Midnight Green",
       "color": {
         "id": "midnight-green",
@@ -6308,7 +6158,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Gold",
       "color_str": "Gold",
       "color": {
         "id": "gold",
@@ -6349,7 +6198,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Silver",
       "color_str": "Silver",
       "color": {
         "id": "silver",
@@ -6390,7 +6238,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Space Gray",
       "color_str": "Space Gray",
       "color": {
         "id": "space-grey",
@@ -6431,7 +6278,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Midnight Green",
       "color_str": "Midnight Green",
       "color": {
         "id": "midnight-green",
@@ -6472,7 +6318,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Titanium Gray",
       "color_str": "Titanium Gray",
       "color": {
         "id": "titanium-gray",
@@ -6533,7 +6378,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Rose",
       "color_str": "Rose",
       "color": {
         "id": "rose",
@@ -6574,7 +6418,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Hazel",
       "color_str": "Hazel",
       "color": {
         "id": "hazel",
@@ -6615,7 +6458,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Obsidian",
       "color_str": "Obsidian",
       "color": {
         "id": "obsidian",
@@ -6656,7 +6498,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Obsidian",
       "color_str": "Obsidian",
       "color": {
         "id": "obsidian",
@@ -6697,7 +6538,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Snow",
       "color_str": "Snow",
       "color": {
         "id": "snow",
@@ -6738,7 +6578,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Lemongrass",
       "color_str": "Lemongrass",
       "color": {
         "id": "lemongrass",
@@ -6779,7 +6618,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -6820,7 +6658,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Black",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -6861,7 +6698,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Orange Ocean Band",
       "color_str": "Orange Ocean Band",
       "color": {
         "id": "orange-ocean-band",
@@ -6902,7 +6738,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Blue Alpine Loop",
       "color_str": "Blue Alpine Loop",
       "color": {
         "id": "blue-alpine-loop",
@@ -6943,7 +6778,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Orange Beige Trail Loop",
       "color_str": "Orange Beige Trail Loop",
       "color": {
         "id": "orange-beige-trail-loop",
@@ -6984,7 +6818,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Space Gray Aluminium",
       "color_str": "Space Gray Aluminium",
       "color": {
         "id": "space-grey-aluminum-black",
@@ -7025,7 +6858,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "Gold Aluminium",
       "color_str": "Gold Aluminium",
       "color": {
         "id": "gold-aluminum-pink-sand",
@@ -7066,7 +6898,6 @@
     },
     {
       "credits": "<p><a href=\"http://facebook.design/devices\" target=\"blank\">Facebook - Design Resources</a></p>",
-      "desc": "White Ceramic",
       "color_str": "White Ceramic",
       "color": {
         "id": "white-ceramic",
