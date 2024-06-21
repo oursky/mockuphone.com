@@ -60,6 +60,13 @@ export class DeviceManager {
     return targetType ?? [];
   }
 
+  public getDeviceListByType(deviceType: DeviceTypeEnum): model.Device[] {
+    return (this.allDeviceTypes[deviceType]?.map((d) => d.modelId) ?? [])
+      .map((modelId) => this.allDeviceModels[modelId])
+      .map((modelValue) => modelValue?.devices ?? [])
+      .reduce<model.Device[]>((prev, curr) => [...prev, ...curr], []);
+  }
+
   public getDeviceListByLegacyType(legacyType: string): model.Device[] {
     return this.allDevices.filter(
       (device) => device.device_type === legacyType,
