@@ -5,6 +5,7 @@ const HEX_CODE_REGEX = /^#(?:[0-9a-fA-F]{3}){1,2}$/; // ref https://stackoverflo
 const RawDevice = z.object({
   credits: z.string(),
   desc: z.string(),
+  color_str: z.string(),
   meta_title: z.string(),
   meta_description: z.string(),
   display_resolution: z.number().array(),
