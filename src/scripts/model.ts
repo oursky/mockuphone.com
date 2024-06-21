@@ -16,7 +16,6 @@ export interface Device {
   name: string;
   short_name?: string;
   orientations: Orientation[];
-  view_desc: string;
   available_perspectives: string[];
   imagePath?: [string, string][];
   color: DeviceColor | null;

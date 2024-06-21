@@ -20,7 +20,6 @@ const RawDevice = z.object({
       coords: z.number().array().array(),
     })
     .array(),
-  view_desc: z.string(),
   available_perspectives: z.array(z.string()),
   is_mockup_image_at_front: z.optional(z.boolean()),
   is_legacy: z.optional(z.boolean()).default(false),
