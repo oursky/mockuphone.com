@@ -2,6 +2,8 @@
 id = "mockuphone-staging"
 
 team = [
+    { githubUser="rickmak", access="deployer" },
+    { githubuser="pkong-ds", access="deployer" },
     # Allow GitHub Actions in your repo to deploy
     { gitHubRepositoryActions="oursky/mockuphone.com", access="deployer" },
     { gitHubRepositoryActions="pkong-ds/mockuphone.com", access="deployer" }
