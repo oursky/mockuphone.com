@@ -46,47 +46,8 @@ export class DeviceManager {
     });
   }
 
-  public getDeviceById(id: string): model.Device | undefined {
-    for (let device of this.allDevices) {
-      if (device.device_id === id) {
-        return device;
-      }
-    }
-    return undefined;
-  }
-
   public getModel(modelId: ModelEnum): model.ModelValue | undefined {
     return this.allDeviceModels[modelId];
-  }
-
-  public getModelColorDevice(
-    modelId: ModelEnum,
-    colorId: string | "default",
-  ): model.Device | undefined {
-    const devices = this.getDeviceListByModel(modelId);
-    const result = devices.filter((d) => {
-      const matchDefault = d.color == null && colorId === "default";
-      const matchColorId = d.color != null && d.color.id === colorId;
-
-      return matchDefault || matchColorId;
-    });
-    if (result.length === 0) {
-      return undefined;
-    }
-    return result[0];
-  }
-
-  public getModelIdByDevice(deviceId: string): ModelEnum | undefined {
-    for (let modelId of Object.keys(this.allDeviceModels)) {
-      const _modelId = ModelEnum.parse(modelId);
-      const modelDevices = this.allDeviceModels[_modelId]?.devices ?? [];
-      for (let device of modelDevices) {
-        if (device.device_id === deviceId) {
-          return _modelId;
-        }
-      }
-    }
-    return undefined;
   }
 
   public getModelThumbnailListByType(
@@ -103,35 +64,6 @@ export class DeviceManager {
     return this.allDevices.filter(
       (device) => device.device_type === legacyType,
     );
-  }
-
-  public getDeviceListByModel(model: ModelEnum): model.Device[] {
-    const targetModel = this.allDeviceModels[model];
-    return targetModel == null ? [] : targetModel.devices;
-  }
-
-  public getDeviceThumbnailByModel(
-    model: ModelEnum,
-  ): model.ModelThumbnail | undefined {
-    const targetModel: model.ModelValue | undefined =
-      this.allDeviceModels[model];
-    if (targetModel == null || targetModel.devices.length === 0) {
-      return undefined;
-    }
-    return {
-      modelId: targetModel.id,
-      modelName: targetModel.name,
-      modelLaunchDate: targetModel.launchDate,
-      modelType: targetModel.type,
-      device: targetModel.devices[0],
-    };
-  }
-
-  public getModelThumbnailListByBrand(
-    brand: BrandEnum,
-  ): model.BrandValue | undefined {
-    const targetBrand = this.allBrands[brand];
-    return targetBrand;
   }
 
   public getModelThumbnailList(
