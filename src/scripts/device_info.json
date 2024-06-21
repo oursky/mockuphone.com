@@ -4514,7 +4514,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -4563,7 +4563,7 @@
       "available_perspectives": ["Portrait", "Landscape", "Left"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Blue",
       "color": {
         "id": "blue",
@@ -4612,7 +4612,7 @@
       "available_perspectives": ["Portrait", "Landscape", "Left"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Green",
       "color": {
         "id": "green",
@@ -4661,7 +4661,7 @@
       "available_perspectives": ["Portrait", "Landscape", "Left"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Yellow",
       "color": {
         "id": "yellow",
@@ -4710,7 +4710,7 @@
       "available_perspectives": ["Portrait", "Landscape", "Left"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Pink",
       "color": {
         "id": "pink",
@@ -4759,7 +4759,7 @@
       "available_perspectives": ["Portrait", "Landscape", "Left"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -4798,7 +4798,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Blue",
       "color": {
         "id": "blue",
@@ -4837,7 +4837,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Green",
       "color": {
         "id": "green",
@@ -4876,7 +4876,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Yellow",
       "color": {
         "id": "yellow",
@@ -4915,7 +4915,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Pink",
       "color": {
         "id": "pink",
@@ -4954,7 +4954,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Black Titanium",
       "color": {
         "id": "black-titanium",
@@ -4993,7 +4993,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "White Titanium",
       "color": {
         "id": "white-titanium",
@@ -5032,7 +5032,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Blue Titanium",
       "color": {
         "id": "blue-titanium",
@@ -5071,7 +5071,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Natural Titanium",
       "color": {
         "id": "natural-titanium",
@@ -5110,7 +5110,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Black Titanium",
       "color": {
         "id": "black-titanium",
@@ -5149,7 +5149,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "White Titanium",
       "color": {
         "id": "white-titanium",
@@ -5188,7 +5188,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Blue Titanium",
       "color": {
         "id": "blue-titanium",
@@ -5227,7 +5227,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Natural Titanium",
       "color": {
         "id": "natural-titanium",
@@ -6163,7 +6163,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://www.skymakers.digital/\" target=\"blank\">Skymaker's Designer</a></p>",
       "color_str": "Titanium Gray",
       "color": {
         "id": "titanium-gray",
@@ -6222,7 +6222,7 @@
       "available_perspectives": ["Portrait", "Landscape", "Right", "Left"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://www.figma.com/@sajjadmohamamdi\" target=\"blank\">Sajjad Mohammadi Nia</a></p>",
       "color_str": "Rose",
       "color": {
         "id": "rose",
@@ -6261,7 +6261,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://www.figma.com/@sajjadmohamamdi\" target=\"blank\">Sajjad Mohammadi Nia</a></p>",
       "color_str": "Hazel",
       "color": {
         "id": "hazel",
@@ -6300,7 +6300,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://www.figma.com/@sajjadmohamamdi\" target=\"blank\">Sajjad Mohammadi Nia</a></p>",
       "color_str": "Obsidian",
       "color": {
         "id": "obsidian",
@@ -6339,7 +6339,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://www.figma.com/@brixtemplates\" target=\"blank\">BRIX Templates</a></p>",
       "color_str": "Obsidian",
       "color": {
         "id": "obsidian",
@@ -6378,7 +6378,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://www.figma.com/@brixtemplates\" target=\"blank\">BRIX Templates</a></p>",
       "color_str": "Snow",
       "color": {
         "id": "snow",
@@ -6417,7 +6417,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://www.figma.com/@brixtemplates\" target=\"blank\">BRIX Templates</a></p>",
       "color_str": "Lemongrass",
       "color": {
         "id": "lemongrass",
@@ -6456,7 +6456,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://www.designbolts.com/2020/06/09/free-huawei-p40-pro-plus-mockup-psd-ai/\" target=\"blank\">DesignBolts</a></p>",
       "color_str": "Black",
       "color": {
         "id": "black",
@@ -6534,7 +6534,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Orange Ocean Band",
       "color": {
         "id": "orange-ocean-band",
@@ -6573,7 +6573,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Blue Alpine Loop",
       "color": {
         "id": "blue-alpine-loop",
@@ -6612,7 +6612,7 @@
       "available_perspectives": ["Portrait", "Landscape"]
     },
     {
-      "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
+      "credits": "<p><a href=\"https://developer.apple.com/design/resources/\" target=\"blank\">Apple Design Resources</a></p>",
       "color_str": "Orange Beige Trail Loop",
       "color": {
         "id": "orange-beige-trail-loop",
