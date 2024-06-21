@@ -1,11 +1,20 @@
 ---
 import { DEVICE_MANAGER } from "../scripts/deviceManager";
 import type { Device } from "../scripts/model";
+import { DeviceTypeEnum } from "../scripts/parse";
 const { type } = Astro.props;
-const deviceArray: Device[] = DEVICE_MANAGER.getDeviceListByLegacyType(type);
+const deviceArray: Device[] = DEVICE_MANAGER.getDeviceListByType(type);
+
+const typeName: { [key in string]: string } = {
+  laptop: "Laptop",
+  phone: "Phone",
+  tablet: "Tablet",
+  tv: "TV",
+  wearables: "Wareables",
+} satisfies { [key in DeviceTypeEnum]: string };
 ---
 
-<h2>{type}</h2>
+<h2>{typeName[type]}</h2>
 <table class="table table-bordered">
   <colgroup>
     <col class="model-name" />
