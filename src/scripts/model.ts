@@ -3,6 +3,12 @@ import * as schema from "./parse/index";
 export interface Orientation {
   alt?: string;
   name?: string;
+  coords: [
+    [number, number],
+    [number, number],
+    [number, number],
+    [number, number],
+  ];
 }
 
 export interface Device {
@@ -10,7 +16,7 @@ export interface Device {
   color_str: string;
   meta_title: string;
   meta_description: string;
-  display_resolution: number[];
+  display_resolution: [number, number];
   device_id: string;
   device_type: string;
   name: string;

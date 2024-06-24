@@ -7,7 +7,7 @@ const RawDevice = z.object({
   color_str: z.string(),
   meta_title: z.string(),
   meta_description: z.string(),
-  display_resolution: z.number().array(),
+  display_resolution: z.tuple([z.number(), z.number()]),
   device_type: z.string(),
   device_id: z.string(),
   name: z.string(),
@@ -17,7 +17,12 @@ const RawDevice = z.object({
       alt: z.string(),
       name: z.string(),
       legacy_file: z.optional(z.string()),
-      coords: z.number().array().array(),
+      coords: z.tuple([
+        z.tuple([z.number(), z.number()]),
+        z.tuple([z.number(), z.number()]),
+        z.tuple([z.number(), z.number()]),
+        z.tuple([z.number(), z.number()]),
+      ]),
     })
     .array(),
   available_perspectives: z.array(z.string()),
