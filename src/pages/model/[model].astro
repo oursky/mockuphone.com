@@ -1,13 +1,22 @@
 ---
-import DeviceBaseLayout from "../../layouts/BaseLayout.astro";
-import "/src/styles/upload.css";
-import "/src/styles/pyscript.css";
-import { DEVICE_MANAGER } from "../../scripts/deviceManager";
-import type { ModelValue } from "../../scripts/model";
+import sizeOf from "image-size";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
 import ErrorPage from "../../components/ErrorPage.astro";
-import { ModelEnum } from "../../scripts/parse";
-import deviceJson from "../../scripts/device_info.json";
 import RequestDeviceCard from "../../components/RequestDeviceCard/RequestDeviceCard.astro";
+import DeviceBaseLayout from "../../layouts/BaseLayout.astro";
+import { DEVICE_MANAGER } from "../../scripts/deviceManager";
+import deviceJson from "../../scripts/device_info.json";
+import type { ModelValue } from "../../scripts/model";
+import { ModelEnum } from "../../scripts/parse";
+import "/src/styles/pyscript.css";
+import "/src/styles/upload.css";
+import * as Matrix from "../../scripts/utils/matrix";
+import * as Rect from "../../scripts/utils/rect";
+import * as Quad from "../../scripts/utils/quad";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export async function getStaticPaths() {
   const allModels: {
@@ -38,6 +47,62 @@ const sameModelDevices = model.devices;
 const deviceDetail = sameModelDevices[0];
 
 const defaultColorId = deviceDetail.color?.id ?? "default";
+
+function getImagePath(path: string) {
+  return join(__dirname, "../../../public", path);
+}
+
+function getImageRect(fullPath: string): Rect.Rect {
+  const { width = 0, height = 0 } = sizeOf(fullPath);
+  return Rect.fromDimension(width, height);
+}
+
+function computeDeviceScreenRect(
+  screenCoordQuad: Quad.Quad,
+  deviceImageRect: Rect.Rect,
+  templateImageRect: Rect.Rect | null,
+): Rect.Rect {
+  // Assume horizontally center aligned. Try to compute the screen coord space size
+  // by adding margins to the screen rect width
+  const screenCoordMinX = Math.min(...screenCoordQuad.map((c) => c[0]));
+  const screenCoordMaxX = Math.max(...screenCoordQuad.map((c) => c[0]));
+
+  // Try to guess the space size from screen coord quad
+  const guessScreenCoordSpaceSize = screenCoordMaxX + screenCoordMinX;
+  const screenCoordSpaceSize =
+    templateImageRect?.width ?? guessScreenCoordSpaceSize;
+
+  const imgToScreenCoordSpaceRatio =
+    deviceImageRect.width / screenCoordSpaceSize;
+
+  const mat = Matrix.composeTransformation(
+    // Scale to image space
+    Matrix.scale(imgToScreenCoordSpaceRatio),
+
+    // Scale to percentage space
+    Matrix.scale(100 / deviceImageRect.width, 100 / deviceImageRect.height),
+  );
+
+  return Rect.fromQuad(Quad.transformWithMatrix(screenCoordQuad, mat));
+}
+
+let imgRect: Rect.Rect | null = null;
+let deviceScreenRect: Rect.Rect | null = null;
+if (deviceDetail.imagePath != null && deviceDetail.imagePath.length >= 1) {
+  const templateImageRect =
+    deviceDetail.orientations[0].template_image_size != null
+      ? Rect.fromDimension(
+          deviceDetail.orientations[0].template_image_size[0],
+          deviceDetail.orientations[0].template_image_size[1],
+        )
+      : null;
+  imgRect = getImageRect(getImagePath(deviceDetail.imagePath[0][0]));
+  deviceScreenRect = computeDeviceScreenRect(
+    deviceDetail.orientations[0].coords,
+    imgRect,
+    templateImageRect,
+  );
+}
 ---
 
 <script>
@@ -103,13 +168,49 @@ const defaultColorId = deviceDetail.color?.id ?? "default";
       <div class="mockup-lg-left">
         <div class="device">
           <div class="upload__inner-box" data-color-id={defaultColorId}>
-            <img
-              class="upload__device-image"
-              src={deviceDetail.imagePath?.[0][0]}
-              alt={deviceDetail.imagePath?.[0][1]}
-            />
-            <div class="upload__device-hint">
-              Upload <br /> Image Here
+            <div class="upload__image-wrapper">
+              <img
+                class="upload__device-image"
+                src={deviceDetail.imagePath?.[0][0]}
+                alt={deviceDetail.imagePath?.[0][1]}
+              />
+              {
+                imgRect != null && deviceScreenRect != null ? (
+                  <div class="upload__device-image-rect-wrapper">
+                    <div
+                      class:list={[
+                        "upload__device-image-rect",
+                        {
+                          "w-full": imgRect.width >= imgRect.height,
+                          "h-full": imgRect.height > imgRect.width,
+                        },
+                      ]}
+                      style={{
+                        aspectRatio: `${imgRect.width} / ${imgRect.height}`,
+                      }}
+                    >
+                      <div
+                        class="upload__device-image-rect__screen-rect"
+                        style={{
+                          width: `${deviceScreenRect.width}%`,
+                          height: `${deviceScreenRect.height}%`,
+                          top: `${deviceScreenRect.centerY}%`,
+                          left: `${deviceScreenRect.centerX}%`,
+                          transform: "translate(-50%, -50%)",
+                        }}
+                      >
+                        <div class="upload__device-hint pl-2 pr-2">
+                          Upload <br /> Image Here
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div class="upload__device-hint">
+                    Upload <br /> Image Here
+                  </div>
+                )
+              }
             </div>
           </div>
         </div>
