@@ -15,9 +15,7 @@ point       := (<x>, <y>)
     <device-id>: {
         'name':                 <device-name>
         'legacy_id':            '<legacy-id?>'
-        'desc':                 '<device-description>',
         'background_class':     '<html-class?>'
-        'view_desc':            '<avaliable-orientaions; html>',
         'meta_title':           '<meta_title>',
         'meta_description':     '<meta-description>',
         'credits':              '<image-provider; html>',
@@ -58,11 +56,9 @@ def to_old_datastruct(models):
     def get_parse_model(m):
         return {
             "name": m["name"],
-            "desc": m["desc"],
             "device_type": m["device_type"] if ("device_type" in m) else "",
             "meta_title": m["meta_title"],
             "meta_description": m["meta_description"],
-            "view_desc": m["view_desc"],
             "credits": m["credits"],
             "recommend_size": tuple(m["display_resolution"]),
             "background_class": m["background_class"]
