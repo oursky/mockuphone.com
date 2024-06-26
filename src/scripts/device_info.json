@@ -3370,7 +3370,8 @@
             [384, 1651]
           ],
           "legacy_file": "samsung_d8000_front.png",
-          "name": "front"
+          "name": "front",
+          "template_image_size": [2500, 2500]
         },
         {
           "alt": "samsung tv mockup psd",
@@ -3650,7 +3651,8 @@
             [680, 1603]
           ],
           "legacy_file": "galaxys4_black_portrait.png",
-          "name": "portrait"
+          "name": "portrait",
+          "template_image_size": [2000, 2000]
         },
         {
           "alt": "galaxy s7 mockup",

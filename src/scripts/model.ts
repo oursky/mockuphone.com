@@ -9,6 +9,7 @@ export interface Orientation {
     [number, number],
     [number, number],
   ];
+  template_image_size?: [number, number];
 }
 
 export interface Device {

@@ -23,6 +23,7 @@ const RawDevice = z.object({
         z.tuple([z.number(), z.number()]),
         z.tuple([z.number(), z.number()]),
       ]),
+      template_image_size: z.tuple([z.number(), z.number()]).optional(),
     })
     .array(),
   available_perspectives: z.array(z.string()),
