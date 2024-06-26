@@ -3686,17 +3686,6 @@
       "short_name": "S4",
       "orientations": [
         {
-          "alt": "Samsung galaxy mockup",
-          "coords": [
-            [1600, 680],
-            [1600, 1367],
-            [397, 1367],
-            [397, 680]
-          ],
-          "legacy_file": "galaxys4_white_landscape.png",
-          "name": "landscape"
-        },
-        {
           "alt": "galaxy s6 mockup",
           "coords": [
             [680, 400],
@@ -3706,6 +3695,17 @@
           ],
           "legacy_file": "galaxys4_white_portrait.png",
           "name": "portrait"
+        },
+        {
+          "alt": "Samsung galaxy mockup",
+          "coords": [
+            [1600, 680],
+            [1600, 1367],
+            [397, 1367],
+            [397, 680]
+          ],
+          "legacy_file": "galaxys4_white_landscape.png",
+          "name": "landscape"
         }
       ],
       "available_perspectives": ["Portrait", "Landscape"],
