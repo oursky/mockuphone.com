@@ -3370,7 +3370,8 @@
             [384, 1651]
           ],
           "legacy_file": "samsung_d8000_front.png",
-          "name": "front"
+          "name": "front",
+          "template_image_size": [2500, 2500]
         },
         {
           "alt": "samsung tv mockup psd",
@@ -3650,7 +3651,8 @@
             [680, 1603]
           ],
           "legacy_file": "galaxys4_black_portrait.png",
-          "name": "portrait"
+          "name": "portrait",
+          "template_image_size": [2000, 2000]
         },
         {
           "alt": "galaxy s7 mockup",
@@ -3684,17 +3686,6 @@
       "short_name": "S4",
       "orientations": [
         {
-          "alt": "Samsung galaxy mockup",
-          "coords": [
-            [1600, 680],
-            [1600, 1367],
-            [397, 1367],
-            [397, 680]
-          ],
-          "legacy_file": "galaxys4_white_landscape.png",
-          "name": "landscape"
-        },
-        {
           "alt": "galaxy s6 mockup",
           "coords": [
             [680, 400],
@@ -3704,6 +3695,17 @@
           ],
           "legacy_file": "galaxys4_white_portrait.png",
           "name": "portrait"
+        },
+        {
+          "alt": "Samsung galaxy mockup",
+          "coords": [
+            [1600, 680],
+            [1600, 1367],
+            [397, 1367],
+            [397, 680]
+          ],
+          "legacy_file": "galaxys4_white_landscape.png",
+          "name": "landscape"
         }
       ],
       "available_perspectives": ["Portrait", "Landscape"],
