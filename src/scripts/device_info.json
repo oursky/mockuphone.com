@@ -6558,7 +6558,8 @@
             [668, 1004],
             [96, 1004]
           ],
-          "name": "portrait"
+          "name": "portrait",
+          "template_image_size": [800, 1309]
         },
         {
           "alt": "Apple Watch Ultra 2 Orange Ocean Band Mock Up",
