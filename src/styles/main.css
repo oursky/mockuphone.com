@@ -104,6 +104,7 @@ figure {
   display: flex;
   margin-left: auto;
   flex: none;
+  z-index: 10;
 }
 
 .header__share-small {
