@@ -1,3 +1,4 @@
+import os
 import mockup.helpers as h
 from PIL import Image
 import cv2
@@ -27,12 +28,9 @@ class ImageGenerator:
         self.is_mockup_image_at_front = self.phone_models.get(phone_slug).get(
             "is_mockup_image_at_front"
         )
-        self.resized_image_path = (
-            f"./{original_img_path.split('.')[0]}-{phone_slug}-resize.png"
-        )
-        self.tmp_result_image_path = (
-            f"./{original_img_path.split('.')[0]}-{phone_slug}-tmp_result_image.png"
-        )
+        basename, _ext = os.path.splitext(original_img_path)
+        self.resized_image_path = f"./{basename}-{phone_slug}-resize.png"
+        self.tmp_result_image_path = f"./{basename}-{phone_slug}-tmp_result_image.png"
 
     def create_fit_resolution_image(self):
         device_ratio = self.d_size[0] / self.d_size[1]

@@ -446,6 +446,9 @@ function main() {
   const cancelMockupBtn = document.querySelector(
     ".generating-modal-dialog__cancel-btn",
   );
+  const defaultColorBtn = document.querySelector(
+    ".color-picker-item--selected",
+  );
 
   handleColorPickersTooltip();
   registerUploadGuide();
@@ -454,7 +457,7 @@ function main() {
   const viewModel = new RootViewModel(
     MAX_MOCKUP_WAIT_SEC,
     fileListViewModel,
-    "blue",
+    defaultColorBtn.dataset.colorId ?? null,
   );
   handleColorPickers(viewModel);
   window.viewModel = viewModel;
