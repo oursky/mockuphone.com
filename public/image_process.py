@@ -30,7 +30,6 @@ def save_image(imageList):
     returnList = []
     for image in imageList:
         path = image[0]
-        deviceView = image[2]
         my_image = Image.open(path)
         my_stream = io.BytesIO()
         my_image.save(my_stream, format="PNG")
@@ -38,5 +37,6 @@ def save_image(imageList):
         base64_utf8_str = base64.b64encode(binary_fc).decode("utf-8")
         basename, ext = os.path.splitext(path)
         dataurl = f"data:image/{ext};base64,{base64_utf8_str}"
-        returnList.append([f"img{basename}-{deviceView}", dataurl])
+        print(basename)
+        returnList.append([f"img{basename}", dataurl])
     return returnList

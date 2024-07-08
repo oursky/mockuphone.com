@@ -32,8 +32,10 @@ async def mockup(location, device_id, original_img_path_list, device_info):
                 raise
             ig.create_fit_coord_image(spec)
             deviceView = str(spec["image"]).split("-")[-1].split(".")[0]
-            path = f"{os.path.splitext(os.path.basename(original_img_path))[0]}"
-            f"-{deviceView}.png"
+            path = (
+                f"{os.path.splitext(os.path.basename(original_img_path))[0]}"
+                + f"-{deviceView}.png"
+            )
             ig.create_mockup_image(device_path, device_mask_path, path)
             output_img_path_list.append([path, original_img_path, deviceView])
 
