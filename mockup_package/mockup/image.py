@@ -3,6 +3,7 @@ import sys
 from pathlib import Path
 from pyodide.http import pyfetch
 from mockup.image_generator import ImageGenerator as IG
+import os
 
 
 async def mockup(location, device_id, original_img_path_list, device_info):
@@ -18,10 +19,12 @@ async def mockup(location, device_id, original_img_path_list, device_info):
         for spec in ig.phone_models.get(device_id).get("mockups").values():
             try:
                 await process_response(
-                    device_path_prefix + str(spec["image"]), device_path
+                    device_path_prefix + str(spec["image"]),
+                    device_path,
                 )
                 await process_response(
-                    device_mask_path_prefix + str(spec["image"]), device_mask_path
+                    device_mask_path_prefix + str(spec["image"]),
+                    device_mask_path,
                 )
             except Exception as e:
                 print(e, file=sys.stderr)
@@ -29,7 +32,8 @@ async def mockup(location, device_id, original_img_path_list, device_info):
                 raise
             ig.create_fit_coord_image(spec)
             deviceView = str(spec["image"]).split("-")[-1].split(".")[0]
-            path = f"{original_img_path.split('.')[1].split('/')[1]}-{deviceView}.png"
+            path = f"{os.path.splitext(os.path.basename(original_img_path))[0]}"
+            f"-{deviceView}.png"
             ig.create_mockup_image(device_path, device_mask_path, path)
             output_img_path_list.append([path, original_img_path, deviceView])
 
