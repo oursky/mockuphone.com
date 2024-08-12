@@ -13,11 +13,21 @@ main {
 @media (min-width: 1440px) {
   .mockup-content {
     padding: 50px 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 .device-header {
   flex: 1 1 0%;
+}
+
+@media (min-width: 1440px) {
+  .device-header {
+    width: min(calc(100vw - 400px), 1270px);
+    text-align: left;
+  }
 }
 
 .mockup-lg {
@@ -28,6 +38,13 @@ main {
   .mockup-lg {
     display: flex;
     column-gap: 20px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .mockup-lg {
+    width: 100%;
+    max-width: 1270px;
   }
 }
 
