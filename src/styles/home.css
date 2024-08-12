@@ -67,7 +67,6 @@
 @media (min-width: 992px) {
   #homepage-autocomplete {
     margin: 32px 0 0 calc(55vw + 20px);
-    max-width: 500px;
   }
 }
 
