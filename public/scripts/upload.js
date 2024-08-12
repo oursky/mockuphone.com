@@ -457,7 +457,7 @@ function main() {
   const viewModel = new RootViewModel(
     MAX_MOCKUP_WAIT_SEC,
     fileListViewModel,
-    defaultColorBtn.dataset.colorId ?? null,
+    defaultColorBtn?.dataset?.colorId ?? null,
   );
   handleColorPickers(viewModel);
   window.viewModel = viewModel;
