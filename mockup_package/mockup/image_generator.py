@@ -5,6 +5,9 @@ import cv2
 import numpy as np
 
 
+PADDING = 100
+
+
 class ImageGenerator:
     original_img_path = "./output.png"
     resized_image_path = "./resize.png"
@@ -113,7 +116,16 @@ class ImageGenerator:
         )
         distort_img = cv2.cvtColor(distort_img, cv2.COLOR_BGR2RGB)
         distort_img = Image.fromarray(distort_img)
-        distort_img.save(self.tmp_result_image_path)
+
+        # the black border we added in `create_fit_resolution_image` may not be large enough after rotating the image # noqa: E501
+        # so add extra padding here to prevent weird triangles in the corners # noqa: E501
+        distort_img_with_padding = Image.new(
+            "RGBA",
+            (distort_img.size[0] + 2 * PADDING, distort_img.size[1] + 2 * PADDING),
+            (0, 0, 0, 255),
+        )
+        distort_img_with_padding.paste(distort_img, (PADDING, PADDING))
+        distort_img_with_padding.save(self.tmp_result_image_path)
         return self.tmp_result_image_path
 
     def caculate_min_and_max_x_y(self, spec):
@@ -139,7 +151,9 @@ class ImageGenerator:
             device_image = Image.open(device_path).convert("RGBA")
 
             result_image = Image.new("RGBA", mask_image.size, (0, 0, 0, 0))
-            result_image.paste(tmp_result_image, (self.xyset[0], self.xyset[2]))
+            result_image.paste(
+                tmp_result_image, (self.xyset[0] - PADDING, self.xyset[2] - PADDING)
+            )
             mask_image.paste(result_image, (0, 0), mask=mask_image)
             mask_image.paste(device_image, (0, 0), mask=device_image)
             mask_image.save(result_path)
