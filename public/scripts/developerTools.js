@@ -23,17 +23,17 @@ function main() {
     So use js to make the animation in mobile mode look smoother
   */
   setTimeout(() => {
-    const formxaiCards = document.querySelector(".formxai-card");
+    const formxaiCards = document.querySelector("#formxai-card");
     observer.observe(formxaiCards);
   }, 0);
 
   setTimeout(() => {
-    const authgearCards = document.querySelector(".authgear-card");
+    const authgearCards = document.querySelector("#authgear-card");
     observer.observe(authgearCards);
   }, 200);
 
   setTimeout(() => {
-    const makeappiconCards = document.querySelector(".makeappicon-card");
+    const makeappiconCards = document.querySelector("#makeappicon-card");
     observer.observe(makeappiconCards);
   }, 400);
 }

@@ -1,0 +1,18 @@
+---
+import "./developerToolCard.css";
+const { url, imageSrc, title, content, id } = Astro.props;
+---
+
+<a href={url ?? "#"} target="_blank">
+  <div class="developer-tools-card" id={id}>
+    <img src={imageSrc} />
+    <h2>{title}</h2>
+    <p>
+      {content}
+    </p>
+    <div class="learn-more">
+      Learn more
+      <img src="images/arrow-forward.svg" />
+    </div>
+  </div>
+</a>

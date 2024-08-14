@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import DeveloperToolCard from "../components/DeveloperToolCard/DeveloperToolCard.astro";
 import "/src/styles/developer-tools.css";
 ---
 
@@ -16,52 +17,31 @@ import "/src/styles/developer-tools.css";
           <h1 class="title">Developer Tools</h1>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
-          <a href="#">
-            <div class="developer-tools-card formxai-card">
-              <img src="images/formxai-logo.svg" />
-              <h2>FormX.ai</h2>
-              <p>
-                Empower Your Team with AI: Eliminate Manual Work, Embrace
-                Seamless Automation!
-              </p>
-              <div class="learn-more">
-                Learn more
-                <img src="images/arrow-forward.svg" />
-              </div>
-            </div>
-          </a>
+          <DeveloperToolCard
+            url="https://www.formx.ai/"
+            id="formxai-card"
+            imageSrc="images/formxai-logo.svg"
+            title="FormX.ai"
+            content="Empower Your Team with AI: Eliminate Manual Work, Embrace Seamless Automation!"
+          />
         </div>
         <div class="col-12 col-md-6 col-lg-4">
-          <a href="#">
-            <div class="developer-tools-card authgear-card">
-              <img src="images/authgear-logo.svg" />
-              <h2>Authgear</h2>
-              <p>
-                Activate Security with Auth, Simple and Scalable for Your
-                Business.
-              </p>
-              <div class="learn-more">
-                Learn more
-                <img src="images/arrow-forward.svg" />
-              </div>
-            </div>
-          </a>
+          <DeveloperToolCard
+            url="https://www.authgear.com/"
+            id="authgear-card"
+            imageSrc="images/authgear-logo.svg"
+            title="Authgear"
+            content="Activate Security with Auth, Simple and Scalable for Your Business."
+          />
         </div>
         <div class="col-12 col-md-6 col-lg-4">
-          <a href="#">
-            <div class="developer-tools-card makeappicon-card">
-              <img src="images/makeappicon-logo.svg" />
-              <h2>MakeAppIcon</h2>
-              <p>
-                An icon creator that resizes all iOS icons and Android icons
-                required by App Store and Google Play.
-              </p>
-              <div class="learn-more">
-                Learn more
-                <img src="images/arrow-forward.svg" />
-              </div>
-            </div>
-          </a>
+          <DeveloperToolCard
+            url="https://makeappicon.com/"
+            id="makeappicon-card"
+            imageSrc="images/makeappicon-logo.svg"
+            title="MakeAppIcon"
+            content="An icon creator that resizes all iOS icons and Android icons required by App Store and Google Play."
+          />
         </div>
       </div>
     </div>
