@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import "/src/styles/developer-tools.css";
 ---
 
 <BaseLayout>
@@ -8,38 +9,60 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     name="description"
     content="MockuPhone, ShotBot and MakeAppIcon are Oursky Developer Series. It speeds up the process of app development for developers, designers and project managers."
   />
-  <div class="static-page static-text-page">
-    <h1 class="title">Oursky Developer Suite</h1>
-    <div class="content row-fluid">
-      <div class="span10">
-        <p>
-          <a href="http://makeappicon.com">
-            <img src="/images/makeappicon-logo.png" />
+  <div class="static-page static-text-page developer-tools-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="title">Developer Tools</h1>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <a href="#">
+            <div class="developer-tools-card formxai-card">
+              <img src="images/formxai-logo.svg" />
+              <h2>FormX.ai</h2>
+              <p>
+                Empower Your Team with AI: Eliminate Manual Work, Embrace
+                Seamless Automation!
+              </p>
+              <div class="learn-more">
+                Learn more
+                <img src="images/arrow-forward.svg" />
+              </div>
+            </div>
           </a>
-        </p>
-        <p>
-          <a href="http://makeappicon.com">MakeAppIcon</a> is an icon creator
-          that resizes all iOS icons and Android icons required by App Store and
-          Google Play. With our icon resizer, you can import app icons to
-          Android Studio and Xcode in 3s.
-        </p>
-        <p>Support iOS icons:</p>
-        <ul>
-          <li>iPhone app icons</li>
-          <li>iPad app icons</li>
-          <li>iMessage Sticker app icons</li>
-          <li>WatchOS icons</li>
-        </ul>
-        <p>Support Android icons:</p>
-        <ul>
-          <li>Play Store icon</li>
-          <li>ldpi</li>
-          <li>mdpi</li>
-          <li>hdpi</li>
-          <li>xhdpi</li>
-          <li>xxhdpi</li>
-          <li>xxxhdpi</li>
-        </ul>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <a href="#">
+            <div class="developer-tools-card authgear-card">
+              <img src="images/authgear-logo.svg" />
+              <h2>Authgear</h2>
+              <p>
+                Activate Security with Auth, Simple and Scalable for Your
+                Business.
+              </p>
+              <div class="learn-more">
+                Learn more
+                <img src="images/arrow-forward.svg" />
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <a href="#">
+            <div class="developer-tools-card makeappicon-card">
+              <img src="images/makeappicon-logo.svg" />
+              <h2>MakeAppIcon</h2>
+              <p>
+                An icon creator that resizes all iOS icons and Android icons
+                required by App Store and Google Play.
+              </p>
+              <div class="learn-more">
+                Learn more
+                <img src="images/arrow-forward.svg" />
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
