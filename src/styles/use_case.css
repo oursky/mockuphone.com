@@ -1,0 +1,62 @@
+.use-case-page {
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+
+  p {
+    margin-bottom: 0;
+    text-align: left !important;
+  }
+
+  .col-12 {
+    padding: 20px !important;
+  }
+
+  ul {
+    padding-inline-start: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .use-case-page {
+    .col-12 {
+      padding: 16px !important;
+    }
+  }
+}
+
+.use-case-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+
+  .icon {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    margin-bottom: 4px;
+
+    img {
+      width: 54px;
+      height: 54px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .use-case-card {
+    flex-direction: row;
+
+    .icon {
+      width: 54px;
+      margin-right: 12px;
+    }
+  }
+}
