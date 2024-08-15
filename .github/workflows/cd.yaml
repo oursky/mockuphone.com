@@ -29,6 +29,8 @@ jobs:
           elif [[ "${{ github.ref_name }}" == "production" ]]; then
             echo "ENV=production" >> $GITHUB_ENV
           fi
+      - name: Install npm packages
+        run: npm install
       - name: Build html
         run: npm run build
       - name: Deploy
