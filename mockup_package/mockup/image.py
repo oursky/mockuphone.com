@@ -8,8 +8,8 @@ import os
 
 async def mockup(location, device_id, original_img_path_list, device_info):
     device_path_prefix = f"{location.split('/')[0]}//{location.split('/')[2]}"
-    device_mask_path_prefix = device_path_prefix + "/Images/mockup_mask_templates/"
-    device_path_prefix += "/Images/mockup_templates/"
+    device_mask_path_prefix = device_path_prefix + "/images/mockup_mask_templates/"
+    device_path_prefix += "/images/mockup_templates/"
     device_path = "./device.png"
     device_mask_path = "./device_mask.png"
     output_img_path_list = []

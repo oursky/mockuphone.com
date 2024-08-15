@@ -20,7 +20,7 @@
 }
 
 .aa-SubmitButton {
-  background-image: url("/Images/search.svg");
+  background-image: url("/images/search.svg");
   background-repeat: no-repeat;
   background-position: center;
   width: 47px;
@@ -39,7 +39,7 @@
 }
 
 .aa-SubmitButton:focus {
-  background-image: url("/Images/search-dark.svg");
+  background-image: url("/images/search-dark.svg");
   outline: none;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .aa-DetachedSearchButtonIcon {
-  background-image: url("/Images/search.svg");
+  background-image: url("/images/search.svg");
   background-repeat: no-repeat;
   background-position: center;
   width: 47px;
@@ -98,7 +98,7 @@
   }
   .aa-Form > .aa-DetachedCancelButton {
     height: 100%;
-    background-image: url("/Images/arrow-back.svg");
+    background-image: url("/images/arrow-back.svg");
     background-repeat: no-repeat;
     background-position: center;
     margin: 0;

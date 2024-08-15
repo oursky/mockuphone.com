@@ -99,8 +99,8 @@ function mapDevice(data: schema.RawDevice): Device {
   const imagePath: [string, string][] = data.orientations.map(
     (orientationItem: any) => [
       (data.is_legacy
-        ? "/Images/devices_picture/"
-        : "/Images/mockup_templates/") +
+        ? "/images/devices_picture/"
+        : "/images/mockup_templates/") +
         data.device_id +
         "-" +
         orientationItem.name +

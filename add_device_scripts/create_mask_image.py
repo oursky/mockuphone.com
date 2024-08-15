@@ -42,9 +42,9 @@ def bfs2(image):
             positionsList.append((x - 1, y))
 
 
-path = "public/Images/mockup_templates"
-device_path = "public/Images/devices_picture"
-outputPath = "public/Images/mockup_mask_templates"
+path = "public/images/mockup_templates"
+device_path = "public/images/devices_picture"
+outputPath = "public/images/mockup_mask_templates"
 if len(sys.argv) == 1:
     print("use default path ", path)
 else:
