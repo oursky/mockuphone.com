@@ -163,7 +163,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("/Images/landing-devices.png");
+  background-image: url("/images/landing-devices.png");
   transform: rotate(30deg);
 }
 @media (min-width: 992px) {
@@ -225,7 +225,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("/Images/lightbulb.svg");
+  background-image: url("/images/lightbulb.svg");
 }
 
 .oursky-product-list {
@@ -258,7 +258,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("/Images/right-arrow.svg");
+  background-image: url("/images/right-arrow.svg");
 }
 @media (min-width: 992px) {
   .oursky-product {

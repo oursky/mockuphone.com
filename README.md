@@ -41,9 +41,9 @@ Now, in your terminal:
 
 ### Add device image
 
-1. Place the portrait and landscape image as `{device_id}-portrait.png` and `{device_id}-landscape.png` in `public/Images/mockup_templates/`
-2. Run `make create-mask-image` to create mask image to `public/Images/mockup_mask_templates/`
-3. Run `make add-new-device`, and input device info, this script will let user use `{device_id}-portrait.png` in `public/Images/mockup_mask_templates/` to get the frame of the image
+1. Place the portrait and landscape image as `{device_id}-portrait.png` and `{device_id}-landscape.png` in `public/images/mockup_templates/`
+2. Run `make create-mask-image` to create mask image to `public/images/mockup_mask_templates/`
+3. Run `make add-new-device`, and input device info, this script will let user use `{device_id}-portrait.png` in `public/images/mockup_mask_templates/` to get the frame of the image
    - The script will ask you to input some info for the device, after input the device info, you should see a window as below:
    - <img width="756" alt="Screenshot 2023-09-01 at 2 31 31 PM" src="https://github.com/YayunHuang/mockuphone/assets/48404737/14ede2b1-7fb0-4e02-8405-386ee532539e">
    - Resize the window if you can't see 4 trackbar on top

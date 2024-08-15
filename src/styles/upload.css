@@ -268,7 +268,7 @@ main {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("/Images/spinner-white.png");
+  background-image: url("/images/spinner-white.png");
   animation: spin 1s linear infinite;
 }
 
@@ -316,7 +316,7 @@ main {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("/Images/upload-icon.svg");
+  background-image: url("/images/upload-icon.svg");
 }
 
 .file-list {
@@ -373,7 +373,7 @@ main {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("/Images/cross-gray.svg");
+  background-image: url("/images/cross-gray.svg");
   background-color: white;
   margin-right: 2px;
   cursor: pointer;
@@ -400,13 +400,13 @@ main {
   background-position: center;
 }
 .file-list-item--done .file-list-item__filename::before {
-  background-image: url("/Images/upload-done.svg");
+  background-image: url("/images/upload-done.svg");
 }
 .file-list-item--warning .file-list-item__filename::before {
-  background-image: url("/Images/upload-warning.svg");
+  background-image: url("/images/upload-warning.svg");
 }
 .file-list-item--error .file-list-item__filename::before {
-  background-image: url("/Images/upload-error.svg");
+  background-image: url("/images/upload-error.svg");
 }
 
 .file-list-item__hint {
@@ -482,7 +482,7 @@ main {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("/Images/droplet.svg");
+  background-image: url("/images/droplet.svg");
 }
 
 .color-picker-scrollable {
@@ -597,7 +597,7 @@ main {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("/Images/device-support.svg");
+  background-image: url("/images/device-support.svg");
 }
 
 .device-support__orientation-list {
@@ -657,7 +657,7 @@ main {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("/Images/device-credits.svg");
+  background-image: url("/images/device-credits.svg");
 }
 
 .device-credits__desc p {
@@ -708,7 +708,7 @@ main {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("/Images/spinner-blue.png");
+  background-image: url("/images/spinner-blue.png");
   animation: spin 1s linear infinite;
 }
 

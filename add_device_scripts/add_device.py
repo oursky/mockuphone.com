@@ -10,7 +10,7 @@ device_color_hexcode = input("Input device_color_hexcode(ex: #F0CBD3): ")
 device_name = input("Input device_name(ex: Samsung Galaxy S20): ")
 device_type = input("Input device_type(Android/iOS/TV/Laptops/Macbook): ")
 
-image_path = f"public/Images/mockup_mask_templates/{device_id}-portrait.png"
+image_path = f"public/images/mockup_mask_templates/{device_id}-portrait.png"
 img = cv2.imread(image_path)
 cv2.namedWindow("image")
 cv2.imshow("image", img)

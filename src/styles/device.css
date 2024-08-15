@@ -120,22 +120,22 @@
 .device-type-list__circle-image-all::after {
   height: 24px;
   width: 24px;
-  background-image: url("/Images/types/all.svg");
+  background-image: url("/images/types/all.svg");
 }
 .device-type-list__circle-image-phone::after {
-  background-image: url("/Images/types/phone.svg");
+  background-image: url("/images/types/phone.svg");
 }
 .device-type-list__circle-image-tablet::after {
-  background-image: url("/Images/types/tablet.svg");
+  background-image: url("/images/types/tablet.svg");
 }
 .device-type-list__circle-image-wearables::after {
-  background-image: url("/Images/types/wearables.svg");
+  background-image: url("/images/types/wearables.svg");
 }
 .device-type-list__circle-image-computer::after {
-  background-image: url("/Images/types/computer.svg");
+  background-image: url("/images/types/computer.svg");
 }
 .device-type-list__circle-image-tv::after {
-  background-image: url("/Images/types/tv.svg");
+  background-image: url("/images/types/tv.svg");
 }
 .device-type-list__circle-image--chosen {
   background-color: #0043e0;
@@ -152,22 +152,22 @@
 .device-type-list__circle-image-all--chosen::after {
   height: 24px;
   width: 24px;
-  background-image: url("/Images/types/all-white.svg");
+  background-image: url("/images/types/all-white.svg");
 }
 .device-type-list__circle-image-phone--chosen::after {
-  background-image: url("/Images/types/phone-white.svg");
+  background-image: url("/images/types/phone-white.svg");
 }
 .device-type-list__circle-image-tablet--chosen::after {
-  background-image: url("/Images/types/tablet-white.svg");
+  background-image: url("/images/types/tablet-white.svg");
 }
 .device-type-list__circle-image-wearables--chosen::after {
-  background-image: url("/Images/types/wearables-white.svg");
+  background-image: url("/images/types/wearables-white.svg");
 }
 .device-type-list__circle-image-computer--chosen::after {
-  background-image: url("/Images/types/computer-white.svg");
+  background-image: url("/images/types/computer-white.svg");
 }
 .device-type-list__circle-image-tv--chosen::after {
-  background-image: url("/Images/types/tv-white.svg");
+  background-image: url("/images/types/tv-white.svg");
 }
 
 .device-brand-select-container {
@@ -184,7 +184,7 @@
 
   /* arrow style */
   appearance: none;
-  background-image: url("/Images/chevron.svg");
+  background-image: url("/images/chevron.svg");
   background-position: bottom calc(50%) right 18px;
   background-size: 14px 9px;
   background-repeat: no-repeat;
@@ -314,7 +314,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("/Images/search.svg");
+  background-image: url("/images/search.svg");
 }
 
 .select-device__search-input {
@@ -409,7 +409,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("/Images/search.svg");
+  background-image: url("/images/search.svg");
 }
 
 .fullscreen-search__search-input {
@@ -661,7 +661,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("/Images/right-arrow.svg");
+  background-image: url("/images/right-arrow.svg");
   margin: 0 0 0 10px;
 }
 .device-grid__overlay-pick-btn:hover {
