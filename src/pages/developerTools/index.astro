@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DeveloperToolCard from "./DeveloperToolCard.astro";
+import "./index.css";
+---
+
+<BaseLayout>
+  <meta
+    slot="meta"
+    name="description"
+    content="MockuPhone, ShotBot and MakeAppIcon are Oursky Developer Series. It speeds up the process of app development for developers, designers and project managers."
+  />
+  <div class="static-page static-text-page developer-tools-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="title">Developer Tools</h1>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <DeveloperToolCard
+            url="https://www.formx.ai/"
+            id="formxai-card"
+            imageSrc="images/formxai-logo.svg"
+            title="FormX.ai"
+            content="Empower Your Team with AI: Eliminate Manual Work, Embrace Seamless Automation!"
+          />
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <DeveloperToolCard
+            url="https://www.authgear.com/"
+            id="authgear-card"
+            imageSrc="images/authgear-logo.svg"
+            title="Authgear"
+            content="Activate Security with Auth, Simple and Scalable for Your Business."
+          />
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <DeveloperToolCard
+            url="https://makeappicon.com/"
+            id="makeappicon-card"
+            imageSrc="images/makeappicon-logo.svg"
+            title="MakeAppIcon"
+            content="An icon creator that resizes all iOS icons and Android icons required by App Store and Google Play."
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,65 @@
+@keyframes slideIn {
+  0% {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.developer-tools-card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background-color: white;
+  padding: 20px;
+  height: 100%;
+  font-family: "Red Hat Display";
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: box-shadow 0.3s ease-in-out;
+
+  img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: black;
+  }
+
+  p {
+    font-size: 16px;
+    color: #838c9b;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  .learn-more {
+    display: flex;
+    flex-direction: row;
+    color: #004be0;
+    margin-top: auto;
+    gap: 8px;
+
+    img {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.developer-tools-card:hover {
+  cursor: pointer;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.16);
+}
+
+.developer-tools-card.animate {
+  animation: slideIn 0.3s ease-in-out forwards;
+}
