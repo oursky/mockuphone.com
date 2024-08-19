@@ -147,6 +147,10 @@ main {
   width: 100%;
   height: 100%;
   object-fit: contain;
+
+  /* Overlay the preview image with the color device image */
+  position: relative;
+  z-index: 1;
 }
 
 .upload__device-image-rect-wrapper {
@@ -158,10 +162,6 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.upload__device-image-rect {
-  position: relative;
 }
 
 .upload__device-image-rect__screen-rect {

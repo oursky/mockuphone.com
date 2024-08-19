@@ -37,6 +37,48 @@ async function runWorker(worker) {
           window.location.href = "/download/?deviceId=" + window.workerDeviceId;
         })
         .catch(function (err) {
+          // TODO: Handle preview error in widget
+          console.error("Get error while storing images to localforage:", err);
+        });
+    },
+    false,
+  );
+}
+
+function runPreviewWorker(worker, imageUpload) {
+  const imageUploadFile = imageUpload.file;
+  worker.postMessage({
+    imageUpload: imageUploadFile,
+    location: window.location.toString(),
+    deviceId: window.workerDeviceId,
+    deviceInfo: window.deviceInfo,
+  });
+  worker.addEventListener(
+    "message",
+    function (e) {
+      window.localforage
+        .setItem(`previewImage-${imageUpload.ulid}`, e.data[1])
+        .then(function () {
+          const imageContainer = document.querySelector(
+            ".upload__device-image-rect",
+          );
+
+          /* Put first generated mockup to preview area */
+          if (!imageContainer.style.backgroundImage) {
+            imageContainer.style.backgroundImage = `url(${e.data[1]})`;
+            imageContainer.style.backgroundSize = "cover";
+            imageContainer.style.backgroundPosition = "center";
+
+            const imageUploadHints = document.querySelectorAll(
+              ".upload__device-hint",
+            );
+            imageUploadHints.forEach((imageUploadHint) => {
+              imageUploadHint.innerHTML = "";
+              imageUploadHint.style.background = "transparent";
+            });
+          }
+        })
+        .catch(function (err) {
           console.error("Get error while storing images to localforage:", err);
         });
     },
@@ -88,7 +130,9 @@ class FileListViewModel {
     for (const file of files) {
       const imageUpload = new ImageUpload(file, MAX_FILE_SIZE_BYTE);
       await imageUpload.read();
+      imageUpload.ulid = ULID.ulid();
       this._imageUploads.push(imageUpload);
+      window.viewModel.generatePreviewMockup(imageUpload);
     }
   }
 
@@ -109,6 +153,7 @@ class RootViewModel {
   _socket = null;
   _redirectTimer = null;
   worker = new Worker("/scripts/web_worker.js");
+  previewWorker = new Worker("/scripts/preview_worker.js");
   selectedColorId = null;
 
   constructor(maxMockupWaitSec, fileListViewModel, selectedColorId) {
@@ -127,6 +172,10 @@ class RootViewModel {
 
   get isGeneratingMockup() {
     return this._isGeneratingMockup;
+  }
+
+  async generatePreviewMockup(imageUpload) {
+    runPreviewWorker(this.previewWorker, imageUpload);
   }
 
   async generateMockup() {
