@@ -21,22 +21,23 @@ async function initianPyodide() {
   return pyodide;
 }
 
-async function runMockup(pyodide) {
+// Now only the first orientation model is generated for preview
+async function runPreviewMockup(pyodide) {
   let pythonNamespace = pyodide.globals.get("dict")();
   await pyodide.runPythonAsync(
     `
       import mockup
       import image_process
-      from js import locationKey, imageUploadList, deviceInfo, deviceId
-      origin_image_List = await image_process.upload_files()
-      print("start mockup")
-      output_img_path_list = await mockup.startMockup(locationKey, deviceId, origin_image_List, deviceInfo)
+      from js import locationKey, imageUpload, deviceInfo, deviceId
+      origin_image_path = await image_process.upload_file()
+      print("start preview", origin_image_path)
+      output_img = await mockup.previewMockup(locationKey, deviceId, origin_image_path, deviceInfo)
     `,
     { globals: pythonNamespace },
   );
   pyodide.runPython(
     `
-        temp = image_process.save_images(output_img_path_list)
+        temp = image_process.save_image(output_img)
     `,
     { globals: pythonNamespace },
   );
@@ -48,15 +49,16 @@ async function main() {
   self.onmessage = async (event) => {
     pyodideObject = await pyodideObject;
 
-    self["imageUploadList"] = event.data.imageUploadList;
-    self["imageUpload"] = undefined;
+    self["imageUploadList"] = undefined;
+    self["imageUpload"] = event.data.imageUpload;
     self["locationKey"] = event.data.location;
     self["deviceId"] = event.data.deviceId;
     self["deviceInfo"] = event.data.deviceInfo;
 
     try {
-      let results = await runMockup(pyodideObject);
-      console.log("results", results);
+      // TODO: Handle preview loading state in widget
+      let results = await runPreviewMockup(pyodideObject);
+      console.log("preview results", results);
       self.postMessage(results);
     } catch (error) {
       self.postMessage({ error: error.message });

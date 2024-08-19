@@ -20,6 +20,8 @@ class ImageUpload {
   signedData = null;
   readState = ReadState.ReadyForRead;
   message = null;
+  ulid = null;
+  previewUrl = null;
 
   loadDimensionPromise = null;
 
