@@ -36,7 +36,7 @@ async function runMockup(pyodide) {
   );
   pyodide.runPython(
     `
-        temp = image_process.save_image(output_img_path_list)
+        temp = image_process.save_images(output_img_path_list)
     `,
     { globals: pythonNamespace },
   );
@@ -49,6 +49,7 @@ async function main() {
     pyodideObject = await pyodideObject;
 
     self["imageUploadList"] = event.data.imageUploadList;
+    self["imageUpload"] = undefined;
     self["locationKey"] = event.data.location;
     self["deviceId"] = event.data.deviceId;
     self["deviceInfo"] = event.data.deviceInfo;
