@@ -61,7 +61,7 @@ async function main() {
       console.log("preview results", results);
       self.postMessage({ ulid: event.data.ulid, results: results });
     } catch (error) {
-      self.postMessage({ error: error.message });
+      self.postMessage({ ulid: event.data.ulid, error: error.message });
     }
   };
 }

@@ -37,7 +37,6 @@ async function runWorker(worker) {
           window.location.href = "/download/?deviceId=" + window.workerDeviceId;
         })
         .catch(function (err) {
-          // TODO: Handle preview error in widget
           console.error("Get error while storing images to localforage:", err);
         });
     },
@@ -64,36 +63,44 @@ function runPreviewWorker(worker, imageUpload) {
   worker.addEventListener(
     "message",
     function (e) {
-      window.localforage
-        .setItem(`previewImage-${e.data["ulid"]}`, e.data["results"][1])
-        .then(function () {
-          const imageContainer = document.querySelector(
-            ".upload__device-image-rect",
-          );
+      if (e.data["error"] !== undefined) {
+        console.log(
+          "Get error while generating preview image",
+          e.data["error"],
+        );
+        window.viewModel.fileList.updateImageUploadStateByULID(
+          e.data["ulid"],
+          ImageUploadState.ErrPreview,
+        );
+        return;
+      }
 
-          /* Put first generated mockup to preview area */
-          if (!imageContainer.style.backgroundImage) {
-            imageContainer.style.backgroundImage = `url(${e.data["results"][1]})`;
+      const ulid = e.data["ulid"];
+      const [_, previewUrl] = e.data["results"];
 
-            const imageUploadHints = document.querySelectorAll(
-              ".upload__device-hint",
-            );
-            imageUploadHints.forEach((imageUploadHint) => {
-              imageUploadHint.style.display = "none";
-            });
-          }
-          window.viewModel.fileList.updateImageUploadPreviewUrlByULID(
-            e.data["ulid"],
-            e.data["results"][1],
-          );
-          window.viewModel.fileList.updateImageUploadStateByULID(
-            e.data["ulid"],
-            ImageUploadState.ReadSuccess,
-          );
-        })
-        .catch(function (err) {
-          console.error("Get error while storing images to localforage:", err);
+      const imageContainer = document.querySelector(
+        ".upload__device-image-rect",
+      );
+
+      /* Put first generated mockup to preview area */
+      if (!imageContainer.style.backgroundImage) {
+        imageContainer.style.backgroundImage = `url(${previewUrl})`;
+
+        const imageUploadHints = document.querySelectorAll(
+          ".upload__device-hint",
+        );
+        imageUploadHints.forEach((imageUploadHint) => {
+          imageUploadHint.style.display = "none";
         });
+      }
+      window.viewModel.fileList.updateImageUploadPreviewUrlByULID(
+        ulid,
+        previewUrl,
+      );
+      window.viewModel.fileList.updateImageUploadStateByULID(
+        ulid,
+        ImageUploadState.ReadSuccess,
+      );
     },
     false,
   );
@@ -423,7 +430,10 @@ function updateFileListItem(itemNode, imageUpload) {
   // Update status icon
   // error status has higher precedence over warning
   if (imageUpload.isErrorState) {
-    itemNode.classList.remove("file-list-item--progress");
+    itemNode.classList.remove(
+      "file-list-item--progress",
+      "file-list-item--loading",
+    );
     itemNode.classList.add("file-list-item--error");
   } else if (shouldShowAspectRatioWarning) {
     itemNode.classList.add("file-list-item--warning");
@@ -454,6 +464,10 @@ function updateFileListItem(itemNode, imageUpload) {
         break;
       case ImageUploadState.ErrExceedMaxFileSize:
         hintNode.innerText = `File size should be less than ${MAX_FILE_SIZE_READABLE}.`;
+        break;
+      case ImageUploadState.ErrPreview:
+        hintNode.innerText =
+          "Preview failed. Please upload the image again to retry.";
         break;
       case ImageUploadState.ErrRead:
       default:
