@@ -55,9 +55,13 @@ class ImageGenerator:
                 image = image.rotate(270, expand=True)
             elif exif[orientation] == 8:
                 image = image.rotate(90, expand=True)
-        except Exception:
-            # image does not have orientation, expected case, will silent error
-            pass
+        except KeyError as ex:
+            if ex.args == (274,):
+                # image does not have orientation, expected case, will silent error
+                # ref https://github.com/python-pillow/Pillow/blob/0ec1153a627a46b978022c68c2adce89ff81f40d/src/PIL/TiffTags.py#L145
+                pass
+            else:
+                raise
 
         find_original_image_dim_process = str(image.size[0]) + "x" + str(image.size[1])
         original_image_dim = tuple(
