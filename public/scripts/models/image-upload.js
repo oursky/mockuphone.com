@@ -67,6 +67,10 @@ class ImageUpload {
     this.state = state;
   }
 
+  updatePreviewUrl(previewUrl) {
+    this.previewUrl = previewUrl;
+  }
+
   // Cache file type from header such that no need to parse again
   __fileTypeFromHeader = null;
   async _getFileTypeFromHeader() {

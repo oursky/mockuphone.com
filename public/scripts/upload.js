@@ -59,12 +59,13 @@ function runPreviewWorker(worker, imageUpload) {
     location: window.location.toString(),
     deviceId: window.workerDeviceId,
     deviceInfo: window.deviceInfo,
+    ulid: imageUpload.ulid,
   });
   worker.addEventListener(
     "message",
     function (e) {
       window.localforage
-        .setItem(`previewImage-${imageUpload.ulid}`, e.data[1])
+        .setItem(`previewImage-${e.data["ulid"]}`, e.data["results"][1])
         .then(function () {
           const imageContainer = document.querySelector(
             ".upload__device-image-rect",
@@ -72,21 +73,21 @@ function runPreviewWorker(worker, imageUpload) {
 
           /* Put first generated mockup to preview area */
           if (!imageContainer.style.backgroundImage) {
-            imageContainer.style.backgroundImage = `url(${e.data[1]})`;
-            imageContainer.style.backgroundSize = "cover";
-            imageContainer.style.backgroundPosition = "center";
+            imageContainer.style.backgroundImage = `url(${e.data["results"][1]})`;
 
             const imageUploadHints = document.querySelectorAll(
               ".upload__device-hint",
             );
             imageUploadHints.forEach((imageUploadHint) => {
-              imageUploadHint.innerHTML = "";
-              imageUploadHint.style.background = "transparent";
+              imageUploadHint.style.display = "none";
             });
           }
-
+          window.viewModel.fileList.updateImageUploadPreviewUrlByULID(
+            e.data["ulid"],
+            e.data["results"][1],
+          );
           window.viewModel.fileList.updateImageUploadStateByULID(
-            imageUpload.ulid,
+            e.data["ulid"],
             ImageUploadState.ReadSuccess,
           );
         })
@@ -139,27 +140,46 @@ class FileListViewModel {
       files = [file];
     }
 
-    for (const file of files) {
-      const imageUpload = new ImageUpload(file, MAX_FILE_SIZE_BYTE);
+    for (let i = 0; i < files.length; i += 1) {
+      const imageUpload = new ImageUpload(files[i], MAX_FILE_SIZE_BYTE);
       await imageUpload.read();
       imageUpload.ulid = ULID.ulid();
-      this._imageUploads.push(imageUpload);
-      window.viewModel.generatePreviewMockup(imageUpload);
+
+      // Avoiding read same image file
+      setTimeout(() => {
+        this._imageUploads.push(imageUpload);
+        window.viewModel.generatePreviewMockup(imageUpload);
+      }, i * 10);
     }
+
+    window.viewModel.selectedPreviewImageULID =
+      window.viewModel.defaultImageUploadULID;
   }
 
   async remove(filename, fileUlid) {
     this._imageUploads = this._imageUploads.filter((upload) => {
       const isSameFilename = upload.file.name === filename;
-      const isSameIndex = fileUlid === upload.ulid;
-      return !(isSameFilename && isSameIndex);
+      const isSameULID = fileUlid === upload.ulid;
+      return !(isSameFilename && isSameULID);
     });
+
+    window.viewModel.selectedPreviewImageULID =
+      window.viewModel.defaultImageUploadULID;
   }
 
   updateImageUploadStateByULID(ulid, state) {
-    this._imageUploads.forEach((imageUpload) => {
+    this._imageUploads = this._imageUploads.map((imageUpload) => {
       if (imageUpload.ulid == ulid) {
         imageUpload.state = state;
+      }
+      return imageUpload;
+    });
+  }
+
+  updateImageUploadPreviewUrlByULID(ulid, previewUrl) {
+    this._imageUploads = this._imageUploads.map((imageUpload) => {
+      if (imageUpload.ulid == ulid) {
+        imageUpload.previewUrl = previewUrl;
       }
       return imageUpload;
     });
@@ -176,6 +196,7 @@ class RootViewModel {
   worker = new Worker("/scripts/web_worker.js");
   previewWorker = new Worker("/scripts/preview_worker.js");
   selectedColorId = null;
+  selectedPreviewImageULID = null;
 
   constructor(maxMockupWaitSec, fileListViewModel, selectedColorId) {
     mobx.makeObservable(this, {
@@ -185,6 +206,7 @@ class RootViewModel {
       isGeneratingMockup: mobx.computed,
       generateMockup: mobx.action,
       cancelMockup: mobx.action,
+      selectedPreviewImageULID: mobx.observable,
     });
     this.selectedColorId = selectedColorId;
     this.maxMockupWaitSec = maxMockupWaitSec;
@@ -239,6 +261,12 @@ class RootViewModel {
   get previewUrl() {
     return "/download/?deviceId=" + window.workerDeviceId;
   }
+
+  get defaultImageUploadULID() {
+    return this.fileList.imageUploads.length > 0
+      ? this.fileList.imageUploads[0].ulid
+      : null;
+  }
 }
 
 function preventDefault(node, events) {
@@ -285,6 +313,19 @@ function appendInitialFileListItem(fileUlid, filename) {
   const fileListNode = document.querySelector(".file-list");
 
   const itemNode = document.createElement("li");
+
+  const fileInfoNode = document.createElement("div");
+  const previewStateNode = document.createElement("div");
+  previewStateNode.addEventListener("click", () => {
+    window.viewModel.selectedPreviewImageULID = fileUlid;
+  });
+
+  previewStateNode.classList.add("file-list-item__preview-state");
+  itemNode.appendChild(previewStateNode);
+
+  fileInfoNode.classList.add("file-list-item__file-info");
+  itemNode.appendChild(fileInfoNode);
+
   itemNode.classList.add("file-list-item");
   itemNode.dataset.fileUlid = fileUlid;
 
@@ -302,14 +343,13 @@ function appendInitialFileListItem(fileUlid, filename) {
   };
   headerNode.appendChild(crossNode);
 
-  itemNode.appendChild(headerNode);
-
-  itemNode.insertAdjacentHTML(
+  fileInfoNode.appendChild(headerNode);
+  fileInfoNode.insertAdjacentHTML(
     "beforeend",
     `<p class="file-list-item__hint d-none"></p>`,
   );
 
-  itemNode.insertAdjacentHTML(
+  fileInfoNode.insertAdjacentHTML(
     "beforeend",
     `<div class="file-list-item__progress-bar-border">
       <div class="file-list-item__progress-bar-fill"></div>
@@ -329,12 +369,14 @@ function updateFileListItem(itemNode, imageUpload) {
   const progressFillNode = itemNode.querySelector(
     ".file-list-item__progress-bar-fill",
   );
+  const previewNode = itemNode.querySelector(".file-list-item__preview-state");
 
   // clear previous state
   itemNode.classList.remove(
     "file-list-item--done",
     "file-list-item--error",
     "file-list-item--warning",
+    "file-list-item__previewable",
     // NOTE: do not remove progress state immediately so the progress bar can proceed to 100% before being removed
     // "file-list-item--progress"
   );
@@ -343,6 +385,10 @@ function updateFileListItem(itemNode, imageUpload) {
     "file-list-item__progress-bar-fill--60",
     "file-list-item__progress-bar-fill--90",
     "file-list-item__progress-bar-fill--100",
+  );
+  previewNode.classList.remove(
+    "file-list-item__preview_selected",
+    "file-list-item__preview_non_selected",
   );
 
   /* Expected UI for each state
@@ -384,18 +430,19 @@ function updateFileListItem(itemNode, imageUpload) {
   }
 
   if (imageUpload.isGeneratingPreviewState) {
-    setTimeout(() => {
-      itemNode.classList.remove("file-list-item--done");
-      itemNode.classList.add("file-list-item--loading");
-    }, 10);
+    itemNode.classList.remove("file-list-item--done");
+    itemNode.classList.add("file-list-item--loading");
   }
 
   if (imageUpload.isSuccessState) {
-    setTimeout(() => {
-      itemNode.classList.remove("file-list-item--loading");
-      itemNode.classList.remove("file-list-item--progress");
-    }, 10);
-    itemNode.classList.add("file-list-item--done");
+    itemNode.classList.remove(
+      "file-list-item--loading",
+      "file-list-item--progress",
+    );
+    itemNode.classList.add(
+      "file-list-item--done",
+      "file-list-item__previewable",
+    );
   } else if (imageUpload.isProcessingState) {
     itemNode.classList.add("file-list-item--progress");
   }
@@ -439,6 +486,15 @@ function updateFileListItem(itemNode, imageUpload) {
         break;
       default:
         break;
+    }
+  }
+
+  // update preview button
+  if (imageUpload.isSuccessState) {
+    if (window.viewModel.selectedPreviewImageULID == imageUpload.ulid) {
+      previewNode.classList.add("file-list-item__preview_selected");
+    } else {
+      previewNode.classList.add("file-list-item__preview_non_selected");
     }
   }
 
@@ -728,6 +784,46 @@ function main() {
     },
     {
       equals: mobx.comparer.shallow,
+    },
+  );
+
+  // observe viewModel: selectedPreviewImageULID
+  mobx.reaction(
+    () => viewModel.selectedPreviewImageULID,
+    () => {
+      // update preview area
+      const imageContainer = document.querySelector(
+        ".upload__device-image-rect",
+      );
+      if (viewModel.selectedPreviewImageULID === null) {
+        imageContainer.style.backgroundImage = "";
+        const imageUploadHints = document.querySelectorAll(
+          ".upload__device-hint",
+        );
+        imageUploadHints.forEach((imageUploadHint) => {
+          imageUploadHint.style.display = "flex";
+        });
+      }
+
+      removeAllFileListItems(); // remove then re-render
+      const imageUploads = viewModel.fileList.imageUploads;
+      for (let i = 0; i < imageUploads.length; ++i) {
+        let itemNode = findFileListItem(imageUploads[i].ulid);
+        if (itemNode == null) {
+          itemNode = appendInitialFileListItem(
+            imageUploads[i].ulid,
+            imageUploads[i].file.name,
+          );
+        }
+        updateFileListItem(itemNode, imageUploads[i]);
+
+        if (
+          imageUploads[i].isSuccessState &&
+          imageUploads[i].ulid == window.viewModel.selectedPreviewImageULID
+        ) {
+          imageContainer.style.backgroundImage = `url(${imageUploads[i].previewUrl})`;
+        }
+      }
     },
   );
 
