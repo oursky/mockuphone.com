@@ -46,6 +46,13 @@ async function runWorker(worker) {
 }
 
 function runPreviewWorker(worker, imageUpload) {
+  if (imageUpload.isErrorState) {
+    return;
+  }
+  window.viewModel.fileList.updateImageUploadStateByULID(
+    imageUpload.ulid,
+    ImageUploadState.GeneratingPreview,
+  );
   const imageUploadFile = imageUpload.file;
   worker.postMessage({
     imageUpload: imageUploadFile,
@@ -77,6 +84,11 @@ function runPreviewWorker(worker, imageUpload) {
               imageUploadHint.style.background = "transparent";
             });
           }
+
+          window.viewModel.fileList.updateImageUploadStateByULID(
+            imageUpload.ulid,
+            ImageUploadState.ReadSuccess,
+          );
         })
         .catch(function (err) {
           console.error("Get error while storing images to localforage:", err);
@@ -136,11 +148,20 @@ class FileListViewModel {
     }
   }
 
-  async remove(filename, index) {
-    this._imageUploads = this._imageUploads.filter((upload, i) => {
+  async remove(filename, fileUlid) {
+    this._imageUploads = this._imageUploads.filter((upload) => {
       const isSameFilename = upload.file.name === filename;
-      const isSameIndex = i === index;
+      const isSameIndex = fileUlid === upload.ulid;
       return !(isSameFilename && isSameIndex);
+    });
+  }
+
+  updateImageUploadStateByULID(ulid, state) {
+    this._imageUploads.forEach((imageUpload) => {
+      if (imageUpload.ulid == ulid) {
+        imageUpload.state = state;
+      }
+      return imageUpload;
     });
   }
 }
@@ -249,23 +270,23 @@ function dismissUploading() {
   uploading?.classList.add("d-none");
 }
 
-function findFileListItem(fileIndex) {
+function findFileListItem(fileUlid) {
   const fileListNode = document.querySelector(".file-list");
   const itemNodes = fileListNode.querySelectorAll(".file-list-item");
   for (const itemNode of itemNodes) {
-    if (itemNode.dataset.fileIndex === String(fileIndex)) {
+    if (itemNode.dataset.fileUlid === String(fileUlid)) {
       return itemNode;
     }
   }
   return null;
 }
 
-function appendInitialFileListItem(fileIndex, filename) {
+function appendInitialFileListItem(fileUlid, filename) {
   const fileListNode = document.querySelector(".file-list");
 
   const itemNode = document.createElement("li");
   itemNode.classList.add("file-list-item");
-  itemNode.dataset.fileIndex = fileIndex;
+  itemNode.dataset.fileUlid = fileUlid;
 
   const headerNode = document.createElement("div");
   headerNode.classList.add("file-list-item__filename");
@@ -277,7 +298,7 @@ function appendInitialFileListItem(fileIndex, filename) {
   const crossNode = document.createElement("button");
   crossNode.classList.add("file-list-item__cross");
   crossNode.onclick = async () => {
-    await window.viewModel.fileList.remove(filename, fileIndex);
+    await window.viewModel.fileList.remove(filename, fileUlid);
   };
   headerNode.appendChild(crossNode);
 
@@ -352,7 +373,7 @@ function updateFileListItem(itemNode, imageUpload) {
     isSameAspectRatio(imageDim, recommendDim) ||
     isSameAspectRatio(imageDimRotate, recommendDim);
   const shouldShowAspectRatioWarning =
-    imageUpload.readState !== ReadState.Reading && !isCorrectDim;
+    imageUpload.state !== ImageUploadState.Reading && !isCorrectDim;
   // Update status icon
   // error status has higher precedence over warning
   if (imageUpload.isErrorState) {
@@ -361,8 +382,17 @@ function updateFileListItem(itemNode, imageUpload) {
   } else if (shouldShowAspectRatioWarning) {
     itemNode.classList.add("file-list-item--warning");
   }
+
+  if (imageUpload.isGeneratingPreviewState) {
+    setTimeout(() => {
+      itemNode.classList.remove("file-list-item--done");
+      itemNode.classList.add("file-list-item--loading");
+    }, 10);
+  }
+
   if (imageUpload.isSuccessState) {
     setTimeout(() => {
+      itemNode.classList.remove("file-list-item--loading");
       itemNode.classList.remove("file-list-item--progress");
     }, 10);
     itemNode.classList.add("file-list-item--done");
@@ -371,14 +401,14 @@ function updateFileListItem(itemNode, imageUpload) {
   }
   // update hint text
   if (imageUpload.isErrorState) {
-    switch (imageUpload.readState) {
-      case ReadState.ErrUnsupportedFileType:
+    switch (imageUpload.state) {
+      case ImageUploadState.ErrUnsupportedFileType:
         hintNode.innerText = "Supported file extensions: JPG, PNG or PSD.";
         break;
-      case ReadState.ErrExceedMaxFileSize:
+      case ImageUploadState.ErrExceedMaxFileSize:
         hintNode.innerText = `File size should be less than ${MAX_FILE_SIZE_READABLE}.`;
         break;
-      case ReadState.ErrRead:
+      case ImageUploadState.ErrRead:
       default:
         hintNode.innerText =
           "Something went wrong. Please try upload again or refresh the page.";
@@ -388,16 +418,21 @@ function updateFileListItem(itemNode, imageUpload) {
     hintNode.innerText = `Uploaded file dimension (${imageDim.width} × ${imageDim.height} pixels) differs from ideal (${recommendDim.width} × ${recommendDim.height} pixels).`;
   }
   // update progress bar
-  if (imageUpload.isProcessingState || imageUpload.isSuccessState) {
+  if (
+    imageUpload.isProcessingState ||
+    imageUpload.isSuccessState ||
+    imageUpload.isGeneratingMockupState
+  ) {
     progressFillNode.classList.add("file-list-item__progress-bar-fill--30");
-    switch (imageUpload.readState) {
-      case ReadState.ReadyForRead:
+    switch (imageUpload.state) {
+      case ImageUploadState.ReadyForRead:
         progressFillNode.classList.add("file-list-item__progress-bar-fill--60");
         break;
-      case ReadState.Reading:
+      case ImageUploadState.Reading:
         progressFillNode.classList.add("file-list-item__progress-bar-fill--90");
         break;
-      case ReadState.ReadSuccess:
+      case ImageUploadState.ReadSuccess:
+      case ImageUploadState.GeneratingPreview:
         progressFillNode.classList.add(
           "file-list-item__progress-bar-fill--100",
         );
@@ -616,18 +651,49 @@ function main() {
     }
   });
 
-  // observe fileListViewModel: imageUploads[].readState
+  // observe fileListViewModel: imageUploads[].state
+  mobx.reaction(
+    () =>
+      viewModel.fileList.imageUploads.map((imageUpload) => imageUpload.state),
+    async () => {
+      const imageUploads = viewModel.fileList.imageUploads;
+      for (let i = 0; i < imageUploads.length; ++i) {
+        let itemNode = findFileListItem(imageUploads[i].ulid);
+        if (itemNode == null) {
+          itemNode = appendInitialFileListItem(
+            imageUploads[i].ulid,
+            imageUploads[i].file.name,
+          );
+        }
+        updateFileListItem(itemNode, imageUploads[i]);
+      }
+
+      // scroll to upload element on mobile devices
+      if (window.innerWidth <= 992) {
+        const HEADER_HEIGHT = 80;
+        scrollToElementTop(uploadSection, HEADER_HEIGHT);
+      }
+    },
+    {
+      equals: mobx.comparer.shallow,
+    },
+  );
+
+  // observe fileListViewModel: imageUploads[].previewState
   mobx.reaction(
     () =>
       viewModel.fileList.imageUploads.map(
-        (imageUpload) => imageUpload.readState,
+        (imageUpload) => imageUpload.previewState,
       ),
     async () => {
       const imageUploads = viewModel.fileList.imageUploads;
       for (let i = 0; i < imageUploads.length; ++i) {
-        let itemNode = findFileListItem(i);
+        let itemNode = findFileListItem(imageUploads[i].ulid);
         if (itemNode == null) {
-          itemNode = appendInitialFileListItem(i, imageUploads[i].file.name);
+          itemNode = appendInitialFileListItem(
+            imageUploads[i].ulid,
+            imageUploads[i].file.name,
+          );
         }
         updateFileListItem(itemNode, imageUploads[i]);
       }
@@ -650,9 +716,12 @@ function main() {
       removeAllFileListItems(); // remove then re-render
       const imageUploads = viewModel.fileList.imageUploads;
       for (let i = 0; i < imageUploads.length; ++i) {
-        let itemNode = findFileListItem(i);
+        let itemNode = findFileListItem(imageUploads[i].ulid);
         if (itemNode == null) {
-          itemNode = appendInitialFileListItem(i, imageUploads[i].file.name);
+          itemNode = appendInitialFileListItem(
+            imageUploads[i].ulid,
+            imageUploads[i].file.name,
+          );
         }
         updateFileListItem(itemNode, imageUploads[i]);
       }
@@ -663,14 +732,12 @@ function main() {
   );
 
   if (isDebug) {
-    // observe fileListViewModel: imageUploads, imageUploads[].readState
+    // observe fileListViewModel: imageUploads, imageUploads[].state
     mobx.autorun(() => {
       console.log("file list:", mobx.toJS(viewModel.fileList.imageUploads));
       console.log(
         "read states:",
-        viewModel.fileList.imageUploads.map(
-          (imageUpload) => imageUpload.readState,
-        ),
+        viewModel.fileList.imageUploads.map((imageUpload) => imageUpload.state),
       );
     });
   }

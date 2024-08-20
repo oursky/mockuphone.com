@@ -409,6 +409,18 @@ main {
   background-image: url("/images/upload-error.svg");
 }
 
+.file-list-item--loading .file-list-item__filename::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/images/spinner-blue-2.png");
+  animation: spin 2s linear infinite;
+}
+
 .file-list-item__hint {
   margin: 5px 0 0 0;
   font-size: 12px;
