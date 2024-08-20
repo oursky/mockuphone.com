@@ -43,17 +43,21 @@ class ImageGenerator:
         # some picture has orientation property, which the browser knows and can automatically rotate the image # noqa: E501
         # but the property is lost when we mockup the image, so need to fix it manually. # noqa: E501
         # ref: https://stackoverflow.com/questions/13872331/rotating-an-image-with-orientation-specified-in-exif-using-python-without-pil-in # noqa: E501
-        for orientation in ExifTags.TAGS.keys():
-            if ExifTags.TAGS[orientation] == "Orientation":
-                break
+        try:
+            for orientation in ExifTags.TAGS.keys():
+                if ExifTags.TAGS[orientation] == "Orientation":
+                    break
 
-        exif = image.getexif()
-        if exif[orientation] == 3:
-            image = image.rotate(180, expand=True)
-        elif exif[orientation] == 6:
-            image = image.rotate(270, expand=True)
-        elif exif[orientation] == 8:
-            image = image.rotate(90, expand=True)
+            exif = image.getexif()
+            if exif[orientation] == 3:
+                image = image.rotate(180, expand=True)
+            elif exif[orientation] == 6:
+                image = image.rotate(270, expand=True)
+            elif exif[orientation] == 8:
+                image = image.rotate(90, expand=True)
+        except Exception:
+            # image does not have orientation, expected case, will silent error
+            pass
 
         find_original_image_dim_process = str(image.size[0]) + "x" + str(image.size[1])
         original_image_dim = tuple(
