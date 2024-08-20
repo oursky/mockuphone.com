@@ -2,7 +2,7 @@ import base64
 import io
 import os
 
-from js import Uint8Array, imageUploadList, imageUpload
+from js import Uint8Array, imageUploadList
 from PIL import Image
 
 
@@ -29,6 +29,11 @@ async def upload_single_image(origin_image, file_name):
 
 
 async def upload_file():
+    from js import imageUpload
+
+    # Since we will update `imageUpload` when calling this function,
+    # need to re-import it to force update to new value
+    # or we will always generate first uploaded image
     basename, ext = os.path.splitext(imageUpload.name)
     if ext.lower() not in [".psd", ".jpg", ".jpeg", ".png"]:
         return
