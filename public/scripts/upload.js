@@ -34,6 +34,18 @@ async function runWorker(worker) {
       window.localforage
         .setItem("pictureArray", e.data)
         .then(function (pictureArray) {
+          if (e.data["error"] !== undefined) {
+            console.log("Get error while generating mockup", e.data["error"]);
+            window.viewModel.cancelMockup();
+
+            // Alert after `cancelMockup` finish
+            setTimeout(() => {
+              alert(
+                "Oops, something went wrong. Please try a different image/device.\nIf it persists, we'd appreciate if you report it on our GitHub 🙏  https://github.com/oursky/mockuphone.com/issues.",
+              );
+            }, 100);
+            return;
+          }
           window.location.href = "/download/?deviceId=" + window.workerDeviceId;
         })
         .catch(function (err) {
