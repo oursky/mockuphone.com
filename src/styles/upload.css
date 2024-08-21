@@ -475,38 +475,6 @@ main {
   color: var(--gray-3);
 }
 
-.file-list-item__progress-bar-border {
-  display: none;
-  margin: 5px 0 0 0;
-  width: 100%;
-  height: 6px;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 30px;
-  overflow: hidden;
-}
-.file-list-item--progress .file-list-item__progress-bar-border {
-  display: block;
-}
-
-.file-list-item__progress-bar-fill {
-  width: 0;
-  height: 100%;
-  background: var(--green-3);
-  transition: width 1s ease-in-out;
-}
-.file-list-item__progress-bar-fill--30 {
-  width: 30%;
-}
-.file-list-item__progress-bar-fill--60 {
-  width: 60%;
-}
-.file-list-item__progress-bar-fill--90 {
-  width: 90%;
-}
-.file-list-item__progress-bar-fill--100 {
-  width: 100%;
-}
-
 .color-section {
   margin: 20px 0 0 0;
 }

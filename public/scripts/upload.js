@@ -368,13 +368,6 @@ function appendInitialFileListItem(fileUlid, filename) {
     `<p class="file-list-item__hint d-none"></p>`,
   );
 
-  fileInfoNode.insertAdjacentHTML(
-    "beforeend",
-    `<div class="file-list-item__progress-bar-border">
-      <div class="file-list-item__progress-bar-fill"></div>
-    </div>`,
-  );
-
   return fileListNode.appendChild(itemNode);
 }
 
@@ -385,9 +378,6 @@ function removeAllFileListItems() {
 
 function updateFileListItem(itemNode, imageUpload) {
   const hintNode = itemNode.querySelector(".file-list-item__hint");
-  const progressFillNode = itemNode.querySelector(
-    ".file-list-item__progress-bar-fill",
-  );
   const previewNode = itemNode.querySelector(".file-list-item__preview-state");
 
   // clear previous state
@@ -398,12 +388,6 @@ function updateFileListItem(itemNode, imageUpload) {
     "file-list-item__previewable",
     // NOTE: do not remove progress state immediately so the progress bar can proceed to 100% before being removed
     // "file-list-item--progress"
-  );
-  progressFillNode.classList.remove(
-    "file-list-item__progress-bar-fill--30",
-    "file-list-item__progress-bar-fill--60",
-    "file-list-item__progress-bar-fill--90",
-    "file-list-item__progress-bar-fill--100",
   );
   previewNode.classList.remove(
     "file-list-item__preview_selected",
@@ -489,30 +473,6 @@ function updateFileListItem(itemNode, imageUpload) {
     }
   } else if (shouldShowAspectRatioWarning) {
     hintNode.innerText = `Uploaded file dimension (${imageDim.width} × ${imageDim.height} pixels) differs from ideal (${recommendDim.width} × ${recommendDim.height} pixels).`;
-  }
-  // update progress bar
-  if (
-    imageUpload.isProcessingState ||
-    imageUpload.isSuccessState ||
-    imageUpload.isGeneratingMockupState
-  ) {
-    progressFillNode.classList.add("file-list-item__progress-bar-fill--30");
-    switch (imageUpload.state) {
-      case ImageUploadState.ReadyForRead:
-        progressFillNode.classList.add("file-list-item__progress-bar-fill--60");
-        break;
-      case ImageUploadState.Reading:
-        progressFillNode.classList.add("file-list-item__progress-bar-fill--90");
-        break;
-      case ImageUploadState.ReadSuccess:
-      case ImageUploadState.GeneratingPreview:
-        progressFillNode.classList.add(
-          "file-list-item__progress-bar-fill--100",
-        );
-        break;
-      default:
-        break;
-    }
   }
 
   // update preview button
