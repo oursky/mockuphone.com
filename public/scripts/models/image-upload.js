@@ -2,13 +2,15 @@
 Require: mobx, psd.js
 */
 
-const ReadState = {
+const ImageUploadState = {
   ReadyForRead: "ReadyForRead",
   Reading: "Reading",
+  GeneratingPreview: "GeneratingPreviewImage",
   ReadSuccess: "ReadSuccess",
   ErrUnsupportedFileType: "ErrUnsupportedFileType",
   ErrExceedMaxFileSize: "ErrExceedMaxFileSize",
   ErrRead: "ErrRead",
+  ErrPreview: "ErrPreview",
 };
 
 class ImageUpload {
@@ -18,7 +20,7 @@ class ImageUpload {
   height = null;
   uuid = null;
   signedData = null;
-  readState = ReadState.ReadyForRead;
+  state = ImageUploadState.ReadyForRead;
   message = null;
   ulid = null;
   previewUrl = null;
@@ -32,7 +34,7 @@ class ImageUpload {
       height: mobx.observable,
       uuid: mobx.observable,
       signedData: mobx.observable,
-      readState: mobx.observable,
+      state: mobx.observable,
       message: mobx.observable,
       isProcessingState: mobx.computed,
       isSuccessState: mobx.computed,
@@ -44,21 +46,29 @@ class ImageUpload {
   }
 
   async read() {
-    this.readState = ReadState.Reading;
+    this.state = ImageUploadState.Reading;
     if (!(await this._verifyFileType())) {
-      this.readState = ReadState.ErrUnsupportedFileType;
+      this.state = ImageUploadState.ErrUnsupportedFileType;
       return;
     }
     if (!this._verifyFileSize()) {
-      this.readState = ReadState.ErrExceedMaxFileSize;
+      this.state = ImageUploadState.ErrExceedMaxFileSize;
       return;
     }
     const loadDimensionResult = await this._loadDimension();
     if (loadDimensionResult.type === "failed") {
-      this.readState = loadDimensionResult.reason;
+      this.state = loadDimensionResult.reason;
       return;
     }
-    this.readState = ReadState.ReadSuccess;
+    this.state = ImageUploadState.ReadSuccess;
+  }
+
+  updateState(state) {
+    this.state = state;
+  }
+
+  updatePreviewUrl(previewUrl) {
+    this.previewUrl = previewUrl;
   }
 
   // Cache file type from header such that no need to parse again
@@ -134,11 +144,11 @@ class ImageUpload {
       };
       fileReader.onabort = () => {
         console.warn("onabort");
-        resolve({ type: "failed", reason: ReadState.ErrRead });
+        resolve({ type: "failed", reason: ImageUploadState.ErrRead });
       };
       fileReader.onerror = () => {
         console.warn("onerror");
-        resolve({ type: "failed", reason: ReadState.ErrRead });
+        resolve({ type: "failed", reason: ImageUploadState.ErrRead });
       };
       fileReader.readAsDataURL(this.file);
     });
@@ -159,23 +169,27 @@ class ImageUpload {
         };
         img.onerror = () => {
           console.warn("onerror");
-          resolve({ type: "failed", reason: ReadState.ErrRead });
+          resolve({ type: "failed", reason: ImageUploadState.ErrRead });
         };
         img.onabort = () => {
           console.warn("onabort");
-          resolve({ type: "failed", reason: ReadState.ErrRead });
+          resolve({ type: "failed", reason: ImageUploadState.ErrRead });
         };
         img.src = fileReader.result;
       };
       fileReader.onabort = () => {
-        resolve({ type: "failed", reason: ReadState.ErrRead });
+        resolve({ type: "failed", reason: ImageUploadState.ErrRead });
       };
       fileReader.onerror = () => {
         console.log("onerror");
-        resolve({ type: "failed", reason: ReadState.ErrRead });
+        resolve({ type: "failed", reason: ImageUploadState.ErrRead });
       };
       fileReader.readAsDataURL(this.file);
     });
+  }
+
+  get isGeneratingPreviewState() {
+    return this.state === ImageUploadState.GeneratingPreview;
   }
 
   get isProcessingState() {
@@ -183,15 +197,17 @@ class ImageUpload {
   }
 
   get isSuccessState() {
-    return this.readState === ReadState.ReadSuccess;
+    return this.state === ImageUploadState.ReadSuccess;
   }
 
   get isProcessedState() {
-    return this.isErrorState || this.isSuccessState;
+    return (
+      this.isErrorState || this.isSuccessState || this.isGeneratingPreviewState
+    );
   }
 
   get isErrorState() {
-    return this.readState.startsWith("Err");
+    return this.state.startsWith("Err");
   }
 
   get imageFile() {

@@ -34,10 +34,21 @@ async function runWorker(worker) {
       window.localforage
         .setItem("pictureArray", e.data)
         .then(function (pictureArray) {
+          if (e.data["error"] !== undefined) {
+            console.log("Get error while generating mockup", e.data["error"]);
+            window.viewModel.cancelMockup();
+
+            // Alert after `cancelMockup` finish
+            setTimeout(() => {
+              alert(
+                "Oops, something went wrong. Please try a different image/device.\nIf it persists, we'd appreciate if you report it on our GitHub 🙏  https://github.com/oursky/mockuphone.com/issues.",
+              );
+            }, 100);
+            return;
+          }
           window.location.href = "/download/?deviceId=" + window.workerDeviceId;
         })
         .catch(function (err) {
-          // TODO: Handle preview error in widget
           console.error("Get error while storing images to localforage:", err);
         });
     },
@@ -46,41 +57,62 @@ async function runWorker(worker) {
 }
 
 function runPreviewWorker(worker, imageUpload) {
+  if (imageUpload.isErrorState) {
+    return;
+  }
+  window.viewModel.fileList.updateImageUploadStateByULID(
+    imageUpload.ulid,
+    ImageUploadState.GeneratingPreview,
+  );
   const imageUploadFile = imageUpload.file;
   worker.postMessage({
     imageUpload: imageUploadFile,
     location: window.location.toString(),
     deviceId: window.workerDeviceId,
     deviceInfo: window.deviceInfo,
+    ulid: imageUpload.ulid,
   });
   worker.addEventListener(
     "message",
     function (e) {
-      window.localforage
-        .setItem(`previewImage-${imageUpload.ulid}`, e.data[1])
-        .then(function () {
-          const imageContainer = document.querySelector(
-            ".upload__device-image-rect",
-          );
+      if (e.data["error"] !== undefined) {
+        console.log(
+          "Get error while generating preview image",
+          e.data["error"],
+        );
+        window.viewModel.fileList.updateImageUploadStateByULID(
+          e.data["ulid"],
+          ImageUploadState.ErrPreview,
+        );
+        return;
+      }
 
-          /* Put first generated mockup to preview area */
-          if (!imageContainer.style.backgroundImage) {
-            imageContainer.style.backgroundImage = `url(${e.data[1]})`;
-            imageContainer.style.backgroundSize = "cover";
-            imageContainer.style.backgroundPosition = "center";
+      const ulid = e.data["ulid"];
+      const [_, previewUrl] = e.data["results"];
 
-            const imageUploadHints = document.querySelectorAll(
-              ".upload__device-hint",
-            );
-            imageUploadHints.forEach((imageUploadHint) => {
-              imageUploadHint.innerHTML = "";
-              imageUploadHint.style.background = "transparent";
-            });
-          }
-        })
-        .catch(function (err) {
-          console.error("Get error while storing images to localforage:", err);
+      const imageContainer = document.querySelector(
+        ".upload__device-image-rect",
+      );
+
+      /* Put first generated mockup to preview area */
+      if (!imageContainer.style.backgroundImage) {
+        imageContainer.style.backgroundImage = `url(${previewUrl})`;
+
+        const imageUploadHints = document.querySelectorAll(
+          ".upload__device-hint",
+        );
+        imageUploadHints.forEach((imageUploadHint) => {
+          imageUploadHint.style.display = "none";
         });
+      }
+      window.viewModel.fileList.updateImageUploadPreviewUrlByULID(
+        ulid,
+        previewUrl,
+      );
+      window.viewModel.fileList.updateImageUploadStateByULID(
+        ulid,
+        ImageUploadState.ReadSuccess,
+      );
     },
     false,
   );
@@ -127,20 +159,48 @@ class FileListViewModel {
       files = [file];
     }
 
-    for (const file of files) {
-      const imageUpload = new ImageUpload(file, MAX_FILE_SIZE_BYTE);
+    for (let i = 0; i < files.length; i += 1) {
+      const imageUpload = new ImageUpload(files[i], MAX_FILE_SIZE_BYTE);
       await imageUpload.read();
       imageUpload.ulid = ULID.ulid();
-      this._imageUploads.push(imageUpload);
-      window.viewModel.generatePreviewMockup(imageUpload);
+
+      // Avoiding read same image file
+      setTimeout(() => {
+        this._imageUploads.push(imageUpload);
+        window.viewModel.generatePreviewMockup(imageUpload);
+      }, i * 10);
     }
+
+    window.viewModel.selectedPreviewImageULID =
+      window.viewModel.defaultImageUploadULID;
   }
 
-  async remove(filename, index) {
-    this._imageUploads = this._imageUploads.filter((upload, i) => {
+  async remove(filename, fileUlid) {
+    this._imageUploads = this._imageUploads.filter((upload) => {
       const isSameFilename = upload.file.name === filename;
-      const isSameIndex = i === index;
-      return !(isSameFilename && isSameIndex);
+      const isSameULID = fileUlid === upload.ulid;
+      return !(isSameFilename && isSameULID);
+    });
+
+    window.viewModel.selectedPreviewImageULID =
+      window.viewModel.defaultImageUploadULID;
+  }
+
+  updateImageUploadStateByULID(ulid, state) {
+    this._imageUploads = this._imageUploads.map((imageUpload) => {
+      if (imageUpload.ulid == ulid) {
+        imageUpload.state = state;
+      }
+      return imageUpload;
+    });
+  }
+
+  updateImageUploadPreviewUrlByULID(ulid, previewUrl) {
+    this._imageUploads = this._imageUploads.map((imageUpload) => {
+      if (imageUpload.ulid == ulid) {
+        imageUpload.previewUrl = previewUrl;
+      }
+      return imageUpload;
     });
   }
 }
@@ -155,6 +215,7 @@ class RootViewModel {
   worker = new Worker("/scripts/web_worker.js");
   previewWorker = new Worker("/scripts/preview_worker.js");
   selectedColorId = null;
+  selectedPreviewImageULID = null;
 
   constructor(maxMockupWaitSec, fileListViewModel, selectedColorId) {
     mobx.makeObservable(this, {
@@ -164,6 +225,7 @@ class RootViewModel {
       isGeneratingMockup: mobx.computed,
       generateMockup: mobx.action,
       cancelMockup: mobx.action,
+      selectedPreviewImageULID: mobx.observable,
     });
     this.selectedColorId = selectedColorId;
     this.maxMockupWaitSec = maxMockupWaitSec;
@@ -218,6 +280,12 @@ class RootViewModel {
   get previewUrl() {
     return "/download/?deviceId=" + window.workerDeviceId;
   }
+
+  get defaultImageUploadULID() {
+    return this.fileList.imageUploads.length > 0
+      ? this.fileList.imageUploads[0].ulid
+      : null;
+  }
 }
 
 function preventDefault(node, events) {
@@ -249,23 +317,36 @@ function dismissUploading() {
   uploading?.classList.add("d-none");
 }
 
-function findFileListItem(fileIndex) {
+function findFileListItem(fileUlid) {
   const fileListNode = document.querySelector(".file-list");
   const itemNodes = fileListNode.querySelectorAll(".file-list-item");
   for (const itemNode of itemNodes) {
-    if (itemNode.dataset.fileIndex === String(fileIndex)) {
+    if (itemNode.dataset.fileUlid === String(fileUlid)) {
       return itemNode;
     }
   }
   return null;
 }
 
-function appendInitialFileListItem(fileIndex, filename) {
+function appendInitialFileListItem(fileUlid, filename) {
   const fileListNode = document.querySelector(".file-list");
 
   const itemNode = document.createElement("li");
+
+  const fileInfoNode = document.createElement("div");
+  const previewStateNode = document.createElement("div");
+  previewStateNode.addEventListener("click", () => {
+    window.viewModel.selectedPreviewImageULID = fileUlid;
+  });
+
+  previewStateNode.classList.add("file-list-item__preview-state");
+  itemNode.appendChild(previewStateNode);
+
+  fileInfoNode.classList.add("file-list-item__file-info");
+  itemNode.appendChild(fileInfoNode);
+
   itemNode.classList.add("file-list-item");
-  itemNode.dataset.fileIndex = fileIndex;
+  itemNode.dataset.fileUlid = fileUlid;
 
   const headerNode = document.createElement("div");
   headerNode.classList.add("file-list-item__filename");
@@ -277,22 +358,14 @@ function appendInitialFileListItem(fileIndex, filename) {
   const crossNode = document.createElement("button");
   crossNode.classList.add("file-list-item__cross");
   crossNode.onclick = async () => {
-    await window.viewModel.fileList.remove(filename, fileIndex);
+    await window.viewModel.fileList.remove(filename, fileUlid);
   };
   headerNode.appendChild(crossNode);
 
-  itemNode.appendChild(headerNode);
-
-  itemNode.insertAdjacentHTML(
+  fileInfoNode.appendChild(headerNode);
+  fileInfoNode.insertAdjacentHTML(
     "beforeend",
     `<p class="file-list-item__hint d-none"></p>`,
-  );
-
-  itemNode.insertAdjacentHTML(
-    "beforeend",
-    `<div class="file-list-item__progress-bar-border">
-      <div class="file-list-item__progress-bar-fill"></div>
-    </div>`,
   );
 
   return fileListNode.appendChild(itemNode);
@@ -305,23 +378,20 @@ function removeAllFileListItems() {
 
 function updateFileListItem(itemNode, imageUpload) {
   const hintNode = itemNode.querySelector(".file-list-item__hint");
-  const progressFillNode = itemNode.querySelector(
-    ".file-list-item__progress-bar-fill",
-  );
+  const previewNode = itemNode.querySelector(".file-list-item__preview-state");
 
   // clear previous state
   itemNode.classList.remove(
     "file-list-item--done",
     "file-list-item--error",
     "file-list-item--warning",
+    "file-list-item__previewable",
     // NOTE: do not remove progress state immediately so the progress bar can proceed to 100% before being removed
     // "file-list-item--progress"
   );
-  progressFillNode.classList.remove(
-    "file-list-item__progress-bar-fill--30",
-    "file-list-item__progress-bar-fill--60",
-    "file-list-item__progress-bar-fill--90",
-    "file-list-item__progress-bar-fill--100",
+  previewNode.classList.remove(
+    "file-list-item__preview_selected",
+    "file-list-item__preview_non_selected",
   );
 
   /* Expected UI for each state
@@ -352,33 +422,50 @@ function updateFileListItem(itemNode, imageUpload) {
     isSameAspectRatio(imageDim, recommendDim) ||
     isSameAspectRatio(imageDimRotate, recommendDim);
   const shouldShowAspectRatioWarning =
-    imageUpload.readState !== ReadState.Reading && !isCorrectDim;
+    imageUpload.state !== ImageUploadState.Reading && !isCorrectDim;
   // Update status icon
   // error status has higher precedence over warning
   if (imageUpload.isErrorState) {
-    itemNode.classList.remove("file-list-item--progress");
+    itemNode.classList.remove(
+      "file-list-item--progress",
+      "file-list-item--loading",
+    );
     itemNode.classList.add("file-list-item--error");
   } else if (shouldShowAspectRatioWarning) {
     itemNode.classList.add("file-list-item--warning");
   }
+
+  if (imageUpload.isGeneratingPreviewState) {
+    itemNode.classList.remove("file-list-item--done");
+    itemNode.classList.add("file-list-item--loading");
+  }
+
   if (imageUpload.isSuccessState) {
-    setTimeout(() => {
-      itemNode.classList.remove("file-list-item--progress");
-    }, 10);
-    itemNode.classList.add("file-list-item--done");
+    itemNode.classList.remove(
+      "file-list-item--loading",
+      "file-list-item--progress",
+    );
+    itemNode.classList.add(
+      "file-list-item--done",
+      "file-list-item__previewable",
+    );
   } else if (imageUpload.isProcessingState) {
     itemNode.classList.add("file-list-item--progress");
   }
   // update hint text
   if (imageUpload.isErrorState) {
-    switch (imageUpload.readState) {
-      case ReadState.ErrUnsupportedFileType:
+    switch (imageUpload.state) {
+      case ImageUploadState.ErrUnsupportedFileType:
         hintNode.innerText = "Supported file extensions: JPG, PNG or PSD.";
         break;
-      case ReadState.ErrExceedMaxFileSize:
+      case ImageUploadState.ErrExceedMaxFileSize:
         hintNode.innerText = `File size should be less than ${MAX_FILE_SIZE_READABLE}.`;
         break;
-      case ReadState.ErrRead:
+      case ImageUploadState.ErrPreview:
+        hintNode.innerText =
+          "Preview failed. Please upload the image again to retry.";
+        break;
+      case ImageUploadState.ErrRead:
       default:
         hintNode.innerText =
           "Something went wrong. Please try upload again or refresh the page.";
@@ -387,23 +474,13 @@ function updateFileListItem(itemNode, imageUpload) {
   } else if (shouldShowAspectRatioWarning) {
     hintNode.innerText = `Uploaded file dimension (${imageDim.width} × ${imageDim.height} pixels) differs from ideal (${recommendDim.width} × ${recommendDim.height} pixels).`;
   }
-  // update progress bar
-  if (imageUpload.isProcessingState || imageUpload.isSuccessState) {
-    progressFillNode.classList.add("file-list-item__progress-bar-fill--30");
-    switch (imageUpload.readState) {
-      case ReadState.ReadyForRead:
-        progressFillNode.classList.add("file-list-item__progress-bar-fill--60");
-        break;
-      case ReadState.Reading:
-        progressFillNode.classList.add("file-list-item__progress-bar-fill--90");
-        break;
-      case ReadState.ReadSuccess:
-        progressFillNode.classList.add(
-          "file-list-item__progress-bar-fill--100",
-        );
-        break;
-      default:
-        break;
+
+  // update preview button
+  if (imageUpload.isSuccessState) {
+    if (window.viewModel.selectedPreviewImageULID == imageUpload.ulid) {
+      previewNode.classList.add("file-list-item__preview_selected");
+    } else {
+      previewNode.classList.add("file-list-item__preview_non_selected");
     }
   }
 
@@ -616,18 +693,49 @@ function main() {
     }
   });
 
-  // observe fileListViewModel: imageUploads[].readState
+  // observe fileListViewModel: imageUploads[].state
+  mobx.reaction(
+    () =>
+      viewModel.fileList.imageUploads.map((imageUpload) => imageUpload.state),
+    async () => {
+      const imageUploads = viewModel.fileList.imageUploads;
+      for (let i = 0; i < imageUploads.length; ++i) {
+        let itemNode = findFileListItem(imageUploads[i].ulid);
+        if (itemNode == null) {
+          itemNode = appendInitialFileListItem(
+            imageUploads[i].ulid,
+            imageUploads[i].file.name,
+          );
+        }
+        updateFileListItem(itemNode, imageUploads[i]);
+      }
+
+      // scroll to upload element on mobile devices
+      if (window.innerWidth <= 992) {
+        const HEADER_HEIGHT = 80;
+        scrollToElementTop(uploadSection, HEADER_HEIGHT);
+      }
+    },
+    {
+      equals: mobx.comparer.shallow,
+    },
+  );
+
+  // observe fileListViewModel: imageUploads[].previewState
   mobx.reaction(
     () =>
       viewModel.fileList.imageUploads.map(
-        (imageUpload) => imageUpload.readState,
+        (imageUpload) => imageUpload.previewState,
       ),
     async () => {
       const imageUploads = viewModel.fileList.imageUploads;
       for (let i = 0; i < imageUploads.length; ++i) {
-        let itemNode = findFileListItem(i);
+        let itemNode = findFileListItem(imageUploads[i].ulid);
         if (itemNode == null) {
-          itemNode = appendInitialFileListItem(i, imageUploads[i].file.name);
+          itemNode = appendInitialFileListItem(
+            imageUploads[i].ulid,
+            imageUploads[i].file.name,
+          );
         }
         updateFileListItem(itemNode, imageUploads[i]);
       }
@@ -650,9 +758,12 @@ function main() {
       removeAllFileListItems(); // remove then re-render
       const imageUploads = viewModel.fileList.imageUploads;
       for (let i = 0; i < imageUploads.length; ++i) {
-        let itemNode = findFileListItem(i);
+        let itemNode = findFileListItem(imageUploads[i].ulid);
         if (itemNode == null) {
-          itemNode = appendInitialFileListItem(i, imageUploads[i].file.name);
+          itemNode = appendInitialFileListItem(
+            imageUploads[i].ulid,
+            imageUploads[i].file.name,
+          );
         }
         updateFileListItem(itemNode, imageUploads[i]);
       }
@@ -662,15 +773,53 @@ function main() {
     },
   );
 
+  // observe viewModel: selectedPreviewImageULID
+  mobx.reaction(
+    () => viewModel.selectedPreviewImageULID,
+    () => {
+      // update preview area
+      const imageContainer = document.querySelector(
+        ".upload__device-image-rect",
+      );
+      if (viewModel.selectedPreviewImageULID === null) {
+        imageContainer.style.backgroundImage = "";
+        const imageUploadHints = document.querySelectorAll(
+          ".upload__device-hint",
+        );
+        imageUploadHints.forEach((imageUploadHint) => {
+          imageUploadHint.style.display = "flex";
+        });
+      }
+
+      removeAllFileListItems(); // remove then re-render
+      const imageUploads = viewModel.fileList.imageUploads;
+      for (let i = 0; i < imageUploads.length; ++i) {
+        let itemNode = findFileListItem(imageUploads[i].ulid);
+        if (itemNode == null) {
+          itemNode = appendInitialFileListItem(
+            imageUploads[i].ulid,
+            imageUploads[i].file.name,
+          );
+        }
+        updateFileListItem(itemNode, imageUploads[i]);
+
+        if (
+          imageUploads[i].isSuccessState &&
+          imageUploads[i].ulid == window.viewModel.selectedPreviewImageULID
+        ) {
+          imageContainer.style.backgroundImage = `url(${imageUploads[i].previewUrl})`;
+        }
+      }
+    },
+  );
+
   if (isDebug) {
-    // observe fileListViewModel: imageUploads, imageUploads[].readState
+    // observe fileListViewModel: imageUploads, imageUploads[].state
     mobx.autorun(() => {
       console.log("file list:", mobx.toJS(viewModel.fileList.imageUploads));
       console.log(
         "read states:",
-        viewModel.fileList.imageUploads.map(
-          (imageUpload) => imageUpload.readState,
-        ),
+        viewModel.fileList.imageUploads.map((imageUpload) => imageUpload.state),
       );
     });
   }

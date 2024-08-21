@@ -59,9 +59,9 @@ async function main() {
       // TODO: Handle preview loading state in widget
       let results = await runPreviewMockup(pyodideObject);
       console.log("preview results", results);
-      self.postMessage(results);
+      self.postMessage({ ulid: event.data.ulid, results: results });
     } catch (error) {
-      self.postMessage({ error: error.message });
+      self.postMessage({ ulid: event.data.ulid, error: error.message });
     }
   };
 }
