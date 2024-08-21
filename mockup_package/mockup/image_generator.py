@@ -190,15 +190,16 @@ class ImageGenerator:
             tmp = self.target_points[0].copy()
             self.target_points[0] = self.target_points[1]
             self.target_points[1] = tmp
+            shifted_points = self.target_points + np.array([PADDING, PADDING])
             mask = np.zeros(basemap.shape[:2], np.uint8)
             cv2.polylines(
                 mask,
-                pts=[self.target_points],
+                pts=[shifted_points],
                 isClosed=True,
                 color=(255, 0, 0),
                 thickness=3,
             )
-            cv2.fillPoly(mask, [self.target_points], 255)
+            cv2.fillPoly(mask, [shifted_points], 255)
             mask = cv2.cvtColor(mask, cv2.COLOR_BGR2RGBA)
             mask = Image.fromarray(mask)
 
@@ -209,7 +210,9 @@ class ImageGenerator:
             # If you want to use the mask directly with the first argument of the "paste" function,  # noqa: E501
             # you need to convert it to the "L" mode and ensure that it has the same size as the first argument. # noqa: E501
             device_image.paste(
-                tmp_result_image, (self.xyset[0], self.xyset[2]), mask.convert("L")
+                tmp_result_image,
+                (self.xyset[0] - PADDING, self.xyset[2] - PADDING),
+                mask.convert("L"),
             )
             device_image.save(result_path)
 
