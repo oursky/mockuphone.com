@@ -2156,9 +2156,9 @@
     },
     {
       "credits": "<p><a href=\"https://design.facebook.com/toolsandresources/devices/\" target=\"blank\">Meta - Design Resources</a></p>",
-      "color_str": "Gold",
+      "color_str": "Silver",
       "color": {
-        "id": "gold",
+        "id": "silver",
         "name": "Silver",
         "hexcode": "#F2F5F4"
       },
