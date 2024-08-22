@@ -557,5 +557,15 @@
     "launchDateTimestamp": "2012-01-01T00:00:00Z",
     "type": "tv",
     "slugs": ["lg-tm2792"]
+  },
+  "galaxy-watch-4": {
+    "name": "Samsung Galaxy Watch 4",
+    "launchDateTimestamp": "2021-08-27T00:00:00Z",
+    "type": "wearables",
+    "slugs": [
+      "samsung-galaxy-watch-4-black",
+      "samsung-galaxy-watch-4-pink-gold",
+      "samsung-galaxy-watch-4-silver"
+    ]
   }
 }
