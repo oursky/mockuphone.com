@@ -365,8 +365,6 @@ function updateFileListItem(itemNode, imageUpload) {
     "file-list-item--error",
     "file-list-item--warning",
     "file-list-item__previewable",
-    // NOTE: do not remove progress state immediately so the progress bar can proceed to 100% before being removed
-    // "file-list-item--progress"
   );
   previewNode.classList.remove(
     "file-list-item__preview_selected",
@@ -380,7 +378,6 @@ function updateFileListItem(itemNode, imageUpload) {
 | warning icon |                       |                     |                            |            y             |                      |         y          |
 | done icon    |                       |                     |                            |                          |          y           |                    |
 | hint text    |      error hint       |     error hint      |                            |        ratio hint        |                      |     ratio hint     |
-| progress bar |                       |                     |             y              |            y             |                      |                    |
   */
 
   // const  deviceData  = passResolution();
@@ -405,10 +402,7 @@ function updateFileListItem(itemNode, imageUpload) {
   // Update status icon
   // error status has higher precedence over warning
   if (imageUpload.isErrorState) {
-    itemNode.classList.remove(
-      "file-list-item--progress",
-      "file-list-item--loading",
-    );
+    itemNode.classList.remove("file-list-item--loading");
     itemNode.classList.add("file-list-item--error");
   } else if (shouldShowAspectRatioWarning) {
     itemNode.classList.add("file-list-item--warning");
@@ -420,16 +414,11 @@ function updateFileListItem(itemNode, imageUpload) {
   }
 
   if (imageUpload.isSuccessState) {
-    itemNode.classList.remove(
-      "file-list-item--loading",
-      "file-list-item--progress",
-    );
+    itemNode.classList.remove("file-list-item--loading");
     itemNode.classList.add(
       "file-list-item--done",
       "file-list-item__previewable",
     );
-  } else if (imageUpload.isProcessingState) {
-    itemNode.classList.add("file-list-item--progress");
   }
   // update hint text
   if (imageUpload.isErrorState) {
