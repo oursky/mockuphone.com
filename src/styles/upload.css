@@ -95,6 +95,7 @@ main {
   top: 0;
   left: 0;
   display: none; /* default hide */
+  z-index: 10;
 }
 
 .drop-zone-overlay__show {
@@ -357,6 +358,16 @@ main {
 
     .file-list-item__preview-state {
       cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .file-list-item {
+    &.file-list-item__previewable {
+      .file-list-item__file-info {
+        cursor: pointer;
+      }
     }
   }
 }

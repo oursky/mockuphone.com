@@ -5,6 +5,7 @@ Require: mobx, psd.js
 const ImageUploadState = {
   ReadyForRead: "ReadyForRead",
   Reading: "Reading",
+  ReadyForPreview: "ReadyForPreview",
   GeneratingPreview: "GeneratingPreviewImage",
   ReadSuccess: "ReadSuccess",
   ErrUnsupportedFileType: "ErrUnsupportedFileType",
@@ -60,7 +61,7 @@ class ImageUpload {
       this.state = loadDimensionResult.reason;
       return;
     }
-    this.state = ImageUploadState.ReadSuccess;
+    this.state = ImageUploadState.ReadyForPreview;
   }
 
   updateState(state) {
@@ -200,9 +201,16 @@ class ImageUpload {
     return this.state === ImageUploadState.ReadSuccess;
   }
 
+  get isReadyForPreview() {
+    return this.state === ImageUploadState.ReadyForPreview;
+  }
+
   get isProcessedState() {
     return (
-      this.isErrorState || this.isSuccessState || this.isGeneratingPreviewState
+      this.isErrorState ||
+      this.isSuccessState ||
+      this.isGeneratingPreviewState ||
+      this.isReadyForPreview
     );
   }
 

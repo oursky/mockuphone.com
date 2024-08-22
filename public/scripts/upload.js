@@ -309,20 +309,11 @@ function findFileListItem(fileUlid) {
 
 function appendInitialFileListItem(fileUlid, filename) {
   const fileListNode = document.querySelector(".file-list");
-  const deviceSection = document.querySelector(".device");
 
   const itemNode = document.createElement("li");
 
   const fileInfoNode = document.createElement("div");
   const previewStateNode = document.createElement("div");
-  previewStateNode.addEventListener("click", () => {
-    // scroll to device section on mobile devices
-    if (window.innerWidth <= 992) {
-      const HEADER_HEIGHT = 80;
-      scrollToElementTop(deviceSection, HEADER_HEIGHT);
-    }
-    window.viewModel.selectedPreviewImageULID = fileUlid;
-  });
 
   previewStateNode.classList.add("file-list-item__preview-state");
   itemNode.appendChild(previewStateNode);
@@ -342,7 +333,9 @@ function appendInitialFileListItem(fileUlid, filename) {
 
   const crossNode = document.createElement("button");
   crossNode.classList.add("file-list-item__cross");
-  crossNode.onclick = async () => {
+  crossNode.onclick = async (event) => {
+    // Prevent triggering of click event on parent node
+    event.stopPropagation();
     await window.viewModel.fileList.remove(filename, fileUlid);
   };
   headerNode.appendChild(crossNode);
@@ -364,6 +357,18 @@ function removeAllFileListItems() {
 function updateFileListItem(itemNode, imageUpload) {
   const hintNode = itemNode.querySelector(".file-list-item__hint");
   const previewNode = itemNode.querySelector(".file-list-item__preview-state");
+  const fileInfoNode = itemNode.querySelector(".file-list-item__file-info");
+
+  function onSelectPreviewImage() {
+    const deviceSection = document.querySelector(".device");
+
+    // scroll to device section on mobile devices
+    if (window.innerWidth <= 992) {
+      const HEADER_HEIGHT = 80;
+      scrollToElementTop(deviceSection, HEADER_HEIGHT);
+    }
+    window.viewModel.selectedPreviewImageULID = imageUpload.ulid;
+  }
 
   // clear previous state
   itemNode.classList.remove(
@@ -456,6 +461,9 @@ function updateFileListItem(itemNode, imageUpload) {
     } else {
       previewNode.classList.add("file-list-item__preview_non_selected");
     }
+
+    previewNode.addEventListener("click", onSelectPreviewImage);
+    fileInfoNode.addEventListener("click", onSelectPreviewImage);
   }
 
   if (imageUpload.isSuccessState && !shouldShowAspectRatioWarning) {
