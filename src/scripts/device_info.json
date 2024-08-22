@@ -6753,6 +6753,123 @@
       ],
       "is_mockup_image_at_front": true,
       "available_perspectives": ["Portrait", "Landscape"]
+    },
+    {
+      "credits": "<p><a href=\"https://www.skymakers.digital/\" target=\"blank\">Skymaker's Designer</a></p>",
+      "color_str": "Black",
+      "color": {
+        "id": "black",
+        "name": "Black",
+        "hexcode": "#000000"
+      },
+      "meta_title": "Samsung Galaxy Watch 4 Black Mock Up",
+      "meta_description": "1 click to generate your Samsung Galaxy Watch 4 Black mockup! You can wrap screenshots in Samsung Galaxy Watch 4 Black for prototypes.",
+      "display_resolution": [682, 682],
+      "device_type": "watchOS",
+      "device_id": "samsung-galaxy-watch-4-black",
+      "name": "Samsung Galaxy Watch 4",
+      "orientations": [
+        {
+          "alt": "Samsung Galaxy Watch 4 Black Mock Up",
+          "coords": [
+            [400, 405],
+            [1082, 405],
+            [1082, 1087],
+            [400, 1087]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Samsung Galaxy Watch 4 Black Mock Up",
+          "coords": [
+            [1087, 400],
+            [1087, 1082],
+            [405, 1082],
+            [405, 400]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "available_perspectives": ["Portrait", "Landscape"]
+    },
+    {
+      "credits": "<p><a href=\"https://www.skymakers.digital/\" target=\"blank\">Skymaker's Designer</a></p>",
+      "color_str": "Pink Gold",
+      "color": {
+        "id": "pink-gold",
+        "name": "Pink Gold",
+        "hexcode": "#FAE1C9"
+      },
+      "meta_title": "Samsung Galaxy Watch 4 Pink Gold Mock Up",
+      "meta_description": "1 click to generate your Samsung Galaxy Watch 4 Pink Gold mockup! You can wrap screenshots in Samsung Galaxy Watch 4 Pink Gold for prototypes.",
+      "display_resolution": [682, 682],
+      "device_type": "watchOS",
+      "device_id": "samsung-galaxy-watch-4-pink-gold",
+      "name": "Samsung Galaxy Watch 4",
+      "orientations": [
+        {
+          "alt": "Samsung Galaxy Watch 4 Pink Gold Mock Up",
+          "coords": [
+            [400, 405],
+            [1082, 405],
+            [1082, 1087],
+            [400, 1087]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Samsung Galaxy Watch 4 Pink Gold Mock Up",
+          "coords": [
+            [1087, 400],
+            [1087, 1082],
+            [405, 1082],
+            [405, 400]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "available_perspectives": ["Portrait", "Landscape"]
+    },
+    {
+      "credits": "<p><a href=\"https://www.skymakers.digital/\" target=\"blank\">Skymaker's Designer</a></p>",
+      "color_str": "Silver",
+      "color": {
+        "id": "silver",
+        "name": "Silver",
+        "hexcode": "#D8D8D8"
+      },
+      "meta_title": "Samsung Galaxy Watch 4 Silver Mock Up",
+      "meta_description": "1 click to generate your Samsung Galaxy Watch 4 Silver mockup! You can wrap screenshots in Samsung Galaxy Watch 4 Silver for prototypes.",
+      "display_resolution": [682, 682],
+      "device_type": "watchOS",
+      "device_id": "samsung-galaxy-watch-4-silver",
+      "name": "Samsung Galaxy Watch 4",
+      "orientations": [
+        {
+          "alt": "Samsung Galaxy Watch 4 Silver Mock Up",
+          "coords": [
+            [400, 405],
+            [1082, 405],
+            [1082, 1087],
+            [400, 1087]
+          ],
+          "name": "portrait"
+        },
+        {
+          "alt": "Samsung Galaxy Watch 4 Silver Mock Up",
+          "coords": [
+            [1087, 400],
+            [1087, 1082],
+            [405, 1082],
+            [405, 400]
+          ],
+          "name": "landscape"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "available_perspectives": ["Portrait", "Landscape"]
     }
   ]
 }
