@@ -309,12 +309,18 @@ function findFileListItem(fileUlid) {
 
 function appendInitialFileListItem(fileUlid, filename) {
   const fileListNode = document.querySelector(".file-list");
+  const deviceSection = document.querySelector(".device");
 
   const itemNode = document.createElement("li");
 
   const fileInfoNode = document.createElement("div");
   const previewStateNode = document.createElement("div");
   previewStateNode.addEventListener("click", () => {
+    // scroll to device section on mobile devices
+    if (window.innerWidth <= 992) {
+      const HEADER_HEIGHT = 80;
+      scrollToElementTop(deviceSection, HEADER_HEIGHT);
+    }
     window.viewModel.selectedPreviewImageULID = fileUlid;
   });
 
@@ -543,6 +549,7 @@ function main() {
   const defaultColorBtn = document.querySelector(
     ".color-picker-item--selected",
   );
+  const fileListSection = document.querySelector(".file-list");
 
   handleColorPickersTooltip();
   registerUploadGuide();
@@ -678,10 +685,10 @@ function main() {
         updateFileListItem(itemNode, imageUploads[i]);
       }
 
-      // scroll to upload element on mobile devices
+      // scroll to file list section on mobile devices
       if (window.innerWidth <= 992) {
         const HEADER_HEIGHT = 80;
-        scrollToElementTop(uploadSection, HEADER_HEIGHT);
+        scrollToElementTop(fileListSection, HEADER_HEIGHT);
       }
     },
     {
