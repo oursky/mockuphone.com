@@ -3377,7 +3377,8 @@
           "name": "side"
         }
       ],
-      "available_perspectives": ["Front", "Side"]
+      "available_perspectives": ["Front", "Side"],
+      "is_legacy": true
     },
     {
       "background_class": "fish-bg",
