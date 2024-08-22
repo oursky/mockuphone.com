@@ -164,15 +164,15 @@ class FileListViewModel {
       await imageUpload.read();
       imageUpload.ulid = ULID.ulid();
 
+      if (window.viewModel.selectedPreviewImageULID === null && i === 0) {
+        window.viewModel.selectedPreviewImageULID = imageUpload.ulid;
+      }
       // Avoiding read same image file
       setTimeout(() => {
         this._imageUploads.push(imageUpload);
         window.viewModel.generatePreviewMockup(imageUpload);
       }, i * 10);
     }
-
-    window.viewModel.selectedPreviewImageULID =
-      window.viewModel.defaultImageUploadULID;
   }
 
   async remove(filename, fileUlid) {
