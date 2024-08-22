@@ -210,8 +210,6 @@ class RootViewModel {
   fileList;
   isFileDragEnter = false;
   _isGeneratingMockup = false;
-  _socket = null;
-  _redirectTimer = null;
   worker = new Worker("/scripts/web_worker.js");
   previewWorker = new Worker("/scripts/preview_worker.js");
   selectedColorId = null;
@@ -249,32 +247,13 @@ class RootViewModel {
     runWorker(this.worker);
   }
 
-  _prepareMockup() {
-    this._scheduleRedirect(0);
-  }
-
   cancelMockup() {
     if (!this.isGeneratingMockup) {
       return;
     }
-    this._cancelScheduleRedirect();
-    this._socket = null;
     this._isGeneratingMockup = false;
     this.worker.terminate();
     this.worker = new Worker("/scripts/web_worker.js");
-  }
-
-  _scheduleRedirect(sec) {
-    this._redirectTimer = setTimeout(() => {
-      window.location.replace(this.previewUrl);
-    }, sec * 1000);
-  }
-
-  _cancelScheduleRedirect() {
-    if (this._redirectTimer != null) {
-      clearTimeout(this._redirectTimer);
-      this._redirectTimer = null;
-    }
   }
 
   get previewUrl() {
