@@ -693,10 +693,14 @@ function main() {
         updateFileListItem(itemNode, imageUploads[i]);
       }
 
-      // scroll to file list section on mobile devices
+      // scroll to upload/file list section on mobile devices
       if (window.innerWidth <= 992) {
         const HEADER_HEIGHT = 80;
-        scrollToElementTop(fileListSection, HEADER_HEIGHT);
+        if (imageUploads.length === 0) {
+          scrollToElementTop(uploadSection, HEADER_HEIGHT);
+        } else {
+          scrollToElementTop(fileListSection, HEADER_HEIGHT);
+        }
       }
     },
     {
