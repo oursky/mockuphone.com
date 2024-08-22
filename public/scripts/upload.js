@@ -696,36 +696,6 @@ function main() {
     },
   );
 
-  // observe fileListViewModel: imageUploads[].previewState
-  mobx.reaction(
-    () =>
-      viewModel.fileList.imageUploads.map(
-        (imageUpload) => imageUpload.previewState,
-      ),
-    async () => {
-      const imageUploads = viewModel.fileList.imageUploads;
-      for (let i = 0; i < imageUploads.length; ++i) {
-        let itemNode = findFileListItem(imageUploads[i].ulid);
-        if (itemNode == null) {
-          itemNode = appendInitialFileListItem(
-            imageUploads[i].ulid,
-            imageUploads[i].file.name,
-          );
-        }
-        updateFileListItem(itemNode, imageUploads[i]);
-      }
-
-      // scroll to upload element on mobile devices
-      if (window.innerWidth <= 992) {
-        const HEADER_HEIGHT = 80;
-        scrollToElementTop(uploadSection, HEADER_HEIGHT);
-      }
-    },
-    {
-      equals: mobx.comparer.shallow,
-    },
-  );
-
   // observe fileListViewModel: imageUploads[].length
   mobx.reaction(
     () => viewModel.fileList.imageUploads.length,
