@@ -95,7 +95,7 @@ function runPreviewWorker(worker, imageUpload) {
       );
 
       /* Put first generated mockup to preview area */
-      if (!imageContainer.style.backgroundImage) {
+      if (window.viewModel.selectedPreviewImageULID === ulid) {
         imageContainer.style.backgroundImage = `url(${previewUrl})`;
 
         const imageUploadHints = document.querySelectorAll(
@@ -104,6 +104,13 @@ function runPreviewWorker(worker, imageUpload) {
         imageUploadHints.forEach((imageUploadHint) => {
           imageUploadHint.style.display = "none";
         });
+
+        // scroll to preview section on mobile devices
+        if (window.innerWidth <= 992) {
+          const previewSection = document.querySelector(".device");
+          const HEADER_HEIGHT = 80;
+          scrollToElementTop(previewSection, HEADER_HEIGHT);
+        }
       }
       window.viewModel.fileList.updateImageUploadPreviewUrlByULID(
         ulid,
@@ -166,6 +173,13 @@ class FileListViewModel {
 
       if (window.viewModel.selectedPreviewImageULID === null && i === 0) {
         window.viewModel.selectedPreviewImageULID = imageUpload.ulid;
+
+        // scroll to file list section on mobile devices
+        if (window.innerWidth <= 992) {
+          const fileListSection = document.querySelector(".file-list");
+          const HEADER_HEIGHT = 120;
+          scrollToElementTop(fileListSection, HEADER_HEIGHT);
+        }
       }
       // Avoiding read same image file
       setTimeout(() => {
@@ -544,8 +558,6 @@ function registerUploadGuide() {
 
 function main() {
   const htmlNode = document.querySelector("html");
-  const uploadSection = document.querySelector("#above-file-uploaded");
-  const uploadBtn = document.querySelector(".upload-guide__browse-btn");
   const uploadGuideHint = document.querySelector(".upload-guide__hint");
   const fileInput = document.querySelector(".upload-guide__file-input");
   const fileSectionHeading = document.querySelector(".file-uploaded__heading");
@@ -557,7 +569,6 @@ function main() {
   const defaultColorBtn = document.querySelector(
     ".color-picker-item--selected",
   );
-  const fileListSection = document.querySelector(".file-list");
 
   handleColorPickersTooltip();
   registerUploadGuide();
@@ -691,16 +702,6 @@ function main() {
           );
         }
         updateFileListItem(itemNode, imageUploads[i]);
-      }
-
-      // scroll to upload/file list section on mobile devices
-      if (window.innerWidth <= 992) {
-        const HEADER_HEIGHT = 80;
-        if (imageUploads.length === 0) {
-          scrollToElementTop(uploadSection, HEADER_HEIGHT);
-        } else {
-          scrollToElementTop(fileListSection, HEADER_HEIGHT);
-        }
       }
     },
     {
