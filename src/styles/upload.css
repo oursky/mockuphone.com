@@ -349,6 +349,10 @@ main {
 .file-list-item {
   display: flex;
 
+  .file-list-item__file-info {
+    max-width: calc(100%);
+  }
+
   &.file-list-item__previewable {
     gap: 4px;
 
