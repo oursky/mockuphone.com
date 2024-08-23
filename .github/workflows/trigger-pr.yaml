@@ -1,0 +1,11 @@
+name: Run CI
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+on: [pull_request]
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yaml
+    secrets: inherit
