@@ -340,7 +340,7 @@ main {
 }
 
 .file-list-item:first-child {
-  margin-top: 20px;
+  margin-top: 20;
 }
 .file-list-item:last-child {
   margin-bottom: 20;
