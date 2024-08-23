@@ -1,0 +1,20 @@
+name: Run CI/CD
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - main
+      - production
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yaml
+    secrets: inherit
+  cd:
+    needs:
+      - ci
+    uses: ./.github/workflows/cd.yaml
+    secrets: inherit
