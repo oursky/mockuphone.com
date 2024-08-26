@@ -83,6 +83,7 @@ bundle-python-linux:
 	  echo "Error: Directory 'mockup' does not exist."; \
 	  exit 1; \
 	fi
+	rm -rf tmp
 
 .PHONY: lint_astro
 lint_astro:
