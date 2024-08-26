@@ -7,7 +7,7 @@ const { url, imageSrc, title, content, id } = Astro.props;
 NOTE: we added underscore prefix to make Astro ignore these client-side scripts, such that `document` and `window` can be accessed
 ref https://github.com/withastro/astro/issues/5873#issuecomment-1384642348
 -->
-<script src="./_developer-tools-card.ts"></script>;
+<script src="./developer-tools-card.ts"></script>
 
 <a href={url ?? "#"} target="_blank">
   <div class="developer-tools-card" id={id}>
