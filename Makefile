@@ -68,8 +68,8 @@ check-format:
 	npx prettier --check "**/*" --ignore-unknown
 
 # ref https://superuser.com/a/1170997
-.PHONY: bundle-python
-bundle-python:
+.PHONY: bundle-python-mac
+bundle-python-mac:
 	ditto -c -k --sequesterRsrc --keepParent ./mockup_package/mockup ./public/mockup.zip
 
 .PHONY: bundle-python-linux
