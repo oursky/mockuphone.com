@@ -58,6 +58,7 @@ format:
 ci:
 	make check-format
 	make lint_astro
+	make bundle-python-linux
 
 .PHONY: check-format
 check-format:
@@ -67,9 +68,22 @@ check-format:
 	npx prettier --check "**/*" --ignore-unknown
 
 # ref https://superuser.com/a/1170997
-.PHONY: bundle-python
-bundle-python:
+.PHONY: bundle-python-mac
+bundle-python-mac:
 	ditto -c -k --sequesterRsrc --keepParent ./mockup_package/mockup ./public/mockup.zip
+
+.PHONY: bundle-python-linux
+bundle-python-linux:
+	mkdir -p tmp/mockup
+	cp -r mockup_package/mockup/ tmp/mockup/
+	cd tmp && \
+	if [ -d "mockup" ]; then \
+	  zip -r ../public/mockup mockup; \
+	else \
+	  echo "Error: Directory 'mockup' does not exist."; \
+	  exit 1; \
+	fi
+	rm -rf tmp
 
 .PHONY: lint_astro
 lint_astro:
