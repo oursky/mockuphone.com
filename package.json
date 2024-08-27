@@ -13,6 +13,8 @@
     "check": "astro check -- && tsc --noEmit"
   },
   "dependencies": {
+    "@algolia/autocomplete-js": "^1.17.4",
+    "@algolia/autocomplete-plugin-recent-searches": "^1.17.4",
     "@astrojs/image": "^0.17.2",
     "@astrojs/ts-plugin": "^1.1.1",
     "astro": "^2.8.3",

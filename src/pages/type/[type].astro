@@ -1,8 +1,8 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout/BaseLayout.astro";
 import RequestDeviceCard from "../../components/RequestDeviceCard/RequestDeviceCard.astro";
 
-import "/src/styles/device.css";
+import "./index.css";
 
 import { DEVICE_MANAGER } from "../../scripts/deviceManager";
 import type { BrandValue, ModelThumbnail } from "../../scripts/model";
@@ -46,7 +46,7 @@ const brandList: Array<BrandEnum | "all"> = ["all", ...nonEmptyBrands];
     name="description"
     content="MockUPhone supports devices including iPhone mockup, iPad mockup, Android mockup and TV mockup. You can check out the whole device list via this page."
   />
-  <script type="text/javascript" src="/scripts/device.js"></script>
+  <script type="text/javascript" src="./_device.js"></script>
   <script
     define:vars={{ thumbnailList, brandThumbnailList, modelItems, brandItems }}
   >

@@ -135,3 +135,12 @@ Now, in your terminal:
      - Press Esc to close image window
 5. In `src/scripts/device_info.json`, add the `device_id` to the `device_cat` it belongs to
 6. Run `npx prettier src/scripts/device_info.json --write` to format `src/scripts/device_info.json`
+
+### About `src/pages/**/_*.ts`
+
+You might observe some `js`/`ts` files with underscroe `_` prefix.
+This's because files in `src/pages/` without this prefix `_` are processed and transformed into routes or endpoints during the build. However, some files that contain client-side code (e.g., files that use `document.xxx` or `window.xxx`) are not suitable for server-side rendering and should not be included in the final output.
+
+Refs:
+https://docs.astro.build/en/guides/endpoints/
+https://docs.astro.build/en/guides/routing/#excluding-pages

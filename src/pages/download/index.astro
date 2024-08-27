@@ -1,11 +1,12 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import "/src/styles/download.css";
-import ErrorPage from "../components/ErrorPage.astro";
+import BaseLayout from "../../layouts/BaseLayout/BaseLayout.astro";
+import ErrorPage from "../../components/ErrorPage.astro";
+import "./index.css";
 ---
 
 <script>
   import localforage from "localforage";
+  import { readyForAutoDownload, mainForAutoDownload } from "./_autoDownload";
 
   const isMockupGenerated = async () => {
     return localforage.getItem("pictureArray").then(function (pictureArray) {
@@ -42,6 +43,7 @@ import ErrorPage from "../components/ErrorPage.astro";
 
   hideUnuseScreen();
   handleDeviceIdSearchParams();
+  readyForAutoDownload(mainForAutoDownload);
 </script>
 
 <BaseLayout>
@@ -50,7 +52,6 @@ import ErrorPage from "../components/ErrorPage.astro";
     name="description"
     content="I've just used MockUPhone to wrap my app screenshots. It supports lots of devices including iPhone mockup, iPad mockup, Android mockup and TV mockup."
   />
-  <script type="text/javascript" src="/scripts/autoDownload.js"></script>
   <script type="text/javascript" src="/scripts/jszip.js"></script>
   <script
     type="text/javascript"
@@ -58,7 +59,6 @@ import ErrorPage from "../components/ErrorPage.astro";
   ></script>
   <script type="text/javascript" src="/scripts/download-python-package.js"
   ></script>
-
   <div class="download-content">
     <h1 class="completed">Completed!</h1>
 
