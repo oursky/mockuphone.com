@@ -180,11 +180,7 @@ class FileListViewModel {
           scrollToElementTop(fileListSection, HEADER_HEIGHT);
         }
       }
-      // Avoiding read same image file
-      setTimeout(() => {
-        this._imageUploads.push(imageUpload);
-        window.viewModel.generatePreviewMockup(imageUpload);
-      }, i * 10);
+      this._imageUploads.push(imageUpload);
     }
   }
 
@@ -724,6 +720,20 @@ function main() {
     },
     {
       equals: mobx.comparer.shallow,
+    },
+  );
+
+  // observe fileListViewModel: imageUploads[].length
+  // side effect: generate preview mockup
+  mobx.reaction(
+    () => viewModel.fileList.imageUploads.length,
+    (newLen) => {
+      if (viewModel.fileList.imageUploads.length !== newLen) {
+        console.error("unexpected mobx error, image upload length not matched");
+        return;
+      }
+      const newImage = viewModel.fileList.imageUploads[newLen - 1];
+      viewModel.generatePreviewMockup(newImage);
     },
   );
 
