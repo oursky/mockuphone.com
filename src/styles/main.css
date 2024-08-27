@@ -1,12 +1,12 @@
 :root {
-  --black: #000000;
-  --gray-1: #333333;
+  --black: #000;
+  --gray-1: #333;
   --gray-2: #4f4f4f;
   --gray-3: #828282;
   --gray-4: #bdbdbd;
   --gray-5: #e0e0e0;
   --gray-6: #f2f2f2;
-  --white: #ffffff;
+  --white: #fff;
   --green-3: #6fcf97;
 }
 
@@ -14,7 +14,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: "Inter", apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  font-family: Inter, apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -57,29 +57,29 @@ figure {
   right: 0;
   padding: 30px 20px;
   border-bottom: 1px solid var(--gray-5);
-  background-color: rgba(255, 255, 255, 1);
-  box-shadow: 0px 4px 15px 0px #0000001a;
+  background-color: rgb(255 255 255 / 100%);
+  box-shadow: 0 4px 15px 0 #0000001a;
 }
-@media (min-width: 576px) {
+
+@media (width >= 576px) {
   .header {
     padding: 15px 40px;
   }
 }
 
 .header-transparent {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(255 255 255 / 80%);
 }
 
-@media (max-width: 680px) {
+@media (width <= 680px) {
   .header-transparent {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgb(255 255 255 / 100%);
   }
 }
 
 .header__logo-group {
   display: flex;
   min-width: 0;
-
   flex: 1 1 0%;
 }
 
@@ -96,6 +96,7 @@ figure {
   margin-left: 25px;
   z-index: 10;
 }
+
 .header__mockuphone-link:hover {
   color: var(--black);
 }
@@ -143,11 +144,12 @@ figure {
   vertical-align: middle;
 }
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
   .header__skymaker-logo-link {
     min-width: 0;
     width: 47%; /* 176 / (176+200) */
   }
+
   .header__skymaker-logo {
     min-width: 0;
     width: 100%;
@@ -175,10 +177,11 @@ main {
   color: var(--white);
   padding: 46px;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .footer {
     display: flex;
-    padding: 60px 100px 60px 100px;
+    padding: 60px 100px;
     align-items: flex-end;
     justify-content: space-between;
   }
@@ -193,10 +196,10 @@ main {
   display: block;
   width: 140px;
   margin: auto;
-  text-decoration-color: #ffffff;
+  text-decoration-color: #fff;
 }
 
-@media (min-width: 992px) {
+@media (width >= 992px) {
   .footer__lg-left {
     padding: 0;
   }
@@ -210,9 +213,10 @@ main {
 .footer__slogan {
   font-size: 12px;
   text-align: center;
-  margin: 0 0 0 0;
+  margin: 0;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .footer__slogan {
     margin-top: 0;
     text-align: left;
@@ -226,24 +230,27 @@ main {
   align-items: center;
   flex-wrap: wrap;
   padding: 0;
-  margin: 30px 0 30px 0;
-  column-gap: 15px;
-  row-gap: 5px;
+  margin: 30px 0;
+  gap: 5px 15px;
 }
+
 .footer__sitemap-item {
   white-space: nowrap;
 }
+
 .footer__sitemap-link {
   color: var(--white);
   font-size: 12px;
 }
+
 .footer__sitemap-link:hover {
   color: var(--white);
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .footer__sitemap {
     justify-content: flex-start;
-    margin: 30px 0 0 0;
+    margin: 30px 0 0;
   }
 }
 
@@ -251,16 +258,17 @@ main {
   list-style: none;
   padding: 0;
   margin: 0;
-
   display: flex;
   column-gap: 30px;
   align-items: center;
   justify-content: center;
 }
+
 .footer__product-image {
   display: block;
   margin: auto;
 }
+
 .footer__product-name {
   color: var(--white);
   font-size: 12px;
@@ -268,7 +276,8 @@ main {
   margin-top: 5px;
   text-align: center;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .footer__product-list {
     display: flex;
     column-gap: 30px;
@@ -278,7 +287,7 @@ main {
 }
 
 .static-page {
-  margin: 0 40px 0 40px;
+  margin: 0 40px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -286,9 +295,10 @@ main {
 .static-page p {
   text-align: justify;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .static-page {
-    margin: 0 100px 0 100px;
+    margin: 0 100px;
     padding-top: 50px;
     padding-bottom: 50px;
   }

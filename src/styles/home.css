@@ -10,13 +10,15 @@
   padding: 0;
   margin: 0;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .landing-content {
     margin: 0 50px 0 0;
     padding-bottom: 40px;
   }
 }
-@media (min-width: 1200px) {
+
+@media (width >= 1200px) {
   .landing-content {
     margin: 0 100px 0 0;
     padding-bottom: 115px;
@@ -24,9 +26,10 @@
 }
 
 .headline {
-  padding: 20px 20px 0 20px;
+  padding: 20px 20px 0;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .headline {
     margin: 0 0 0 55vw;
     padding: 50px 0 0 20px;
@@ -39,50 +42,50 @@
   font-weight: 700;
   font-size: 36px;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .headline__title {
     font-size: 48px;
   }
 }
 
 .headline__desc {
-  margin: 15px 0 0 0;
+  margin: 15px 0 0;
   font-size: 18px;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .headline__desc {
-    margin: 30px 0 0 0;
+    margin: 30px 0 0;
     font-size: 21px;
     line-height: 32.57px;
   }
 }
 
 #homepage-autocomplete {
-  margin: 24px 20px 0 20px;
+  margin: 24px 20px 0;
   height: 56px;
   background: var(--white);
   outline: none;
 }
 
-@media (min-width: 992px) {
+@media (width >= 992px) {
   #homepage-autocomplete {
     margin: 32px 0 0 calc(55vw + 20px);
   }
 }
 
 .quick-device-list {
-  margin: 24px 20px 0 20px;
+  margin: 24px 20px 0;
   padding: 0;
   list-style: none;
-
   display: flex;
-
   flex-wrap: wrap;
-  column-gap: 5px;
-  row-gap: 12px;
+  gap: 12px 5px;
   justify-content: stretch;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .quick-device-list {
     justify-content: normal;
     margin: 16px 0 0 calc(55vw + 20px);
@@ -94,11 +97,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex: 1 1 0%;
 }
 
-@media (min-width: 1460px) {
+@media (width >= 1460px) {
   .quick-device-list__item {
     flex: none;
   }
@@ -155,6 +157,7 @@
   display: flex;
   overflow: hidden;
 }
+
 .hero-image::before {
   flex-grow: 1;
   content: "";
@@ -166,7 +169,8 @@
   background-image: url("/images/landing-devices.png");
   transform: rotate(30deg);
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .hero-image {
     position: absolute;
     top: 0;
@@ -175,6 +179,7 @@
     margin-top: -80px;
     height: calc(100% + 80px);
   }
+
   .hero-image::before {
     width: 1025px;
     height: 1165px;
@@ -187,12 +192,13 @@
   height: 250px;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 1) 20%,
-    rgba(255, 255, 255, 0.8) 60%,
-    rgba(255, 255, 255, 0) 100%
+    rgb(255 255 255 / 100%) 20%,
+    rgb(255 255 255 / 80%) 60%,
+    rgb(255 255 255 / 0%) 100%
   );
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .hero-image__shawdow {
     display: none;
   }
@@ -202,7 +208,8 @@
   padding: 0 20px;
   margin-top: -30px;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .oursky-product-section {
     margin: 105px 0 0 55vw;
     padding: 0 0 0 20px;
@@ -216,6 +223,7 @@
   font-size: 14px;
   margin: 0;
 }
+
 .oursky-product-section__heading::before {
   content: "";
   display: inline-block;
@@ -230,10 +238,11 @@
 
 .oursky-product-list {
   list-style: none;
-  margin: 15px 0 20px 0;
+  margin: 15px 0 20px;
   padding: 0;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .oursky-product-list {
     display: flex;
     flex-wrap: wrap;
@@ -244,9 +253,11 @@
 .oursky-product {
   position: relative;
 }
+
 .oursky-product:not(:first-child) {
-  margin: 10px 0 0 0;
+  margin: 10px 0 0;
 }
+
 .oursky-product::after {
   position: absolute;
   top: 18px;
@@ -260,12 +271,14 @@
   background-position: center;
   background-image: url("/images/right-arrow.svg");
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .oursky-product {
     flex: 1 1 calc(50% - 10px);
     margin: 5px 0 0 10px;
     min-width: 220px;
   }
+
   .oursky-product:not(:first-child) {
     margin: 5px 0 0 10px;
   }
@@ -280,11 +293,13 @@
   border-radius: 10px;
   color: var(--black);
 }
+
 .oursky-product__link:hover {
   color: var(--black);
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 6px 16px rgb(0 0 0 / 16%);
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .oursky-product__link {
     height: 110px;
   }
@@ -307,7 +322,7 @@
 }
 
 .oursky-product__caption-desc {
-  margin: 5px 0 0 0;
+  margin: 5px 0 0;
   font-size: 12px;
   color: var(--gray-2);
 }

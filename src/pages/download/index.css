@@ -1,10 +1,11 @@
 main {
   background: #f0f0f0;
-  padding: 20px 0 190px 0;
+  padding: 20px 0 190px;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   main {
-    padding: 50px 0 65px 0;
+    padding: 50px 0 65px;
   }
 }
 
@@ -20,7 +21,8 @@ main {
   font-size: 24px;
   color: var(--black);
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .completed {
     font-size: 32px;
   }
@@ -28,14 +30,15 @@ main {
 
 .formxai-ad {
   display: block;
-  margin: 75px 0 0 0;
+  margin: 75px 0 0;
 }
 
 .formxai-ad__image {
   width: 340px;
   height: auto;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .formxai-ad__image {
     width: 625px;
   }
@@ -44,19 +47,21 @@ main {
 .download-btn {
   display: flex;
   align-items: center;
-  margin: 50px 0 0 0;
+  margin: 50px 0 0;
   padding: 10px 40px;
   font-weight: bold;
   font-size: 18px;
   color: var(--white);
   background: var(--black);
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 6px 16px rgb(0 0 0 / 16%);
   border-radius: 74px;
 }
+
 .download-btn:hover {
   cursor: pointer;
   color: var(--white);
 }
+
 .download-btn::before {
   content: "";
   display: block;
@@ -68,18 +73,20 @@ main {
   background-position: center;
   background-image: url("/images/download.svg");
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .download-btn {
-    margin: 100px 0 0 0;
+    margin: 100px 0 0;
   }
 }
 
 .share {
-  margin: 35px 45px 0 45px;
+  margin: 35px 45px 0;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .share {
-    margin: 40px 0 0 0;
+    margin: 40px 0 0;
   }
 }
 
@@ -94,7 +101,7 @@ main {
 
 .share-social {
   list-style: none;
-  margin: 15px 0 0 0;
+  margin: 15px 0 0;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -108,10 +115,7 @@ main {
 .subscribe-modal {
   z-index: 200;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,10 +124,7 @@ main {
 .subscribe-modal__overlay {
   z-index: 100;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   height: 100%;
   width: 100%;
   background-color: var(--black);
@@ -133,14 +134,15 @@ main {
 .subscribe-dialog {
   z-index: 200;
   position: relative;
-  margin: 0 20px 0 20px;
+  margin: 0 20px;
   padding: 20px;
   width: 100%;
   max-width: 335px;
   background-color: var(--white);
   border-radius: 10px;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .subscribe-dialog {
     max-width: 370px;
   }
@@ -151,6 +153,7 @@ main {
   top: 10px;
   left: 10px;
 }
+
 .subscribe-dialog__close:hover {
   cursor: pointer;
 }
@@ -164,9 +167,10 @@ main {
 .request-subscribe-dialog__icon {
   width: 80px;
   height: 80px;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgb(0 0 0 / 10%);
   border-radius: 100%;
 }
+
 .request-subscribe-dialog__icon::before {
   content: "";
   display: block;
@@ -180,7 +184,7 @@ main {
 }
 
 .request-subscribe-dialog__heading {
-  margin: 20px 0 0 0;
+  margin: 20px 0 0;
   font-weight: 700;
   font-size: 14px;
   text-align: center;
@@ -188,14 +192,14 @@ main {
 }
 
 .request-subscribe-dialog__desc {
-  margin: 10px 0 0 0;
+  margin: 10px 0 0;
   font-size: 14px;
   text-align: center;
   color: var(--black);
 }
 
 .request-subscribe-dialog__email-input {
-  margin: 20px 0 0 0;
+  margin: 20px 0 0;
   padding: 15px;
   width: 100%;
   background: var(--white);
@@ -206,12 +210,13 @@ main {
   font-weight: 400;
   color: var(--black);
 }
+
 .request-subscribe-dialog__email-input:focus {
   outline: none;
 }
 
 .request-subscribe-dialog__submit {
-  margin: 20px 0 0 0;
+  margin: 20px 0 0;
   padding: 10px 50px;
   width: 100%;
   background: var(--black);
@@ -222,6 +227,7 @@ main {
   font-size: 18px;
   text-align: center;
 }
+
 .request-subscribe-dialog__submit:hover {
   cursor: pointer;
 }
@@ -242,12 +248,12 @@ main {
 }
 
 .thankyou-subscribe-dialog__image {
-  margin: 20px 0 0 0;
+  margin: 20px 0 0;
   width: 210px;
 }
 
 .thankyou-subscribe-dialog__desc {
-  margin: 20px 0 0 0;
+  margin: 20px 0 0;
   font-size: 14px;
   text-align: center;
   color: var(--black);

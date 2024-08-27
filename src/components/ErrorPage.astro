@@ -13,8 +13,8 @@ const { pageId, paddingTop } = Astro.props;
     font-size: 16px;
     font-family: "Lucida Grande", Arial, sans-serif;
     position: relative;
-    bottom: 0px;
-    padding: 0px;
+    bottom: 0;
+    padding: 0;
     min-height: 640px;
     margin: 0;
     width: 100%;
@@ -25,7 +25,7 @@ const { pageId, paddingTop } = Astro.props;
   .blue,
   .title :global(.blue),
   .description :global(.blue) {
-    color: rgb(77, 188, 233);
+    color: rgb(77 188 233);
   }
 
   .pageTitle {
@@ -42,34 +42,42 @@ const { pageId, paddingTop } = Astro.props;
     font-weight: 600;
     margin-bottom: 30px;
   }
+
   strong {
     line-height: 1.5;
   }
+
   a,
   .title :global(a),
   .description :global(a) {
-    color: rgb(77, 188, 233);
+    color: rgb(77 188 233);
     text-decoration: none;
-    border: 0px;
+    border: 0;
   }
+
   a:hover,
   .title :global(a:hover),
   .description :global(.blue) {
-    color: rgb(77, 188, 233);
+    color: rgb(77 188 233);
   }
+
   .spaceHolder {
     min-height: 100px;
   }
+
   .logo {
     margin: auto;
     margin-top: -375px;
   }
+
   .logo img {
     border: none;
   }
+
   .logo img:hover {
     padding-top: 2px;
   }
+
   .bg {
     background-image: url("/images/notfound-bg.png");
     background-repeat: no-repeat;
@@ -77,7 +85,7 @@ const { pageId, paddingTop } = Astro.props;
     min-height: 640px;
     height: 100%;
     margin: auto;
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
 
   .list {
@@ -92,7 +100,7 @@ const { pageId, paddingTop } = Astro.props;
 
   .list :global(a) {
     text-decoration: underline;
-    border: 0px;
+    border: 0;
     color: black;
     padding-left: 10px;
   }
