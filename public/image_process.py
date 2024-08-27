@@ -2,7 +2,7 @@ import base64
 import io
 import os
 
-from js import Uint8Array, imageUploadList
+from js import Uint8Array, imageUploadList, previewJobQueue
 from PIL import Image
 
 
@@ -29,7 +29,7 @@ async def upload_single_image(origin_image, file_name):
 
 
 async def upload_file():
-    from js import imageUpload
+    imageUpload = previewJobQueue.shift()
 
     # Since we will update `imageUpload` when calling this function,
     # need to re-import it to force update to new value

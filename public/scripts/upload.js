@@ -3,7 +3,6 @@ Require: mobx,
          utils/images.js, utils/scroll.js, services/presign.js, models/image-upload.js
 */
 let dragZoneCounter = 0; // https://stackoverflow.com/a/21002544/19287186
-const isDebug = false;
 const MAX_FILE_SIZE_BYTE = 104857600;
 const MAX_FILE_SIZE_READABLE = "100 MB";
 const MAX_MOCKUP_WAIT_SEC = 1000000000;
@@ -181,11 +180,7 @@ class FileListViewModel {
           scrollToElementTop(fileListSection, HEADER_HEIGHT);
         }
       }
-      // Avoiding read same image file
-      setTimeout(() => {
-        this._imageUploads.push(imageUpload);
-        window.viewModel.generatePreviewMockup(imageUpload);
-      }, i * 10);
+      this._imageUploads.push(imageUpload);
     }
   }
 
@@ -581,9 +576,6 @@ function main() {
   );
   handleColorPickers(viewModel);
   window.viewModel = viewModel;
-  if (isDebug) {
-    window.viewModel = viewModel;
-  }
 
   preventDefault(htmlNode, [
     "drag",
@@ -731,6 +723,24 @@ function main() {
     },
   );
 
+  // observe fileListViewModel: imageUploads[].length increase
+  // side effect: generate preview mockup
+  mobx.reaction(
+    () => viewModel.fileList.imageUploads.length,
+    (newLen, oldLen) => {
+      // we only want to trigger preview when the length increase
+      if (newLen <= oldLen) {
+        return;
+      }
+      if (viewModel.fileList.imageUploads.length !== newLen) {
+        console.error("unexpected mobx error, image upload length not matched");
+        return;
+      }
+      const newImage = viewModel.fileList.imageUploads[newLen - 1];
+      viewModel.generatePreviewMockup(newImage);
+    },
+  );
+
   // observe viewModel: selectedPreviewImageULID
   mobx.reaction(
     () => viewModel.selectedPreviewImageULID,
@@ -770,19 +780,4 @@ function main() {
       }
     },
   );
-
-  if (isDebug) {
-    // observe fileListViewModel: imageUploads, imageUploads[].state
-    mobx.autorun(() => {
-      console.log("file list:", mobx.toJS(viewModel.fileList.imageUploads));
-      console.log(
-        "read states:",
-        viewModel.fileList.imageUploads.map((imageUpload) => imageUpload.state),
-      );
-    });
-  }
-}
-
-function sleep(delay) {
-  return new Promise((resolve) => setTimeout(() => resolve(), delay));
 }

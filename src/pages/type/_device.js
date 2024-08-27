@@ -4,7 +4,6 @@ const { createLocalStorageRecentSearchesPlugin } =
 import * as autocompleteJsPkg from "@algolia/autocomplete-js";
 const { autocomplete } = autocompleteJsPkg;
 
-const isDebug = false;
 const NUM_DEFAULT_MODEL_ITEMS_TO_DISPLAY = 0;
 const NUM_DEFAULT_BRAND_ITEMS_TO_DISPLAY = 0;
 const MAX_SEARCH_HISTORY_ITEM = 5;
