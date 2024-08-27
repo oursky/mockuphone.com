@@ -56,22 +56,15 @@ async function runWorker(worker) {
 }
 
 function runPreviewWorker(worker, imageUpload) {
-  if (imageUpload.isErrorState) {
-    return;
-  }
-  window.viewModel.fileList.updateImageUploadStateByULID(
-    imageUpload.ulid,
-    ImageUploadState.GeneratingPreview,
-  );
   const imageUploadFile = imageUpload.file;
-  worker.postMessage({
+  worker.worker.postMessage({
     imageUpload: imageUploadFile,
     location: window.location.toString(),
     deviceId: window.workerDeviceId,
     deviceInfo: window.deviceInfo,
     ulid: imageUpload.ulid,
   });
-  worker.addEventListener(
+  worker.worker.addEventListener(
     "message",
     function (e) {
       if (e.data["error"] !== undefined) {
@@ -119,6 +112,8 @@ function runPreviewWorker(worker, imageUpload) {
         ulid,
         ImageUploadState.ReadSuccess,
       );
+
+      window.viewModel.idleWorker(worker);
     },
     false,
   );
@@ -220,7 +215,8 @@ class RootViewModel {
   isFileDragEnter = false;
   _isGeneratingMockup = false;
   worker = new Worker("/scripts/web_worker.js");
-  previewWorker = new Worker("/scripts/preview_worker.js");
+  workerPool = [];
+  maxWorkers = 4;
   selectedColorId = null;
   selectedPreviewImageULID = null;
 
@@ -237,6 +233,17 @@ class RootViewModel {
     this.selectedColorId = selectedColorId;
     this.maxMockupWaitSec = maxMockupWaitSec;
     this.fileList = fileListViewModel;
+    this.maxWorkers = navigator.hardwareConcurrency || 4;
+
+    // Reserve one worker to generate the final mockup, will update later
+    for (let i = 0; i < this.maxWorkers - 1; i += 1) {
+      const newWorker = new Worker("/scripts/preview_worker.js");
+      this.workerPool.push({
+        worker: newWorker,
+        ulid: ULID.ulid(),
+        isIdle: true,
+      });
+    }
   }
 
   get isGeneratingMockup() {
@@ -244,7 +251,14 @@ class RootViewModel {
   }
 
   async generatePreviewMockup(imageUpload) {
-    runPreviewWorker(this.previewWorker, imageUpload);
+    if (imageUpload.isErrorState) {
+      return;
+    }
+    window.viewModel.fileList.updateImageUploadStateByULID(
+      imageUpload.ulid,
+      ImageUploadState.GeneratingPreview,
+    );
+    runPreviewWorker(await this.getPreviewWorker(), imageUpload);
   }
 
   async generateMockup() {
@@ -273,6 +287,47 @@ class RootViewModel {
     return this.fileList.imageUploads.length > 0
       ? this.fileList.imageUploads[0].ulid
       : null;
+  }
+
+  async getPreviewWorker() {
+    let availableWorker = this.workerPool.find((worker) => worker.isIdle);
+    if (availableWorker) {
+      this.startWorker(availableWorker);
+      return availableWorker;
+    } else {
+      return new Promise((resolve) => {
+        const interval = setInterval(() => {
+          const idleWorker = this.workerPool.find((worker) => worker.isIdle);
+          if (idleWorker) {
+            idleWorker.isIdle = false;
+            clearInterval(interval);
+            resolve(idleWorker);
+          }
+        }, 100);
+      });
+    }
+  }
+
+  startWorker(worker) {
+    const index = this.workerPool.findIndex((w) => w.ulid === worker.ulid);
+    if (index !== -1) {
+      this.workerPool[index].isIdle = false;
+    }
+  }
+
+  idleWorker(worker) {
+    const index = this.workerPool.findIndex((w) => w.ulid === worker.ulid);
+    if (index !== -1) {
+      this.workerPool[index].isIdle = true;
+    }
+  }
+
+  terminateWorker(worker) {
+    const index = this.workerPool.findIndex((w) => w.ulid === worker.ulid);
+    if (index !== -1) {
+      this.workerPool.splice(index, 1);
+    }
+    worker.worker.terminate();
   }
 }
 
