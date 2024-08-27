@@ -1,6 +1,6 @@
 importScripts("https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js");
 
-async function initianPyodide() {
+async function initiatePyodide() {
   console.log("start startup");
   const pyodide = await loadPyodide();
   await pyodide.loadPackage(["numpy", "opencv-python", "pillow", "micropip"]);
@@ -45,7 +45,7 @@ async function runPreviewMockup(pyodide) {
 }
 
 async function main() {
-  let pyodideObject = initianPyodide();
+  let pyodideObject = initiatePyodide();
   self.onmessage = async (event) => {
     pyodideObject = await pyodideObject;
 
