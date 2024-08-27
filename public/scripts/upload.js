@@ -180,8 +180,9 @@ class FileListViewModel {
       return !(isSameFilename && isSameULID);
     });
 
-    window.viewModel.selectedPreviewImageULID =
-      window.viewModel.defaultImageUploadULID;
+    if (viewModel.selectedPreviewImageULID === fileUlid) {
+      viewModel.selectedPreviewImageULID = viewModel.defaultImageUploadULID;
+    }
   }
 
   updateImageUploadStateByULID(ulid, state) {
