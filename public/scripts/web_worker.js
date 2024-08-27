@@ -45,6 +45,7 @@ async function runMockup(pyodide) {
 
 async function main() {
   let pyodideObject = initianPyodide();
+  self["previewJobQueue"] = [];
   self.onmessage = async (event) => {
     pyodideObject = await pyodideObject;
 
