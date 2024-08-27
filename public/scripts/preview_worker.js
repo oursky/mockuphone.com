@@ -28,7 +28,7 @@ async function runPreviewMockup(pyodide) {
     `
       import mockup
       import image_process
-      from js import locationKey, imageUpload, deviceInfo, deviceId
+      from js import locationKey, deviceInfo, deviceId
       origin_image_path = await image_process.upload_file()
       print("start preview", origin_image_path)
       output_img = await mockup.previewMockup(locationKey, deviceId, origin_image_path, deviceInfo)
@@ -46,11 +46,12 @@ async function runPreviewMockup(pyodide) {
 
 async function main() {
   let pyodideObject = initiatePyodide();
+  self["previewJobQueue"] = [];
   self.onmessage = async (event) => {
     pyodideObject = await pyodideObject;
 
     self["imageUploadList"] = undefined;
-    self["imageUpload"] = event.data.imageUpload;
+    self["previewJobQueue"].push(event.data.imageUpload);
     self["locationKey"] = event.data.location;
     self["deviceId"] = event.data.deviceId;
     self["deviceInfo"] = event.data.deviceInfo;
