@@ -251,6 +251,13 @@ class RootViewModel {
   }
 
   async generatePreviewMockup(imageUpload) {
+    if (imageUpload.isErrorState) {
+      return;
+    }
+    window.viewModel.fileList.updateImageUploadStateByULID(
+      imageUpload.ulid,
+      ImageUploadState.GeneratingPreview,
+    );
     runPreviewWorker(await this.getPreviewWorker(), imageUpload);
   }
 
@@ -785,14 +792,6 @@ function main() {
         return;
       }
       const newImage = viewModel.fileList.imageUploads[newLen - 1];
-
-      if (newImage.isErrorState) {
-        return;
-      }
-      window.viewModel.fileList.updateImageUploadStateByULID(
-        newImage.ulid,
-        ImageUploadState.GeneratingPreview,
-      );
       viewModel.generatePreviewMockup(newImage);
     },
   );
