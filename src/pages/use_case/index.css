@@ -24,7 +24,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .use-case-page {
     .col-12 {
       padding: 16px !important;
@@ -50,7 +50,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .use-case-card {
     flex-direction: row;
 

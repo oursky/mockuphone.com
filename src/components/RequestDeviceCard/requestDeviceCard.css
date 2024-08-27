@@ -7,11 +7,12 @@
   background: var(--white);
   border: 1px solid var(--gray-5);
   box-sizing: border-box;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 4px rgb(0 0 0 / 6%);
   border-radius: 10px;
   padding: 56px 40px;
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
   .request-device-section {
     width: 100%;
     padding: 60px 200px;
@@ -25,11 +26,10 @@
 }
 
 .request-device-section__desc {
-  margin: 20px 0 0 0;
+  margin: 20px 0 0;
   font-size: 14px;
   font-weight: 700;
   line-height: 22px;
-
   text-align: center;
   color: var(--black);
 }
@@ -44,7 +44,7 @@
 
 .request-device-section__request-link {
   display: block;
-  margin: 10px 0 0 0;
+  margin: 10px 0 0;
 }
 
 .request-device-section__request-btn {
@@ -64,7 +64,7 @@
   cursor: pointer;
 }
 
-@media (min-width: 680px) {
+@media (width >= 680px) {
   .request-device-section__image {
     width: 194px;
   }

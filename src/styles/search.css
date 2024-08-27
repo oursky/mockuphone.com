@@ -50,6 +50,7 @@
 .aa-ItemWrapper {
   height: 100%;
 }
+
 .aa-Panel {
   z-index: 100;
 }
@@ -87,15 +88,17 @@
   background-color: #e5e5e5;
 }
 
-@media (max-width: 680px) {
+@media (width <= 680px) {
   .aa-SubmitButton,
   .aa-Label,
   .aa-InputWrapperPrefix {
     display: none;
   }
+
   .aa-DetachedFormContainer > .aa-DetachedCancelButton {
     display: none;
   }
+
   .aa-Form > .aa-DetachedCancelButton {
     height: 100%;
     background-image: url("/images/arrow-back.svg");
@@ -105,30 +108,32 @@
     padding: -4px 14px 4px 10px;
     width: 50px;
   }
+
   .aa-Form > .aa-DetachedCancelButton:hover {
     border: none;
     outline: none;
   }
+
   .aa-Form > .aa-DetachedCancelButton:active {
     outline: none;
     background-color: #e0e0e0;
   }
+
   .aa-Form {
     overflow: hidden;
+    height: 50px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
   }
 
   .cancelButton {
     height: 100%;
   }
+
   /* .aa-InputWrapperPrefix > .aa-DetachedCancelButton {
     height: 100%;
   } */
   .aa-InputWrapperSuffix {
     width: 48px;
-  }
-  .aa-Form {
-    height: 50px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
   }
 }
