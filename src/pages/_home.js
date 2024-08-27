@@ -1,17 +1,14 @@
+import * as autocompletePluginRecentSearchesPkg from "@algolia/autocomplete-plugin-recent-searches";
+const { createLocalStorageRecentSearchesPlugin } =
+  autocompletePluginRecentSearchesPkg;
+import * as autocompleteJsPkg from "@algolia/autocomplete-js";
+const { autocomplete } = autocompleteJsPkg;
+
 const NUM_DEFAULT_MODEL_ITEMS_TO_DISPLAY = 0;
 const NUM_DEFAULT_BRAND_ITEMS_TO_DISPLAY = 0;
 const MAX_SEARCH_HISTORY_ITEM = 5;
 const ALGOLIA_SEARCH_HISTORY_KEY = "brandModelSearch";
 const LOCAL_STORAGE_KEY = `AUTOCOMPLETE_RECENT_SEARCHES:${ALGOLIA_SEARCH_HISTORY_KEY}`;
-
-function ready(fn) {
-  if (document.readyState != "loading") {
-    fn();
-  } else {
-    document.addEventListener("DOMContentLoaded", fn);
-  }
-}
-ready(main);
 
 class RootViewModel {
   searchText = "";
@@ -77,10 +74,6 @@ function moveOldHistoryToTop(oldHistoryItem) {
 }
 
 function initializeAutocomplete(viewModel) {
-  const { autocomplete } = window["@algolia/autocomplete-js"];
-  const { createLocalStorageRecentSearchesPlugin } =
-    window["@algolia/autocomplete-plugin-recent-searches"];
-
   const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
     key: ALGOLIA_SEARCH_HISTORY_KEY,
     MAX_SEARCH_HISTORY_ITEM,
@@ -205,7 +198,18 @@ function initializeAutocomplete(viewModel) {
     });
   });
 }
+
+function ready(fn) {
+  if (document.readyState != "loading") {
+    fn();
+  } else {
+    document.addEventListener("DOMContentLoaded", fn);
+  }
+}
+
 function main() {
   const viewModel = new RootViewModel(window.modelItems, window.brandItems);
   initializeAutocomplete(viewModel);
 }
+
+ready(main);
