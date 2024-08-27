@@ -723,11 +723,15 @@ function main() {
     },
   );
 
-  // observe fileListViewModel: imageUploads[].length
+  // observe fileListViewModel: imageUploads[].length increase
   // side effect: generate preview mockup
   mobx.reaction(
     () => viewModel.fileList.imageUploads.length,
-    (newLen) => {
+    (newLen, oldLen) => {
+      // we only want to trigger preview when the length increase
+      if (newLen <= oldLen) {
+        return;
+      }
       if (viewModel.fileList.imageUploads.length !== newLen) {
         console.error("unexpected mobx error, image upload length not matched");
         return;
