@@ -91,6 +91,7 @@ lint_astro:
 	npx eslint --ext .js,.astro src
 	npx astro check
 	npx tsc --noEmit
+	npx stylelint "src/**/*.css" "src/**/*.astro"  --ignore-pattern "src/styles/bootstrap/*.css"
 
 .PHONY: build
 build:
