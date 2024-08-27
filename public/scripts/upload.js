@@ -3,7 +3,6 @@ Require: mobx,
          utils/images.js, utils/scroll.js, services/presign.js, models/image-upload.js
 */
 let dragZoneCounter = 0; // https://stackoverflow.com/a/21002544/19287186
-const isDebug = false;
 const MAX_FILE_SIZE_BYTE = 104857600;
 const MAX_FILE_SIZE_READABLE = "100 MB";
 const MAX_MOCKUP_WAIT_SEC = 1000000000;
@@ -581,9 +580,6 @@ function main() {
   );
   handleColorPickers(viewModel);
   window.viewModel = viewModel;
-  if (isDebug) {
-    window.viewModel = viewModel;
-  }
 
   preventDefault(htmlNode, [
     "drag",
@@ -770,17 +766,6 @@ function main() {
       }
     },
   );
-
-  if (isDebug) {
-    // observe fileListViewModel: imageUploads, imageUploads[].state
-    mobx.autorun(() => {
-      console.log("file list:", mobx.toJS(viewModel.fileList.imageUploads));
-      console.log(
-        "read states:",
-        viewModel.fileList.imageUploads.map((imageUpload) => imageUpload.state),
-      );
-    });
-  }
 }
 
 function sleep(delay) {
