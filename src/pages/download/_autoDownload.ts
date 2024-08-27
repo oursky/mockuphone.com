@@ -1,3 +1,5 @@
+import { generateZIP } from "./_downloadPythonPackage";
+
 export function readyForAutoDownload(fn: () => void): void {
   if (document.readyState != "loading") {
     fn();

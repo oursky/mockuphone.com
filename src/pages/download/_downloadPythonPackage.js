@@ -1,3 +1,7 @@
+import JSZip from "jszip";
+import localforage from "localforage";
+import { saveAs } from "file-saver";
+
 async function allStorage() {
   var values = new Map(),
     keys = Object.keys(localStorage),
@@ -31,14 +35,15 @@ function getJSZipDateWithOffset() {
 
   return dateWithOffset;
 }
-async function generateZIP(deviceId) {
+
+export async function generateZIP(deviceId) {
   var zip = new JSZip();
   var count = 0;
   const zipFilename = !!deviceId ? `${deviceId}-mockup.zip` : "mockup.zip";
   var images = new Map();
-  dataurlkey = await allStorage();
+  var dataurlkey = await allStorage();
   dataurlkey.forEach(function (value, key) {
-    file = dataURLtoFile(value, key.substring(3, key.length) + ".png");
+    var file = dataURLtoFile(value, key.substring(3, key.length) + ".png");
     images.set(key, URL.createObjectURL(file));
   });
   images.forEach(async function (imgURL, k) {
