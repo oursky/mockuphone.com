@@ -56,7 +56,6 @@ async function main() {
     self["deviceInfo"] = event.data.deviceInfo;
 
     try {
-      // TODO: Handle preview loading state in widget
       let results = await runPreviewMockup(pyodideObject);
       console.log("preview results", results);
       self.postMessage({ ulid: event.data.ulid, results: results });
