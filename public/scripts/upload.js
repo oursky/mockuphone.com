@@ -825,7 +825,15 @@ function main() {
           imageUploads[i].isSuccessState &&
           imageUploads[i].ulid == window.viewModel.selectedPreviewImageULID
         ) {
-          imageContainer.style.backgroundImage = `url(${imageUploads[i].previewUrl})`;
+          // create a new Image object
+          var img_tag = new Image();
+          const url = imageUploads[i].previewUrl;
+          // when preload is complete, apply the image to the div
+          img_tag.onload = function () {
+            imageContainer.style.backgroundImage = `url(${url})`;
+          };
+          // setting 'src' actually starts the preload
+          img_tag.src = url;
         }
       }
     },
