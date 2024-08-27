@@ -7,6 +7,7 @@ import "./index.css";
 <script>
   import localforage from "localforage";
   import { readyForAutoDownload, mainForAutoDownload } from "./_autoDownload";
+  import { generateZIP } from "./_downloadPythonPackage";
 
   const isMockupGenerated = async () => {
     return localforage.getItem("pictureArray").then(function (pictureArray) {
@@ -41,8 +42,17 @@ import "./index.css";
     }
   };
 
+  const handleDownloadButton = () => {
+    const downloadButton = document.querySelector(".download-btn");
+    downloadButton?.addEventListener("click", () => {
+      // @ts-expect-error // Inject deviceId into window
+      generateZIP(window.targetDeviceId);
+    });
+  };
+
   hideUnuseScreen();
   handleDeviceIdSearchParams();
+  handleDownloadButton();
   readyForAutoDownload(mainForAutoDownload);
 </script>
 
@@ -52,13 +62,7 @@ import "./index.css";
     name="description"
     content="I've just used MockUPhone to wrap my app screenshots. It supports lots of devices including iPhone mockup, iPad mockup, Android mockup and TV mockup."
   />
-  <script type="text/javascript" src="/scripts/jszip.js"></script>
-  <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"
-  ></script>
-  <script type="text/javascript" src="/scripts/download-python-package.js"
-  ></script>
+  <script src="./_downloadPythonPackage.js"></script>
   <div class="download-content">
     <h1 class="completed">Completed!</h1>
 
@@ -71,9 +75,7 @@ import "./index.css";
       <img class="formxai-ad__image" src="/images/oursky/formxai-ad.png" />
     </a>
 
-    <button class="download-btn" onclick="generateZIP(window.targetDeviceId)"
-      >Download again</button
-    >
+    <button class="download-btn">Download again</button>
 
     <section class="share">
       <h2 class="share__heading">
