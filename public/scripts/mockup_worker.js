@@ -52,7 +52,6 @@ async function main() {
   self.onmessage = async (event) => {
     pyodideObject = await pyodideObject;
 
-    self["imageUploadList"] = undefined;
     self["previewJobQueue"].push(event.data.imageUpload);
     self["locationKey"] = event.data.location;
     self["deviceId"] = event.data.deviceId;
