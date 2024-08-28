@@ -264,6 +264,9 @@ class RootViewModel {
       return;
     }
     this._isGeneratingMockup = false;
+
+    // Stop all workers that still generatiing mockup
+    this.restartActiveWorkers();
   }
 
   get previewUrl() {
@@ -306,6 +309,16 @@ class RootViewModel {
     const index = this.workerPool.findIndex((w) => w.ulid === worker.ulid);
     if (index !== -1) {
       this.workerPool[index].isIdle = true;
+    }
+  }
+
+  restartActiveWorkers() {
+    for (let i = 0; i < this.workerPool.length; i += 1) {
+      if (!this.workerPool[i].isIdle) {
+        this.workerPool[i].worker.terminate();
+        this.workerPool[i].worker = new Worker("/scripts/mockup_worker.js");
+        this.workerPool[i].isIdle = true;
+      }
     }
   }
 }
