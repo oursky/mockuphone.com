@@ -86,6 +86,11 @@ function runPreviewWorker(worker, imageUpload) {
         ".upload__device-image-rect",
       );
 
+      // If no existing preview, set first success preview
+      if (window.viewModel.selectedPreviewImageULID == null) {
+        window.viewModel.selectedPreviewImageULID = ulid;
+      }
+
       /* Put first generated mockup to preview area */
       if (window.viewModel.selectedPreviewImageULID === ulid) {
         imageContainer.style.backgroundImage = `url(${previewUrl})`;
@@ -164,17 +169,6 @@ class FileListViewModel {
       const imageUpload = new ImageUpload(files[i], MAX_FILE_SIZE_BYTE);
       await imageUpload.read();
       imageUpload.ulid = ULID.ulid();
-
-      if (window.viewModel.selectedPreviewImageULID === null && i === 0) {
-        window.viewModel.selectedPreviewImageULID = imageUpload.ulid;
-
-        // scroll to file list section on mobile devices
-        if (window.innerWidth <= 992) {
-          const fileListSection = document.querySelector(".file-list");
-          const HEADER_HEIGHT = 120;
-          scrollToElementTop(fileListSection, HEADER_HEIGHT);
-        }
-      }
       this._imageUploads.push(imageUpload);
     }
   }
@@ -186,8 +180,9 @@ class FileListViewModel {
       return !(isSameFilename && isSameULID);
     });
 
-    window.viewModel.selectedPreviewImageULID =
-      window.viewModel.defaultImageUploadULID;
+    if (viewModel.selectedPreviewImageULID === fileUlid) {
+      viewModel.selectedPreviewImageULID = viewModel.defaultImageUploadULID;
+    }
   }
 
   updateImageUploadStateByULID(ulid, state) {
@@ -830,7 +825,15 @@ function main() {
           imageUploads[i].isSuccessState &&
           imageUploads[i].ulid == window.viewModel.selectedPreviewImageULID
         ) {
-          imageContainer.style.backgroundImage = `url(${imageUploads[i].previewUrl})`;
+          // create a new Image object
+          var img_tag = new Image();
+          const url = imageUploads[i].previewUrl;
+          // when preload is complete, apply the image to the div
+          img_tag.onload = function () {
+            imageContainer.style.backgroundImage = `url(${url})`;
+          };
+          // setting 'src' actually starts the preload
+          img_tag.src = url;
         }
       }
     },
