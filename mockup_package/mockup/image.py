@@ -45,25 +45,6 @@ async def generate(
 async def mockup(
     location: str,
     device_id: str,
-    original_img_path_list: list[str],
-    device_info: dict[str, Any],
-):
-    output_img_path_list: list[tuple[str, str, str]] = []
-    for original_img_path in original_img_path_list:
-        ig = IG(original_img_path, device_id, device_info)
-        ig.create_fit_resolution_image()
-        for spec in ig.phone_models.get(device_id).get("mockups").values():
-            output_img_path_list.append(
-                await generate(location, original_img_path, spec, ig)
-            )
-
-    original_img_path_list.clear()
-    return output_img_path_list
-
-
-async def previewMockup(
-    location: str,
-    device_id: str,
     original_img_path: str,
     device_info: dict[str, Any],
     preview_orientation_index: int = 0,

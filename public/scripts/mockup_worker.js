@@ -32,7 +32,7 @@ async function runMockup(pyodide) {
       orientationIndex = orientationIndexQueue.shift()
       print("start mockup", origin_image_path)
       print("orientation index", orientationIndex)
-      output_img = await mockup.previewMockup(locationKey, deviceId, origin_image_path, deviceInfo, orientationIndex)
+      output_img = await mockup.startMockup(locationKey, deviceId, origin_image_path, deviceInfo, orientationIndex)
     `,
     { globals: pythonNamespace },
   );
