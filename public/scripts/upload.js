@@ -55,6 +55,11 @@ async function runWorker(worker) {
   );
 }
 
+const MAX_FIREFOX_WEB_WORKERS = 2;
+function isUserAgentFirefox() {
+  return navigator.userAgent.match(/firefox|fxios/i);
+}
+
 function runPreviewWorker(worker, imageUpload) {
   const imageUploadFile = imageUpload.file;
   worker.worker.postMessage({
@@ -211,7 +216,7 @@ class RootViewModel {
   _isGeneratingMockup = false;
   worker = new Worker("/scripts/web_worker.js");
   workerPool = [];
-  maxWorkers = 4;
+  maxWorkers = 0;
   selectedColorId = null;
   selectedPreviewImageULID = null;
 
@@ -228,7 +233,10 @@ class RootViewModel {
     this.selectedColorId = selectedColorId;
     this.maxMockupWaitSec = maxMockupWaitSec;
     this.fileList = fileListViewModel;
-    this.maxWorkers = navigator.hardwareConcurrency || 4;
+
+    this.maxWorkers = isUserAgentFirefox()
+      ? MAX_FIREFOX_WEB_WORKERS
+      : navigator.hardwareConcurrency;
 
     // Reserve one worker to generate the final mockup, will update later
     for (let i = 0; i < this.maxWorkers - 1; i += 1) {
