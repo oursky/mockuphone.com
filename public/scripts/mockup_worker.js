@@ -21,8 +21,7 @@ async function initiatePyodide() {
   return pyodide;
 }
 
-// Now only the first orientation model is generated for preview
-async function runPreviewMockup(pyodide) {
+async function runMockup(pyodide) {
   let pythonNamespace = pyodide.globals.get("dict")();
   await pyodide.runPythonAsync(
     `
@@ -30,9 +29,9 @@ async function runPreviewMockup(pyodide) {
       import image_process
       from js import locationKey, deviceInfo, deviceId, orientationIndexQueue
       origin_image_path = await image_process.upload_file()
-      print("start preview", origin_image_path)
       orientationIndex = orientationIndexQueue.shift()
-      print("index", orientationIndex)
+      print("start mockup", origin_image_path)
+      print("orientation index", orientationIndex)
       output_img = await mockup.previewMockup(locationKey, deviceId, origin_image_path, deviceInfo, orientationIndex)
     `,
     { globals: pythonNamespace },
@@ -61,8 +60,8 @@ async function main() {
     self["orientationIndexQueue"].push(event.data.orientationIndex ?? 0);
 
     try {
-      let results = await runPreviewMockup(pyodideObject);
-      console.log("preview results", results);
+      let results = await runMockup(pyodideObject);
+      console.log("mockup results", results);
       self.postMessage({
         ulid: event.data.ulid,
         results: results,

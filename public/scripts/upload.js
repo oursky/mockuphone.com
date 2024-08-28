@@ -219,7 +219,7 @@ class RootViewModel {
     ).length;
 
     for (let i = 0; i < this.maxWorkers; i += 1) {
-      const newWorker = new Worker("/scripts/preview_worker.js");
+      const newWorker = new Worker("/scripts/mockup_worker.js");
       this.workerPool.push({
         worker: newWorker,
         ulid: ULID.ulid(),
