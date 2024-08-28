@@ -100,7 +100,13 @@ function runWorker(worker, imageUpload, orientationIndex, mode) {
           ImageUploadState.ReadSuccess,
         );
       } else if (mode === "mockup") {
-        console.log("generate mockup", imageUpload.file.name, orientationIndex);
+        const ulid = e.data["ulid"];
+        const results = e.data["results"];
+
+        window.viewModel.fileList.addGeneratedMockupToImageUploadByULID(
+          ulid,
+          results,
+        );
       }
 
       window.viewModel.idleWorker(worker);
@@ -183,6 +189,15 @@ class FileListViewModel {
     this._imageUploads = this._imageUploads.map((imageUpload) => {
       if (imageUpload.ulid == ulid) {
         imageUpload.previewUrl = previewUrl;
+      }
+      return imageUpload;
+    });
+  }
+
+  addGeneratedMockupToImageUploadByULID(ulid, generatedMockup) {
+    this._imageUploads = this._imageUploads.map((imageUpload) => {
+      if (imageUpload.ulid == ulid) {
+        imageUpload.generatedMockups.push(generatedMockup);
       }
       return imageUpload;
     });
@@ -785,6 +800,38 @@ function main() {
       }
       const newImage = viewModel.fileList.imageUploads[newLen - 1];
       viewModel.generatePreviewMockup(newImage);
+    },
+  );
+
+  // observe fileListViewModel: imageUploads[].generatedMockups[].length
+  mobx.reaction(
+    () =>
+      viewModel.fileList.imageUploads.map(
+        (imageUpload) => imageUpload.generatedMockups.length,
+      ),
+    async () => {
+      if (viewModel.isGeneratingMockup) {
+        const imageUploads = viewModel.fileList.imageUploads;
+        let generatedMockups = [];
+        for (let i = 0; i < imageUploads.length; i += 1) {
+          generatedMockups = [
+            ...generatedMockups,
+            ...imageUploads[i].generatedMockups,
+          ];
+          if (
+            imageUploads[i].generatedMockups.length < viewModel.orientationsNum
+          ) {
+            return;
+          }
+        }
+
+        window.localforage
+          .setItem("pictureArray", generatedMockups)
+          .then(() => {
+            window.location.href =
+              "/download/?deviceId=" + window.workerDeviceId;
+          });
+      }
     },
   );
 
