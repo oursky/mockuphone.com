@@ -16,45 +16,6 @@ function ready(fn) {
 }
 ready(main);
 
-async function runWorker(worker) {
-  imageUploadList = viewModel.fileList._imageUploads
-    .filter((i) => i.isSuccessState)
-    .map((item) => item.imageFile);
-  worker.postMessage({
-    imageUploadList: imageUploadList,
-    location: window.location.toString(),
-    deviceId: window.workerDeviceId,
-    deviceInfo: window.deviceInfo,
-  });
-  worker.addEventListener(
-    "message",
-    function (e) {
-      window.pictureArray = e.data;
-      window.localforage
-        .setItem("pictureArray", e.data)
-        .then(function (pictureArray) {
-          if (e.data["error"] !== undefined) {
-            console.log("Get error while generating mockup", e.data["error"]);
-            window.viewModel.cancelMockup();
-
-            // Alert after `cancelMockup` finish
-            setTimeout(() => {
-              alert(
-                "Oops, something went wrong. Please try a different image/device.\nIf it persists, we'd appreciate if you report it on our GitHub 🙏  https://github.com/oursky/mockuphone.com/issues.",
-              );
-            }, 100);
-            return;
-          }
-          window.location.href = "/download/?deviceId=" + window.workerDeviceId;
-        })
-        .catch(function (err) {
-          console.error("Get error while storing images to localforage:", err);
-        });
-    },
-    false,
-  );
-}
-
 const MAX_FIREFOX_WEB_WORKERS = 2;
 const DEFAULT_MAX_WEB_WORKERS = 4; // most CPUs at least have 4 cores nowadays
 function isUserAgentFirefox() {
@@ -72,7 +33,7 @@ function getMaxWorkers() {
   return navigator.hardwareConcurrency;
 }
 
-function runPreviewWorker(worker, imageUpload) {
+function runWorker(worker, imageUpload, orientationIndex, mode) {
   const imageUploadFile = imageUpload.file;
   worker.worker.postMessage({
     imageUpload: imageUploadFile,
@@ -80,6 +41,8 @@ function runPreviewWorker(worker, imageUpload) {
     deviceId: window.workerDeviceId,
     deviceInfo: window.deviceInfo,
     ulid: imageUpload.ulid,
+    orientationIndex: orientationIndex,
+    mode: mode,
   });
   worker.worker.addEventListener(
     "message",
@@ -95,45 +58,50 @@ function runPreviewWorker(worker, imageUpload) {
         );
         return;
       }
+      if (mode === "preview") {
+        const ulid = e.data["ulid"];
+        const [_, previewUrl] = e.data["results"];
 
-      const ulid = e.data["ulid"];
-      const [_, previewUrl] = e.data["results"];
-
-      const imageContainer = document.querySelector(
-        ".upload__device-image-rect",
-      );
-
-      // If no existing preview, set first success preview
-      if (window.viewModel.selectedPreviewImageULID == null) {
-        window.viewModel.selectedPreviewImageULID = ulid;
-      }
-
-      /* Put first generated mockup to preview area */
-      if (window.viewModel.selectedPreviewImageULID === ulid) {
-        imageContainer.style.backgroundImage = `url(${previewUrl})`;
-
-        const imageUploadHints = document.querySelectorAll(
-          ".upload__device-hint",
+        const imageContainer = document.querySelector(
+          ".upload__device-image-rect",
         );
-        imageUploadHints.forEach((imageUploadHint) => {
-          imageUploadHint.style.display = "none";
-        });
 
-        // scroll to preview section on mobile devices
-        if (window.innerWidth <= 992) {
-          const previewSection = document.querySelector(".device");
-          const HEADER_HEIGHT = 80;
-          scrollToElementTop(previewSection, HEADER_HEIGHT);
+        // If no existing preview, set first success preview
+        if (window.viewModel.selectedPreviewImageULID == null) {
+          window.viewModel.selectedPreviewImageULID = ulid;
         }
+
+        /* Put first generated mockup to preview area */
+        if (window.viewModel.selectedPreviewImageULID === ulid) {
+          imageContainer.style.backgroundImage = `url(${previewUrl})`;
+
+          const imageUploadHints = document.querySelectorAll(
+            ".upload__device-hint",
+          );
+          imageUploadHints.forEach((imageUploadHint) => {
+            imageUploadHint.style.display = "none";
+          });
+
+          // scroll to preview section on mobile devices
+          if (window.innerWidth <= 992) {
+            const previewSection = document.querySelector(".device");
+            const HEADER_HEIGHT = 80;
+            scrollToElementTop(previewSection, HEADER_HEIGHT);
+          }
+        }
+
+        window.viewModel.fileList.updateImageUploadPreviewUrlByULID(
+          ulid,
+          previewUrl,
+        );
+
+        window.viewModel.fileList.updateImageUploadStateByULID(
+          ulid,
+          ImageUploadState.ReadSuccess,
+        );
+      } else if (mode === "mockup") {
+        console.log("generate mockup", imageUpload.file.name, orientationIndex);
       }
-      window.viewModel.fileList.updateImageUploadPreviewUrlByULID(
-        ulid,
-        previewUrl,
-      );
-      window.viewModel.fileList.updateImageUploadStateByULID(
-        ulid,
-        ImageUploadState.ReadSuccess,
-      );
 
       window.viewModel.idleWorker(worker);
     },
@@ -226,11 +194,11 @@ class RootViewModel {
   fileList;
   isFileDragEnter = false;
   _isGeneratingMockup = false;
-  worker = new Worker("/scripts/web_worker.js");
   workerPool = [];
   maxWorkers = 0;
   selectedColorId = null;
   selectedPreviewImageULID = null;
+  orientationsNum = null;
 
   constructor(maxMockupWaitSec, fileListViewModel, selectedColorId) {
     mobx.makeObservable(this, {
@@ -245,11 +213,12 @@ class RootViewModel {
     this.selectedColorId = selectedColorId;
     this.maxMockupWaitSec = maxMockupWaitSec;
     this.fileList = fileListViewModel;
-
     this.maxWorkers = getMaxWorkers();
+    this.orientationsNum = document.querySelectorAll(
+      ".device-support__orientation-image",
+    ).length;
 
-    // Reserve one worker to generate the final mockup, will update later
-    for (let i = 0; i < this.maxWorkers - 1; i += 1) {
+    for (let i = 0; i < this.maxWorkers; i += 1) {
       const newWorker = new Worker("/scripts/preview_worker.js");
       this.workerPool.push({
         worker: newWorker,
@@ -271,7 +240,9 @@ class RootViewModel {
       imageUpload.ulid,
       ImageUploadState.GeneratingPreview,
     );
-    runPreviewWorker(await this.getPreviewWorker(), imageUpload);
+
+    // Only support preview first orientation now.
+    runWorker(await this.getWorker(), imageUpload, 0, "preview");
   }
 
   async generateMockup() {
@@ -280,7 +251,12 @@ class RootViewModel {
       return;
     }
     this._isGeneratingMockup = true;
-    runWorker(this.worker);
+
+    this.fileList.imageUploads.forEach(async (imageUpload) => {
+      for (let i = 0; i < this.orientationsNum; i += 1) {
+        runWorker(await this.getWorker(), imageUpload, i, "mockup");
+      }
+    });
   }
 
   cancelMockup() {
@@ -288,8 +264,6 @@ class RootViewModel {
       return;
     }
     this._isGeneratingMockup = false;
-    this.worker.terminate();
-    this.worker = new Worker("/scripts/web_worker.js");
   }
 
   get previewUrl() {
@@ -302,7 +276,7 @@ class RootViewModel {
       : null;
   }
 
-  async getPreviewWorker() {
+  async getWorker() {
     let availableWorker = this.workerPool.find((worker) => worker.isIdle);
     if (availableWorker) {
       this.startWorker(availableWorker);
@@ -333,14 +307,6 @@ class RootViewModel {
     if (index !== -1) {
       this.workerPool[index].isIdle = true;
     }
-  }
-
-  terminateWorker(worker) {
-    const index = this.workerPool.findIndex((w) => w.ulid === worker.ulid);
-    if (index !== -1) {
-      this.workerPool.splice(index, 1);
-    }
-    worker.worker.terminate();
   }
 }
 

@@ -28,10 +28,12 @@ async function runPreviewMockup(pyodide) {
     `
       import mockup
       import image_process
-      from js import locationKey, deviceInfo, deviceId
+      from js import locationKey, deviceInfo, deviceId, orientationIndexQueue
       origin_image_path = await image_process.upload_file()
       print("start preview", origin_image_path)
-      output_img = await mockup.previewMockup(locationKey, deviceId, origin_image_path, deviceInfo)
+      orientationIndex = orientationIndexQueue.shift()
+      print("index", orientationIndex)
+      output_img = await mockup.previewMockup(locationKey, deviceId, origin_image_path, deviceInfo, orientationIndex)
     `,
     { globals: pythonNamespace },
   );
@@ -47,6 +49,7 @@ async function runPreviewMockup(pyodide) {
 async function main() {
   let pyodideObject = initiatePyodide();
   self["previewJobQueue"] = [];
+  self["orientationIndexQueue"] = [];
   self.onmessage = async (event) => {
     pyodideObject = await pyodideObject;
 
@@ -55,11 +58,16 @@ async function main() {
     self["locationKey"] = event.data.location;
     self["deviceId"] = event.data.deviceId;
     self["deviceInfo"] = event.data.deviceInfo;
+    self["orientationIndexQueue"].push(event.data.orientationIndex ?? 0);
 
     try {
       let results = await runPreviewMockup(pyodideObject);
       console.log("preview results", results);
-      self.postMessage({ ulid: event.data.ulid, results: results });
+      self.postMessage({
+        ulid: event.data.ulid,
+        results: results,
+        mode: event.data.mode,
+      });
     } catch (error) {
       self.postMessage({ ulid: event.data.ulid, error: error.message });
     }
