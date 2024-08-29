@@ -302,6 +302,7 @@ if (deviceDetail.imagePath != null && deviceDetail.imagePath.length >= 1) {
                   <img
                     class="device-support__orientation-image"
                     data-image-path-index={index}
+                    data-orientation={deviceDetail.orientations[index].name}
                     src={path[0]}
                     alt={path[1]}
                   />

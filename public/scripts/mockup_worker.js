@@ -27,12 +27,12 @@ async function runMockup(pyodide) {
     `
       import mockup
       import image_process
-      from js import locationKey, deviceInfo, deviceId, orientationIndexQueue
+      from js import locationKey, deviceInfo, deviceId, orientationsQueue
       origin_image_path = await image_process.upload_file()
-      orientationIndex = orientationIndexQueue.shift()
+      orientation = orientationsQueue.shift()
       print("start mockup", origin_image_path)
-      print("orientation index", orientationIndex)
-      output_img = await mockup.startMockup(locationKey, deviceId, origin_image_path, deviceInfo, orientationIndex)
+      print("orientation", orientation)
+      output_img = await mockup.startMockup(locationKey, deviceId, origin_image_path, deviceInfo, orientation)
     `,
     { globals: pythonNamespace },
   );
@@ -48,7 +48,7 @@ async function runMockup(pyodide) {
 async function main() {
   let pyodideObject = initiatePyodide();
   self["previewJobQueue"] = [];
-  self["orientationIndexQueue"] = [];
+  self["orientationsQueue"] = [];
   self.onmessage = async (event) => {
     pyodideObject = await pyodideObject;
 
@@ -56,7 +56,7 @@ async function main() {
     self["locationKey"] = event.data.location;
     self["deviceId"] = event.data.deviceId;
     self["deviceInfo"] = event.data.deviceInfo;
-    self["orientationIndexQueue"].push(event.data.orientationIndex ?? 0);
+    self["orientationsQueue"].push(event.data.orientation);
 
     try {
       let results = await runMockup(pyodideObject);

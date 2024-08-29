@@ -33,7 +33,7 @@ function getMaxWorkers() {
   return navigator.hardwareConcurrency;
 }
 
-function runWorker(worker, imageUpload, orientationIndex, mode) {
+function runWorker(worker, imageUpload, orientation, mode) {
   const imageUploadFile = imageUpload.file;
   worker.worker.postMessage({
     imageUpload: imageUploadFile,
@@ -41,7 +41,7 @@ function runWorker(worker, imageUpload, orientationIndex, mode) {
     deviceId: window.workerDeviceId,
     deviceInfo: window.deviceInfo,
     ulid: imageUpload.ulid,
-    orientationIndex: orientationIndex,
+    orientation: orientation,
     mode: mode,
   });
   worker.worker.addEventListener(
@@ -115,10 +115,9 @@ function runWorker(worker, imageUpload, orientationIndex, mode) {
         const ulid = e.data["ulid"];
         const results = e.data["results"];
 
-        window.viewModel.fileList.addGeneratedMockupToImageUploadByULID(
-          ulid,
-          results,
-        );
+        window.viewModel.fileList.addGeneratedMockupToImageUploadByULID(ulid, {
+          [orientation]: results,
+        });
       }
 
       window.viewModel.idleWorker(worker);
@@ -206,10 +205,13 @@ class FileListViewModel {
     });
   }
 
-  addGeneratedMockupToImageUploadByULID(ulid, generatedMockup) {
+  addGeneratedMockupToImageUploadByULID(ulid, newGeneratedMockup) {
     this._imageUploads = this._imageUploads.map((imageUpload) => {
       if (imageUpload.ulid == ulid) {
-        imageUpload.generatedMockups.push(generatedMockup);
+        imageUpload.generatedMockups = {
+          ...imageUpload.generatedMockups,
+          ...newGeneratedMockup,
+        };
       }
       return imageUpload;
     });
@@ -225,7 +227,7 @@ class RootViewModel {
   maxWorkers = 0;
   selectedColorId = null;
   selectedPreviewImageULID = null;
-  orientationsNum = null;
+  orientations = null;
 
   constructor(maxMockupWaitSec, fileListViewModel, selectedColorId) {
     mobx.makeObservable(this, {
@@ -241,9 +243,11 @@ class RootViewModel {
     this.maxMockupWaitSec = maxMockupWaitSec;
     this.fileList = fileListViewModel;
     this.maxWorkers = getMaxWorkers();
-    this.orientationsNum = document.querySelectorAll(
-      ".device-support__orientation-image",
-    ).length;
+    this.orientations = Array.from(
+      document.querySelectorAll(".device-support__orientation-image"),
+    ).map((orientationNode) => {
+      return orientationNode.dataset.orientation;
+    });
 
     for (let i = 0; i < this.maxWorkers; i += 1) {
       const newWorker = new Worker("/scripts/mockup_worker.js");
@@ -269,7 +273,12 @@ class RootViewModel {
     );
 
     // Only support preview first orientation now.
-    runWorker(await this.getWorker(), imageUpload, 0, "preview");
+    runWorker(
+      await this.getWorker(),
+      imageUpload,
+      window.viewModel.orientations[0],
+      "preview",
+    );
   }
 
   async generateMockup() {
@@ -279,10 +288,10 @@ class RootViewModel {
     }
     this._isGeneratingMockup = true;
 
-    this.fileList.imageUploads.forEach(async (imageUpload) => {
-      for (let i = 0; i < this.orientationsNum; i += 1) {
-        runWorker(await this.getWorker(), imageUpload, i, "mockup");
-      }
+    this.orientations.forEach((orientaion) => {
+      this.fileList.imageUploads.forEach(async (imageUpload) => {
+        runWorker(await this.getWorker(), imageUpload, orientaion, "mockup");
+      });
     });
   }
 
@@ -824,21 +833,24 @@ function main() {
     async () => {
       if (viewModel.isGeneratingMockup) {
         const imageUploads = viewModel.fileList.imageUploads;
-        let generatedMockups = [];
+
+        let allGeneratedMockups = [];
         for (let i = 0; i < imageUploads.length; i += 1) {
-          generatedMockups = [
-            ...generatedMockups,
-            ...imageUploads[i].generatedMockups,
+          const generatedMockups = imageUploads[i].generatedMockups;
+
+          allGeneratedMockups = [
+            ...allGeneratedMockups,
+            ...Object.values(generatedMockups),
           ];
           if (
-            imageUploads[i].generatedMockups.length < viewModel.orientationsNum
+            Object.keys(generatedMockups).length < viewModel.orientations.length
           ) {
             return;
           }
         }
 
         window.localforage
-          .setItem("pictureArray", generatedMockups)
+          .setItem("pictureArray", allGeneratedMockups)
           .then(() => {
             window.location.href =
               "/download/?deviceId=" + window.workerDeviceId;

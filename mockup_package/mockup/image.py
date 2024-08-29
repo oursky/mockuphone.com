@@ -47,16 +47,19 @@ async def mockup(
     device_id: str,
     original_img_path: str,
     device_info: dict[str, Any],
-    preview_orientation_index: int = 0,
+    orientation_name: str,
 ):
     ig = IG(original_img_path, device_id, device_info)
     ig.create_fit_resolution_image()
-    spec = list(ig.phone_models.get(device_id).get("mockups").values())[
-        preview_orientation_index
-    ]
-    output_img_path = await generate(location, original_img_path, spec, ig)
+    mockups = list(ig.phone_models.get(device_id).get("mockups").values())
 
-    return output_img_path
+    for spec in mockups:
+        if spec.get("name") == orientation_name:
+            output_img_path = await generate(location, original_img_path, spec, ig)
+
+            return output_img_path
+
+    raise Exception("Cannot find orientation", orientation_name)
 
 
 async def download(url: str):
