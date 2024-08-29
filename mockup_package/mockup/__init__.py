@@ -1,1 +1,1 @@
-from .image import mockup as startMockup  # noqa: F401
+from .image_mockup import mockup as startMockup  # noqa: F401
