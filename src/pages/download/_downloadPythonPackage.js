@@ -11,7 +11,8 @@ async function allStorage() {
     .then(function (generatedMockups) {
       generatedMockups.forEach(function (mockup) {
         if (mockup.status === "success") {
-          values.set(mockup.results[0], mockup.results[1]);
+          const [filename, fileBytes] = mockup.results;
+          values.set(filename, fileBytes);
         } else {
           values.set(mockup.image, null);
         }
