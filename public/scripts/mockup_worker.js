@@ -28,11 +28,15 @@ async function runMockup(pyodide) {
       import mockup
       import image_process
       from js import locationKey, deviceInfo, deviceId, orientationsQueue
-      origin_image_path = await image_process.upload_file()
-      orientation = orientationsQueue.shift()
-      print("start mockup", origin_image_path)
-      print("orientation", orientation)
-      output_img = await mockup.startMockup(locationKey, deviceId, origin_image_path, deviceInfo, orientation)
+
+      async def runMockup():
+        origin_image_path = await image_process.upload_file()
+        orientation = orientationsQueue.shift()
+        print("start mockup", origin_image_path)
+        print("orientation", orientation)
+        return await mockup.startMockup(locationKey, deviceId, origin_image_path, deviceInfo, orientation)
+
+      output_img = await runMockup()
     `,
     { globals: pythonNamespace },
   );
