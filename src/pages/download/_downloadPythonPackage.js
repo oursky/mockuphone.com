@@ -6,12 +6,18 @@ async function allStorage() {
   var values = new Map(),
     keys = Object.keys(localStorage),
     i = keys.length;
-  return localforage.getItem("pictureArray").then(function (pictureArray) {
-    pictureArray.forEach(function (picItem) {
-      values.set(picItem[0], picItem[1]);
+  return localforage
+    .getItem("generatedMockups")
+    .then(function (generatedMockups) {
+      generatedMockups.forEach(function (mockup) {
+        if (mockup.status === "success") {
+          values.set(mockup.results[0], mockup.results[1]);
+        } else {
+          values.set(mockup.image, null);
+        }
+      });
+      return values;
     });
-    return values;
-  });
 }
 
 function dataURLtoFile(dataurl, filename) {
@@ -42,9 +48,15 @@ export async function generateZIP(deviceId) {
   const zipFilename = !!deviceId ? `${deviceId}-mockup.zip` : "mockup.zip";
   var images = new Map();
   var dataurlkey = await allStorage();
+  var failedImages = [];
   dataurlkey.forEach(function (value, key) {
-    var file = dataURLtoFile(value, key.substring(3, key.length) + ".png");
-    images.set(key, URL.createObjectURL(file));
+    // Only zip successfully generated mockups
+    if (value !== null) {
+      var file = dataURLtoFile(value, key.substring(3, key.length) + ".png");
+      images.set(key, URL.createObjectURL(file));
+    } else {
+      failedImages.push(key);
+    }
   });
   images.forEach(async function (imgURL, k) {
     var filename = unescape(k.substring(3, k.length)) + ".png";

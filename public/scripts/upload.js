@@ -47,15 +47,16 @@ function runWorker(worker, imageUpload, orientation) {
     "message",
     function (e) {
       if (e.data["error"] !== undefined) {
-        console.log("Get error while generating mockup", e.data["error"]);
-        window.viewModel.cancelMockup();
+        const { error, ulid } = e.data;
+        console.log("Get error while generating mockup", error);
 
-        // Alert after `cancelMockup` finish
-        setTimeout(() => {
-          alert(
-            "Oops, something went wrong. Please try a different image/device.\nIf it persists, we'd appreciate if you report it on our GitHub 🙏  https://github.com/oursky/mockuphone.com/issues.",
-          );
-        }, 100);
+        window.viewModel.fileList.addGeneratedMockupToImageUploadByULID(ulid, {
+          [orientation]: {
+            image: `${imageUpload.file.name}-${orientation}`,
+            results: null,
+            status: "failed",
+          },
+        });
 
         return;
       }
@@ -63,7 +64,11 @@ function runWorker(worker, imageUpload, orientation) {
       const { ulid, results } = e.data;
 
       window.viewModel.fileList.addGeneratedMockupToImageUploadByULID(ulid, {
-        [orientation]: results,
+        [orientation]: {
+          image: `${imageUpload.file.name}-${orientation}`,
+          results: results,
+          status: "success",
+        },
       });
 
       window.viewModel.idleWorker(worker);
@@ -726,9 +731,11 @@ function main() {
   };
 
   const onAllMockupGenerated = async (allGeneratedMockups) => {
-    window.localforage.setItem("pictureArray", allGeneratedMockups).then(() => {
-      navigateToDownloadPage();
-    });
+    window.localforage
+      .setItem("generatedMockups", allGeneratedMockups)
+      .then(() => {
+        navigateToDownloadPage();
+      });
   };
 
   // observe fileListViewModel: isProcessing
