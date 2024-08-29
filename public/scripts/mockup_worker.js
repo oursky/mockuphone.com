@@ -64,7 +64,6 @@ async function main() {
       self.postMessage({
         ulid: event.data.ulid,
         results: results,
-        mode: event.data.mode,
       });
     } catch (error) {
       self.postMessage({ ulid: event.data.ulid, error: error.message });
