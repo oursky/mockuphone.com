@@ -25,7 +25,7 @@ async function runMockup(pyodide) {
   let pythonNamespace = pyodide.globals.get("dict")();
   await pyodide.runPythonAsync(
     `
-      import mockup
+      from mockup import MockupGenerator
       import image_process
       from js import locationKey, deviceInfo, deviceId, orientationsQueue
 
@@ -34,7 +34,9 @@ async function runMockup(pyodide) {
         orientation = orientationsQueue.shift()
         print("start mockup", origin_image_path)
         print("orientation", orientation)
-        return await mockup.startMockup(locationKey, deviceId, origin_image_path, deviceInfo, orientation)
+        
+        mockup_generator = MockupGenerator(locationKey, deviceId, origin_image_path, deviceInfo, orientation)
+        return await mockup_generator.mockup()
 
       output_img = await runMockup()
     `,

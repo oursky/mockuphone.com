@@ -1,1 +1,1 @@
-from .image_mockup import mockup as startMockup  # noqa: F401
+from .mockup_generator import MockupGenerator  # noqa: F401
