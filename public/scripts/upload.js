@@ -228,6 +228,7 @@ class RootViewModel {
   selectedColorId = null;
   selectedPreviewImageULID = null;
   orientations = null;
+  isAllMockupGenerationFinished = false;
 
   constructor(maxMockupWaitSec, fileListViewModel, selectedColorId) {
     mobx.makeObservable(this, {
@@ -238,6 +239,7 @@ class RootViewModel {
       generateMockup: mobx.action,
       cancelMockup: mobx.action,
       selectedPreviewImageULID: mobx.observable,
+      isAllMockupGenerationFinished: mobx.observable,
     });
     this.selectedColorId = selectedColorId;
     this.maxMockupWaitSec = maxMockupWaitSec;
@@ -695,6 +697,16 @@ function main() {
     e.target.value = "";
   };
 
+  const navigateToDownloadPage = () => {
+    window.location.href = "/download/?deviceId=" + window.workerDeviceId;
+  };
+
+  const onAllMockupGenerated = async (allGeneratedMockups) => {
+    window.localforage.setItem("pictureArray", allGeneratedMockups).then(() => {
+      navigateToDownloadPage();
+    });
+  };
+
   // observe fileListViewModel: isProcessing
   mobx.autorun(() => {
     if (viewModel.fileList.isProcessing) {
@@ -825,39 +837,39 @@ function main() {
   );
 
   // observe fileListViewModel: imageUploads[].generatedMockups[].length
+  // zip all generated mockups when all mockups are generated
   mobx.reaction(
     () =>
       viewModel.fileList.imageUploads.map(
         (imageUpload) => imageUpload.generatedMockups.length,
       ),
     async () => {
-      if (viewModel.isGeneratingMockup) {
-        const imageUploads = viewModel.fileList.imageUploads;
-
-        let allGeneratedMockups = [];
-        for (let i = 0; i < imageUploads.length; i += 1) {
-          const generatedMockups = imageUploads[i].generatedMockups;
-
-          allGeneratedMockups = [
-            ...allGeneratedMockups,
-            ...Object.values(generatedMockups),
-          ];
-          if (
-            Object.keys(generatedMockups).length < viewModel.orientations.length
-          ) {
-            return;
-          }
-        }
-
-        window.localforage
-          .setItem("pictureArray", allGeneratedMockups)
-          .then(() => {
-            window.location.href =
-              "/download/?deviceId=" + window.workerDeviceId;
-          });
+      if (!viewModel.isGeneratingMockup) {
+        return;
       }
+
+      const imageUploads = viewModel.fileList.imageUploads;
+
+      viewModel.isAllMockupGenerationFinished = imageUploads.every(
+        (imageUpload) =>
+          Object.keys(imageUpload.generatedMockups).length ===
+          viewModel.orientations.length,
+      );
     },
   );
+
+  // observe fileListViewModel: isAllMockupGenerationFinished
+  mobx.reaction(() => {
+    if (viewModel.isAllMockupGenerationFinished) {
+      const imageUploads = viewModel.fileList.imageUploads;
+
+      const allGeneratedMockups = imageUploads.flatMap((imageUpload) =>
+        Object.values(imageUpload.generatedMockups),
+      );
+
+      onAllMockupGenerated(allGeneratedMockups);
+    }
+  });
 
   // observe viewModel: selectedPreviewImageULID
   mobx.reaction(
