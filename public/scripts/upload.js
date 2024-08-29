@@ -890,17 +890,20 @@ function main() {
   );
 
   // observe fileListViewModel: isAllMockupGenerationFinished
-  mobx.reaction(() => {
-    if (viewModel.isAllMockupGenerationFinished) {
+  mobx.reaction(
+    () => viewModel.isAllMockupGenerationFinished,
+    () => {
+      if (!viewModel.isAllMockupGenerationFinished) {
+        return;
+      }
       const imageUploads = viewModel.fileList.imageUploads;
-
       const allGeneratedMockups = imageUploads.flatMap((imageUpload) =>
         Object.values(imageUpload.generatedMockups),
       );
 
       onAllMockupGenerated(allGeneratedMockups);
-    }
-  });
+    },
+  );
 
   // observe viewModel: selectedPreviewImageULID
   mobx.reaction(
