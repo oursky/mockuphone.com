@@ -1,6 +1,7 @@
 ---
-import "/src/styles/bootstrap/bootstrap.min.css";
-import "/src/styles/bootstrap/bootstrap-grid.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap-grid.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "/src/styles/main.css";
 import "/src/styles/tailwind.css";
 import { Image } from "@astrojs/image/components";
@@ -55,15 +56,6 @@ const {
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic"
     />
-
-    <script type="text/javascript" src="/scripts/jquery/jquery-1.10.2.min.js"
-    ></script>
-    <script type="text/javascript" src="/scripts/bootstrap/bootstrap.min.js"
-    ></script>
-    <script type="text/javascript" src="/scripts/vendor/jquery.cycle.all.js"
-    ></script>
-    <script type="text/javascript" src="/scripts/vendor/jquery.cookie.js"
-    ></script>
     <script
       type="text/javascript"
       src="https://unpkg.com/mobx@6.0.4/dist/mobx.umd.production.min.js"
@@ -87,7 +79,6 @@ const {
         Typekit.load({ async: true });
       } catch (e) {}
     </script>
-    <script type="module" src="/scripts/localforage.js"></script>
 
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
