@@ -73,22 +73,11 @@ function handleNoGeneratedMockup() {
   });
 }
 
-export async function generateZIP(deviceId) {
+function downloadGeneratedMockup(deviceId, images) {
   var zip = new JSZip();
   var count = 0;
   const zipFilename = !!deviceId ? `${deviceId}-mockup.zip` : "mockup.zip";
-  var images = new Map();
-  var dataurlkey = await allStorage();
-  var failedImages = [];
-  dataurlkey.forEach(function (value, key) {
-    // Only zip successfully generated mockups
-    if (value !== null) {
-      var file = dataURLtoFile(value, key.substring(3, key.length) + ".png");
-      images.set(key, URL.createObjectURL(file));
-    } else {
-      failedImages.push(key);
-    }
-  });
+
   images.forEach(async function (imgURL, k) {
     var filename = unescape(k.substring(3, k.length)) + ".png";
     var image = await fetch(imgURL);
@@ -104,6 +93,23 @@ export async function generateZIP(deviceId) {
       });
     }
   });
+}
+
+export async function generateZIP(deviceId) {
+  var images = new Map();
+  var dataurlkey = await allStorage();
+  var failedImages = [];
+  dataurlkey.forEach(function (value, key) {
+    // Only zip successfully generated mockups
+    if (value !== null) {
+      var file = dataURLtoFile(value, key.substring(3, key.length) + ".png");
+      images.set(key, URL.createObjectURL(file));
+    } else {
+      failedImages.push(key);
+    }
+  });
+
+  downloadGeneratedMockup(deviceId, images);
 
   if (failedImages.length > 0 && images.size > 0) {
     handlePartialSuccess(failedImages);
