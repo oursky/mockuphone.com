@@ -1,0 +1,14 @@
+@import url("toastify-js/src/toastify.css");
+
+.toast-close {
+  color: black !important;
+}
+
+.toast-header {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
