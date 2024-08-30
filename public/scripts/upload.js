@@ -16,45 +16,6 @@ function ready(fn) {
 }
 ready(main);
 
-async function runWorker(worker) {
-  imageUploadList = viewModel.fileList._imageUploads
-    .filter((i) => i.isSuccessState)
-    .map((item) => item.imageFile);
-  worker.postMessage({
-    imageUploadList: imageUploadList,
-    location: window.location.toString(),
-    deviceId: window.workerDeviceId,
-    deviceInfo: window.deviceInfo,
-  });
-  worker.addEventListener(
-    "message",
-    function (e) {
-      window.pictureArray = e.data;
-      window.localforage
-        .setItem("pictureArray", e.data)
-        .then(function (pictureArray) {
-          if (e.data["error"] !== undefined) {
-            console.log("Get error while generating mockup", e.data["error"]);
-            window.viewModel.cancelMockup();
-
-            // Alert after `cancelMockup` finish
-            setTimeout(() => {
-              alert(
-                "Oops, something went wrong. Please try a different image/device.\nIf it persists, we'd appreciate if you report it on our GitHub 🙏  https://github.com/oursky/mockuphone.com/issues.",
-              );
-            }, 100);
-            return;
-          }
-          window.location.href = "/download/?deviceId=" + window.workerDeviceId;
-        })
-        .catch(function (err) {
-          console.error("Get error while storing images to localforage:", err);
-        });
-    },
-    false,
-  );
-}
-
 const MAX_FIREFOX_WEB_WORKERS = 2;
 const DEFAULT_MAX_WEB_WORKERS = 4; // most CPUs at least have 4 cores nowadays
 function isUserAgentFirefox() {
@@ -72,7 +33,7 @@ function getMaxWorkers() {
   return navigator.hardwareConcurrency;
 }
 
-function runPreviewWorker(worker, imageUpload) {
+function runWorker(worker, imageUpload, orientation) {
   const imageUploadFile = imageUpload.file;
   worker.worker.postMessage({
     imageUpload: imageUploadFile,
@@ -80,6 +41,51 @@ function runPreviewWorker(worker, imageUpload) {
     deviceId: window.workerDeviceId,
     deviceInfo: window.deviceInfo,
     ulid: imageUpload.ulid,
+    orientation: orientation,
+  });
+  worker.worker.addEventListener(
+    "message",
+    function (e) {
+      if (e.data["error"] !== undefined) {
+        const { error, ulid } = e.data;
+        console.log("Get error while generating mockup", error);
+
+        window.viewModel.fileList.addGeneratedMockupToImageUploadByULID(ulid, {
+          [orientation]: {
+            image: `${imageUpload.file.name}-${orientation}`,
+            results: null,
+            status: "failed",
+          },
+        });
+
+        return;
+      }
+
+      const { ulid, results } = e.data;
+
+      window.viewModel.fileList.addGeneratedMockupToImageUploadByULID(ulid, {
+        [orientation]: {
+          image: `${imageUpload.file.name}-${orientation}`,
+          results: results,
+          status: "success",
+        },
+      });
+
+      window.viewModel.idleWorker(worker);
+    },
+    { once: true },
+  );
+}
+
+function runPreviewWorker(worker, imageUpload, orientation) {
+  const imageUploadFile = imageUpload.file;
+  worker.worker.postMessage({
+    imageUpload: imageUploadFile,
+    location: window.location.toString(),
+    deviceId: window.workerDeviceId,
+    deviceInfo: window.deviceInfo,
+    ulid: imageUpload.ulid,
+    orientation: orientation,
   });
   worker.worker.addEventListener(
     "message",
@@ -109,7 +115,10 @@ function runPreviewWorker(worker, imageUpload) {
       }
 
       /* Put first generated mockup to preview area */
-      if (window.viewModel.selectedPreviewImageULID === ulid) {
+      if (
+        window.viewModel.selectedPreviewImageULID === ulid &&
+        orientation === window.viewModel.selectedOrientation
+      ) {
         imageContainer.style.backgroundImage = `url(${previewUrl})`;
 
         const imageUploadHints = document.querySelectorAll(
@@ -126,10 +135,12 @@ function runPreviewWorker(worker, imageUpload) {
           scrollToElementTop(previewSection, HEADER_HEIGHT);
         }
       }
+
       window.viewModel.fileList.updateImageUploadPreviewUrlByULID(
         ulid,
         previewUrl,
       );
+
       window.viewModel.fileList.updateImageUploadStateByULID(
         ulid,
         ImageUploadState.ReadSuccess,
@@ -137,7 +148,7 @@ function runPreviewWorker(worker, imageUpload) {
 
       window.viewModel.idleWorker(worker);
     },
-    false,
+    { once: true },
   );
 }
 
@@ -219,6 +230,18 @@ class FileListViewModel {
       return imageUpload;
     });
   }
+
+  addGeneratedMockupToImageUploadByULID(ulid, newGeneratedMockup) {
+    this._imageUploads = this._imageUploads.map((imageUpload) => {
+      if (imageUpload.ulid == ulid) {
+        imageUpload.generatedMockups = {
+          ...imageUpload.generatedMockups,
+          ...newGeneratedMockup,
+        };
+      }
+      return imageUpload;
+    });
+  }
 }
 
 class RootViewModel {
@@ -226,11 +249,13 @@ class RootViewModel {
   fileList;
   isFileDragEnter = false;
   _isGeneratingMockup = false;
-  worker = new Worker("/scripts/web_worker.js");
   workerPool = [];
   maxWorkers = 0;
   selectedColorId = null;
   selectedPreviewImageULID = null;
+  orientations = null;
+  isAllMockupGenerationFinished = false;
+  selectedOrientation = null;
 
   constructor(maxMockupWaitSec, fileListViewModel, selectedColorId) {
     mobx.makeObservable(this, {
@@ -241,16 +266,23 @@ class RootViewModel {
       generateMockup: mobx.action,
       cancelMockup: mobx.action,
       selectedPreviewImageULID: mobx.observable,
+      isAllMockupGenerationFinished: mobx.observable,
     });
     this.selectedColorId = selectedColorId;
     this.maxMockupWaitSec = maxMockupWaitSec;
     this.fileList = fileListViewModel;
-
     this.maxWorkers = getMaxWorkers();
+    this.orientations = Array.from(
+      document.querySelectorAll(".device-support__orientation-image"),
+    ).map((orientationNode) => {
+      return orientationNode.dataset.orientation;
+    });
 
-    // Reserve one worker to generate the final mockup, will update later
-    for (let i = 0; i < this.maxWorkers - 1; i += 1) {
-      const newWorker = new Worker("/scripts/preview_worker.js");
+    // TODO: support select orientation for preview, now only support first orientation
+    this.selectedOrientation = this.orientations[0];
+
+    for (let i = 0; i < this.maxWorkers; i += 1) {
+      const newWorker = new Worker("/scripts/mockup_worker.js");
       this.workerPool.push({
         worker: newWorker,
         ulid: ULID.ulid(),
@@ -271,7 +303,13 @@ class RootViewModel {
       imageUpload.ulid,
       ImageUploadState.GeneratingPreview,
     );
-    runPreviewWorker(await this.getPreviewWorker(), imageUpload);
+
+    // Only support preview first orientation now.
+    runPreviewWorker(
+      await this.getWorker(),
+      imageUpload,
+      window.viewModel.orientations[0],
+    );
   }
 
   async generateMockup() {
@@ -280,7 +318,12 @@ class RootViewModel {
       return;
     }
     this._isGeneratingMockup = true;
-    runWorker(this.worker);
+
+    this.orientations.forEach((orientaion) => {
+      this.fileList.imageUploads.forEach(async (imageUpload) => {
+        runWorker(await this.getWorker(), imageUpload, orientaion);
+      });
+    });
   }
 
   cancelMockup() {
@@ -288,8 +331,9 @@ class RootViewModel {
       return;
     }
     this._isGeneratingMockup = false;
-    this.worker.terminate();
-    this.worker = new Worker("/scripts/web_worker.js");
+
+    // Stop all workers that still generatiing mockup
+    this.restartActiveWorkers();
   }
 
   get previewUrl() {
@@ -302,7 +346,7 @@ class RootViewModel {
       : null;
   }
 
-  async getPreviewWorker() {
+  async getWorker() {
     let availableWorker = this.workerPool.find((worker) => worker.isIdle);
     if (availableWorker) {
       this.startWorker(availableWorker);
@@ -335,12 +379,14 @@ class RootViewModel {
     }
   }
 
-  terminateWorker(worker) {
-    const index = this.workerPool.findIndex((w) => w.ulid === worker.ulid);
-    if (index !== -1) {
-      this.workerPool.splice(index, 1);
+  restartActiveWorkers() {
+    for (let i = 0; i < this.workerPool.length; i += 1) {
+      if (!this.workerPool[i].isIdle) {
+        this.workerPool[i].worker.terminate();
+        this.workerPool[i].worker = new Worker("/scripts/mockup_worker.js");
+        this.workerPool[i].isIdle = true;
+      }
     }
-    worker.worker.terminate();
   }
 }
 
@@ -680,6 +726,18 @@ function main() {
     e.target.value = "";
   };
 
+  const navigateToDownloadPage = () => {
+    window.location.href = "/download/?deviceId=" + window.workerDeviceId;
+  };
+
+  const onAllMockupGenerated = async (allGeneratedMockups) => {
+    window.localforage
+      .setItem("generatedMockups", allGeneratedMockups)
+      .then(() => {
+        navigateToDownloadPage();
+      });
+  };
+
   // observe fileListViewModel: isProcessing
   mobx.autorun(() => {
     if (viewModel.fileList.isProcessing) {
@@ -806,6 +864,44 @@ function main() {
       }
       const newImage = viewModel.fileList.imageUploads[newLen - 1];
       viewModel.generatePreviewMockup(newImage);
+    },
+  );
+
+  // observe fileListViewModel: imageUploads[].generatedMockups[].length
+  // zip all generated mockups when all mockups are generated
+  mobx.reaction(
+    () =>
+      viewModel.fileList.imageUploads.map(
+        (imageUpload) => imageUpload.generatedMockups.length,
+      ),
+    async () => {
+      if (!viewModel.isGeneratingMockup) {
+        return;
+      }
+
+      const imageUploads = viewModel.fileList.imageUploads;
+
+      viewModel.isAllMockupGenerationFinished = imageUploads.every(
+        (imageUpload) =>
+          Object.keys(imageUpload.generatedMockups).length ===
+          viewModel.orientations.length,
+      );
+    },
+  );
+
+  // observe fileListViewModel: isAllMockupGenerationFinished
+  mobx.reaction(
+    () => viewModel.isAllMockupGenerationFinished,
+    () => {
+      if (!viewModel.isAllMockupGenerationFinished) {
+        return;
+      }
+      const imageUploads = viewModel.fileList.imageUploads;
+      const allGeneratedMockups = imageUploads.flatMap((imageUpload) =>
+        Object.values(imageUpload.generatedMockups),
+      );
+
+      onAllMockupGenerated(allGeneratedMockups);
     },
   );
 

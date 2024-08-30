@@ -21,17 +21,24 @@ async function initiatePyodide() {
   return pyodide;
 }
 
-// Now only the first orientation model is generated for preview
-async function runPreviewMockup(pyodide) {
+async function runMockup(pyodide) {
   let pythonNamespace = pyodide.globals.get("dict")();
   await pyodide.runPythonAsync(
     `
-      import mockup
+      from mockup import MockupGenerator
       import image_process
-      from js import locationKey, deviceInfo, deviceId
-      origin_image_path = await image_process.upload_file()
-      print("start preview", origin_image_path)
-      output_img = await mockup.previewMockup(locationKey, deviceId, origin_image_path, deviceInfo)
+      from js import locationKey, deviceInfo, deviceId, orientationsQueue
+
+      async def runMockup():
+        origin_image_path = await image_process.upload_file()
+        orientation = orientationsQueue.shift()
+        print("start mockup", origin_image_path)
+        print("orientation", orientation)
+        
+        mockup_generator = MockupGenerator(locationKey, deviceId, origin_image_path, deviceInfo, orientation)
+        return await mockup_generator.mockup()
+
+      output_img = await runMockup()
     `,
     { globals: pythonNamespace },
   );
@@ -47,19 +54,23 @@ async function runPreviewMockup(pyodide) {
 async function main() {
   let pyodideObject = initiatePyodide();
   self["previewJobQueue"] = [];
+  self["orientationsQueue"] = [];
   self.onmessage = async (event) => {
     pyodideObject = await pyodideObject;
 
-    self["imageUploadList"] = undefined;
     self["previewJobQueue"].push(event.data.imageUpload);
     self["locationKey"] = event.data.location;
     self["deviceId"] = event.data.deviceId;
     self["deviceInfo"] = event.data.deviceInfo;
+    self["orientationsQueue"].push(event.data.orientation);
 
     try {
-      let results = await runPreviewMockup(pyodideObject);
-      console.log("preview results", results);
-      self.postMessage({ ulid: event.data.ulid, results: results });
+      let results = await runMockup(pyodideObject);
+      console.log("mockup results", results);
+      self.postMessage({
+        ulid: event.data.ulid,
+        results: results,
+      });
     } catch (error) {
       self.postMessage({ ulid: event.data.ulid, error: error.message });
     }

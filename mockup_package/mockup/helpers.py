@@ -73,6 +73,7 @@ def to_old_datastruct(models):
                 get_output_name(m["device_id"], o): {
                     "image": "{}-{}.png".format(m["device_id"], o["name"]),
                     "screen_coord": o["coords"],
+                    "name": o["name"],
                 }
                 for o in m["orientations"]
             },

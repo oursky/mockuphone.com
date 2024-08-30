@@ -10,12 +10,14 @@ import "./index.css";
   import { generateZIP } from "./_downloadPythonPackage";
 
   const isMockupGenerated = async () => {
-    return localforage.getItem("pictureArray").then(function (pictureArray) {
-      if (pictureArray) {
-        return true;
-      }
-      return false;
-    });
+    return localforage
+      .getItem("generatedMockups")
+      .then(function (generatedMockups) {
+        if (generatedMockups) {
+          return true;
+        }
+        return false;
+      });
   };
   const hideUnuseScreen = async () => {
     const mainElem = document.getElementById("main-page");

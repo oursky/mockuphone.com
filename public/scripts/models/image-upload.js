@@ -25,6 +25,7 @@ class ImageUpload {
   message = null;
   ulid = null;
   previewUrl = null;
+  generatedMockups = [];
 
   loadDimensionPromise = null;
 
