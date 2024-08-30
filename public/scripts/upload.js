@@ -73,7 +73,7 @@ function runWorker(worker, imageUpload, orientation) {
 
       window.viewModel.idleWorker(worker);
     },
-    false,
+    { once: true },
   );
 }
 
@@ -148,7 +148,7 @@ function runPreviewWorker(worker, imageUpload, orientation) {
 
       window.viewModel.idleWorker(worker);
     },
-    false,
+    { once: true },
   );
 }
 
