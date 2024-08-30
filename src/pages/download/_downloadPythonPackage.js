@@ -1,6 +1,7 @@
 import JSZip from "jszip";
 import localforage from "localforage";
 import { saveAs } from "file-saver";
+import { showToast } from "../../scripts/utils/toast";
 
 async function allStorage() {
   var values = new Map(),
@@ -43,6 +44,35 @@ function getJSZipDateWithOffset() {
   return dateWithOffset;
 }
 
+function handlePartialSuccess(failedImages) {
+  const description = `
+    <div>Image(s) failed to generate. Try a different image/device:</div>
+    <ul>
+      ${failedImages.map((failedImage) => `<li>${failedImage}</li>`).join("")}
+    </ul>
+    <div>If the issue persists, please report it on GitHub 🙏 <br>
+    <a href='https://github.com/oursky/mockuphone.com/issues'>https://github.com/oursky/mockuphone.com/issues</a></div>
+  `;
+
+  showToast({
+    title: "Partial Success",
+    description: description,
+    avatar: "/images/upload-warning.svg",
+  });
+}
+
+function handleNoGeneratedMockup() {
+  const description = `
+    <div>Try a different image/device. <br> If the issue persists, please report it on GitHub 🙏 <br>
+    <a href='https://github.com/oursky/mockuphone.com/issues'>https://github.com/oursky/mockuphone.com/issues</a></div>
+  `;
+  showToast({
+    title: "No generated mockup",
+    description: description,
+    avatar: "/images/upload-error.svg",
+  });
+}
+
 export async function generateZIP(deviceId) {
   var zip = new JSZip();
   var count = 0;
@@ -74,4 +104,12 @@ export async function generateZIP(deviceId) {
       });
     }
   });
+
+  if (failedImages.length > 0 && images.size > 0) {
+    handlePartialSuccess(failedImages);
+  }
+
+  if (images.size === 0) {
+    handleNoGeneratedMockup();
+  }
 }
