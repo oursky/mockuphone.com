@@ -4,7 +4,7 @@ import "./toast.css";
 
 interface ToastOptions extends StartToastifyInstance.Options {
   description: string;
-  title?: string | HTMLElement;
+  title?: string;
 }
 
 export function showToast(options: ToastOptions) {
@@ -13,12 +13,10 @@ export function showToast(options: ToastOptions) {
   const toastHeader = document.createElement("div");
   const toastMessage = document.createElement("div");
 
-  toastHeader.style.fontWeight = "bold";
-  toastHeader.style.fontSize = "20px";
-  toastHeader.style.color = "black";
-  toastHeader.innerHTML = `<div class="toast-header">${
-    avatar ? `<img src="${avatar}">` : ""
-  }<span>${title}</span></div>`;
+  toastHeader.classList.add("toast-header");
+  toastHeader.innerHTML = `${avatar ? `<img src="${avatar}">` : ""}<span>${
+    title ?? ""
+  }</span>`;
 
   toastMessage.innerHTML = description;
   toastNode.appendChild(toastHeader);
