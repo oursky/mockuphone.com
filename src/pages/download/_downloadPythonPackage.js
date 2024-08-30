@@ -1,7 +1,7 @@
 import JSZip from "jszip";
 import localforage from "localforage";
 import { saveAs } from "file-saver";
-import { showToast } from "../../scripts/utils/toast";
+import { showToast } from "../../scripts/utils/toast/toast";
 
 async function allStorage() {
   var values = new Map(),

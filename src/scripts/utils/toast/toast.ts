@@ -1,6 +1,6 @@
 import StartToastifyInstance from "toastify-js";
 import Toastify from "toastify-js";
-import "../../styles/toast.css";
+import "./toast.css";
 
 interface ToastOptions extends StartToastifyInstance.Options {
   description: string;
