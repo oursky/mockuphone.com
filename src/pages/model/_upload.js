@@ -4,6 +4,7 @@ Require: mobx,
 */
 import { ulid } from "ulid";
 import localforage from "localforage";
+import { ImageUpload, ImageUploadState } from "./models/_image-upload";
 
 let dragZoneCounter = 0; // https://stackoverflow.com/a/21002544/19287186
 const MAX_FILE_SIZE_BYTE = 104857600;
@@ -725,11 +726,9 @@ function main() {
   };
 
   const onAllMockupGenerated = async (allGeneratedMockups) => {
-    localforage
-      .setItem("generatedMockups", allGeneratedMockups)
-      .then(() => {
-        navigateToDownloadPage();
-      });
+    localforage.setItem("generatedMockups", allGeneratedMockups).then(() => {
+      navigateToDownloadPage();
+    });
   };
 
   // observe fileListViewModel: isProcessing

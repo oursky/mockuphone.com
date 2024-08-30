@@ -2,7 +2,7 @@
 Require: mobx, psd.js
 */
 
-const ImageUploadState = {
+export const ImageUploadState = {
   ReadyForRead: "ReadyForRead",
   Reading: "Reading",
   ReadyForPreview: "ReadyForPreview",
@@ -14,7 +14,7 @@ const ImageUploadState = {
   ErrPreview: "ErrPreview",
 };
 
-class ImageUpload {
+export class ImageUpload {
   maxFileSizeByte = null;
   file = null;
   width = null;
