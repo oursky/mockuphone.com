@@ -2,19 +2,12 @@
 Require: mobx,
          utils/images.js, utils/scroll.js, services/presign.js, models/image-upload.js
 */
+import { ulid } from "ulid";
+
 let dragZoneCounter = 0; // https://stackoverflow.com/a/21002544/19287186
 const MAX_FILE_SIZE_BYTE = 104857600;
 const MAX_FILE_SIZE_READABLE = "100 MB";
 const MAX_MOCKUP_WAIT_SEC = 1000000000;
-
-function ready(fn) {
-  if (document.readyState != "loading") {
-    fn();
-  } else {
-    document.addEventListener("DOMContentLoaded", fn);
-  }
-}
-ready(main);
 
 const MAX_FIREFOX_WEB_WORKERS = 2;
 const DEFAULT_MAX_WEB_WORKERS = 4; // most CPUs at least have 4 cores nowadays
@@ -196,7 +189,7 @@ class FileListViewModel {
     for (let i = 0; i < files.length; i += 1) {
       const imageUpload = new ImageUpload(files[i], MAX_FILE_SIZE_BYTE);
       await imageUpload.read();
-      imageUpload.ulid = ULID.ulid();
+      imageUpload.ulid = ulid();
       this._imageUploads.push(imageUpload);
     }
   }
@@ -285,7 +278,7 @@ class RootViewModel {
       const newWorker = new Worker("/scripts/mockup_worker.js");
       this.workerPool.push({
         worker: newWorker,
-        ulid: ULID.ulid(),
+        ulid: ulid(),
         isIdle: true,
       });
     }
@@ -953,3 +946,12 @@ function main() {
     },
   );
 }
+
+function ready(fn) {
+  if (document.readyState != "loading") {
+    fn();
+  } else {
+    document.addEventListener("DOMContentLoaded", fn);
+  }
+}
+ready(main);
