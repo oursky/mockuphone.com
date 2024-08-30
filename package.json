@@ -18,6 +18,7 @@
     "@astrojs/image": "^0.17.2",
     "@astrojs/ts-plugin": "^1.1.1",
     "astro": "^2.8.3",
+    "bootstrap": "4.0.0",
     "create-stylelint": "^0.5.0",
     "file-saver": "^2.0.5",
     "image-size": "^1.1.1",

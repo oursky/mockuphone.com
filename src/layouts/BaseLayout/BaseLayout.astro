@@ -1,6 +1,7 @@
 ---
-import "/src/styles/bootstrap/bootstrap.min.css";
-import "/src/styles/bootstrap/bootstrap-grid.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap-grid.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "/src/styles/main.css";
 import "/src/styles/tailwind.css";
 import { Image } from "@astrojs/image/components";
@@ -58,8 +59,9 @@ const {
 
     <script type="text/javascript" src="/scripts/jquery/jquery-1.10.2.min.js"
     ></script>
-    <script type="text/javascript" src="/scripts/bootstrap/bootstrap.min.js"
-    ></script>
+    <script>
+      import "bootstrap/dist/js/bootstrap.bundle.min.js";
+    </script>
     <script type="text/javascript" src="/scripts/vendor/jquery.cycle.all.js"
     ></script>
     <script type="text/javascript" src="/scripts/vendor/jquery.cookie.js"
