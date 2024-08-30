@@ -50,8 +50,7 @@ function handlePartialSuccess(failedImages) {
     <ul>
       ${failedImages.map((failedImage) => `<li>${failedImage}</li>`).join("")}
     </ul>
-    <div>If the issue persists, please report it on GitHub 🙏 <br>
-    <a href='https://github.com/oursky/mockuphone.com/issues'>https://github.com/oursky/mockuphone.com/issues</a></div>
+    <div>If the issue persists, please report it on <a href='https://github.com/oursky/mockuphone.com/issues'>Github</a></div>
   `;
 
   showToast({
@@ -63,8 +62,7 @@ function handlePartialSuccess(failedImages) {
 
 function handleNoGeneratedMockup() {
   const description = `
-    <div>Try a different image/device. <br> If the issue persists, please report it on GitHub 🙏 <br>
-    <a href='https://github.com/oursky/mockuphone.com/issues'>https://github.com/oursky/mockuphone.com/issues</a></div>
+    <div>Try a different image/device. <br> If the issue persists, please report it on <a href='https://github.com/oursky/mockuphone.com/issues'>Github</a></div>
   `;
   showToast({
     title: "No generated mockup",
