@@ -1,7 +1,3 @@
-/*
-Require: mobx,
-         utils/images.js, utils/scroll.js, services/presign.js, models/image-upload.js
-*/
 import { ulid } from "ulid";
 import localforage from "localforage";
 import { ImageUpload, ImageUploadState } from "./models/_image-upload";
