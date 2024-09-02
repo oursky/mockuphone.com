@@ -17,7 +17,7 @@ function isArray(obj) {
 }
 
 function appendToLocalStorageRecentSearches(item, type) {
-  const existingStr = localStorage.getItem(LOCAL_STORAGE_KEY) ?? "";
+  const existingStr = localStorage.getItem(LOCAL_STORAGE_KEY);
   const existing = JSON.parse(existingStr);
 
   const newHistoryItem = { id: item.id, label: item.name, type };
@@ -158,6 +158,9 @@ function initializeAutocomplete(containerId, modelItems, brandItems) {
 
 function initialize() {
   const { modelItems, brandItems, containerIds } = injectVariables();
+  if (modelItems == null || brandItems == null || containerIds == null) {
+    return;
+  }
   containerIds.forEach((containerId) => {
     initializeAutocomplete(containerId, modelItems, brandItems);
   });
