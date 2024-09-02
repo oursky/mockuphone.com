@@ -1,10 +1,8 @@
-/*
-Require: mobx,
-         utils/images.js, utils/scroll.js, services/presign.js, models/image-upload.js
-*/
 import { ulid } from "ulid";
 import localforage from "localforage";
 import { ImageUpload, ImageUploadState } from "./models/_image-upload";
+import { isSameAspectRatio } from "./utils/_images";
+import { scrollToElementTop } from "./utils/_scroll";
 
 let dragZoneCounter = 0; // https://stackoverflow.com/a/21002544/19287186
 const MAX_FILE_SIZE_BYTE = 104857600;

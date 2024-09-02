@@ -1,4 +1,4 @@
-function scrollToElementTop(htmlElement, header_offset) {
+export function scrollToElementTop(htmlElement, header_offset) {
   // https://javascript.info/coordinates#getCoords
   const { top } = htmlElement.getBoundingClientRect();
   window.scrollTo({
