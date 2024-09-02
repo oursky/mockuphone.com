@@ -2,39 +2,22 @@ import * as autocompletePluginRecentSearchesPkg from "@algolia/autocomplete-plug
 const { createLocalStorageRecentSearchesPlugin } =
   autocompletePluginRecentSearchesPkg;
 import * as autocompleteJsPkg from "@algolia/autocomplete-js";
+
+const ALGOLIA_SEARCH_HISTORY_KEY = "brandModelSearch";
+const LOCAL_STORAGE_KEY = `AUTOCOMPLETE_RECENT_SEARCHES:${ALGOLIA_SEARCH_HISTORY_KEY}`;
+
 const { autocomplete } = autocompleteJsPkg;
 
 const NUM_DEFAULT_MODEL_ITEMS_TO_DISPLAY = 0;
 const NUM_DEFAULT_BRAND_ITEMS_TO_DISPLAY = 0;
 const MAX_SEARCH_HISTORY_ITEM = 5;
-const ALGOLIA_SEARCH_HISTORY_KEY = "brandModelSearch";
-const LOCAL_STORAGE_KEY = `AUTOCOMPLETE_RECENT_SEARCHES:${ALGOLIA_SEARCH_HISTORY_KEY}`;
-
-class RootViewModel {
-  searchText = "";
-  _modelItems;
-  _brandItems;
-
-  constructor(modelItems, brandItems) {
-    mobx.makeObservable(this, {
-      searchText: mobx.observable,
-      shouldShowSearchClear: mobx.computed,
-    });
-    this._modelItems = modelItems;
-    this._brandItems = brandItems;
-  }
-
-  get shouldShowSearchClear() {
-    return this.searchText !== "";
-  }
-}
 
 function isArray(obj) {
   return Object.prototype.toString.call(obj) === "[object Array]";
 }
 
 function appendToLocalStorageRecentSearches(item, type) {
-  const existingStr = localStorage.getItem(LOCAL_STORAGE_KEY);
+  const existingStr = localStorage.getItem(LOCAL_STORAGE_KEY) ?? "";
   const existing = JSON.parse(existingStr);
 
   const newHistoryItem = { id: item.id, label: item.name, type };
@@ -73,7 +56,15 @@ function moveOldHistoryToTop(oldHistoryItem) {
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newHistory));
 }
 
-function initializeAutocomplete(viewModel) {
+function injectVariables() {
+  return {
+    modelItems: window.modelItems,
+    brandItems: window.brandItems,
+    containerIds: window.containerIds,
+  };
+}
+
+function initializeAutocomplete(containerId, modelItems, brandItems) {
   const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
     key: ALGOLIA_SEARCH_HISTORY_KEY,
     MAX_SEARCH_HISTORY_ITEM,
@@ -81,15 +72,15 @@ function initializeAutocomplete(viewModel) {
       return {
         ...source,
         onSelect({ item }) {
-          const { id, label } = item;
+          const { id: itemId, label } = item;
           const type = item.type ?? "";
           moveOldHistoryToTop(item); // move most recent to top
           switch (type) {
             case "model":
-              window.location.href = `/model/${id}`;
+              window.location.href = `/model/${itemId}`;
               break;
             case "brand":
-              window.location.href = `/type/all/?brand=${id}`;
+              window.location.href = `/type/all/?brand=${itemId}`;
               break;
             default:
               window.location.href = `/type/all/?query=${label}`;
@@ -98,12 +89,8 @@ function initializeAutocomplete(viewModel) {
       };
     },
   });
-
-  const modelItems = viewModel._modelItems;
-  const brandItems = viewModel._brandItems;
-
   autocomplete({
-    container: "#homepage-autocomplete",
+    container: `#${containerId}`,
     openOnFocus: true,
     plugins: [recentSearchesPlugin],
     placeholder: "Search Device",
@@ -167,6 +154,13 @@ function initializeAutocomplete(viewModel) {
       window.location.href = `${window.location.origin}/type/all/?query=${state.query}`;
     },
   });
+}
+
+function initialize() {
+  const { modelItems, brandItems, containerIds } = injectVariables();
+  containerIds.forEach((containerId) => {
+    initializeAutocomplete(containerId, modelItems, brandItems);
+  });
 
   tippy(".aa-ClearButton", {
     content: "Clear",
@@ -208,8 +202,7 @@ function ready(fn) {
 }
 
 function main() {
-  const viewModel = new RootViewModel(window.modelItems, window.brandItems);
-  initializeAutocomplete(viewModel);
+  initialize();
 }
 
 ready(main);

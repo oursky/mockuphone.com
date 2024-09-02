@@ -4,12 +4,10 @@ import RequestDeviceCard from "../../components/RequestDeviceCard/RequestDeviceC
 
 import "./index.css";
 
-import { DEVICE_MANAGER } from "../../scripts/deviceManager";
 import type { BrandValue, ModelThumbnail } from "../../scripts/model";
 import { BrandEnum, DeviceTypeEnum } from "../../scripts/parse";
-import { getModelItems, getBrandItems } from "../../scripts/algolia/generate";
-const modelItems = getModelItems(DEVICE_MANAGER);
-const brandItems = getBrandItems(DEVICE_MANAGER);
+import { DEVICE_MANAGER } from "../../scripts/deviceManager";
+import DeviceSearch from "../../components/DeviceSearch/DeviceSearch.astro";
 
 export async function getStaticPaths() {
   const devicePaths = DeviceTypeEnum.options.map((deviceType) => ({
@@ -47,17 +45,12 @@ const brandList: Array<BrandEnum | "all"> = ["all", ...nonEmptyBrands];
     content="MockUPhone supports devices including iPhone mockup, iPad mockup, Android mockup and TV mockup. You can check out the whole device list via this page."
   />
   <script src="./_device.js"></script>
-  <script
-    define:vars={{ thumbnailList, brandThumbnailList, modelItems, brandItems }}
-  >
+  <script define:vars={{ thumbnailList, brandThumbnailList }}>
     window.thumbnailList = thumbnailList;
     window.brandThumbnailList = brandThumbnailList;
-    window.modelItems = modelItems;
-    window.brandItems = brandItems;
   </script>
   <section class="search-device">
-    <div id="device-list__page__autocomplete"></div>
-    {/* Add suggestion list here */}
+    <DeviceSearch id="device-list__page__autocomplete" />
   </section>
   <section class="device-type">
     <header>
