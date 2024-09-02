@@ -3,21 +3,13 @@ import "/src/styles/home.css";
 import BaseLayout from "../layouts/BaseLayout/BaseLayout.astro";
 import { Image } from "@astrojs/image/components";
 
-import { DEVICE_MANAGER } from "../scripts/deviceManager";
-import { getModelItems, getBrandItems } from "../scripts/algolia/generate";
-const modelItems = getModelItems(DEVICE_MANAGER);
-const brandItems = getBrandItems(DEVICE_MANAGER);
+import DeviceSearch from "../components/DeviceSearch/DeviceSearch.astro";
 ---
 
 <BaseLayout
   isHeaderTransparent={true}
   mainContainerClass="main--landing-content"
 >
-  <script define:vars={{ modelItems, brandItems }}>
-    window.modelItems = modelItems;
-    window.brandItems = brandItems;
-  </script>
-  <script src="./_home.js"></script>
   <div class="landing-content">
     <header class="headline">
       <h2 class="headline__title">
@@ -27,7 +19,7 @@ const brandItems = getBrandItems(DEVICE_MANAGER);
         Wrap your design in mobile devices in a few clicks!
       </p>
     </header>
-    <div id="homepage-autocomplete"></div>
+    <DeviceSearch id="homepage-autocomplete" />
     <ul class="quick-device-list">
       <li class="quick-device-list__item quick-device-list__item__light-blue">
         <a

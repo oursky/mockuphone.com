@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "/src/styles/main.css";
 import "/src/styles/tailwind.css";
 import { Image } from "@astrojs/image/components";
+import DeviceSearch from "../../components/DeviceSearch/DeviceSearch.astro";
 
 const title = "MockUPhone";
 const description =
@@ -13,6 +14,12 @@ const social_url = "home_url";
 const social_icon = `${
   import.meta.env.PUBLIC_BASE_URL
 }/images/mockuphone-logo.png`;
+
+interface Props {
+  shouldRenderSearchBar?: boolean;
+  isHeaderTransparent?: boolean;
+  mainContainerClass?: string;
+}
 const {
   shouldRenderSearchBar,
   isHeaderTransparent = false,
@@ -134,7 +141,7 @@ const {
         {
           !!shouldRenderSearchBar ? (
             <div class="header__search-container">
-              <div id="device-list__header__autocomplete" />
+              <DeviceSearch id="device-list__header__autocomplete" />
             </div>
           ) : undefined
         }

@@ -1,0 +1,31 @@
+---
+import "./search.css";
+
+import { DEVICE_MANAGER } from "../../scripts/deviceManager";
+import { getModelItems, getBrandItems } from "../../scripts/algolia/generate";
+const modelItems = getModelItems(DEVICE_MANAGER);
+const brandItems = getBrandItems(DEVICE_MANAGER);
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<script define:vars={{ modelItems, brandItems, containerId: id }}>
+  window.modelItems = modelItems;
+  window.brandItems = brandItems;
+  if (window.containerIds != null) {
+    window.containerIds.push(containerId);
+  } else {
+    window.containerIds = [containerId];
+  }
+
+  console.log("hihi", containerId);
+</script>
+
+<>
+  <div id={id}></div>
+  <script src="./search.js"></script>
+</>
