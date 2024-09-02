@@ -60,17 +60,6 @@ function handlePartialSuccess(failedImages) {
   });
 }
 
-function handleNoGeneratedMockup() {
-  const description = `
-    <div>Try a different image/device. <br> If the issue persists, please report it on <a href='https://github.com/oursky/mockuphone.com/issues'>Github</a></div>
-  `;
-  showToast({
-    title: "No generated mockup",
-    description: description,
-    avatar: "/images/upload-error.svg",
-  });
-}
-
 function downloadGeneratedMockup(deviceId, images) {
   var zip = new JSZip();
   var count = 0;
@@ -111,9 +100,5 @@ export async function generateZIP(deviceId) {
 
   if (failedImages.length > 0 && images.size > 0) {
     handlePartialSuccess(failedImages);
-  }
-
-  if (images.size === 0) {
-    handleNoGeneratedMockup();
   }
 }

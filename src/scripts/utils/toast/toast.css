@@ -1,14 +1,33 @@
 @import url("toastify-js/src/toastify.css");
 
 .toast-close {
-  color: black !important;
+  opacity: 1;
+  padding: 0;
+  margin-left: 20px;
 }
 
 .toast-header {
   display: flex;
-  gap: 12px;
-  margin-bottom: 8px;
+  gap: 10px;
+  margin-bottom: 16px;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 700;
   color: black;
+  align-items: center;
+}
+
+.toast-content {
+  font-size: 12px;
+  font-weight: 400;
+
+  ul {
+    margin-bottom: 16px;
+  }
+
+  a:hover,
+  a:link,
+  a:visited {
+    color: black;
+    text-decoration: underline;
+  }
 }

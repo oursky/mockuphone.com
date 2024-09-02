@@ -7,6 +7,13 @@ interface ToastOptions extends StartToastifyInstance.Options {
   title?: string;
 }
 
+function updateCloseButton() {
+  const closeButtonNode = document.querySelector(".toast-close");
+  if (closeButtonNode) {
+    closeButtonNode.innerHTML = "<img src='/images/close.svg' >";
+  }
+}
+
 export function showToast(options: ToastOptions) {
   const { description, avatar, title } = options;
   const toastNode = document.createElement("div");
@@ -18,6 +25,7 @@ export function showToast(options: ToastOptions) {
     title ?? ""
   }</span>`;
 
+  toastMessage.classList.add("toast-content");
   toastMessage.innerHTML = description;
   toastNode.appendChild(toastHeader);
   toastNode.appendChild(toastMessage);
@@ -30,6 +38,9 @@ export function showToast(options: ToastOptions) {
       color: "black",
       alignItems: "start",
       justifyContent: "start",
+      boxShadow: "0px 4px 20px 0px rgba(0, 0, 0, 0.3)",
+      borderRadius: "10px",
+      padding: "20px",
     },
     onClick: function () {},
     duration: 3000,
@@ -39,4 +50,6 @@ export function showToast(options: ToastOptions) {
     stopOnFocus: true,
     ...options,
   }).showToast();
+
+  updateCloseButton();
 }
