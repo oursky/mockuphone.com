@@ -64,7 +64,7 @@ function injectVariables() {
   };
 }
 
-function initializeAutocomplete(containerId) {
+function initializeAutocomplete(containerId, modelItems, brandItems) {
   const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
     key: ALGOLIA_SEARCH_HISTORY_KEY,
     MAX_SEARCH_HISTORY_ITEM,
@@ -158,13 +158,8 @@ function initializeAutocomplete(containerId) {
 
 function initialize() {
   const { modelItems, brandItems, containerIds } = injectVariables();
-  console.log(modelItems, brandItems, containerIds);
-  containerIds.forEach((containerId) =>
-    console.log(document.querySelector(`#${containerId}`)),
-  );
-
   containerIds.forEach((containerId) => {
-    initializeAutocomplete(containerId);
+    initializeAutocomplete(containerId, modelItems, brandItems);
   });
 
   tippy(".aa-ClearButton", {
