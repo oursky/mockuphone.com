@@ -2,7 +2,21 @@ import { DeviceManager } from "../deviceManager";
 import { BrandValue, ModelValue } from "../model";
 import { BrandEnum, ModelEnum } from "../parse";
 
-export const getModelItems = (deviceManager: DeviceManager) =>
+export interface SearchBarModelItem {
+  id: ModelEnum;
+  name: string;
+  pathname: string;
+}
+
+export interface SearchBarBrandItem {
+  id: BrandEnum;
+  name: string;
+  pathname: string;
+}
+
+export const getModelItems = (
+  deviceManager: DeviceManager,
+): SearchBarModelItem[] =>
   Object.keys(deviceManager.allDeviceModels)
     .map((modelKey) => {
       const _modelKey: ModelEnum = ModelEnum.parse(modelKey);
@@ -20,7 +34,9 @@ export const getModelItems = (deviceManager: DeviceManager) =>
       };
     });
 
-export const getBrandItems = (deviceManager: DeviceManager) =>
+export const getBrandItems = (
+  deviceManager: DeviceManager,
+): SearchBarBrandItem[] =>
   Object.keys(deviceManager.allBrands)
     .map((brandKey) => {
       const _brandKey: BrandEnum = BrandEnum.parse(brandKey);
