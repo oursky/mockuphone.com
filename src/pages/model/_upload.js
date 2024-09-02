@@ -3,6 +3,7 @@ import localforage from "localforage";
 import { ImageUpload, ImageUploadState } from "./models/_image-upload";
 import { isSameAspectRatio } from "./utils/_images";
 import { scrollToElementTop } from "./utils/_scroll";
+import { showToast } from "../../scripts/utils/toast/toast";
 
 let dragZoneCounter = 0; // https://stackoverflow.com/a/21002544/19287186
 const MAX_FILE_SIZE_BYTE = 104857600;
@@ -719,14 +720,33 @@ function main() {
     e.target.value = "";
   };
 
+  function handleNoGeneratedMockup() {
+    const description = `
+      <div>Try a different image/device. <br> If the issue persists, please report it on <a href='https://github.com/oursky/mockuphone.com/issues'>Github</a></div>
+    `;
+    showToast({
+      title: "No generated mockup",
+      description: description,
+      avatar: "/images/upload-error.svg",
+    });
+  }
+
   const navigateToDownloadPage = () => {
     window.location.href = "/download/?deviceId=" + window.workerDeviceId;
   };
 
   const onAllMockupGenerated = async (allGeneratedMockups) => {
-    localforage.setItem("generatedMockups", allGeneratedMockups).then(() => {
-      navigateToDownloadPage();
+    const haveGeneratedMockup = allGeneratedMockups.some((mockup) => {
+      return mockup.status === "success";
     });
+    if (haveGeneratedMockup) {
+      localforage.setItem("generatedMockups", allGeneratedMockups).then(() => {
+        navigateToDownloadPage();
+      });
+    } else {
+      window.viewModel.cancelMockup();
+      handleNoGeneratedMockup();
+    }
   };
 
   // observe fileListViewModel: isProcessing
