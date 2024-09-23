@@ -99,6 +99,8 @@ export const ModelEnum = z.enum([
   "lg-tm2792",
 
   "galaxy-watch-4",
+
+  "nokia3310",
 ]);
 
 export type ModelEnum = z.infer<typeof ModelEnum>;

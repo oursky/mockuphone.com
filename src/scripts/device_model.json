@@ -567,5 +567,11 @@
       "samsung-galaxy-watch-4-pink-gold",
       "samsung-galaxy-watch-4-silver"
     ]
+  },
+  "nokia3310": {
+    "name": "Nokia 3310 - The Unbreakable",
+    "launchDateTimestamp": "2000-09-01T00:00:00Z",
+    "type": "tv",
+    "slugs": ["nokia3310"]
   }
 }
