@@ -6870,6 +6870,31 @@
       ],
       "is_mockup_image_at_front": true,
       "available_perspectives": ["Portrait", "Landscape"]
+    },
+    {
+      "credits": "<p><a href=\"https://www.skymakers.digital/\" target=\"blank\">Skymaker's Devleoper</a></p>",
+      "color_str": "Default",
+      "color": null,
+      "meta_title": "Nokia 3310 Mock Up",
+      "meta_description": "1 click to generate your Nokia 3310 mockup! You can wrap screenshots in Nokia 3310 for prototypes.",
+      "display_resolution": [378, 264],
+      "device_type": "",
+      "device_id": "nokia3310",
+      "name": "Nokia 3310",
+      "orientations": [
+        {
+          "alt": "Nokia 3310 Mock Up",
+          "coords": [
+            [86, 336],
+            [464, 336],
+            [464, 600],
+            [86, 600]
+          ],
+          "name": "portrait"
+        }
+      ],
+      "is_mockup_image_at_front": true,
+      "available_perspectives": ["Portrait"]
     }
   ]
 }

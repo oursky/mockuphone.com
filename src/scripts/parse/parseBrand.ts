@@ -13,6 +13,7 @@ export const BrandEnum = z.enum([
   "microsoft",
   "oneplus",
   "huawei",
+  "nokia",
 ]);
 
 export type BrandEnum = z.infer<typeof BrandEnum>;

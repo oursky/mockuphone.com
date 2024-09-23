@@ -106,5 +106,10 @@
     "id": "huawei",
     "name": "Huawei",
     "modelIds": ["huawei-p-40-pro-plus"]
+  },
+  "nokia": {
+    "id": "nokia",
+    "name": "Nokia",
+    "modelIds": ["nokia3310"]
   }
 }
