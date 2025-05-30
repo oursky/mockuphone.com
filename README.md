@@ -144,3 +144,5 @@ This's because files in `src/pages/` without this prefix `_` are processed and t
 Refs:
 https://docs.astro.build/en/guides/endpoints/
 https://docs.astro.build/en/guides/routing/#excluding-pages
+
+<!-- GitAds-Verify: M9M4NYQ2GS9IYMO2H1BJSSOCQ1943GWG -->
