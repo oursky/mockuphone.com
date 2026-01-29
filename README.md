@@ -146,3 +146,10 @@ https://docs.astro.build/en/guides/endpoints/
 https://docs.astro.build/en/guides/routing/#excluding-pages
 
 <!-- GitAds-Verify: M9M4NYQ2GS9IYMO2H1BJSSOCQ1943GWG -->
+
+## WWW Redirect
+
+The www.mockuphon.com to mockuphon.com redirect is configured at the k8s nginx ingress level until pageship supports this feature (https://github.com/oursky/pageship/issues/28).
+
+- Ingress IP: 34.80.57.49
+- Config: [ingress-www-redirect.yaml](ingress-www-redirect.yaml)

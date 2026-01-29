@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mockuphone-www-redirect
+  namespace: ingress-nginx
+  annotations:
+    nginx.ingress.kubernetes.io/permanent-redirect: "https://mockuphone.com$request_uri"
+    cert-manager.io/cluster-issuer: letsencrypt-http01
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - www.mockuphone.com
+      secretName: www-mockuphone-com-tls
+  rules:
+    - host: www.mockuphone.com
