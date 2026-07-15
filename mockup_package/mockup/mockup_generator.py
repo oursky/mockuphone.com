@@ -76,8 +76,19 @@ class MockupGenerator:
         ig.create_fit_resolution_image()
         mockups = list(ig.phone_models.get(self.device_id).get("mockups").values())
 
+        # Match on the perspective suffix (e.g. "portrait"/"landscape") instead of
+        # the full orientation name. Some devices (e.g. Apple Watch colour variants)
+        # encode the watch band in the orientation name, so the name differs between
+        # colours of the same model (e.g. "starlightsololoop-portrait" vs
+        # "graysololoop-portrait"). The frontend only knows the default colour's
+        # orientation name, so an exact match fails once another colour is selected.
+        # Perspective suffixes are unique within every device, so this stays correct.
+        def perspective(name: str) -> str:
+            return name.rsplit("-", 1)[-1]
+
+        target_perspective = perspective(self.orientation_name)
         for spec in mockups:
-            if spec.get("name") == self.orientation_name:
+            if perspective(spec.get("name")) == target_perspective:
                 output_img_path = await self.generate(spec, ig)
 
                 return output_img_path
